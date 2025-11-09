@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer base {
+  @import "./styles/global.css";
+}
+
+@layer components {
+  @import "./styles/components.css";
+}
+
+@layer utilities {
+  @import "./styles/animations.css";
+}

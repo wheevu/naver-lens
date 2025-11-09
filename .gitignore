@@ -1,0 +1,21 @@
+base/*
+data/*
+models/*
+weights/*
+__pycache__/*
+final_test/*
+
+# wandb
+artifacts/*
+wandb/*
+
+# file
+*.pyc
+*.env
+.env.production
+.env.staging
+*.zip
+*.pt
+*.csv
+note.md
+# folder

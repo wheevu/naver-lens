@@ -1,0 +1,37 @@
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotateX(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotateX(360deg) rotateY(360deg);
+    opacity: 0;
+  }
+}
+
+/* Title Pulse Animation */
+@keyframes titlePulse {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+  }
+  100% {
+    filter: brightness(1.2) drop-shadow(0 0 40px rgba(59, 130, 246, 0.6));
+  }
+}
+
+/* Status Pulse Animation */
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0.5; 
+  }
+}

@@ -1,0 +1,18 @@
+base/*
+data/*
+weights/*
+__pycache__/*
+final_test/*
+
+# wandb
+artifacts/*
+wandb
+
+# file
+*.pyc
+*.env
+*.zip
+*.pt
+*.csv
+
+# folder

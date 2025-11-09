@@ -1,0 +1,40 @@
+/* CSS Variables */
+:root {
+  /* Fonts */
+  --font-primary: 'Orbitron', monospace;
+  --font-secondary: 'Space Grotesk', sans-serif;
+  
+  /* Colors */
+  --gradient-primary: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+  --gradient-button: linear-gradient(135deg, #2e67c4 0%, #173fac 100%);
+  --gradient-button-hover: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  --gradient-success: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --gradient-success-hover: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-text: linear-gradient(135deg, #fff 0%, #f0f9ff 25%, #dbeafe 50%, #93c5fd 75%, #3b82f6 100%);
+  --gradient-back: linear-gradient(135deg, rgba(107, 114, 128, 0.8) 0%, rgba(75, 85, 99, 0.8) 100%);
+  
+  /* Glass effects */
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --glass-shadow-hover: 0 16px 64px rgba(0, 0, 0, 0.4), 0 0 80px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  /* Butt shadows */
+  --button-shadow: 0 8px 25px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --button-shadow-hover: 0 12px 35px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  --button-shadow-active: 0 4px 15px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  /* Transitions */
+  --transition-default: all 0.3s ease;
+  --transition-fast: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-secondary);
+}
