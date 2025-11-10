@@ -37,6 +37,36 @@
 - `routes`: every api handling go here
 - `services`: Orchestrates backend flow
 
+## Git procedure
+### Before you code
+Always work on your own branch - here is backend:
+```bash
+git checkout backend
+git pull --rebase origin backend
+```
+
+### After you code
+__message commit rules__
+- feat(auth): implement OAuth2 login flow
+
+- fix(user): sanitize input to prevent SQL injection
+
+- refactor(order): extract payment logic into service layer
+
+- perf(cache): add Redis caching for product queries
+
+- test(api): add integration tests for /checkout endpoint
+
+- chore(deps): upgrade express to v4.18.2
+
+- docs(api): document new /users/me endpoint
+
+```bash
+git add .
+git commit -m "your message"
+git push origin backend
+```
+
 ## Next step
 - @Vu and @Son try your best to make it works, so we can write a Dockerfile and try to deploy it
 - Add more folders/files if needed
