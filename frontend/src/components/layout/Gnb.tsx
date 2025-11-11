@@ -44,11 +44,22 @@ const ExternalLinkIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
-    fill="currentColor"
+    fill="none"
     className="w-3 h-3 ml-0.5"
   >
-    <path d="M11.78 1.28a.75.75 0 0 1 0 1.06L5.56 8.562l6.22 6.22a.75.75 0 1 1-1.06 1.06l-6.75-6.75a.75.75 0 0 1 0-1.06l6.75-6.75a.75.75 0 0 1 1.06 0Z" />
-    <path d="M12.25 1.75a.75.75 0 0 0-1.5 0v2.546l-6.53-6.53a.75.75 0 0 0-1.06 1.06L9.69 5.25H7.143a.75.75 0 0 0 0 1.5h4.357a.75.75 0 0 0 .75-.75V1.75Z" />
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-width="1.25"
+      d="M4.734 2H2.761s0 0 0 0A.76.76 0 002 2.76v6.48c0 .42.34.76.76.76h6.464c.42 0 .76-.34.76-.76 0 0 0 0 0 0V7.274"
+    ></path>
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.25"
+      d="M10 2v3.043M10 2H6.962M10 2L6.456 5.55"
+    ></path>{" "}
   </svg>
 );
 
