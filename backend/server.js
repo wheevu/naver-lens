@@ -6,8 +6,9 @@
  *  - GET  /api/products/:id     → Get full product details by id
  *  - POST /api/summarize        → Mock AI summarization (placeholder)
  *
- * Data Source:
- *  - backend/data/products.json (local file; see sample in repo)
+ * Data Sources:
+ *  - backend/data/products-search.json (object with `items` array)
+ *  - backend/data/products-details.json (array of product objects)
  *
  * How to run:
  *  - PORT=3001 node backend/server.js
@@ -30,21 +31,45 @@ app.use(cors());
 // Parse JSON bodies
 app.use(express.json({ limit: '1mb' }));
 
-// Absolute path to the products JSON file relative to this server file
-const PRODUCTS_FILE_PATH = path.join(__dirname, 'data', 'products.json');
+// Absolute paths to product data files relative to this server file
+const PRODUCTS_SEARCH_FILE_PATH = path.join(__dirname, 'data', 'products-search.json');
+const PRODUCTS_DETAILS_FILE_PATH = path.join(__dirname, 'data', 'products-details.json');
 
 /**
- * Reads and parses the products JSON file.
- * Returns: Promise<Array<Product>>
+ * Reads and parses the products-search JSON file.
+ * Returns: Promise<Array<ProductSearchItem>>
  */
-async function loadProducts() {
-  const fileContents = await fs.readFile(PRODUCTS_FILE_PATH, 'utf-8');
+async function loadSearchItems() {
+  const fileContents = await fs.readFile(PRODUCTS_SEARCH_FILE_PATH, 'utf-8');
+  const parsed = JSON.parse(fileContents);
+  const items = parsed && Array.isArray(parsed.items) ? parsed.items : null;
+  if (!items) {
+    throw new Error('products-search.json must contain an object with array property `items`');
+  }
+  return items;
+}
+
+/**
+ * Reads and parses the products-details JSON file.
+ * Returns: Promise<Array<ProductDetails>>
+ */
+async function loadDetailsProducts() {
+  const fileContents = await fs.readFile(PRODUCTS_DETAILS_FILE_PATH, 'utf-8');
   const products = JSON.parse(fileContents);
   if (!Array.isArray(products)) {
-    throw new Error('products.json must contain an array');
+    throw new Error('products-details.json must contain an array');
   }
   return products;
 }
+ 
+ /**
+  * Removes all HTML tags from a given string.
+  * Basic sanitizer for product titles coming from search results.
+  */
+ function stripHtml(input) {
+   if (typeof input !== 'string') return '';
+   return input.replace(/<[^>]*>/g, '');
+ }
 
 /**
  * Placeholder that simulates an AI call (e.g., HyperCLOVA X).
@@ -70,11 +95,11 @@ async function getAiSummary({ description, reviews }) {
  */
 app.get('/api/products', async (req, res) => {
   try {
-    const products = await loadProducts();
-    const summaries = products.map(({ id, name, imageUrl }) => ({
-      id,
-      name,
-      imageUrl
+    const items = await loadSearchItems();
+    const summaries = items.map((product) => ({
+      id: product.productId,
+      name: stripHtml(product.title),
+      imageUrl: product.image
     }));
     res.json(summaries);
   } catch (err) {
@@ -90,8 +115,8 @@ app.get('/api/products', async (req, res) => {
  */
 app.get('/api/products/:id', async (req, res) => {
   try {
-    const products = await loadProducts();
-    const product = products.find((p) => p.id === req.params.id);
+    const products = await loadDetailsProducts();
+    const product = products.find((p) => p.productId === req.params.id);
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
