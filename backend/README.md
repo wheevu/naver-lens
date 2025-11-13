@@ -1,33 +1,45 @@
 - reference: https://dev.to/mr_ali3n/folder-structure-for-nodejs-expressjs-project-435l
 ---
-## Note: 
-- I don't familiar with Backend folder structure, so feel free to custom **and** explain in this README; but there are few importants folders **THAT SHOULD NOT BE FIXED**:
-- Remember to finish the `Dockerfile`
 
+## I. Project structure
 ```bash
 .
 ├── Dockerfile
 ├── README.md
+├── data
+├── package.json
+├── server.js
 └── src
     ├── ai
     │   ├── processors
-    │   │   └── text.processor.js
     │   ├── prompts
-    │   │   ├── summarization.js
-    │   │   └── template.js
     │   └── providers
-    │       └── naver.provider.js
     ├── config
-    │   ├── app.js
-    │   ├── db.config.js
-    │   └── env.config.js
+    ├── controllers
     ├── models
-    │   ├── index.js
-    │   └── summary.model.js
     ├── routes
-    │   ├── summarization.controller.js
-    └── services
-        └── product.service.js
+    ├── services
+    └── test
+```
+
+## II. How to run (development)
+```bash
+npm install
+npm run dev
+```
+
+## III. Test api
+1. `GET` products:
+```bash
+curl http://localhost:3001/api/products/900000016 
+```
+2. `POST` summarize (need naver api key):
+```bash
+curl -X POST http://localhost:3001/api/summarize \
+  -H "Content-Type: application/json" \
+  -d '{
+    "productId": "900000016"
+  }'
 ```
 
 ## Explanation
@@ -37,6 +49,32 @@
 - `routes`: every api handling go here
 - `services`: Orchestrates backend flow
 
-## Next step
-- @Vu and @Son try your best to make it works, so we can write a Dockerfile and try to deploy it
-- Add more folders/files if needed
+## Git procedure
+### Before you code
+Always work on your own branch - here is backend:
+```bash
+git checkout backend
+git pull --rebase origin backend
+```
+
+### After you code
+__message commit rules__
+- feat(auth): implement OAuth2 login flow
+
+- fix(user): sanitize input to prevent SQL injection
+
+- refactor(order): extract payment logic into service layer
+
+- perf(cache): add Redis caching for product queries
+
+- test(api): add integration tests for /checkout endpoint
+
+- chore(deps): upgrade express to v4.18.2
+
+- docs(api): document new /users/me endpoint
+
+```bash
+git add .
+git commit -m "your message"
+git push origin backend
+```
