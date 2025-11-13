@@ -1,12 +1,12 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
-
-const {
+import express from 'express';
+import {
   getAllProducts,
   getProductById
-} = require('../controllers/productController');
+} from '../controllers/productController.js';
+
+const router = express.Router();
 
 // GET /api/products
 router.get('/', getAllProducts);
@@ -14,6 +14,5 @@ router.get('/', getAllProducts);
 // GET /api/products/:id
 router.get('/:id', getProductById);
 
-module.exports = router;
-
+export default router;
 

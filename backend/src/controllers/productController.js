@@ -1,10 +1,10 @@
 'use strict';
 
-const {
+import {
   loadSearchItems,
   loadDetailsProducts,
   stripHtml
-} = require('../services/productService');
+} from '../services/productService.js';
 
 /**
  * GET /api/products
@@ -43,9 +43,6 @@ async function getProductById(req, res) {
   }
 }
 
-module.exports = {
-  getAllProducts,
-  getProductById
-};
+export { getAllProducts, getProductById };
 
 

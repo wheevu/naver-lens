@@ -1,7 +1,10 @@
-'use strict';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { readFile } from 'fs/promises';
 
-const path = require('path');
-const fs = require('fs/promises');
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Resolve data file paths relative to this service file
 const PRODUCTS_SEARCH_FILE_PATH = path.join(__dirname, '..', '..', 'data', 'products-search.json');
@@ -13,13 +16,9 @@ const PRODUCTS_DETAILS_FILE_PATH = path.join(__dirname, '..', '..', 'data', 'pro
  * Returns: Promise<Array<ProductSearchItem>>
  */
 async function loadSearchItems() {
-  const fileContents = await fs.readFile(PRODUCTS_SEARCH_FILE_PATH, 'utf-8');
-  const parsed = JSON.parse(fileContents);
-  const items = parsed && Array.isArray(parsed.items) ? parsed.items : null;
-  if (!items) {
-    throw new Error('products-search.json must contain an object with array property `items`');
-  }
-  return items;
+  const raw = await readFile(PRODUCTS_SEARCH_FILE_PATH, 'utf-8');
+  const parsed = JSON.parse(raw);
+  return parsed.items || [];
 }
 
 /**
@@ -28,12 +27,8 @@ async function loadSearchItems() {
  * Returns: Promise<Array<ProductDetails>>
  */
 async function loadDetailsProducts() {
-  const fileContents = await fs.readFile(PRODUCTS_DETAILS_FILE_PATH, 'utf-8');
-  const products = JSON.parse(fileContents);
-  if (!Array.isArray(products)) {
-    throw new Error('products-details.json must contain an array');
-  }
-  return products;
+  const raw = await readFile(PRODUCTS_DETAILS_FILE_PATH, 'utf-8');
+  return JSON.parse(raw);
 }
 
 /**
@@ -45,10 +40,4 @@ function stripHtml(input) {
   return input.replace(/<[^>]*>/g, '');
 }
 
-module.exports = {
-  loadSearchItems,
-  loadDetailsProducts,
-  stripHtml
-};
-
-
+export { loadSearchItems, loadDetailsProducts, stripHtml };
