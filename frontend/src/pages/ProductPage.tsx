@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import type { Product } from "../types/product";
 import ProductPurchasePanel from "../components/product/ProductPurchasePanel";
 import ProductImageGallery from "../components/product/ProductImageGallery";
+import axios from "../api/axios";
 
 const storeDataA: StoreData = {
   name: "EDGEHOME",
@@ -20,32 +21,6 @@ const storeDataB: StoreData = {
   themeColor: "#FFFFFF",
   buttonColor: "#FEE500",
 };
-const productData: Product = {
-  productId: "1",
-  title: "Women's High-Heel Sandals Summer Collection",
-  brand: "Zara",
-  maker: "",
-  images: [
-    "https://shopping-phinf.pstatic.net/main_9000000/900000002_1.jpg",
-    "https://shopping-phinf.pstatic.net/main_9000000/900000002_2.jpg",
-  ],
-  price: 45000,
-  originalPrice: 69000,
-  mallName: "StyleHub",
-  shipping: "3,000 KRW",
-  rating: 4.3,
-  reviewCount: 215,
-  options: [
-    { name: "Size", values: ["220", "230", "240", "250"] },
-    { name: "Color", values: ["Beige", "Black", "Red"] },
-  ],
-  description:
-    "Elegant open-toe design with adjustable ankle strap. Perfect for summer parties and formal events.",
-  category1: "Fashion",
-  category2: "Shoes",
-  category3: "Sandals",
-  category4: "Heels",
-};
 
 const StorePage = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -54,22 +29,25 @@ const StorePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => {
-      setStore(storeDataB);
+    if (!productId) {
       setLoading(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (productId) {
-      // const allProducts = productData as Product[];
-      // const foundProduct = allProducts.find((p) => p.productId === productId);
-      // setProduct(foundProduct || null);
-      setProduct(productData);
-      setLoading(false);
+      return;
     }
+
+    const fetchProduct = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`/api/products/${productId}`);
+        setProduct(response.data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        setProduct(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
   }, [productId]);
 
   if (loading) {
