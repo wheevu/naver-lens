@@ -1,0 +1,366 @@
+import React, { useState } from "react";
+import { type Product } from "../../types/product";
+import { Link } from "react-router-dom";
+
+const RatingStarIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className="w-4 h-4 text-yellow-400"
+  >
+    <path
+      fillRule="evenodd"
+      d="M10.868 2.884c.321-.662 1.135-.662 1.456 0l1.86 3.844 4.241.616c.73.107 1.022 1.004.494 1.518l-3.068 2.99 1.23 4.225c.168.722-.53 1.28-1.173.91L10 15.347l-3.77 1.98c-.643.37-1.341-.188-1.173-.91l1.23-4.225-3.068-2.99c-.528-.514-.236-1.411.494-1.518l4.241-.616 1.86-3.844z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+const ArrowRightIcon = () => (
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-3 h-3 ml-1"
+  >
+    <path
+      d="M4.25 9.75L8 6 4.25 2.25"
+      stroke="#7A7A7A"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></path>
+  </svg>
+);
+const NPayIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="15"
+    height="15"
+    fill="none"
+    className="w-4 h-4 mr-1"
+  >
+    <path
+      fill="#00DE5A"
+      d="M13.177 0H1.823A1.823 1.823 0 000 1.823v11.354C0 14.184.816 15 1.823 15h11.354A1.823 1.823 0 0015 13.177V1.823A1.823 1.823 0 0013.177 0z"
+    ></path>
+    <path
+      fill="#000"
+      d="M11.022 6.656V3.688H9.274V8.6L5.831 3.688H3.978v2.968H1.989v1.687h1.989v2.97h1.748V6.398l3.443 4.913h1.853V8.343h1.99V6.656h-1.99z"
+    ></path>
+  </svg>
+);
+const HeartIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className="w-5 h-5"
+  >
+    <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-6.5-6.009C.73 8.633 0 6.962 0 5.304 0 2.383 2.383 0 5.304 0h.003c.636 0 1.253.114 1.85.336A4.806 4.806 0 0110 2.25c.832 0 1.612-.245 2.288-.684A4.804 4.804 0 0114.695 0h.003c2.92 0 5.304 2.383 5.304 5.304 0 1.658-.73 3.329-2.17 4.908a22.045 22.045 0 01-6.5 6.009 20.759 20.759 0 01-1.162.682l-.019.01-.005.003h-.002z" />
+  </svg>
+);
+const CartIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-7 h-7"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="1.3"
+      d="M17.75 12.75V8A3.75 3.75 0 0014 4.25v0A3.75 3.75 0 0010.25 8v4.75"
+    ></path>
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.3"
+      d="M22.442 10.25H5.558a.836.836 0 00-.813 1.03l2.113 8.897a3.346 3.346 0 003.255 2.573h7.774a3.346 3.346 0 003.255-2.573l2.113-8.897a.836.836 0 00-.813-1.03z"
+    ></path>
+  </svg>
+);
+
+interface ProductPurchasePanelProps {
+  product: Product;
+}
+
+const ProductBenefits: React.FC = () => (
+  <div
+    className="p-4 rounded-lg my-4"
+    style={{
+      background: "var(--glass-bg)",
+      borderRadius: "var(--radius-lg)",
+      border: "1px solid var(--glass-border)",
+    }}
+  >
+    <strong className="text-white font-bold">혜택 정보 (Mockup)</strong>
+    <ul className="text-sm mt-2">
+      <li className="flex justify-between text-gray-300">
+        <span>최대 적립 포인트</span>
+        <span className="text-white font-bold">3,273원</span>
+      </li>
+      <li className="flex justify-between text-gray-400 text-xs mt-1">
+        <span>기본적립</span>
+        <span>239원</span>
+      </li>
+      <li className="flex justify-between text-gray-400 text-xs mt-1">
+        <Link to="#" className="flex items-center hover:text-white">
+          네이버 현대카드 Ed2로 결제 시 <ArrowRightIcon />
+        </Link>
+        <span className="text-green-400">1,676원</span>
+      </li>
+      <li className="flex justify-between text-gray-400 text-xs mt-1">
+        <Link to="#" className="flex items-center hover:text-white">
+          네이버페이 머니 결제 시 <ArrowRightIcon />
+        </Link>
+        <span>478원</span>
+      </li>
+      <li
+        className="flex justify-between text-gray-400 text-xs mt-2 border-t pt-2"
+        style={{ borderColor: "var(--glass-border)" }}
+      >
+        <span className="flex items-center text-green-400 font-bold">
+          <NPayIcon />
+          멤버십 추가 적립
+        </span>
+        <span className="text-green-400">958원</span>
+      </li>
+    </ul>
+    <button
+      className="w-full text-center py-2.5 mt-3 rounded-md text-sm font-bold text-white"
+      style={{
+        background: "var(--naver-green)",
+        borderRadius: "var(--radius-md)",
+      }}
+    >
+      최대 5% 적립 시작하기
+    </button>
+  </div>
+);
+
+const SelectedOptionsList: React.FC<{
+  items: { id: string; name: string; price: number; quantity: number }[];
+  onRemove: (id: string) => void;
+  onQuantityChange: (id: string, newQty: number) => void;
+}> = ({ items, onRemove, onQuantityChange }) => (
+  <div className="flex flex-col gap-3 mt-3">
+    {items.map((item) => (
+      <div
+        key={item.id}
+        className="p-3 rounded-md"
+        style={{
+          background: "var(--glass-bg)",
+          borderRadius: "var(--radius-sm)",
+        }}
+      >
+        <div className="flex justify-between items-center">
+          <span className="text-white text-sm">{item.name}</span>
+          <button
+            onClick={() => onRemove(item.id)}
+            className="text-gray-500 hover:text-white text-lg"
+          >
+            &times;
+          </button>
+        </div>
+        <div className="flex justify-between items-center mt-2">
+          <div
+            className="flex items-center border rounded"
+            style={{ borderColor: "var(--glass-border)" }}
+          >
+            <button
+              onClick={() => onQuantityChange(item.id, item.quantity - 1)}
+              className="px-2 py-0.5 text-white/70 hover:text-white"
+            >
+              -
+            </button>
+            <span className="px-3 text-sm text-white">{item.quantity}</span>
+            <button
+              onClick={() => onQuantityChange(item.id, item.quantity + 1)}
+              className="px-2 py-0.5 text-white/70 hover:text-white"
+            >
+              +
+            </button>
+          </div>
+          <span className="text-white font-bold">
+            {item.price.toLocaleString()}원
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
+  product,
+}) => {
+  const [selectedOptions, setSelectedOptions] = useState<
+    Record<string, string>
+  >({});
+  const [addedItems, setAddedItems] = useState<any[]>([]);
+
+  const handleOptionChange = (name: string, value: string) => {
+    if (value) {
+      setAddedItems((prev) => [
+        ...prev,
+        {
+          id: `${name}-${value}`,
+          name: `${name}: ${value}`,
+          price: product.price,
+          quantity: 1,
+        },
+      ]);
+      setSelectedOptions((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleRemoveItem = (id: string) => {
+    setAddedItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const handleQuantityChange = (id: string, newQty: number) => {
+    if (newQty < 1) return;
+    setAddedItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: newQty } : item
+      )
+    );
+  };
+
+  const discountPercent = product.originalPrice
+    ? Math.round(
+        ((product.originalPrice - product.price) / product.originalPrice) * 100
+      )
+    : 0;
+
+  const totalPrice = addedItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  return (
+    <div
+      className="w-full md:w-1/2 md:pl-10"
+      style={{ fontFamily: "var(--font-secondary)" }}
+    >
+      <div className="flex items-center gap-1 text-sm text-gray-300">
+        <RatingStarIcon />
+        <span className="font-bold text-white">
+          {product.rating.toFixed(1)}
+        </span>
+        <span>({product.reviewCount.toLocaleString()} 리뷰)</span>
+      </div>
+
+      <h1 className="text-2xl font-bold text-white mt-2">{product.title}</h1>
+
+      <div className="mt-4">
+        {product.originalPrice > 0 && (
+          <del className="text-gray-500 text-lg">
+            {product.originalPrice.toLocaleString()}원
+          </del>
+        )}
+        <div className="flex items-end gap-2">
+          {discountPercent > 0 && (
+            <span
+              className="text-3xl font-bold"
+              style={{ color: "var(--naver-green)" }}
+            >
+              {discountPercent}%
+            </span>
+          )}
+          <span className="text-3xl font-bold text-white">
+            {product.price.toLocaleString()}원
+          </span>
+        </div>
+        <span className="text-sm text-gray-400">{product.shipping}</span>
+      </div>
+
+      <ProductBenefits />
+
+      <div
+        className="text-sm text-gray-300 border-t border-b py-4"
+        style={{ borderColor: "var(--glass-border)" }}
+      >
+        <span className="w-20 inline-block font-bold">택배배송</span>
+        <span>{product.shipping}</span>
+      </div>
+
+      <div className="flex flex-col gap-3 my-4">
+        {product.options.map((opt) => (
+          <div key={opt.name}>
+            <select
+              value={selectedOptions[opt.name] || ""}
+              onChange={(e) => handleOptionChange(opt.name, e.target.value)}
+              className="w-full h-12 px-4 bg-white/10 text-white rounded-md border"
+              style={{
+                borderRadius: "var(--radius-sm)",
+                borderColor: "var(--glass-border)",
+              }}
+            >
+              <option value="" disabled className="text-black">
+                {opt.name} 선택
+              </option>
+              {opt.values.map((val) => (
+                <option key={val} value={val} className="text-black">
+                  {val}
+                </option>
+              ))}
+            </select>
+          </div>
+        ))}
+      </div>
+
+      <SelectedOptionsList
+        items={addedItems}
+        onRemove={handleRemoveItem}
+        onQuantityChange={handleQuantityChange}
+      />
+
+      <div className="flex justify-between items-center mt-6">
+        <span className="text-lg text-white font-bold">총 상품 금액</span>
+        <span className="text-2xl font-bold text-white">
+          {totalPrice.toLocaleString()}원
+        </span>
+      </div>
+
+      <div className="flex gap-2 mt-4">
+        <button
+          className="flex-1 py-4 text-center text-white font-bold rounded-md"
+          style={{
+            background: "var(--naver-green)",
+            borderRadius: "var(--radius-md)",
+          }}
+        >
+          구매하기
+        </button>
+        <button
+          className="py-4 px-5 text-white/80 rounded-md hover:text-white"
+          style={{
+            background: "var(--glass-bg)",
+            border: "1px solid var(--glass-border)",
+            borderRadius: "var(--radius-md)",
+          }}
+        >
+          <HeartIcon />
+        </button>
+        <button
+          className="py-4 px-5 text-white/80 rounded-md hover:text-white"
+          style={{
+            background: "var(--glass-bg)",
+            border: "1px solid var(--glass-border)",
+            borderRadius: "var(--radius-md)",
+          }}
+        >
+          <CartIcon />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ProductPurchasePanel;

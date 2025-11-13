@@ -39,7 +39,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({
 }) => {
   return (
     <Link
-      to={`/product/${id}`}
+      to={`/store/${id}`}
       className="w-full flex justify-start items-center gap-3 group"
     >
       <div

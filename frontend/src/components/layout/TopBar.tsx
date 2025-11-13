@@ -44,13 +44,25 @@ const NaverPayIcon = () => (
   </svg>
 );
 
-const TopBar = () => {
+interface TopBarProps {
+  bgColor?: string;
+  borderColor?: string;
+  textColorClass?: string;
+  hoverTextColorClass?: string;
+}
+
+const TopBar: React.FC<TopBarProps> = ({
+  bgColor = "var(--glass-bg)",
+  borderColor = "var(--glass-border)",
+  textColorClass = "text-gray-300",
+  hoverTextColorClass = "hover:text-white",
+}) => {
   return (
     <div
       className="w-full"
       style={{
-        background: "var(--glass-bg)",
-        borderBottom: "1px solid var(--glass-border)",
+        background: bgColor,
+        borderBottom: `1px solid ${borderColor}`,
         fontFamily: "var(--font-secondary)",
       }}
     >
@@ -58,33 +70,33 @@ const TopBar = () => {
         <div className="flex items-center gap-4">
           <Link
             to="/"
-            className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors"
+            className={`flex items-center gap-1.5 ${textColorClass} ${hoverTextColorClass} transition-colors`}
           >
             <NaverLogoTop />
           </Link>
           <Link
             to="/naver-pay"
-            className="flex items-center gap-1 text-gray-400 hover:text-white transition-colors text-xs"
+            className={`flex items-center gap-1 ${textColorClass} ${hoverTextColorClass} transition-colors text-xs`}
           >
             <NaverPayIcon />
             <span>네이버페이</span>
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 text-sm">
+        <div className={`flex items-center gap-3 text-sm ${textColorClass}`}>
           <Link
             to="/login"
-            className="text-gray-300 hover:text-white transition-colors"
+            className={`${hoverTextColorClass} transition-colors`}
           >
             로그인
           </Link>
           <div
             className="border-l h-3"
-            style={{ borderColor: "var(--glass-border)" }}
+            style={{ borderColor: borderColor }}
           ></div>
           <Link
             to="/customer-service"
-            className="text-gray-300 hover:text-white transition-colors"
+            className={`${hoverTextColorClass} transition-colors`}
           >
             <img src={Menu} alt="" />
           </Link>
