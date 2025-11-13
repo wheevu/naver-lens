@@ -32,7 +32,7 @@ async function summarizeProduct(req, res) {
 
     // Option 1: Get product by ID from our data
     if (req.body.productId) {
-      console.log('🔍 Looking up product by ID:', req.body.productId);
+      // console.log('🔍 Looking up product by ID:', req.body.productId);
       const products = await loadDetailsProducts();
       productData = products.find(p => p.productId === req.body.productId);
 
@@ -61,12 +61,11 @@ async function summarizeProduct(req, res) {
       });
     }
 
-    console.log('🤖 Generating summary for:', productData.title || productData.name);
+    console.log('Generating summary for:', productData.title || productData.name);
 
     // Generate summary
     const result = await service.summarizeProduct(productData);
 
-    console.log('✨ Summary generated successfully');
     return res.status(200).json(result);
   } catch (error) {
     console.error('❌ Summarization controller error:', error);
