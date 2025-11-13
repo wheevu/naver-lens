@@ -49,15 +49,15 @@ const ExternalLinkIcon = () => (
   >
     <path
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-width="1.25"
+      strokeLinecap="round"
+      strokeWidth="1.25"
       d="M4.734 2H2.761s0 0 0 0A.76.76 0 002 2.76v6.48c0 .42.34.76.76.76h6.464c.42 0 .76-.34.76-.76 0 0 0 0 0 0V7.274"
     ></path>
     <path
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="1.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.25"
       d="M10 2v3.043M10 2H6.962M10 2L6.456 5.55"
     ></path>{" "}
   </svg>
