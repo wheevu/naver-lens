@@ -12,14 +12,21 @@
  *
  * How to run:
  *  - PORT=3001 node backend/server.js
- *  - Or just: node backend/server.js (defaults to 3001)
+ *  - npm run dev (with auto-reload)
+ *  - npm start (production)
  */
 
 'use strict';
 
-const express = require('express');
-const cors = require('cors');
-const productRoutes = require('./src/routes/productRoutes');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
+
+import productRoutes from './src/routes/productRoutes.js';
+import summarizeRoutes from './src/routes/summarizeRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,57 +39,22 @@ app.use(express.json({ limit: '1mb' }));
 
 // Routes
 app.use('/api/products', productRoutes);
+app.use('/api/summarize', summarizeRoutes);
 
-/**
- * Placeholder that simulates an AI call (e.g., HyperCLOVA X).
- * Waits 1s, then returns a hardcoded result.
- * Do NOT call external services here.
- */
-async function getAiSummary({ description, reviews }) {
-  // Simulate network latency
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  // Return mock summary as specified
-  return {
-    summary:
-      'This is a mock AI summary. The product has a modern, oversized fit and is made of a soft, breathable cotton blend.',
-    pros: ['High-quality material', 'Color matches the photos', 'Fast shipping'],
-    cons: ['Runs slightly large, consider sizing down', 'Prone to wrinkling']
-  };
-}
-
-// Product routes are mounted at /api/products
-
-/**
- * Endpoint 3: AI Summarization (Placeholder)
- * - Expects: { description: string, reviews: string[] }
- * - Returns: result from getAiSummary()
- */
-app.post('/api/summarize', async (req, res) => {
-  try {
-    const { description, reviews } = req.body || {};
-
-    // Basic validation for expected payload shape
-    const reviewsAreStringsArray =
-      Array.isArray(reviews) && reviews.every((r) => typeof r === 'string');
-
-    if (typeof description !== 'string' || !reviewsAreStringsArray) {
-      return res.status(400).json({
-        error: 'Invalid payload: expected { description: string, reviews: string[] }'
-      });
-    }
-
-    const result = await getAiSummary({ description, reviews });
-    res.json(result);
-  } catch (err) {
-    console.error('Error in summarize:', err);
-    res.status(500).json({ error: 'Failed to generate summary' });
-  }
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Optional health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal server error' });
 });
 
 // Start server
