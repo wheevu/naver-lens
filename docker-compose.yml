@@ -1,27 +1,11 @@
+version: "3.8"
 services:
-  backend:
-    image: hm-backend
-    build: ./backend
-    ports:
-      - "8000:8000"
-    env_file:
-      - .env
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-  frontend:
-    image: hm-frontend
+  api:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: backend/Dockerfile
     ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    restart: unless-stopped
