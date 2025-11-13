@@ -1,33 +1,45 @@
 - reference: https://dev.to/mr_ali3n/folder-structure-for-nodejs-expressjs-project-435l
 ---
-## Note: 
-- I don't familiar with Backend folder structure, so feel free to custom **and** explain in this README; but there are few importants folders **THAT SHOULD NOT BE FIXED**:
-- Remember to finish the `Dockerfile`
 
+## I. Project structure
 ```bash
 .
 ├── Dockerfile
 ├── README.md
+├── data
+├── package.json
+├── server.js
 └── src
     ├── ai
     │   ├── processors
-    │   │   └── text.processor.js
     │   ├── prompts
-    │   │   ├── summarization.js
-    │   │   └── template.js
     │   └── providers
-    │       └── naver.provider.js
     ├── config
-    │   ├── app.js
-    │   ├── db.config.js
-    │   └── env.config.js
+    ├── controllers
     ├── models
-    │   ├── index.js
-    │   └── summary.model.js
     ├── routes
-    │   ├── summarization.controller.js
-    └── services
-        └── product.service.js
+    ├── services
+    └── test
+```
+
+## II. How to run (development)
+```bash
+npm install
+npm run dev
+```
+
+## III. Test api
+1. `GET` products:
+```bash
+curl http://localhost:3001/api/products/900000016 
+```
+2. `POST` summarize (need naver api key):
+```bash
+curl -X POST http://localhost:3001/api/summarize \
+  -H "Content-Type: application/json" \
+  -d '{
+    "productId": "900000016"
+  }'
 ```
 
 ## Explanation
@@ -66,7 +78,3 @@ git add .
 git commit -m "your message"
 git push origin backend
 ```
-
-## Next step
-- @Vu and @Son try your best to make it works, so we can write a Dockerfile and try to deploy it
-- Add more folders/files if needed
