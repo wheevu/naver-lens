@@ -19,8 +19,7 @@
 
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
-const fs = require('fs/promises');
+const productRoutes = require('./src/routes/productRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,45 +30,8 @@ app.use(cors());
 // Parse JSON bodies
 app.use(express.json({ limit: '1mb' }));
 
-// Absolute paths to product data files relative to this server file
-const PRODUCTS_SEARCH_FILE_PATH = path.join(__dirname, 'data', 'products-search.json');
-const PRODUCTS_DETAILS_FILE_PATH = path.join(__dirname, 'data', 'products-details.json');
-
-/**
- * Reads and parses the products-search JSON file.
- * Returns: Promise<Array<ProductSearchItem>>
- */
-async function loadSearchItems() {
-  const fileContents = await fs.readFile(PRODUCTS_SEARCH_FILE_PATH, 'utf-8');
-  const parsed = JSON.parse(fileContents);
-  const items = parsed && Array.isArray(parsed.items) ? parsed.items : null;
-  if (!items) {
-    throw new Error('products-search.json must contain an object with array property `items`');
-  }
-  return items;
-}
-
-/**
- * Reads and parses the products-details JSON file.
- * Returns: Promise<Array<ProductDetails>>
- */
-async function loadDetailsProducts() {
-  const fileContents = await fs.readFile(PRODUCTS_DETAILS_FILE_PATH, 'utf-8');
-  const products = JSON.parse(fileContents);
-  if (!Array.isArray(products)) {
-    throw new Error('products-details.json must contain an array');
-  }
-  return products;
-}
- 
- /**
-  * Removes all HTML tags from a given string.
-  * Basic sanitizer for product titles coming from search results.
-  */
- function stripHtml(input) {
-   if (typeof input !== 'string') return '';
-   return input.replace(/<[^>]*>/g, '');
- }
+// Routes
+app.use('/api/products', productRoutes);
 
 /**
  * Placeholder that simulates an AI call (e.g., HyperCLOVA X).
@@ -89,43 +51,7 @@ async function getAiSummary({ description, reviews }) {
   };
 }
 
-/**
- * Endpoint 1: Get All Products (homepage)
- * - Returns lightweight product summaries (id, name, imageUrl)
- */
-app.get('/api/products', async (req, res) => {
-  try {
-    const items = await loadSearchItems();
-    const summaries = items.map((product) => ({
-      id: product.productId,
-      name: stripHtml(product.title),
-      imageUrl: product.image
-    }));
-    res.json(summaries);
-  } catch (err) {
-    console.error('Error reading products:', err);
-    res.status(500).json({ error: 'Failed to read products' });
-  }
-});
-
-/**
- * Endpoint 2: Get Single Product Details by ID
- * - Returns the full product object
- * - 404 if not found
- */
-app.get('/api/products/:id', async (req, res) => {
-  try {
-    const products = await loadDetailsProducts();
-    const product = products.find((p) => p.productId === req.params.id);
-    if (!product) {
-      return res.status(404).json({ error: 'Product not found' });
-    }
-    res.json(product);
-  } catch (err) {
-    console.error('Error reading product:', err);
-    res.status(500).json({ error: 'Failed to read products' });
-  }
-});
+// Product routes are mounted at /api/products
 
 /**
  * Endpoint 3: AI Summarization (Placeholder)
