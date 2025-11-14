@@ -39,3 +39,4 @@
 
 ## Next step
 - @Vu and @Son try your best to make it works, so we can write a Dockerfile and try to deploy it
+- Add more folders/files if needed
