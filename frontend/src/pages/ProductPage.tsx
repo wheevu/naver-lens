@@ -17,7 +17,7 @@ const storeDataA: StoreData = {
 
 const StorePage = () => {
   const { productId } = useParams<{ productId: string }>();
-  const [store, setStore] = useState<StoreData>(storeDataA);
+  const [store /*, setStore*/] = useState<StoreData>(storeDataA);
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
 
