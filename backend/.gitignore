@@ -1,18 +1,21 @@
-base/*
-data/*
-weights/*
-__pycache__/*
-final_test/*
+# Dependencies
+/node_modules
 
-# wandb
-artifacts/*
-wandb
+# Environment variables
+.env
 
-# file
-*.pyc
-*.env
+# Production/build outputs
+/dist
+/build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# files
+package-lock.json*.zip
 *.zip
-*.pt
-*.csv
-
-# folder
+*.env

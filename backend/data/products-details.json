@@ -1,0 +1,2279 @@
+[
+  {
+    "productId": "900000001",
+    "title": "Men's Running Shoes UltraBoost 23",
+    "brand": "Adidas",
+    "maker": "Adidas",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000001_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000001_2.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000001_3.jpg"
+    ],
+    "price": 89000,
+    "originalPrice": 129000,
+    "mallName": "SportDirect",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 842,
+    "options": [
+      { "name": "Size", "values": ["230", "240", "250", "260", "270", "280"] },
+      { "name": "Color", "values": ["Black", "White", "Navy"] }
+    ],
+    "description": "Lightweight Boost cushioning, Primeknit upper, Continental™ rubber outsole for extraordinary grip in wet and dry conditions.",
+    "reviews": [
+      "쿠션이 정말 편해서 오래 달려도 발이 아프지 않아요. 역대급 신발입니다.",
+      "평소 신는 사이즈보다 반 사이즈 크게 주문했는데 딱 맞네요. 사이즈 팁 참고하세요.",
+      "디자인이 깔끔해서 운동할 때뿐만 아니라 평상시에도 잘 신고 다닙니다.",
+      "접지력이 좋아서 비 오는 날에도 미끄럽지 않아서 안정감이 있어요."
+    ],
+    "category1": "Fashion",
+    "category2": "Shoes",
+    "category3": "Running Shoes",
+    "category4": ""
+  },
+  {
+    "productId": "900000002",
+    "title": "Women's High-Heel Sandals Summer Collection",
+    "brand": "Zara",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000002_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000002_2.jpg"
+    ],
+    "price": 45000,
+    "originalPrice": 69000,
+    "mallName": "StyleHub",
+    "shipping": "3,000 KRW",
+    "rating": 4.3,
+    "reviewCount": 215,
+    "options": [
+      { "name": "Size", "values": ["220", "230", "240", "250"] },
+      { "name": "Color", "values": ["Beige", "Black", "Red"] }
+    ],
+    "description": "Elegant open-toe design with adjustable ankle strap. Perfect for summer parties and formal events.",
+    "category1": "Fashion",
+    "category2": "Shoes",
+    "category3": "Sandals",
+    "category4": "Heels"
+  },
+  {
+    "productId": "900000003",
+    "title": "Kids' Sneakers Light-Up LED",
+    "brand": "Paw Patrol",
+    "maker": "Licensed",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000003_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000003_2.jpg"
+    ],
+    "price": 32000,
+    "originalPrice": 0,
+    "mallName": "KiddoWorld",
+    "shipping": "2,500 KRW",
+    "rating": 4.6,
+    "reviewCount": 567,
+    "options": [
+      { "name": "Size (Kids)", "values": ["160", "170", "180", "190"] },
+      { "name": "Character", "values": ["Chase", "Marshall", "Skye"] }
+    ],
+    "description": "Fun light-up sneakers with every step. Durable rubber sole, breathable mesh upper. Official Paw Patrol design.",
+    "category1": "Fashion",
+    "category2": "Kids",
+    "category3": "Shoes",
+    "category4": "Sneakers"
+  },
+  {
+    "productId": "900000004",
+    "title": "Wireless Earbuds Pro ANC",
+    "brand": "Sony",
+    "maker": "Sony",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000004_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000004_2.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000004_3.jpg"
+    ],
+    "price": 119000,
+    "originalPrice": 159000,
+    "mallName": "TechMart",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 1293,
+    "options": [
+      { "name": "Color", "values": ["Black", "White", "Silver"] }
+    ],
+    "description": "Active Noise Cancellation, 12-hour battery, IPX4 water resistance, touch controls, premium sound with deep bass.",
+    "reviews": [
+      "노이즈 캔슬링 기능이 정말 대박입니다. 지하철에서 음악에만 집중할 수 있어요.",
+      "음질이 선명하고 베이스도 충분해서 만족스러워요.",
+      "배터리가 오래 가서 한번 충전하면 며칠은 쓰는 것 같아요.",
+      "가끔씩 연결이 끊길 때가 있는데, 다시 연결하면 괜찮아져요."
+    ],
+    "category1": "Electronics",
+    "category2": "Audio",
+    "category3": "Earbuds",
+    "category4": ""
+  },
+  {
+    "productId": "900000005",
+    "title": "Laptop Backpack 15.6\" Waterproof",
+    "brand": "Samsonite",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000005_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000005_2.jpg"
+    ],
+    "price": 39000,
+    "originalPrice": 0,
+    "mallName": "BagWorld",
+    "shipping": "Free over 30,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 412,
+    "options": [
+      { "name": "Color", "values": ["Black", "Gray", "Navy"] }
+    ],
+    "description": "Padded laptop compartment, water-resistant fabric, multiple pockets, ergonomic shoulder straps.",
+    "category1": "Fashion",
+    "category2": "Bags",
+    "category3": "Backpacks",
+    "category4": ""
+  },
+  {
+    "productId": "900000006",
+    "title": "Casual Hoodie Oversized Fleece",
+    "brand": "H&M",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000006_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000006_2.jpg"
+    ],
+    "price": 28000,
+    "originalPrice": 45000,
+    "mallName": "UrbanWear",
+    "shipping": "3,000 KRW",
+    "rating": 4.4,
+    "reviewCount": 728,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L", "XL"] },
+      { "name": "Color", "values": ["Gray", "Black", "Beige"] }
+    ],
+    "description": "Soft fleece lining, oversized fit, kangaroo pocket, drawstring hood. Perfect for casual wear.",
+    "reviews": [
+      "생각보다 더 부드럽고 따뜻해서 매일 입고 있어요. 핏이 정말 예뻐요!",
+      "색감이 화면이랑 똑같아서 마음에 들어요. 배송도 빨랐습니다.",
+      "오버핏이라 편하긴 한데, 키가 작으면 좀 클 수도 있겠네요. 참고하세요.",
+      "가격 대비 품질이 괜찮아요. 만족합니다."
+    ],
+    "category1": "Fashion",
+    "category2": "Clothing",
+    "category3": "Hoodies",
+    "category4": ""
+  },
+  {
+    "productId": "900000007",
+    "title": "Smartwatch Fitness Tracker Series 7",
+    "brand": "Samsung",
+    "maker": "Samsung",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000007_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000007_2.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000007_3.jpg"
+    ],
+    "price": 189000,
+    "originalPrice": 249000,
+    "mallName": "GadgetZone",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 981,
+    "options": [
+      { "name": "Size", "values": ["40mm", "44mm"] },
+      { "name": "Color", "values": ["Black", "Green", "Pink"] }
+    ],
+    "description": "Heart rate monitor, sleep tracking, GPS, water-resistant, 7-day battery, AMOLED display.",
+    "category1": "Electronics",
+    "category2": "Wearables",
+    "category3": "Smartwatches",
+    "category4": ""
+  },
+  {
+    "productId": "900000008",
+    "title": "Leather Wallet RFID Blocking",
+    "brand": "Montblanc",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000008_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000008_2.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "LuxuryGoods",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 305,
+    "options": [
+      { "name": "Color", "values": ["Black", "Brown"] }
+    ],
+    "description": "Genuine leather, 8 card slots, RFID protection, slim design, gift box included.",
+    "category1": "Fashion",
+    "category2": "Accessories",
+    "category3": "Wallets",
+    "category4": ""
+  },
+  {
+    "productId": "900000009",
+    "title": "Gaming Mouse RGB 16000 DPI",
+    "brand": "Logitech",
+    "maker": "Logitech",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000009_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000009_2.jpg"
+    ],
+    "price": 49000,
+    "originalPrice": 69000,
+    "mallName": "PCGear",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 1123,
+    "options": [
+      { "name": "Color", "values": ["Black", "White"] }
+    ],
+    "description": "16K DPI sensor, 11 programmable buttons, RGB lighting, lightweight 63g, Hero sensor.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Peripherals",
+    "category4": "Mice"
+  },
+  {
+    "productId": "900000010",
+    "title": "Coffee Maker Automatic Drip",
+    "brand": "Philips",
+    "maker": "Philips",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000010_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000010_2.jpg"
+    ],
+    "price": 59000,
+    "originalPrice": 89000,
+    "mallName": "HomeCafe",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 678,
+    "options": [],
+    "description": "12-cup capacity, programmable timer, auto shut-off, glass carafe, anti-drip function.",
+    "category1": "Home",
+    "category2": "Kitchen",
+    "category3": "Coffee Makers",
+    "category4": ""
+  },
+  {
+    "productId": "900000011",
+    "title": "Sunglasses Polarized UV400",
+    "brand": "Ray-Ban",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000011_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000011_2.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "ShadeShop",
+    "shipping": "2,500 KRW",
+    "rating": 4.6,
+    "reviewCount": 892,
+    "options": [
+      { "name": "Lens Color", "values": ["Black", "Brown", "Green"] }
+    ],
+    "description": "100% UV protection, polarized lenses, lightweight frame, includes case and cloth.",
+    "category1": "Fashion",
+    "category2": "Accessories",
+    "category3": "Eyewear",
+    "category4": "Sunglasses"
+  },
+  {
+    "productId": "900000012",
+    "title": "Bluetooth Speaker Waterproof Portable",
+    "brand": "JBL",
+    "maker": "JBL",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000012_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000012_2.jpg"
+    ],
+    "price": 35000,
+    "originalPrice": 55000,
+    "mallName": "SoundWave",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 1356,
+    "options": [
+      { "name": "Color", "values": ["Black", "Blue", "Red"] }
+    ],
+    "description": "IP67 waterproof, 10-hour playtime, 360° sound, built-in mic, portable clip.",
+    "category1": "Electronics",
+    "category2": "Audio",
+    "category3": "Speakers",
+    "category4": ""
+  },
+  {
+    "productId": "900000013",
+    "title": "Yoga Mat Non-Slip 6mm",
+    "brand": "Liforme",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000013_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000013_2.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "FitLife",
+    "shipping": "3,000 KRW",
+    "rating": 4.8,
+    "reviewCount": 1024,
+    "options": [
+      { "name": "Color", "values": ["Purple", "Green", "Blue"] }
+    ],
+    "description": "Eco-friendly PVC, alignment markers, non-slip surface, carry strap included.",
+    "category1": "Sports",
+    "category2": "Fitness",
+    "category3": "Yoga",
+    "category4": "Mats"
+  },
+  {
+    "productId": "900000014",
+    "title": "Desk Lamp LED Touch Control",
+    "brand": "Xiaomi",
+    "maker": "Xiaomi",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000014_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000014_2.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 39000,
+    "mallName": "BrightHome",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 743,
+    "options": [
+      { "name": "Color Temperature", "values": ["Warm", "Cool", "Daylight"] }
+    ],
+    "description": "5 brightness levels, USB charging port, eye-care LED, foldable design.",
+    "category1": "Home",
+    "category2": "Lighting",
+    "category3": "Desk Lamps",
+    "category4": ""
+  },
+  {
+    "productId": "900000015",
+    "title": "Winter Jacket Down Puffer",
+    "brand": "The North Face",
+    "maker": "The North Face",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000015_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000015_2.jpg"
+    ],
+    "price": 89000,
+    "originalPrice": 129000,
+    "mallName": "ColdGear",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 589,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L", "XL"] },
+      { "name": "Color", "values": ["Black", "Olive", "Gray"] }
+    ],
+    "description": "700-fill down insulation, water-repellent, adjustable hood, inner pockets.",
+    "category1": "Fashion",
+    "category2": "Clothing",
+    "category3": "Jackets",
+    "category4": "Winter"
+  },
+  {
+    "productId": "900000016",
+    "title": "Electric Kettle 1.7L Glass",
+    "brand": "Tefal",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000016_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000016_2.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "KitchenPro",
+    "shipping": "Free over 30,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 421,
+    "options": [],
+    "description": "Blue LED illumination, 360° base, auto shut-off, boil-dry protection, removable filter.",
+    "category1": "Home",
+    "category2": "Kitchen",
+    "category3": "Kettles",
+    "category4": ""
+  },
+  {
+    "productId": "900000017",
+    "title": "Running Belt Hydration Pack",
+    "brand": "Nathan",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000017_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000017_2.jpg"
+    ],
+    "price": 19000,
+    "originalPrice": 0,
+    "mallName": "RunEasy",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 367,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L"] }
+    ],
+    "description": "Two 10oz bottles, bounce-free, zip pocket, reflective trim, adjustable fit.",
+    "category1": "Sports",
+    "category2": "Running",
+    "category3": "Accessories",
+    "category4": ""
+  },
+  {
+    "productId": "900000018",
+    "title": "Mechanical Keyboard RGB Backlit",
+    "brand": "Corsair",
+    "maker": "Corsair",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000018_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000018_2.jpg"
+    ],
+    "price": 79000,
+    "originalPrice": 109000,
+    "mallName": "KeyMaster",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 954,
+    "options": [
+      { "name": "Switch Type", "values": ["Cherry MX Red", "Cherry MX Blue"] }
+    ],
+    "description": "Full-size, per-key RGB, aluminum frame, detachable wrist rest, macro keys.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Peripherals",
+    "category4": "Keyboards"
+  },
+  {
+    "productId": "900000019",
+    "title": "Face Serum Vitamin C 20%",
+    "brand": "The Ordinary",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000019_1.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "BeautyLab",
+    "shipping": "3,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 1823,
+    "options": [],
+    "description": "Brightening, antioxidant-rich, reduces dark spots, suitable for all skin types.",
+    "reviews": [
+      "꾸준히 사용하니 피부톤이 확실히 밝아지고 잡티가 옅어지는 게 보여요.",
+      "제형이 가벼워서 흡수가 빠르고 끈적임이 없어서 좋아요. 아침에 사용해도 부담 없어요.",
+      "민감성 피부인데 트러블 없이 잘 사용하고 있습니다. 순한 제품 같아요.",
+      "처음에는 약간 따끔거렸는데, 며칠 사용하니 괜찮아졌어요. 효과는 만족!"
+    ],
+    "category1": "Beauty",
+    "category2": "Skincare",
+    "category3": "Serums",
+    "category4": ""
+  },
+  {
+    "productId": "900000020",
+    "title": "Travel Pillow Memory Foam",
+    "brand": "Cabeau",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000020_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000020_2.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "SleepWell",
+    "shipping": "2,500 KRW",
+    "rating": 4.6,
+    "reviewCount": 678,
+    "options": [
+      { "name": "Color", "values": ["Black", "Gray", "Blue"] }
+    ],
+    "description": "360° head support, compact carry case, machine washable cover, adjustable clasp.",
+    "category1": "Travel",
+    "category2": "Accessories",
+    "category3": "Pillows",
+    "category4": ""
+  },
+  {
+    "productId": "900000021",
+    "title": "Air Fryer 5.8 Quart",
+    "brand": "Ninja",
+    "maker": "Ninja",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000021_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000021_2.jpg"
+    ],
+    "price": 89000,
+    "originalPrice": 129000,
+    "mallName": "CookSmart",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 2104,
+    "options": [],
+    "description": "4-in-1: air fry, roast, reheat, dehydrate. Dishwasher-safe parts, digital controls.",
+    "category1": "Home",
+    "category2": "Kitchen",
+    "category3": "Air Fryers",
+    "category4": ""
+  },
+  {
+    "productId": "900000022",
+    "title": "Baseball Cap Adjustable Strap",
+    "brand": "New Era",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000022_1.jpg"
+    ],
+    "price": 12000,
+    "originalPrice": 0,
+    "mallName": "CapZone",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 892,
+    "options": [
+      { "name": "Color", "values": ["Black", "Navy", "Red"] }
+    ],
+    "description": "100% cotton, curved brim, embroidered logo, adjustable back strap.",
+    "category1": "Fashion",
+    "category2": "Accessories",
+    "category3": "Hats",
+    "category4": "Caps"
+  },
+  {
+    "productId": "900000023",
+    "title": "Noise-Cancelling Headphones Over-Ear",
+    "brand": "Bose",
+    "maker": "Bose",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000023_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000023_2.jpg"
+    ],
+    "price": 149000,
+    "originalPrice": 199000,
+    "mallName": "AudioPro",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 1678,
+    "options": [
+      { "name": "Color", "values": ["Black", "Silver"] }
+    ],
+    "description": "Industry-leading ANC, 20-hour battery, plush ear cushions, voice assistant.",
+    "category1": "Electronics",
+    "category2": "Audio",
+    "category3": "Headphones",
+    "category4": ""
+  },
+  {
+    "productId": "900000024",
+    "title": "Resistance Bands Set of 5",
+    "brand": "FitSimplify",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000024_1.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "FitGear",
+    "shipping": "3,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 2341,
+    "options": [],
+    "description": "5 resistance levels (X-Light to X-Heavy), carry bag, door anchor, ankle straps.",
+    "category1": "Sports",
+    "category2": "Fitness",
+    "category3": "Strength",
+    "category4": "Bands"
+  },
+  {
+    "productId": "900000025",
+    "title": "Wall Clock Modern Silent",
+    "brand": "Seiko",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000025_1.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "TimeDecor",
+    "shipping": "Free over 30,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 456,
+    "options": [
+      { "name": "Color", "values": ["Black", "White", "Wood"] }
+    ],
+    "description": "Silent sweep movement, minimalist design, 12-inch diameter, easy to read numerals.",
+    "category1": "Home",
+    "category2": "Decor",
+    "category3": "Clocks",
+    "category4": ""
+  },
+  {
+    "productId": "900000026",
+    "title": "Sports Bra High Impact",
+    "brand": "Nike",
+    "maker": "Nike",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000026_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000026_2.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 39000,
+    "mallName": "ActiveWear",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 823,
+    "options": [
+      { "name": "Size", "values": ["XS", "S", "M", "L"] },
+      { "name": "Color", "values": ["Black", "Pink", "Blue"] }
+    ],
+    "description": "Dri-FIT technology, medium support, racerback design, removable pads.",
+    "category1": "Fashion",
+    "category2": "Clothing",
+    "category3": "Activewear",
+    "category4": "Bras"
+  },
+  {
+    "productId": "900000027",
+    "title": "USB-C Hub 7-in-1",
+    "brand": "Anker",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000027_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "TechHub",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 1345,
+    "options": [],
+    "description": "HDMI 4K, 100W PD, SD/TF slots, 2 USB 3.0, USB-C data, compact aluminum.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Accessories",
+    "category4": "Hubs"
+  },
+  {
+    "productId": "900000028",
+    "title": "Plant Pot Ceramic 6 Inch",
+    "brand": "IKEA",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000028_1.jpg"
+    ],
+    "price": 13000,
+    "originalPrice": 0,
+    "mallName": "GreenHome",
+    "shipping": "3,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 567,
+    "options": [
+      { "name": "Color", "values": ["White", "Terracotta", "Gray"] }
+    ],
+    "description": "Hand-glazed ceramic, drainage hole, matching saucer included.",
+    "category1": "Home",
+    "category2": "Decor",
+    "category3": "Plants",
+    "category4": "Pots"
+  },
+  {
+    "productId": "900000029",
+    "title": "Thermal Bottle 500ml Stainless",
+    "brand": "Thermos",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000029_1.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "HydroLife",
+    "shipping": "2,500 KRW",
+    "rating": 4.6,
+    "reviewCount": 789,
+    "options": [
+      { "name": "Color", "values": ["Silver", "Black", "Blue"] }
+    ],
+    "description": "Keeps hot 12h, cold 24h, leak-proof lid, double-wall vacuum insulation.",
+    "category1": "Home",
+    "category2": "Kitchen",
+    "category3": "Drinkware",
+    "category4": "Bottles"
+  },
+  {
+    "productId": "900000030",
+    "title": "Gaming Chair Ergonomic",
+    "brand": "Secretlab",
+    "maker": "Secretlab",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000030_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000030_2.jpg"
+    ],
+    "price": 159000,
+    "originalPrice": 219000,
+    "mallName": "GameThrone",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 923,
+    "options": [
+      { "name": "Material", "values": ["PU Leather", "Fabric"] },
+      { "name": "Color", "values": ["Black", "Red", "Blue"] }
+    ],
+    "description": "4D armrests, lumbar support, reclining, memory foam head pillow.",
+    "category1": "Furniture",
+    "category2": "Office",
+    "category3": "Chairs",
+    "category4": "Gaming"
+  },
+  {
+    "productId": "900000031",
+    "title": "Hand Cream Shea Butter 75ml",
+    "brand": "L'Occitane",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000031_1.jpg"
+    ],
+    "price": 9000,
+    "originalPrice": 0,
+    "mallName": "BeautyCare",
+    "shipping": "3,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 1456,
+    "options": [],
+    "description": "20% shea butter, deeply moisturizing, fast-absorbing, subtle fragrance.",
+    "category1": "Beauty",
+    "category2": "Skincare",
+    "category3": "Hand Care",
+    "category4": ""
+  },
+  {
+    "productId": "900000032",
+    "title": "Bicycle Helmet Adult Adjustable",
+    "brand": "Giro",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000032_1.jpg"
+    ],
+    "price": 35000,
+    "originalPrice": 0,
+    "mallName": "CycleSafe",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 678,
+    "options": [
+      { "name": "Size", "values": ["M", "L"] },
+      { "name": "Color", "values": ["Matte Black", "White", "Red"] }
+    ],
+    "description": "In-mold construction, 25 vents, Roc Loc fit system, CPSC certified.",
+    "category1": "Sports",
+    "category2": "Cycling",
+    "category3": "Helmets",
+    "category4": ""
+  },
+  {
+    "productId": "900000033",
+    "title": "Portable Charger 20000mAh",
+    "brand": "Anker",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000033_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "PowerBank",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 2103,
+    "options": [],
+    "description": "Dual USB, PowerIQ, 18W PD, compact, LED indicator, travel pouch.",
+    "category1": "Electronics",
+    "category2": "Mobile",
+    "category3": "Chargers",
+    "category4": ""
+  },
+  {
+    "productId": "900000034",
+    "title": "Throw Blanket Fleece 150x200cm",
+    "brand": "IKEA",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000034_1.jpg"
+    ],
+    "price": 19000,
+    "originalPrice": 0,
+    "mallName": "CozyHome",
+    "shipping": "3,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 892,
+    "options": [
+      { "name": "Color", "values": ["Gray", "Cream", "Navy"] }
+    ],
+    "description": "Ultra-soft microfiber fleece, machine washable, lightweight warmth.",
+    "category1": "Home",
+    "category2": "Bedding",
+    "category3": "Blankets",
+    "category4": ""
+  },
+  {
+    "productId": "900000035",
+    "title": "Running Shorts Quick-Dry",
+    "brand": "Under Armour",
+    "maker": "Under Armour",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000035_1.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 35000,
+    "mallName": "RunFit",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 734,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L", "XL"] },
+      { "name": "Color", "values": ["Black", "Gray", "Blue"] }
+    ],
+    "description": "4-way stretch, moisture-wicking, built-in brief, zip pocket.",
+    "category1": "Fashion",
+    "category2": "Clothing",
+    "category3": "Activewear",
+    "category4": "Shorts"
+  },
+  {
+    "productId": "900000036",
+    "title": "Webcam 1080p HD",
+    "brand": "Logitech",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000036_1.jpg"
+    ],
+    "price": 39000,
+    "originalPrice": 0,
+    "mallName": "StreamPro",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 1123,
+    "options": [],
+    "description": "Full HD 1080p, auto light correction, dual mics, privacy shutter, plug-and-play.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Peripherals",
+    "category4": "Webcams"
+  },
+  {
+    "productId": "900000037",
+    "title": "Aromatherapy Diffuser 300ml",
+    "brand": "Vitruvi",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000037_1.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 0,
+    "mallName": "ScentHome",
+    "shipping": "3,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 987,
+    "options": [
+      { "name": "Color", "values": ["White", "Black", "Stone"] }
+    ],
+    "description": "Ultrasonic, 7-hour run time, auto shut-off, ambient light, BPA-free.",
+    "category1": "Home",
+    "category2": "Wellness",
+    "category3": "Diffusers",
+    "category4": ""
+  },
+  {
+    "productId": "900000038",
+    "title": "Cycling Jersey Short Sleeve",
+    "brand": "Castelli",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000038_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "BikeWear",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 456,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L"] }
+    ],
+    "description": "Moisture-wicking fabric, full zip, 3 rear pockets, silicone gripper.",
+    "category1": "Sports",
+    "category2": "Cycling",
+    "category3": "Clothing",
+    "category4": "Jerseys"
+  },
+  {
+    "productId": "900000039",
+    "title": "Smart Plug Wi-Fi Mini",
+    "brand": "TP-Link",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000039_1.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "SmartLife",
+    "shipping": "2,500 KRW",
+    "rating": 4.6,
+    "reviewCount": 1892,
+    "options": [],
+    "description": "No hub required, voice control (Alexa/Google), schedule, energy monitoring.",
+    "category1": "Electronics",
+    "category2": "Smart Home",
+    "category3": "Plugs",
+    "category4": ""
+  },
+  {
+    "productId": "900000040",
+    "title": "Lip Balm SPF 15 Tinted",
+    "brand": "Burt's Bees",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000040_1.jpg"
+    ],
+    "price": 6000,
+    "originalPrice": 0,
+    "mallName": "BeautyEssentials",
+    "shipping": "3,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 2341,
+    "options": [
+      { "name": "Shade", "values": ["Rose", "Coral", "Natural"] }
+    ],
+    "description": "100% natural, beeswax base, sun protection, long-lasting moisture.",
+    "category1": "Beauty",
+    "category2": "Makeup",
+    "category3": "Lips",
+    "category4": "Balm"
+  },
+  {
+    "productId": "900000041",
+    "title": "Dumbbell Set 2-10kg Adjustable",
+    "brand": "Bowflex",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000041_1.jpg"
+    ],
+    "price": 89000,
+    "originalPrice": 0,
+    "mallName": "StrengthPro",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 678,
+    "options": [],
+    "description": "SelectTech dial system, 15 weights in 1, compact storage, durable molding.",
+    "category1": "Sports",
+    "category2": "Fitness",
+    "category3": "Strength",
+    "category4": "Dumbbells"
+  },
+  {
+    "productId": "900000042",
+    "title": "Phone Case iPhone 14 Pro Clear",
+    "brand": "Spigen",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000042_1.jpg"
+    ],
+    "price": 12000,
+    "originalPrice": 0,
+    "mallName": "CaseShop",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 1678,
+    "options": [],
+    "description": "Military-grade drop protection, crystal clear, raised edges, Air Cushion tech.",
+    "category1": "Electronics",
+    "category2": "Mobile",
+    "category3": "Accessories",
+    "category4": "Cases"
+  },
+  {
+    "productId": "900000043",
+    "title": "Curtains Blackout 140x250cm",
+    "brand": "IKEA",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000043_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "WindowDecor",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 892,
+    "options": [
+      { "name": "Color", "values": ["Gray", "Beige", "Navy"] }
+    ],
+    "description": "Triple-weave blackout fabric, thermal insulation, rod pocket, machine washable.",
+    "category1": "Home",
+    "category2": "Decor",
+    "category3": "Curtains",
+    "category4": ""
+  },
+  {
+    "productId": "900000044",
+    "title": "Swim Goggles Anti-Fog",
+    "brand": "Speedo",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000044_1.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "AquaGear",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 734,
+    "options": [
+      { "name": "Lens Color", "values": ["Clear", "Smoke", "Blue"] }
+    ],
+    "description": "UV protection, adjustable nose bridge, silicone strap, anti-fog coating.",
+    "category1": "Sports",
+    "category2": "Swimming",
+    "category3": "Goggles",
+    "category4": ""
+  },
+  {
+    "productId": "900000045",
+    "title": "Wireless Charger 15W Fast",
+    "brand": "Belkin",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000045_1.jpg"
+    ],
+    "price": 19000,
+    "originalPrice": 0,
+    "mallName": "ChargeFast",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 1023,
+    "options": [],
+    "description": "Qi-certified, charges through cases, LED indicator, non-slip surface.",
+    "category1": "Electronics",
+    "category2": "Mobile",
+    "category3": "Chargers",
+    "category4": "Wireless"
+  },
+  {
+    "productId": "900000046",
+    "title": "Bath Towel 100% Cotton 70x140cm",
+    "brand": "Fieldcrest",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000046_1.jpg"
+    ],
+    "price": 12000,
+    "originalPrice": 0,
+    "mallName": "SoftTouch",
+    "shipping": "3,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 1456,
+    "options": [
+      { "name": "Color", "values": ["White", "Gray", "Blue"] }
+    ],
+    "description": "600 GSM, highly absorbent, soft feel, machine washable, quick dry.",
+    "category1": "Home",
+    "category2": "Bath",
+    "category3": "Towels",
+    "category4": ""
+  },
+  {
+    "productId": "900000047",
+    "title": "Hiking Boots Waterproof",
+    "brand": "Merrell",
+    "maker": "Merrell",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000047_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000047_2.jpg"
+    ],
+    "price": 99000,
+    "originalPrice": 139000,
+    "mallName": "TrailMaster",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 823,
+    "options": [
+      { "name": "Size", "values": ["230", "240", "250", "260", "270"] },
+      { "name": "Color", "values": ["Brown", "Black"] }
+    ],
+    "description": "GORE-TEX waterproof, Vibram sole, cushioned EVA, ankle support.",
+    "category1": "Fashion",
+    "category2": "Shoes",
+    "category3": "Boots",
+    "category4": "Hiking"
+  },
+  {
+    "productId": "900000048",
+    "title": "LED Strip Lights 5m RGB",
+    "brand": "Govee",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000048_1.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "LightVibe",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 1892,
+    "options": [],
+    "description": "App control, music sync, 16 million colors, adhesive backing, cuttable.",
+    "category1": "Home",
+    "category2": "Lighting",
+    "category3": "Strips",
+    "category4": ""
+  },
+  {
+    "productId": "900000049",
+    "title": "Protein Powder Whey 1kg",
+    "brand": "Optimum Nutrition",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000049_1.jpg"
+    ],
+    "price": 39000,
+    "originalPrice": 0,
+    "mallName": "FitFuel",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 2341,
+    "options": [
+      { "name": "Flavor", "values": ["Chocolate", "Vanilla", "Strawberry"] }
+    ],
+    "description": "24g protein per serving, low sugar, gluten-free, mixes easily.",
+    "category1": "Health",
+    "category2": "Supplements",
+    "category3": "Protein",
+    "category4": ""
+  },
+  {
+    "productId": "900000050",
+    "title": "Desk Organizer Bamboo",
+    "brand": "Bamboozle",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000050_1.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "OfficeNeat",
+    "shipping": "3,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 678,
+    "options": [],
+    "description": "5 compartments, eco-friendly bamboo, non-slip base, modern design.",
+    "category1": "Office",
+    "category2": "Supplies",
+    "category3": "Organizers",
+    "category4": ""
+  },
+  {
+    "productId": "900000051",
+    "title": "Sleep Mask Silk Eye Cover",
+    "brand": "Slip",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000051_1.jpg"
+    ],
+    "price": 11000,
+    "originalPrice": 0,
+    "mallName": "DreamWell",
+    "shipping": "2,500 KRW",
+    "rating": 4.6,
+    "reviewCount": 892,
+    "options": [
+      { "name": "Color", "values": ["Black", "Pink", "Navy"] }
+    ],
+    "description": "100% mulberry silk, adjustable strap, blocks light, gentle on skin.",
+    "category1": "Beauty",
+    "category2": "Wellness",
+    "category3": "Sleep",
+    "category4": "Masks"
+  },
+  {
+    "productId": "900000052",
+    "title": "Camping Tent 4-Person",
+    "brand": "Coleman",
+    "maker": "Coleman",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000052_1.jpg",
+      "https://shopping-phinf.pstatic.net/main_9000000/900000052_2.jpg"
+    ],
+    "price": 129000,
+    "originalPrice": 179000,
+    "mallName": "OutdoorLife",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 734,
+    "options": [],
+    "description": "WeatherTec system, 10-min setup, welded corners, inverted seams, room divider.",
+    "category1": "Sports",
+    "category2": "Camping",
+    "category3": "Tents",
+    "category4": ""
+  },
+  {
+    "productId": "900000053",
+    "title": "Nail Polish Set 12 Colors",
+    "brand": "Essie",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000053_1.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "ColorPop",
+    "shipping": "3,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 1123,
+    "options": [],
+    "description": "Long-lasting, chip-resistant, high shine, includes top coat and base.",
+    "category1": "Beauty",
+    "category2": "Makeup",
+    "category3": "Nails",
+    "category4": "Polish"
+  },
+  {
+    "productId": "900000054",
+    "title": "Electric Toothbrush Sonic",
+    "brand": "Philips Sonicare",
+    "maker": "Philips",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000054_1.jpg"
+    ],
+    "price": 49000,
+    "originalPrice": 69000,
+    "mallName": "OralHealth",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 1678,
+    "options": [],
+    "description": "31,000 brush strokes/min, 2-week battery, 3 modes, pressure sensor, travel case.",
+    "category1": "Beauty",
+    "category2": "Personal Care",
+    "category3": "Oral Care",
+    "category4": "Toothbrushes"
+  },
+  {
+    "productId": "900000055",
+    "title": "Backpack School 30L",
+    "brand": "JanSport",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000055_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "StudentGear",
+    "shipping": "Free over 30,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 2103,
+    "options": [
+      { "name": "Color", "values": ["Black", "Navy", "Pink"] }
+    ],
+    "description": "Padded laptop sleeve, front utility pocket, side water bottle pocket, lifetime warranty.",
+    "category1": "Fashion",
+    "category2": "Bags",
+    "category3": "Backpacks",
+    "category4": "School"
+  },
+  {
+    "productId": "900000056",
+    "title": "Monitor Stand Adjustable",
+    "brand": "VIVO",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000056_1.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "DeskPro",
+    "shipping": "3,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 892,
+    "options": [],
+    "description": "Height adjustable, supports 22 lbs, vented platform, non-skid pads.",
+    "category1": "Office",
+    "category2": "Furniture",
+    "category3": "Stands",
+    "category4": ""
+  },
+  {
+    "productId": "900000057",
+    "title": "Shampoo Anti-Dandruff 400ml",
+    "brand": "Head & Shoulders",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000057_1.jpg"
+    ],
+    "price": 13000,
+    "originalPrice": 0,
+    "mallName": "HairCare",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 2341,
+    "options": [],
+    "description": "Zinc pyrithione, pH balanced, reduces flakes, fresh scent, daily use.",
+    "category1": "Beauty",
+    "category2": "Hair",
+    "category3": "Shampoo",
+    "category4": ""
+  },
+  {
+    "productId": "900000058",
+    "title": "Fitness Tracker Heart Rate",
+    "brand": "Fitbit",
+    "maker": "Fitbit",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000058_1.jpg"
+    ],
+    "price": 39000,
+    "originalPrice": 59000,
+    "mallName": "HealthBand",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 1678,
+    "options": [
+      { "name": "Color", "values": ["Black", "Blue", "Rose"] }
+    ],
+    "description": "24/7 heart rate, sleep stages, 10-day battery, water-resistant, connected GPS.",
+    "category1": "Electronics",
+    "category2": "Wearables",
+    "category3": "Fitness Trackers",
+    "category4": ""
+  },
+  {
+    "productId": "900000059",
+    "title": "Cooking Pan Non-Stick 28cm",
+    "brand": "Tefal",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000059_1.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 0,
+    "mallName": "KitchenKing",
+    "shipping": "3,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 1023,
+    "options": [],
+    "description": "Thermo-Signal, titanium non-stick, induction compatible, oven safe to 175°C.",
+    "category1": "Home",
+    "category2": "Kitchen",
+    "category3": "Cookware",
+    "category4": "Pans"
+  },
+  {
+    "productId": "900000060",
+    "title": "Book Light Rechargeable Clip",
+    "brand": "Mighty Bright",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000060_1.jpg"
+    ],
+    "price": 12000,
+    "originalPrice": 0,
+    "mallName": "ReadBright",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 678,
+    "options": [
+      { "name": "Color", "values": ["Black", "Silver"] }
+    ],
+    "description": "3 brightness levels, 60-hour runtime, flexible gooseneck, sturdy clip.",
+    "category1": "Home",
+    "category2": "Lighting",
+    "category3": "Book Lights",
+    "category4": ""
+  },
+  {
+    "productId": "900000061",
+    "title": "Sneakers Casual Low-Top",
+    "brand": "Vans",
+    "maker": "Vans",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000061_1.jpg"
+    ],
+    "price": 49000,
+    "originalPrice": 69000,
+    "mallName": "StreetStyle",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 1892,
+    "options": [
+      { "name": "Size", "values": ["220", "230", "240", "250", "260"] },
+      { "name": "Color", "values": ["Black", "White", "Checkerboard"] }
+    ],
+    "description": "Canvas upper, waffle outsole, padded collar, classic style.",
+    "category1": "Fashion",
+    "category2": "Shoes",
+    "category3": "Sneakers",
+    "category4": ""
+  },
+  {
+    "productId": "900000062",
+    "title": "Ear Plugs Noise Reduction",
+    "brand": "Mack's",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000062_1.jpg"
+    ],
+    "price": 8000,
+    "originalPrice": 0,
+    "mallName": "QuietZone",
+    "shipping": "3,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 2341,
+    "options": [],
+    "description": "NRR 32dB, soft foam, 50 pairs, comfortable fit, travel case.",
+    "category1": "Health",
+    "category2": "Wellness",
+    "category3": "Ear Care",
+    "category4": "Plugs"
+  },
+  {
+    "productId": "900000063",
+    "title": "Tablet Stand Adjustable",
+    "brand": "Lamicall",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000063_1.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "TechStand",
+    "shipping": "2,500 KRW",
+    "rating": 4.7,
+    "reviewCount": 1678,
+    "options": [],
+    "description": "Aluminum alloy, 270° adjustable, anti-slip pads, fits 4-13 inch devices.",
+    "category1": "Electronics",
+    "category2": "Mobile",
+    "category3": "Accessories",
+    "category4": "Stands"
+  },
+  {
+    "productId": "900000064",
+    "title": "Picnic Blanket Waterproof",
+    "brand": "Scuddles",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000064_1.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "OutdoorFun",
+    "shipping": "Free over 30,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 892,
+    "options": [],
+    "description": "150x200cm, 3-layer, waterproof backing, folds into carry bag with handle.",
+    "category1": "Sports",
+    "category2": "Camping",
+    "category3": "Accessories",
+    "category4": "Blankets"
+  },
+  {
+    "productId": "900000065",
+    "title": "Face Mask Reusable Cotton",
+    "brand": "Uniqlo",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000065_1.jpg"
+    ],
+    "price": 5000,
+    "originalPrice": 0,
+    "mallName": "SafeWear",
+    "shipping": "3,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 2103,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L"] },
+      { "name": "Color", "values": ["White", "Gray", "Black"] }
+    ],
+    "description": "3-layer AIRism fabric, washable, breathable, adjustable ear loops.",
+    "category1": "Fashion",
+    "category2": "Accessories",
+    "category3": "Masks",
+    "category4": ""
+  },
+  {
+    "productId": "900000066",
+    "title": "Bluetooth Keyboard Compact",
+    "brand": "Logitech",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000066_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "KeyTech",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 1345,
+    "options": [],
+    "description": "Multi-device pairing, long battery, quiet keys, number pad, Windows/Mac.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Peripherals",
+    "category4": "Keyboards"
+  },
+  {
+    "productId": "900000067",
+    "title": "Water Bottle 1L BPA-Free",
+    "brand": "Nalgene",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000067_1.jpg"
+    ],
+    "price": 13000,
+    "originalPrice": 0,
+    "mallName": "HydroKing",
+    "shipping": "2,500 KRW",
+    "rating": 4.7,
+    "reviewCount": 1892,
+    "options": [
+      { "name": "Color", "values": ["Clear", "Blue", "Green"] }
+    ],
+    "description": "Tritan plastic, leak-proof, wide mouth, measurement markings, dishwasher safe.",
+    "category1": "Sports",
+    "category2": "Hydration",
+    "category3": "Bottles",
+    "category4": ""
+  },
+  {
+    "productId": "900000068",
+    "title": "Scented Candle Lavender 200g",
+    "brand": "Yankee Candle",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000068_1.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "AromaHome",
+    "shipping": "3,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 1123,
+    "options": [],
+    "description": "45-hour burn time, natural soy wax, cotton wick, calming lavender scent.",
+    "category1": "Home",
+    "category2": "Decor",
+    "category3": "Candles",
+    "category4": ""
+  },
+  {
+    "productId": "900000069",
+    "title": "Laptop Sleeve 13 Inch Neoprene",
+    "brand": "Incase",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000069_1.jpg"
+    ],
+    "price": 12000,
+    "originalPrice": 0,
+    "mallName": "TechProtect",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 892,
+    "options": [
+      { "name": "Color", "values": ["Black", "Gray"] }
+    ],
+    "description": "Shock-absorbing neoprene, plush lining, slim profile, water-resistant.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Accessories",
+    "category4": "Sleeves"
+  },
+  {
+    "productId": "900000070",
+    "title": "Sunscreen SPF50+ 50ml",
+    "brand": "Biore",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000070_1.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "SunCare",
+    "shipping": "3,000 KRW",
+    "rating": 4.7,
+    "reviewCount": 2341,
+    "options": [],
+    "description": "UV Aqua Rich, watery gel, no white cast, waterproof, lightweight feel.",
+    "category1": "Beauty",
+    "category2": "Skincare",
+    "category3": "Suncare",
+    "category4": ""
+  },
+  {
+    "productId": "900000071",
+    "title": "Jump Rope Adjustable Speed",
+    "brand": "Survival and Cross",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000071_1.jpg"
+    ],
+    "price": 10000,
+    "originalPrice": 0,
+    "mallName": "FitJump",
+    "shipping": "2,500 KRW",
+    "rating": 4.6,
+    "reviewCount": 1678,
+    "options": [],
+    "description": "Ball bearing handles, steel cable, adjustable length, carry bag.",
+    "category1": "Sports",
+    "category2": "Fitness",
+    "category3": "Cardio",
+    "category4": "Jump Ropes"
+  },
+  {
+    "productId": "900000072",
+    "title": "Wall Art Canvas Print 40x60cm",
+    "brand": "Generic",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000072_1.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 0,
+    "mallName": "ArtGallery",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.5,
+    "reviewCount": 678,
+    "options": [],
+    "description": "High-resolution print, gallery-wrapped canvas, ready to hang, fade-resistant.",
+    "category1": "Home",
+    "category2": "Decor",
+    "category3": "Wall Art",
+    "category4": ""
+  },
+  {
+    "productId": "900000073",
+    "title": "Pet Bed Medium Dog",
+    "brand": "Furhaven",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000073_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "PetComfort",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 1023,
+    "options": [
+      { "name": "Color", "values": ["Gray", "Cream", "Brown"] }
+    ],
+    "description": "Orthopedic foam base, bolster rails, removable washable cover, non-slip bottom.",
+    "category1": "Pet",
+    "category2": "Dogs",
+    "category3": "Beds",
+    "category4": ""
+  },
+  {
+    "productId": "900000074",
+    "title": "USB Flash Drive 128GB",
+    "brand": "SanDisk",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000074_1.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "DataStore",
+    "shipping": "2,500 KRW",
+    "rating": 4.7,
+    "reviewCount": 1892,
+    "options": [],
+    "description": "USB 3.0, up to 130MB/s read, password protection, compact metal design.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Storage",
+    "category4": "USB Drives"
+  },
+  {
+    "productId": "900000075",
+    "title": "Makeup Brush Set 10 Pieces",
+    "brand": "Real Techniques",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000075_1.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "BeautyTools",
+    "shipping": "3,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 2341,
+    "options": [],
+    "description": "Ultra-plush synthetic bristles, includes case, cruelty-free, face & eye brushes.",
+    "category1": "Beauty",
+    "category2": "Makeup",
+    "category3": "Tools",
+    "category4": "Brushes"
+  },
+  {
+    "productId": "900000076",
+    "title": "Cooling Pad for Laptop",
+    "brand": "Havit",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000076_1.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "CoolTech",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 1123,
+    "options": [],
+    "description": "5 fans, adjustable height, RGB lighting, fits up to 17\" laptops, USB powered.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Accessories",
+    "category4": "Cooling"
+  },
+  {
+    "productId": "900000077",
+    "title": "Plant Stand 3-Tier Bamboo",
+    "brand": "Bamworld",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000077_1.jpg"
+    ],
+    "price": 29000,
+    "originalPrice": 0,
+    "mallName": "GreenLiving",
+    "shipping": "Free over 50,000 KRW",
+    "rating": 4.6,
+    "reviewCount": 892,
+    "options": [],
+    "description": "Foldable design, natural bamboo, holds 8 pots, indoor/outdoor, easy assembly.",
+    "category1": "Home",
+    "category2": "Furniture",
+    "category3": "Plant Stands",
+    "category4": ""
+  },
+  {
+    "productId": "900000078",
+    "title": "Car Phone Holder Dashboard",
+    "brand": "iOttie",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000078_1.jpg"
+    ],
+    "price": 13000,
+    "originalPrice": 0,
+    "mallName": "DriveSafe",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 1678,
+    "options": [],
+    "description": "One-touch mechanism, strong suction, telescopic arm, fits 4-6.7\" phones.",
+    "category1": "Automotive",
+    "category2": "Accessories",
+    "category3": "Phone Holders",
+    "category4": ""
+  },
+    {
+    "productId": "900000079",
+    "title": "Eye Cream Anti-Aging 15ml",
+    "brand": "Olay",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000079.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 0,
+    "mallName": "YouthSkin",
+    "shipping": "2,500 KRW",
+    "rating": 4.7,
+    "reviewCount": 1456,
+    "options": [],
+    "description": "Reduces fine lines, dark circles, and puffiness. Retinol + peptide formula, dermatologist-tested, 15ml.",
+    "category1": "Beauty",
+    "category2": "Skincare",
+    "category3": "Eye Care",
+    "category4": ""
+  },
+  {
+    "productId": "900000080",
+    "title": "Resistance Loop Bands Set of 5",
+    "brand": "Fit Simplify",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000080.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "FitBand",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 3891,
+    "options": [],
+    "description": "5 resistance levels (X-Light to X-Heavy), natural latex, includes carry bag and exercise guide.",
+    "category1": "Sports",
+    "category2": "Fitness",
+    "category3": "Strength",
+    "category4": "Bands"
+  },
+  {
+    "productId": "900000081",
+    "title": "Digital Photo Frame 10 Inch",
+    "brand": "Nixplay",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000081.jpg"
+    ],
+    "price": 89000,
+    "originalPrice": 0,
+    "mallName": "MemoryView",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 923,
+    "options": [
+      { "name": "Color", "values": ["Black", "Wood Effect"] }
+    ],
+    "description": "IPS display, 1280x800, WiFi, app control, auto-rotate, motion sensor, 8GB storage.",
+    "category1": "Electronics",
+    "category2": "Home",
+    "category3": "Photo Frames",
+    "category4": ""
+  },
+  {
+    "productId": "900000082",
+    "title": "Coffee Mug Ceramic 350ml",
+    "brand": "Generic",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000082.jpg"
+    ],
+    "price": 8000,
+    "originalPrice": 0,
+    "mallName": "CupJoy",
+    "shipping": "2,500 KRW",
+    "rating": 4.5,
+    "reviewCount": 567,
+    "options": [
+      { "name": "Color", "values": ["White", "Black", "Navy"] }
+    ],
+    "description": "Microwave & dishwasher safe, classic design, comfortable handle, 350ml capacity.",
+    "category1": "Home",
+    "category2": "Kitchen",
+    "category3": "Drinkware",
+    "category4": "Mugs"
+  },
+  {
+    "productId": "900000083",
+    "title": "Running Vest Reflective",
+    "brand": "Proviz",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000083.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "NightRun",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 782,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L", "XL"] }
+    ],
+    "description": "360° reflectivity, lightweight mesh, adjustable fit, zippered pocket, breathable.",
+    "category1": "Sports",
+    "category2": "Running",
+    "category3": "Clothing",
+    "category4": "Vests"
+  },
+  {
+    "productId": "900000084",
+    "title": "HDMI Cable 4K 2m",
+    "brand": "Amazon Basics",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000084.jpg"
+    ],
+    "price": 9000,
+    "originalPrice": 0,
+    "mallName": "CablePro",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 4123,
+    "options": [],
+    "description": "HDMI 2.0, 4K@60Hz, 18Gbps, Ethernet, ARC, gold-plated, braided, 2 meters.",
+    "category1": "Electronics",
+    "category2": "Accessories",
+    "category3": "Cables",
+    "category4": "HDMI"
+  },
+  {
+    "productId": "900000085",
+    "title": "Body Lotion Shea Butter 400ml",
+    "brand": "Nivea",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000085.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "SkinSoft",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 2109,
+    "options": [],
+    "description": "24h deep moisture, rich shea butter, fast-absorbing, for dry skin, 400ml pump bottle.",
+    "category1": "Beauty",
+    "category2": "Skincare",
+    "category3": "Body Care",
+    "category4": "Lotions"
+  },
+  {
+    "productId": "900000086",
+    "title": "Portable SSD 1TB USB-C",
+    "brand": "Samsung",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000086.jpg"
+    ],
+    "price": 129000,
+    "originalPrice": 0,
+    "mallName": "FastStore",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 1567,
+    "options": [
+      { "name": "Color", "values": ["Black", "Silver"] }
+    ],
+    "description": "T7 series, up to 1050MB/s, USB 3.2 Gen2, shock-resistant, password protection, 1TB.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Storage",
+    "category4": "SSD"
+  },
+  {
+    "productId": "900000087",
+    "title": "Throw Pillow 45x45cm",
+    "brand": "MIULEE",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000087.jpg"
+    ],
+    "price": 12000,
+    "originalPrice": 0,
+    "mallName": "CozyDecor",
+    "shipping": "2,500 KRW",
+    "rating": 4.7,
+    "reviewCount": 3341,
+    "options": [
+      { "name": "Color", "values": ["Gray", "Beige", "Navy"] }
+    ],
+    "description": "Soft corduroy, invisible zipper, machine washable, includes insert, 45x45cm.",
+    "category1": "Home",
+    "category2": "Decor",
+    "category3": "Pillows",
+    "category4": ""
+  },
+  {
+    "productId": "900000088",
+    "title": "Cycling Gloves Gel Padded",
+    "brand": "Giro",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000088.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "BikeGrip",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 892,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L"] }
+    ],
+    "description": "Gel padding, moisture-wicking, touchscreen compatible, pull tabs, half-finger.",
+    "category1": "Sports",
+    "category2": "Cycling",
+    "category3": "Accessories",
+    "category4": "Gloves"
+  },
+  {
+    "productId": "900000089",
+    "title": "Smart Thermostat Wi-Fi",
+    "brand": "Google Nest",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000089.jpg"
+    ],
+    "price": 129000,
+    "originalPrice": 0,
+    "mallName": "SmartHome",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 2103,
+    "options": [],
+    "description": "Learning thermostat, remote control via app, energy history, works with Google Assistant.",
+    "category1": "Electronics",
+    "category2": "Smart Home",
+    "category3": "Thermostats",
+    "category4": ""
+  },
+  {
+    "productId": "900000090",
+    "title": "Hair Dryer Ionic 1800W",
+    "brand": "Revlon",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000090.jpg"
+    ],
+    "price": 39000,
+    "originalPrice": 0,
+    "mallName": "StylePro",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 2789,
+    "options": [],
+    "description": "Ionic technology, 3 heat/2 speed, cool shot, concentrator & diffuser, lightweight.",
+    "category1": "Beauty",
+    "category2": "Hair",
+    "category3": "Styling",
+    "category4": "Dryers"
+  },
+  {
+    "productId": "900000091",
+    "title": "Car Vacuum Cordless Handheld",
+    "brand": "Black+Decker",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000091.jpg"
+    ],
+    "price": 49000,
+    "originalPrice": 0,
+    "mallName": "CleanDrive",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 1678,
+    "options": [],
+    "description": "16V, 20 min runtime, crevice tool, brush, washable filter, charging base.",
+    "category1": "Automotive",
+    "category2": "Cleaning",
+    "category3": "Vacuums",
+    "category4": ""
+  },
+  {
+    "productId": "900000092",
+    "title": "Notebook A5 Dotted",
+    "brand": "Leuchtturm1917",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000092.jpg"
+    ],
+    "price": 8000,
+    "originalPrice": 0,
+    "mallName": "WriteEasy",
+    "shipping": "2,500 KRW",
+    "rating": 4.9,
+    "reviewCount": 2341,
+    "options": [
+      { "name": "Color", "values": ["Black", "Navy", "Emerald"] }
+    ],
+    "description": "A5, 251 numbered pages, dotted, ink-proof paper, expandable pocket, 2 bookmarks.",
+    "category1": "Office",
+    "category2": "Supplies",
+    "category3": "Notebooks",
+    "category4": ""
+  },
+  {
+    "productId": "900000093",
+    "title": "Bluetooth Tracker Key Finder",
+    "brand": "Tile",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000093.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "FindIt",
+    "shipping": "Free",
+    "rating": 4.5,
+    "reviewCount": 1892,
+    "options": [],
+    "description": "Mate (2022), 250ft range, loud alarm, water-resistant, works with iOS/Android.",
+    "category1": "Electronics",
+    "category2": "Accessories",
+    "category3": "Trackers",
+    "category4": ""
+  },
+  {
+    "productId": "900000094",
+    "title": "Area Rug 120x180cm",
+    "brand": "Safavieh",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000094.jpg"
+    ],
+    "price": 49000,
+    "originalPrice": 0,
+    "mallName": "FloorArt",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 1123,
+    "options": [
+      { "name": "Color", "values": ["Gray", "Ivory", "Blue"] }
+    ],
+    "description": "Machine-woven, polypropylene, non-shedding, medium pile, stain-resistant, 120x180cm.",
+    "category1": "Home",
+    "category2": "Decor",
+    "category3": "Rugs",
+    "category4": ""
+  },
+  {
+    "productId": "900000095",
+    "title": "Posture Corrector Adjustable",
+    "brand": "Upright",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000095.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "BackStraight",
+    "shipping": "2,500 KRW",
+    "rating": 4.4,
+    "reviewCount": 1678,
+    "options": [
+      { "name": "Size", "values": ["S/M", "L/XL"] }
+    ],
+    "description": "Improves posture, reduces back pain, breathable, discreet under clothes.",
+    "category1": "Health",
+    "category2": "Wellness",
+    "category3": "Posture",
+    "category4": ""
+  },
+  {
+    "productId": "900000096",
+    "title": "Wireless Mouse Ergonomic",
+    "brand": "Logitech",
+    "maker": "Logitech",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000096.jpg"
+    ],
+    "price": 22000,
+    "originalPrice": 0,
+    "mallName": "ClickEasy",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 2891,
+    "options": [
+      { "name": "Color", "values": ["Black", "Graphite"] }
+    ],
+    "description": "Vertical design, 57° angle, 4000 DPI, silent clicks, 10-month battery life.",
+    "category1": "Electronics",
+    "category2": "Computer",
+    "category3": "Peripherals",
+    "category4": "Mice"
+  },
+  {
+    "productId": "900000097",
+    "title": "Essential Oil Set 6x10ml",
+    "brand": "Plant Therapy",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000097.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 0,
+    "mallName": "AromaPure",
+    "shipping": "Free",
+    "rating": 4.8,
+    "reviewCount": 1987,
+    "options": [],
+    "description": "Lavender, Peppermint, Eucalyptus, Tea Tree, Orange, Lemon. 100% pure, GC/MS tested.",
+    "category1": "Beauty",
+    "category2": "Wellness",
+    "category3": "Aromatherapy",
+    "category4": ""
+  },
+  {
+    "productId": "900000098",
+    "title": "Kitchen Scale Digital 5kg",
+    "brand": "Etekcity",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000098.jpg"
+    ],
+    "price": 15000,
+    "originalPrice": 0,
+    "mallName": "CookSmart",
+    "shipping": "Free",
+    "rating": 4.7,
+    "reviewCount": 4123,
+    "options": [],
+    "description": "0.1g accuracy, tare function, stainless steel, units: g/lb/oz/ml, auto-off.",
+    "category1": "Home",
+    "category2": "Kitchen",
+    "category3": "Tools",
+    "category4": "Scales"
+  },
+  {
+    "productId": "900000099",
+    "title": "Sleep Headphones Bluetooth",
+    "brand": "SleepPhones",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000099.jpg"
+    ],
+    "price": 25000,
+    "originalPrice": 0,
+    "mallName": "DreamSound",
+    "shipping": "Free",
+    "rating": 4.6,
+    "reviewCount": 1456,
+    "options": [
+      { "name": "Size", "values": ["S", "M", "L"] },
+      { "name": "Color", "values": ["Gray", "Black"] }
+    ],
+    "description": "Wireless headband, ultra-thin speakers, 24+ hour battery, washable (remove module).",
+    "category1": "Electronics",
+    "category2": "Audio",
+    "category3": "Headphones",
+    "category4": "Sleep"
+  },
+  {
+    "productId": "900000100",
+    "title": "Travel Adapter Universal",
+    "brand": "Ceptics",
+    "maker": "",
+    "images": [
+      "https://shopping-phinf.pstatic.net/main_9000000/900000100.jpg"
+    ],
+    "price": 18000,
+    "originalPrice": 0,
+    "mallName": "GlobalPlug",
+    "shipping": "2,500 KRW",
+    "rating": 4.7,
+    "reviewCount": 2341,
+    "options": [],
+    "description": "Works in 200+ countries, 2 USB-A + 1 USB-C, surge protection, compact design.",
+    "category1": "Travel",
+    "category2": "Accessories",
+    "category3": "Adapters",
+    "category4": ""
+  }
+]
+ 
