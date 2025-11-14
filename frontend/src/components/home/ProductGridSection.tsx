@@ -16,64 +16,70 @@ const categories = [
 ];
 
 interface ApiProductItem {
-  productId: string;
-  title: string;
-  image: string;
-  lprice: string;
-  hprice?: string;
-  brand: string;
-  mallName: string;
-  category1: string;
+  id: string;
+  name: string;
+  imageUrl: string;
+  //   lprice: string;
+  //   hprice?: string;
+  //   brand: string;
+  //   mallName: string;
+  //   category1: string;
 }
 
 const mapApiToCardProps = (item: ApiProductItem): ProductCardProps => {
-  const finalPrice = parseInt(item.lprice, 10);
-  const originalPrice = item.hprice ? parseInt(item.hprice, 10) : 0;
-  const discountRate =
-    originalPrice > 0 && finalPrice < originalPrice
-      ? Math.round(((originalPrice - finalPrice) / originalPrice) * 100)
-      : undefined;
+  //   const finalPrice = parseInt(item.lprice, 10);
+  //   const originalPrice = item.hprice ? parseInt(item.hprice, 10) : 0;
+  //   const discountRate =
+  //     originalPrice > 0 && finalPrice < originalPrice
+  //       ? Math.round(((originalPrice - finalPrice) / originalPrice) * 100)
+  //       : undefined;
 
   return {
-    id: item.productId,
-    name: item.title.replace(/<b>|<\/b>/g, ""),
-    imageUrl: item.image,
-    tag: item.brand,
-    finalPrice,
-    originalPrice: originalPrice > 0 ? originalPrice : undefined,
-    discountRate,
+    id: item.id,
+    name: item.name.replace(/<b>|<\/b>/g, ""),
+    imageUrl: item.imageUrl,
+    tag: undefined,
+    finalPrice: 0,
+    originalPrice: /*originalPrice > 0 ? originalPrice :*/ undefined,
+    discountRate: undefined,
   };
 };
 
-const categoryMap: Record<string, string> = {
-  "가구/인테리어": "Home",
-  "디지털/가전": "Electronics",
-  "생활/건강": "Health",
-  "스포츠/레저": "Sports",
-  식품: "Food",
-  "출산/육아": "Kids",
-  패션의류: "Fashion",
-  패션잡화: "Fashion",
-  "화장품/미용": "Beauty",
-};
+// const categoryMap: Record<string, string> = {
+//   "가구/인테리어": "Home",
+//   "디지털/가전": "Electronics",
+//   "생활/건강": "Health",
+//   "스포츠/레저": "Sports",
+//   식품: "Food",
+//   "출산/육아": "Kids",
+//   패션의류: "Fashion",
+//   패션잡화: "Fashion",
+//   "화장품/미용": "Beauty",
+// };
 
 const ProductGridSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState<ProductCardProps[]>([]);
   const [loading, setLoading] = useState(false);
   const totalPages = categories.length;
+  const ITEMS_PER_PAGE = 12;
 
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const category = categoryMap[categories[currentPage - 1]];
+        const response = await axios.get("/api/products");
+        // const apiCategory = categoryMap[categories[currentPage - 1]];
+        // const filteredItems = (response.data as ApiProductItem[]).filter(
+        //   (item) => item.category1 === apiCategory
+        // // );
+        // setProducts(filteredItems.slice(0, 12).map(mapApiToCardProps));
 
-        const response = await axios.get("/api/products", {
-          params: { category, page: 1, limit: 12 },
-        });
-
-        setProducts(response.data.items.map(mapApiToCardProps));
+        const allItems = response.data as ApiProductItem[];
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        const itemsForThisPage = allItems.slice(startIndex, endIndex);
+        setProducts(itemsForThisPage.map(mapApiToCardProps));
       } catch (error) {
         console.error("Error fetching products:", error);
         setProducts([]);

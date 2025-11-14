@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { type Product } from "../../types/product";
 import { Link } from "react-router-dom";
 
@@ -144,8 +144,14 @@ const ProductBenefits: React.FC = () => (
   </div>
 );
 
+interface SelectedItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
 const SelectedOptionsList: React.FC<{
-  items: { id: string; name: string; price: number; quantity: number }[];
+  items: SelectedItem[];
   onRemove: (id: string) => void;
   onQuantityChange: (id: string, newQty: number) => void;
 }> = ({ items, onRemove, onQuantityChange }) => (
@@ -202,35 +208,61 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
   const [selectedOptions, setSelectedOptions] = useState<
     Record<string, string>
   >({});
-  const [addedItems, setAddedItems] = useState<any[]>([]);
+  const [addedItems, setAddedItems] = useState<SelectedItem[]>([]);
 
   const handleOptionChange = (name: string, value: string) => {
-    if (value) {
-      setAddedItems((prev) => [
-        ...prev,
-        {
-          id: `${name}-${value}`,
-          name: `${name}: ${value}`,
-          price: product.price,
-          quantity: 1,
-        },
-      ]);
-      setSelectedOptions((prev) => ({ ...prev, [name]: "" }));
-    }
+    setSelectedOptions((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleRemoveItem = (id: string) => {
     setAddedItems((prev) => prev.filter((item) => item.id !== id));
   };
-
   const handleQuantityChange = (id: string, newQty: number) => {
-    if (newQty < 1) return;
+    if (newQty < 1) {
+      handleRemoveItem(id);
+      return;
+    }
     setAddedItems((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, quantity: newQty } : item
       )
     );
   };
+
+  useEffect(() => {
+    const allOptionsSelected = product.options.every(
+      (opt) => selectedOptions[opt.name]
+    );
+
+    if (allOptionsSelected && product.options.length > 0) {
+      const optionNames = product.options.map(
+        (opt) => selectedOptions[opt.name]
+      );
+      const combinedName = `${product.title} - (${optionNames.join(", ")})`;
+      const combinedId = `${product.productId}-${optionNames.join("-")}`;
+
+      const existingItem = addedItems.find((item) => item.id === combinedId);
+
+      if (existingItem) {
+        handleQuantityChange(existingItem.id, existingItem.quantity + 1);
+      } else {
+        setAddedItems((prev) => [
+          ...prev,
+          {
+            id: combinedId,
+            name: combinedName,
+            price: product.price,
+            quantity: 1,
+          },
+        ]);
+      }
+
+      setSelectedOptions({});
+    }
+  }, [selectedOptions, product, addedItems]);
 
   const discountPercent = product.originalPrice
     ? Math.round(
@@ -281,14 +313,6 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
       </div>
 
       <ProductBenefits />
-
-      <div
-        className="text-sm text-gray-300 border-t border-b py-4"
-        style={{ borderColor: "var(--glass-border)" }}
-      >
-        <span className="w-20 inline-block font-bold">택배배송</span>
-        <span>{product.shipping}</span>
-      </div>
 
       <div className="flex flex-col gap-3 my-4">
         {product.options.map((opt) => (

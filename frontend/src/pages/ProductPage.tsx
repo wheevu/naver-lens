@@ -14,13 +14,6 @@ const storeDataA: StoreData = {
   themeColor: "#5f46f3",
   buttonColor: "#5f46f3",
 };
-const storeDataB: StoreData = {
-  name: "드림마켓",
-  followers: 231477,
-  avatarUrl: "https://placehold.co/84x84/111111/FFFFFF?text=Dream",
-  themeColor: "#FFFFFF",
-  buttonColor: "#FEE500",
-};
 
 const StorePage = () => {
   const { productId } = useParams<{ productId: string }>();
