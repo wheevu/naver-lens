@@ -27,6 +27,7 @@ dotenv.config();
 
 import productRoutes from './src/routes/productRoutes.js';
 import summarizeRoutes from './src/routes/summarizeRoutes.js';
+import { initializeCache } from './src/services/productCache.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -57,9 +58,19 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Naver Lens API server listening on port ${PORT}`);
-});
+async function startServer() {
+  try {
+    await initializeCache();
+
+    app.listen(PORT, () => {
+      console.log(`Naver Lens API server listening on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
+
+startServer();
 
 
