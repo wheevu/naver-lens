@@ -69,18 +69,17 @@ const ProductGridSection = () => {
       setLoading(true);
       try {
         const response = await axios.get("/api/products");
-        // const apiCategory = categoryMap[categories[currentPage - 1]];
-        // const filteredItems = (response.data as ApiProductItem[]).filter(
-        //   (item) => item.category1 === apiCategory
-        // // );
-        // setProducts(filteredItems.slice(0, 12).map(mapApiToCardProps));
+        console.log("API Response:", response.data); // ← remove later
 
-        const allItems = response.data as ApiProductItem[];
+        // --- FIX: Use response.data.data ---
+        const allItems = (response.data as { data: ApiProductItem[] }).data;
+
         const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
         const endIndex = startIndex + ITEMS_PER_PAGE;
         const itemsForThisPage = allItems.slice(startIndex, endIndex);
+
         setProducts(itemsForThisPage.map(mapApiToCardProps));
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error fetching products:", error);
         setProducts([]);
       } finally {

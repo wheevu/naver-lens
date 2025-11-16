@@ -7,7 +7,7 @@ const isDev = true;
 const instance = axios.create({
   baseURL: isDev
     ? "http://localhost:3001" // Development
-    : "https://naver-lens.onrender.com/", // Production
+    : "https://naver-lens.onrender.com", // Production
 });
 
 // instance.defaults.withCredentials = true;
