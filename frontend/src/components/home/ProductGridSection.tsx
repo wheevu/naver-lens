@@ -3,130 +3,157 @@ import Pagination from "../common/Pagination";
 import ProductCard, { type ProductCardProps } from "../common/ProductCard";
 import axios from "../../api/axios";
 
-const categories = [
-  "가구/인테리어",
-  "디지털/가전",
-  "생활/건강",
-  "스포츠/레저",
-  "식품",
-  "출산/육아",
-  "패션의류",
-  "패션잡화",
-  "화장품/미용",
-];
+// Korean UI → English API value
+const categoryMap: Record<string, string> = {
+  "디지털/가전": "Electronics",
+  "생활/건강": "Health",
+  "가구/인테리어": "Furniture",
+  "스포츠/레저": "Sports",
+  식품: "Food",
+  "출산/육아": "Kids",
+  패션의류: "Fashion",
+  "화장품/미용": "Beauty",
+  여행: "Travel",
+  사무용품: "Office",
+  자동차: "Automotive",
+  반려동물: "Pet",
+  가구: "Furniture",
+} as const;
 
-interface ApiProductItem {
+type KoreanCategory = keyof typeof categoryMap;
+const koreanCategories = Object.keys(categoryMap) as KoreanCategory[];
+
+// API types
+interface ApiProduct {
   id: string;
   name: string;
   imageUrl: string;
-  //   lprice: string;
-  //   hprice?: string;
-  //   brand: string;
-  //   mallName: string;
-  //   category1: string;
+  price: number;
+  originalPrice: number;
+  brand: string;
+  mallName: string;
+  rating: number;
+  reviewCount: number;
+  categories: {
+    category1: string;
+    category2: string;
+    category3: string;
+    category4: string;
+  };
+  descriptionPreview: string;
 }
 
-const mapApiToCardProps = (item: ApiProductItem): ProductCardProps => {
-  //   const finalPrice = parseInt(item.lprice, 10);
-  //   const originalPrice = item.hprice ? parseInt(item.hprice, 10) : 0;
-  //   const discountRate =
-  //     originalPrice > 0 && finalPrice < originalPrice
-  //       ? Math.round(((originalPrice - finalPrice) / originalPrice) * 100)
-  //       : undefined;
+interface ApiResponse {
+  data: ApiProduct[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+}
+
+// Mapper
+const mapApiToCardProps = (item: ApiProduct): ProductCardProps => {
+  const finalPrice = item.price;
+  const originalPrice = item.originalPrice > 0 ? item.originalPrice : undefined;
+  const discountRate =
+    originalPrice && finalPrice < originalPrice
+      ? Math.round(((originalPrice - finalPrice) / originalPrice) * 100)
+      : undefined;
 
   return {
     id: item.id,
     name: item.name.replace(/<b>|<\/b>/g, ""),
     imageUrl: item.imageUrl,
     tag: undefined,
-    finalPrice: 0,
-    originalPrice: /*originalPrice > 0 ? originalPrice :*/ undefined,
-    discountRate: undefined,
+    finalPrice,
+    originalPrice,
+    discountRate,
   };
 };
 
-// const categoryMap: Record<string, string> = {
-//   "가구/인테리어": "Home",
-//   "디지털/가전": "Electronics",
-//   "생활/건강": "Health",
-//   "스포츠/레저": "Sports",
-//   식품: "Food",
-//   "출산/육아": "Kids",
-//   패션의류: "Fashion",
-//   패션잡화: "Fashion",
-//   "화장품/미용": "Beauty",
-// };
-
 const ProductGridSection = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [products, setProducts] = useState<ProductCardProps[]>([]);
+  const [catIdx, setCatIdx] = useState(0);
+  const [page, setPage] = useState(1);
+  const [allProducts, setAllProducts] = useState<ApiProduct[]>([]);
+  const [displayed, setDisplayed] = useState<ProductCardProps[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
-  const totalPages = categories.length;
+
+  const selectedKorean = koreanCategories[catIdx];
+  const selectedEnglish = categoryMap[selectedKorean];
   const ITEMS_PER_PAGE = 12;
 
+  // 1. Load **all** products once
   useEffect(() => {
-    const fetchProducts = async () => {
+    const loadAll = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/api/products");
-        console.log("API Response:", response.data); // ← remove later
-
-        // --- FIX: Use response.data.data ---
-        const allItems = (response.data as { data: ApiProductItem[] }).data;
-
-        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-        const endIndex = startIndex + ITEMS_PER_PAGE;
-        const itemsForThisPage = allItems.slice(startIndex, endIndex);
-
-        setProducts(itemsForThisPage.map(mapApiToCardProps));
-      } catch (error: any) {
-        console.error("Error fetching products:", error);
-        setProducts([]);
+        const res = await axios.get<ApiResponse>("/api/products");
+        setAllProducts(res.data.data);
+      } catch (err) {
+        console.error("load all error:", err);
+        setAllProducts([]);
       } finally {
         setLoading(false);
       }
     };
+    loadAll();
+  }, []);
 
-    fetchProducts();
-  }, [currentPage]);
+  // 2. Filter + paginate whenever category or page changes
+  useEffect(() => {
+    const filtered = allProducts.filter(
+      (p) => p.categories.category1 === selectedEnglish
+    );
 
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
+    const total = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+    setTotalPages(total || 1);
+
+    const start = (page - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    const pageItems = filtered.slice(start, end).map(mapApiToCardProps);
+
+    setDisplayed(pageItems);
+    // reset page if it exceeds new total
+    if (page > total && total > 0) setPage(total);
+  }, [allProducts, catIdx, page, selectedEnglish]);
+
+  const handleCategory = (idx: number) => {
+    setCatIdx(idx);
+    setPage(1); // always start at page 1 for new category
   };
+  const handlePage = (p: number) => setPage(p);
 
   return (
-    <div
-      className="w-full py-10"
-      style={{ fontFamily: "var(--font-secondary)" }}
-    >
+    <div className="w-full py-10" style={{ fontFamily: "var(--font-secondary)" }}>
       <div className="mb-1.5">
         <h3 className="text-2xl font-bold">
-          <span style={{ color: "var(--naver-green)" }}>
-            {categories[currentPage - 1]}
-          </span>
+          <span style={{ color: "var(--naver-green)" }}>{selectedKorean}</span>
           <span className="text-white"> 상품 어떠세요?</span>
         </h3>
       </div>
 
       <div className="flex items-center gap-1.5 overflow-x-auto py-4">
-        {categories.map((category, index) => {
-          const pageNum = index + 1;
-          const isActive = pageNum === currentPage;
-
+        {koreanCategories.map((kor, idx) => {
+          const active = idx === catIdx;
           return (
             <button
-              key={category}
-              onClick={() => handlePageChange(pageNum)}
+              key={kor}
+              onClick={() => handleCategory(idx)}
               className={`px-3 h-10 rounded-[20px] text-xs font-bold whitespace-nowrap transition-colors ${
-                isActive ? "text-white" : "text-gray-400 hover:text-white"
+                active ? "text-white" : "text-gray-400 hover:text-white"
               }`}
               style={{
-                background: isActive ? "var(--naver-green)" : "var(--glass-bg)",
-                border: isActive ? "none" : "1px solid var(--glass-border)",
+                background: active ? "var(--naver-green)" : "var(--glass-bg)",
+                border: active ? "none" : "1px solid var(--glass-border)",
                 borderRadius: "var(--radius-lg)",
               }}
             >
-              {category}
+              {kor}
             </button>
           );
         })}
@@ -137,11 +164,14 @@ const ProductGridSection = () => {
           <div className="absolute inset-0 flex justify-center items-center">
             <p className="text-white text-lg">Đang tải...</p>
           </div>
+        ) : displayed.length === 0 ? (
+          <div className="col-span-full text-center text-gray-400">
+            이 카테고리에 상품이 없습니다.
+          </div>
         ) : (
-          products.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))
+          displayed.map((p) => <ProductCard key={p.id} {...p} />)
         )}
+
         <div
           className="absolute left-0 bottom-0 mb-4 ml-4 px-1.5 py-0.5 rounded-md text-xs font-bold"
           style={{
@@ -154,11 +184,13 @@ const ProductGridSection = () => {
         </div>
       </div>
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={handlePage}
+        />
+      )}
     </div>
   );
 };
