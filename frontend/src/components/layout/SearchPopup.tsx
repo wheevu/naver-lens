@@ -5,10 +5,11 @@ import axios from "../../api/axios";
 
 interface Product {
   id: string;
-  title: string;
-  images: string[];
+  name: string;  
+  imageUrl?: string;  
   price: number;
   originalPrice: number;
+  brand?: string;
   mallName?: string;
 }
 
@@ -17,9 +18,7 @@ interface SearchPopupProps {
   onClose: () => void;
 }
 
-const mockKeywords = [
-  "나이키", "아디다스", "자라", "패딩", "아이폰", "에어팟", "맥북", "갤럭시"
-];
+const mockKeywords = ["나이키", "아디다스", "패딩", "아이폰", "에어팟", "갤럭시", "자라", "루이비통"];
 
 const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
   const [results, setResults] = useState<Product[]>([]);
@@ -33,15 +32,15 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
 
     setLoading(true);
     try {
-      const res = await axios.get("/api/products"); // bỏ generic tạm
-      const products = res.data.data || []; // ← LẤY .data.data
+      const res = await axios.get<{ data: Product[] }>("/api/products");
+      const products = res.data.data || [];
 
       const filtered = products
-        .filter((p: any) =>
+        .filter((p) =>
           p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          p.title?.toLowerCase().includes(searchTerm.toLowerCase())
+          p.brand?.toLowerCase().includes(searchTerm.toLowerCase())
         )
-        .slice(0, 6);
+        .slice(0, 8);
 
       setResults(filtered);
     } catch (err) {
@@ -53,10 +52,7 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      searchProducts(query);
-    }, 300); // debounce
-
+    const timer = setTimeout(() => searchProducts(query), 300);
     return () => clearTimeout(timer);
   }, [query, searchProducts]);
 
@@ -70,22 +66,20 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
         fontFamily: "var(--font-secondary)",
       }}
     >
-      <div className="p-5">
-        {/* Search Results */}
+      <div className="p-5 max-h-96 overflow-y-auto">
+        {/* Kết quả tìm kiếm */}
         {query && (
-          <div className="mb-5">
-            <h3 className="text-sm font-semibold text-gray-400 mb-3">
-              검색 결과
-            </h3>
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-gray-400 mb-3">검색 결과</h3>
 
             {loading ? (
-              <div className="text-center py-8 text-gray-400">검색 중...</div>
+              <div className="text-center py-8 text-gray-300">검색 중...</div>
             ) : results.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
-                "{query}"에 대한 상품이 없습니다.
+                "{query}"에 맞는 상품이 없습니다.
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {results.map((product) => {
                   const discount = product.originalPrice > product.price
                     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
@@ -98,17 +92,23 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
                       onClick={onClose}
                       className="block group"
                     >
-                      <div className="bg-gray-800/50 rounded-lg overflow-hidden border border-gray-700 hover:border-purple-500 transition-all">
+                      <div className="bg-gray-800/60 rounded-lg overflow-hidden border border-gray-700 hover:border-purple-500 transition-all duration-300">
                         <img
-                          src={product.images?.[0] || "https://via.placeholder.com/300x300/1a1a1a/666?text=No+Image"}
-                          alt={product.title}
-                          className="w-full h-32 object-cover group-hover:scale-105 transition-transform"
+                          src={product.imageUrl || "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image"}
+                          alt={product.name}
+                          className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.currentTarget.src = "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image";
+                          }}
                         />
                         <div className="p-3">
-                          <p className="text-white text-xs line-clamp-2 font-medium">
-                            {product.title}
+                          <p className="text-white text-xs line-clamp-2 font-medium leading-tight">
+                            {product.name}
                           </p>
-                          <div className="mt-2 flex items-center gap-1">
+                          {product.brand && (
+                            <p className="text-gray-400 text-xs mt-1">{product.brand}</p>
+                          )}
+                          <div className="mt-2 flex items-center gap-1.5">
                             {discount > 0 && (
                               <span className="text-green-400 font-bold text-sm">
                                 {discount}%
@@ -128,24 +128,20 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
           </div>
         )}
 
-        {/* Recommended Keywords */}
+        {/* 추천 검색어 */}
         <div className="pt-4 border-t border-gray-700">
-          <h3 className="text-sm font-semibold text-gray-400 mb-3">
-            추천 검색어
-          </h3>
+          <h3 className="text-sm font-semibold text-gray-400 mb-3">추천 검색어</h3>
           <div className="flex flex-wrap gap-2">
             {mockKeywords.map((kw) => (
               <button
                 key={kw}
-                className="px-4 py-2 rounded-full text-sm transition-all hover:bg-purple-600 hover:text-white"
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-purple-600 hover:text-white"
                 style={{
-                  background: "rgba(147, 51, 234, 0.1)",
-                  color: "#a78bfa",
+                  background: "rgba(147, 51, 234, 0.15)",
+                  color: "#c4b5fd",
+                  border: "1px solid rgba(147, 51, 234, 0.3)",
                 }}
-                onClick={() => {
-                  // You can set input value here if you pass setQuery
-                  onClose();
-                }}
+                onClick={onClose}
               >
                 {kw}
               </button>
@@ -153,12 +149,11 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="flex justify-between items-center pt-4 mt-4 border-t border-gray-700">
-          <span className="text-xs text-gray-500">자동완성 끄기</span>
+          <span className="text-xs text-gray-500">자동저장 끄기</span>
           <button
             onClick={onClose}
-            className="text-xs font-medium text-gray-400 hover:text-white"
+            className="text-xs font-medium text-gray-400 hover:text-white transition"
           >
             닫기
           </button>
