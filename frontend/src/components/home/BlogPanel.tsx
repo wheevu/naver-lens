@@ -31,6 +31,7 @@ interface BlogPanelProps {
 }
 
 const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
+  console.log('blog panel: ', products) // id undefined
   return (
     <div
       className="w-full flex flex-col rounded-lg overflow-hidden"
@@ -40,6 +41,7 @@ const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
         borderRadius: "var(--radius-lg)",
       }}
     >
+      {/* Blog header */}
       <Link to={blog.link} className="relative w-full h-44 group">
         <img
           src={blog.bgImageUrl}
@@ -47,10 +49,9 @@ const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
           className="absolute inset-0 w-full h-full object-cover backdrop-blur-lg"
         />
         <div
-          className="absolute inset-0 bg-linear-to-b from-black/50 to-black/20"
+          className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20"
           style={{ backdropFilter: "blur(8px)" }}
         />
-
         <div className="absolute inset-0 p-6 flex flex-col justify-start">
           <div className="flex items-center">
             <span
@@ -59,9 +60,7 @@ const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
             >
               <BlogTagIcon />
             </span>
-            <span className="ml-2 text-sm text-white/70">
-              by. {blog.author}
-            </span>
+            <span className="ml-2 text-sm text-white/70">by. {blog.author}</span>
           </div>
 
           <div className="flex justify-between items-end mt-2 grow">
@@ -84,9 +83,10 @@ const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
         </div>
       </Link>
 
+      {/* Products – each has a unique key */}
       <div className="flex flex-col gap-3 p-7">
-        {products.map((product) => (
-          <ProductListItem key={product.id} {...product} />
+        {products.map((p) => (
+          <ProductListItem key={p.id} {...p} />
         ))}
       </div>
     </div>
