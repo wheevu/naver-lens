@@ -31,7 +31,7 @@ interface BlogPanelProps {
 }
 
 const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
-  console.log('products panel: ', products) // id undefined
+  console.log('blog panel: ', products) // id undefined
   return (
     <div
       className="w-full flex flex-col rounded-lg overflow-hidden"
