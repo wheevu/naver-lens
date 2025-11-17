@@ -138,3 +138,23 @@ git add .
 git commit -m "your message"
 git push origin backend
 ```
+
+### `vercel.json` if want to deploy on vercel
+```bash
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "server.js"
+        }
+    ]
+
+}
+```
