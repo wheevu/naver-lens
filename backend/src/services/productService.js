@@ -1,22 +1,49 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { readFile } from 'fs/promises';
+// src/services/productService.js
 
-// Get __dirname equivalent in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Resolve data file paths relative to this service file
-const PRODUCTS_DETAILS_FILE_PATH = path.join(__dirname, '..', '..', 'data', 'products-details.json');
+import Product from '../models/productModel.js'; 
 
 /**
- * Reads and parses the products-details JSON file.
- * Expected shape: Array<ProductDetails>
- * Returns: Promise<Array<ProductDetails>>
+ * Fetches products from the database and formats the result 
+ * to match the expected API response structure (data: [...], pagination: {...}).
+ * * NOTE: This function is now creating the full API response object, 
+ * which should ideally be done in the controller/route handler.
+ * * Returns: Promise<{ data: Array<ProductDetails>, pagination: object }>
  */
 async function loadDetailsProducts() {
-  const raw = await readFile(PRODUCTS_DETAILS_FILE_PATH, 'utf-8');
-  return JSON.parse(raw);
+    try {
+        // 1. Fetch all products
+        const products = await Product.find({}); 
+        console.log(`[SERVICE LOG] Products fetched from DB: ${products.length}`);
+        
+        // 2. Calculate simple pagination data
+        const total = products.length;
+        const limit = 20; // Assuming default limit used by frontend/controller
+        const totalPages = Math.ceil(total / limit);
+
+        // 3. Return the data WRAPPED in the expected API response object
+        return {
+            data: products,
+            pagination: {
+                page: 1,
+                limit: limit,
+                total: total,
+                totalPages: totalPages,
+                hasNext: false, // Simple implementation
+                hasPrev: false, // Simple implementation
+            }
+        };
+
+    } catch (error) {
+        console.error('Error fetching products from MongoDB:', error);
+        
+        // Return a response object with an empty data array on failure, 
+        // preventing the server from crashing and matching the expected API shape.
+        throw {
+             error: 'Could not retrieve products from database.',
+             data: [],
+             pagination: { total: 0, totalPages: 0 }
+        };
+    }
 }
 
 export { loadDetailsProducts };
