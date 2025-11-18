@@ -4,14 +4,17 @@ import Pagination from "../common/Pagination";
 import axios from "../../api/axios";
 
 /* ------------------------------------------------------------------ */
-/* API Types – exactly the shape of your real endpoint               */
+/* API Types – exactly the shape of your real endpoint               */
 /* ------------------------------------------------------------------ */
 interface ApiProduct {
   id: string;
-  title: string;
+  // title property seems to be the 'name' in console logs, 
+  // but let's assume 'name' is the correct property based on the log structure
+  name: string; // <-- Changed 'title' to 'name' to match console log keys
   brand: string;
   maker: string;
-  images: string[];
+  // images: string[]; // <-- Removed array of images as it's not in the logs
+  imageUrl: string; // <-- Added imageUrl to match console logs
   price: number;
   originalPrice: number;
   mallName: string;
@@ -32,9 +35,6 @@ interface ApiResponse {
   pagination?: any;
 }
 
-/* ------------------------------------------------------------------ */
-/* Static blogs (feel free to fetch later)                           */
-/* ------------------------------------------------------------------ */
 type Blog = {
   author: string;
   title: string;
@@ -74,9 +74,6 @@ const blogs: Blog[] = [
   },
 ];
 
-/* ------------------------------------------------------------------ */
-/* ProductListItem props – no onClick any more (Link does it)        */
-/* ------------------------------------------------------------------ */
 export type ProductListItemProps = {
   id: string;
   name: string;
@@ -87,14 +84,11 @@ export type ProductListItemProps = {
   shippingFee?: number;
 };
 
-/* ------------------------------------------------------------------ */
-/* Mapper – turn API product → UI props                              */
-/* ------------------------------------------------------------------ */
 const MAX_DESC_LEN = 80;
 
 const mapProduct = (p: ApiProduct): ProductListItemProps => {
-  console.log("Raw product:", p); // ← Add this
-  console.log("productId:", p.id); // ← Add this
+  console.log("Raw product:", p);
+  console.log("productId:", p.id);
   const raw = p.descriptionPreview ?? "";
   const name =
     raw.length > MAX_DESC_LEN ? raw.slice(0, MAX_DESC_LEN) + "…" : raw;
@@ -109,10 +103,13 @@ const mapProduct = (p: ApiProduct): ProductListItemProps => {
     ? 0
     : Number(p.shipping?.replace(/[^\d]/g, "")) || undefined;
 
+  console.log('p diddy', p)
+
   return {
     id: p.id,
     name: name || "No description",
-    imageUrl: p.images?.[0] ?? "",
+    // FIX: Changed p.images?.[0] ?? "" to p.imageUrl
+    imageUrl: p.imageUrl, 
     finalPrice: p.price,
     originalPrice,
     discountRate,
@@ -120,9 +117,6 @@ const mapProduct = (p: ApiProduct): ProductListItemProps => {
   };
 };
 
-/* ------------------------------------------------------------------ */
-/* Main component                                                    */
-/* ------------------------------------------------------------------ */
 const ITEMS_PER_PAGE = 2;
 
 const BlogProductSection = () => {
@@ -138,6 +132,8 @@ const BlogProductSection = () => {
     const load = async () => {
       setLoading(true);
       try {
+        // NOTE: If you changed the ApiProduct interface to use 'name' instead of 'title',
+        // ensure your API endpoint is actually returning a property called 'name'.
         const { data } = await axios.get<ApiResponse>("/api/products");
         console.log('cool', data)
         setAllProducts(data.data ?? []);
@@ -209,7 +205,7 @@ const BlogProductSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
             {current.map((item, i) => (
               <BlogPanel
-                key={`${page}-${i}`}               // unique per page
+                key={`${page}-${i}`}          // unique per page
                 blog={item.blog}
                 products={item.products}
               />
