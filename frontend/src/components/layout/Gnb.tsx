@@ -70,7 +70,7 @@ const VerticalDivider = () => (
 const Gnb = () => {
   return (
     <nav
-      className="w-full h-12 shadow-md"
+      className="w-full h-12 shadow-md dark:bg-gray-800 transition-colors duration-300"
       style={{
         background: "var(--glass-bg)",
         borderTop: "1px solid var(--glass-border)",
@@ -86,11 +86,11 @@ const Gnb = () => {
             <div className="flex items-center gap-4">
               {group.map((item) => {
                 const commonClasses =
-                  "text-base font-bold flex items-center h-12 transition-colors duration-200 hover:text-purple-300";
+                  "text-base font-bold flex items-center h-12 transition-colors duration-200 hover:text-purple-300 dark:hover:text-naver-green-light";
 
                 const activeClasses = item.isActive
-                  ? "text-purple-400 border-b-2 border-purple-400"
-                  : "text-white";
+                  ? "text-purple-400 dark:text-naver-green border-b-2 border-purple-400 dark:border-naver-green"
+                  : "text-white dark:text-gray-200";
 
                 const content = (
                   <>
