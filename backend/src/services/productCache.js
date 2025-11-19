@@ -43,7 +43,7 @@ function ensureCacheReady() {
 
 function getAllProducts() {
   ensureCacheReady();
-  return productsCache;
+  return [...productsCache];
 }
 
 function getProductById(productId) {
@@ -57,9 +57,10 @@ function getProductById(productId) {
 }
 
 async function reloadCache() {
-  cacheInitialized = false;
-  productsCache = [];
-  return initializeCache();
+  const newProducts = await loadDetailsProducts();
+  productsCache = Array.isArray(newProducts) ? newProducts : [];
+  cacheInitialized = true;
+  console.log(`Product cache reloaded with ${productsCache.length} products`);
 }
 
 export {
