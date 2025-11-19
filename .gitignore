@@ -10,6 +10,7 @@ artifacts/*
 wandb/*
 
 # file
+package-lock.json
 *.pyc
 *.env
 .env.production
