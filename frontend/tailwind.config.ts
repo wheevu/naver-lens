@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -18,6 +19,8 @@ export default {
         green: "#A7F3D0",
         orange: "#FDBA74",
         purple: "#C4B5FD",
+        'naver-green': '#03c75a',
+        'naver-green-light': '#0cf09b',
       },
     },
   },
