@@ -1,124 +1,163 @@
-import React from "react";
+// src/components/SearchPopup.tsx
+import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import axios from "../../api/axios";
 
-interface MockProduct {
-  id: number;
-  name: string;
-  price: string;
-  imageUrl: string;
-  discount?: string;
+interface Product {
+  id: string;
+  name: string;  
+  imageUrl?: string;  
+  price: number;
+  originalPrice: number;
+  brand?: string;
+  mallName?: string;
 }
 
-const mockProducts: MockProduct[] = [
-  {
-    id: 1,
-    name: "경량 후드 패딩 점퍼 (블랙 그레이 아이보...",
-    price: "72,930원",
-    imageUrl: "https://via.placeholder.com/150/111/EEE?text=Product1", // Placeholder
-  },
-  {
-    id: 2,
-    name: "루이비통 올인 BB M1 3480",
-    price: "3,871,390원",
-    imageUrl: "https://via.placeholder.com/150/222/EEE?text=Product2", // Placeholder
-  },
-  {
-    id: 3,
-    name: "담드솜 오버핏 숏패딩... 이 누빔 경량 퀼팅 패...",
-    price: "49,900원",
-    discount: "50%",
-    imageUrl: "https://via.placeholder.com/150/333/EEE?text=Product3", // Placeholder
-  },
-  {
-    id: 4,
-    name: "파타고니아... 바람막...",
-    price: "169,000원",
-    imageUrl: "https://via.placeholder.com/150/444/EEE?text=Product4", // Placeholder
-  },
-];
-
-const mockKeywords = [
-  "케이스티파이",
-  "자라",
-  "빼빼로",
-  "아이폰17",
-  "루이비통",
-  "룰루레몬",
-  "파타고니아",
-  "경량패딩",
-];
-
 interface SearchPopupProps {
+  query: string;
   onClose: () => void;
 }
 
-const SearchPopup: React.FC<SearchPopupProps> = ({ onClose }) => {
+const mockKeywords = ["나이키", "아디다스", "패딩", "아이폰", "에어팟", "갤럭시", "자라", "루이비통"];
+
+const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
+  const [results, setResults] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const searchProducts = useCallback(async (searchTerm: string) => {
+    if (!searchTerm.trim()) {
+      setResults([]);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await axios.get<{ data: Product[] }>("/api/products");
+      const products = res.data.data || [];
+
+      const filtered = products
+        .filter((p) =>
+          p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          p.brand?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .slice(0, 8);
+
+      setResults(filtered);
+    } catch (err) {
+      console.error("Search failed:", err);
+      setResults([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => searchProducts(query), 300);
+    return () => clearTimeout(timer);
+  }, [query, searchProducts]);
+
   return (
     <div
-      className="app-panel absolute top-full mt-2 w-[500px] z-50 p-6"
+      className="absolute top-full mt-2 w-full max-w-2xl left-1/2 -translate-x-1/2 z-50 rounded-xl shadow-2xl overflow-hidden"
       style={{
+        background: "var(--glass-bg)",
+        border: "1px solid var(--glass-border)",
+        backdropFilter: "blur(12px)",
         fontFamily: "var(--font-secondary)",
       }}
     >
-      {" "}
-      <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-400 mb-3">
-          최근 검색어
-        </h3>
-        <p className="text-gray-500 text-center py-4">
-          최근 검색어 내역이 없습니다.
-        </p>
-      </div>
-      <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-400 mb-4">
-          추천 검색어 기반 상품
-        </h3>
-        <div className="flex overflow-x-auto gap-3 pb-2">
-          {mockProducts.map((product) => (
-            <div key={product.id} className="w-28 shrink-0">
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="w-28 h-28 object-cover rounded-lg border"
-                style={{ borderColor: "var(--glass-border)" }} //
-              />
-              <p className="text-white text-xs mt-2 truncate">{product.name}</p>
-              <div className="flex items-center gap-1">
-                {product.discount && (
-                  <span className="text-red-500 font-bold text-sm">
-                    {product.discount}
-                  </span>
-                )}
-                <span className="text-white font-bold text-sm">
-                  {product.price}
-                </span>
+      <div className="p-5 max-h-96 overflow-y-auto">
+        {/* Kết quả tìm kiếm */}
+        {query && (
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-gray-400 mb-3">검색 결과</h3>
+
+            {loading ? (
+              <div className="text-center py-8 text-gray-300">검색 중...</div>
+            ) : results.length === 0 ? (
+              <div className="text-center py-8 text-gray-500">
+                "{query}"에 맞는 상품이 없습니다.
               </div>
-            </div>
-          ))}
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {results.map((product) => {
+                  const discount = product.originalPrice > product.price
+                    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+                    : 0;
+
+                  return (
+                    <Link
+                      key={product.id}
+                      to={`/store/${product.id}`}
+                      onClick={onClose}
+                      className="block group"
+                    >
+                      <div className="bg-gray-800/60 rounded-lg overflow-hidden border border-gray-700 hover:border-purple-500 transition-all duration-300">
+                        <img
+                          src={product.imageUrl || "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image"}
+                          alt={product.name}
+                          className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.currentTarget.src = "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image";
+                          }}
+                        />
+                        <div className="p-3">
+                          <p className="text-white text-xs line-clamp-2 font-medium leading-tight">
+                            {product.name}
+                          </p>
+                          {product.brand && (
+                            <p className="text-gray-400 text-xs mt-1">{product.brand}</p>
+                          )}
+                          <div className="mt-2 flex items-center gap-1.5">
+                            {discount > 0 && (
+                              <span className="text-green-400 font-bold text-sm">
+                                {discount}%
+                              </span>
+                            )}
+                            <span className="text-white font-bold text-sm">
+                              {product.price.toLocaleString()}원
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* 추천 검색어 */}
+        <div className="pt-4 border-t border-gray-700">
+          <h3 className="text-sm font-semibold text-gray-400 mb-3">추천 검색어</h3>
+          <div className="flex flex-wrap gap-2">
+            {mockKeywords.map((kw) => (
+              <button
+                key={kw}
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-purple-600 hover:text-white"
+                style={{
+                  background: "rgba(147, 51, 234, 0.15)",
+                  color: "#c4b5fd",
+                  border: "1px solid rgba(147, 51, 234, 0.3)",
+                }}
+                onClick={onClose}
+              >
+                {kw}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="mb-4">
-        <h3 className="text-sm font-semibold text-gray-400 mb-4">
-          추천 검색어
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {mockKeywords.map((keyword) => (
-            <button key={keyword} className="key-badge">
-              {keyword}
-            </button>
-          ))}
+
+        <div className="flex justify-between items-center pt-4 mt-4 border-t border-gray-700">
+          <span className="text-xs text-gray-500">자동저장 끄기</span>
+          <button
+            onClick={onClose}
+            className="text-xs font-medium text-gray-400 hover:text-white transition"
+          >
+            닫기
+          </button>
         </div>
-      </div>
-      <div
-        className="flex justify-between items-center pt-4 border-t"
-        style={{ borderColor: "var(--glass-border)" }}
-      >
-        <span className="text-gray-400 text-xs">자동저장 끄기</span>
-        <button
-          className="text-gray-400 text-xs font-bold hover:text-white"
-          onClick={onClose}
-        >
-          닫기 (Close)
-        </button>
       </div>
     </div>
   );
