@@ -21,6 +21,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import connectDB from './src/config/db.config.js';
 
 // Load environment variables
 dotenv.config();
@@ -60,6 +61,9 @@ app.use((err, req, res, next) => {
 
 async function startServer() {
   try {
+    // Connect to MongoDB Atlas
+    await connectDB();
+
     await initializeCache();
 
     app.listen(PORT, () => {

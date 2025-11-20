@@ -79,28 +79,23 @@ const CartIcon = () => (
 
 const MainHeader = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
   const searchRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Logic để đóng popup khi nhấn ra bên ngoài
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        searchRef.current &&
-        !searchRef.current.contains(event.target as Node)
-      ) {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
         setIsSearchOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
     <div
-      className="w-full"
+      className="w-full dark:bg-gray-800 transition-colors duration-300"
       style={{
         background: "var(--glass-bg)",
         borderBottom: "1px solid var(--glass-border)",
@@ -108,24 +103,27 @@ const MainHeader = () => {
       }}
     >
       <div className="container mx-auto max-w-7xl px-4 h-16 flex items-center justify-between gap-6 relative">
-        <div className="shrink-0 w-50 h-auto">
-          <img src={Logo} alt="" />
+        <div className="shrink-0">
+          <img src={Logo} alt="Naver Shop" className="h-10" />
         </div>
 
         <div className="relative grow max-w-xl" ref={searchRef}>
           <div className="relative">
             <input
+              ref={inputRef}
               type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="상품명 또는 브랜드 입력"
-              className="w-full h-12 pl-5 pr-14 rounded-lg text-lg text-white border-2 border-purple-500 focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:outline-none"
+              className="w-full h-12 pl-5 pr-14 rounded-lg text-lg text-white border-2 border-purple-500 dark:border-naver-green focus:border-purple-400 dark:focus:border-naver-green-light focus:ring-2 focus:ring-purple-400 dark:focus:ring-naver-green focus:outline-none transition-colors duration-300"
               style={{
-                background: "rgba(0, 0, 0, 0.2)",
+                background: "rgba(0, 0, 0, 0.3)",
                 fontFamily: "var(--font-secondary)",
               }}
               onFocus={() => setIsSearchOpen(true)}
             />
             <button
-              className="absolute right-0 top-0 h-12 w-14 flex items-center justify-center text-purple-400 hover:text-purple-300"
+              className="absolute right-0 top-0 h-12 w-14 flex items-center justify-center text-purple-400 dark:text-naver-green hover:text-purple-300 dark:hover:text-naver-green-light transition-colors duration-300"
               style={{
                 borderTopRightRadius: "8px",
                 borderBottomRightRadius: "8px",
@@ -136,31 +134,32 @@ const MainHeader = () => {
           </div>
 
           {isSearchOpen && (
-            <SearchPopup onClose={() => setIsSearchOpen(false)} />
+            <SearchPopup query={query} onClose={() => setIsSearchOpen(false)} />
           )}
         </div>
 
-        <div className="flex items-center gap-5 text-white">
+        <div className="flex items-center gap-5 text-white dark:text-gray-200 transition-colors duration-300">
           <Link
             to="/categories"
-            className="flex flex-col items-center gap-1 hover:text-purple-300"
+            className="flex flex-col items-center gap-1 hover:text-purple-300 dark:hover:text-naver-green-light transition-colors duration-200"
           >
             <CategoryIcon />
-            <span className="text-xs font-light">카테고리</span>
+            <span className="text-xs">카테고리</span>
           </Link>
           <Link
             to="/my"
-            className="flex flex-col items-center gap-1 hover:text-purple-300"
+            className="flex flex-col items-center gap-1 hover:text-purple-300 dark:hover:text-naver-green-light transition-colors duration-200"
           >
             <MyShoppingIcon />
-            <span className="text-xs font-light">마이쇼핑</span>
+            <span className="text-xs">마이쇼핑</span>
           </Link>
           <Link
             to="/cart"
-            className="flex flex-col items-center gap-1 hover:text-purple-300"
+            className="flex flex-col items-center gap-1 hover:text-purple-300 dark:hover:text-naver-green-light transition-colors duration-200"
           >
             <CartIcon />
-            <span className="text-xs font-light">장바구니</span>
+            <span className="text-xs">장바구니</span>
+            {/* Optional: cart count badge */}
           </Link>
         </div>
       </div>

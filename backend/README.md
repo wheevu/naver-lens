@@ -98,11 +98,15 @@ curl -X POST http://localhost:3001/api/summarize \
 ```
 
 ### Frontend migration notes for Minh
-
-- Access the list via `response.data.data` (old shape was the raw array)
-- Use `response.data.pagination` to drive pagination UI
-- Filtering happens server-side; pass query params directly when fetching
-- `/api/products/:id` now reads from the cache but keeps the same response shape
+ 
+- **Accessing Data**: The API response is now an object.
+  - `response.data` -> The API response object (contains `data` and `pagination`).
+  - `response.data.data` -> The actual array of products.
+- **Pagination**: Use `response.data.pagination` to drive the UI (total pages, next/prev logic).
+- **Filtering**:
+  - Pass query params directly: `/api/products?category1=Shoes`
+  - **New**: Use `searchCategory` to search across all category levels: `/api/products?searchCategory=Shoes`
+- **Single Product**: `/api/products/:id` response shape is unchanged.
 
 ## Git procedure
 
@@ -137,4 +141,24 @@ git pull --rebase origin backend
 git add .
 git commit -m "your message"
 git push origin backend
+```
+
+### `vercel.json` if want to deploy on vercel
+```bash
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "server.js"
+        }
+    ]
+
+}
 ```

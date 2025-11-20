@@ -6,7 +6,7 @@ import Header from "../components/layout/Header";
 
 const Home = () => {
   return (
-    <div className="app-container">
+    <div className="app-container dark:bg-gray-900 transition-colors duration-300">
       <Header />
       <div className="py-8">
         <EventCarousel />
@@ -16,7 +16,7 @@ const Home = () => {
         <QuickLinks />
         <BlogProductSection />
         <ProductGridSection />
-        <h2 className="text-white text-2xl mt-8">Main Content Goes Here</h2>
+        <h2 className="text-white dark:text-gray-100 text-2xl mt-8">Main Content Goes Here</h2>
       </main>
 
       {/* Footer */}

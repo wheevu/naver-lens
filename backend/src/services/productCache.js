@@ -5,30 +5,34 @@ let cacheInitialized = false;
 let initializingPromise = null;
 
 async function initializeCache() {
-  if (cacheInitialized) {
-    return;
-  }
+  if (cacheInitialized) {
+    return;
+  }
 
-  if (initializingPromise) {
-    return initializingPromise;
-  }
+  if (initializingPromise) {
+    return initializingPromise;
+  }
 
-  initializingPromise = loadDetailsProducts()
-    .then((products) => {
-      productsCache = Array.isArray(products) ? products : [];
-      cacheInitialized = true;
-      console.log(`Product cache initialized with ${productsCache.length} products`);
-    })
-    .catch((error) => {
-      cacheInitialized = false;
-      console.error('Failed to initialize product cache:', error);
-      throw error;
-    })
-    .finally(() => {
-      initializingPromise = null;
-    });
+  initializingPromise = loadDetailsProducts()
+    .then((result) => { // Renamed to 'result' for clarity
+      // --- MINIMAL CHANGE HERE ---
+      // Extract the 'data' array from the resolved result object.
+      const productData = result?.data || [];
+      
+      productsCache = Array.isArray(productData) ? productData : []; 
+      cacheInitialized = true;
+      console.log(`Product cache initialized with ${productsCache.length} products`);
+    })
+    .catch((error) => {
+      cacheInitialized = false;
+      console.error('Failed to initialize product cache:', error);
+      throw error;
+    })
+    .finally(() => {
+      initializingPromise = null;
+    });
 
-  return initializingPromise;
+  return initializingPromise;
 }
 
 function ensureCacheReady() {
@@ -39,7 +43,7 @@ function ensureCacheReady() {
 
 function getAllProducts() {
   ensureCacheReady();
-  return productsCache;
+  return [...productsCache];
 }
 
 function getProductById(productId) {
@@ -53,9 +57,10 @@ function getProductById(productId) {
 }
 
 async function reloadCache() {
-  cacheInitialized = false;
-  productsCache = [];
-  return initializeCache();
+  const newProducts = await loadDetailsProducts();
+  productsCache = Array.isArray(newProducts) ? newProducts : [];
+  cacheInitialized = true;
+  console.log(`Product cache reloaded with ${productsCache.length} products`);
 }
 
 export {

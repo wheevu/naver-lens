@@ -23,12 +23,16 @@
 
   /* Colors */
   --gradient-primary: linear-gradient(
+    160deg,
+    #020617 0%,
+    #0f172a 40%,
+    #1e293b 80%,
+    rgba(3, 199, 90, 0.15) 100%
+  );
+  --bg-clean: linear-gradient(
     135deg,
-    #0c0c0c 0%,
-    #1a1a2e 25%,
-    #16213e 50%,
-    #0f3460 75%,
-    var(--naver-green) 100%
+    #ffffff 0%,
+    #f0fdf4 100%
   );
   --gradient-button: linear-gradient(
     135deg,
@@ -86,6 +90,23 @@
   --transition-fast: all 0.2s ease;
 }
 
+/* Dark Mode Variables */
+.dark {
+  --gradient-primary: linear-gradient(
+    160deg,
+    #0f172a 0%,
+    #1e293b 40%,
+    #334155 80%,
+    rgba(3, 199, 90, 0.1) 100%
+  );
+  --glass-bg: rgba(0, 0, 0, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --glass-shadow-hover: 0 16px 64px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(3, 199, 90, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -93,4 +114,5 @@
 body {
   margin: 0;
   font-family: var(--font-secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -6,7 +6,15 @@
   min-height: 100vh;
 }
 
-.app-container::before {
+.app-container-clean {
+  background: var(--bg-clean);
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.app-container::before,
+.app-container-clean::before {
   content: "";
   position: absolute;
   top: 0;
@@ -15,17 +23,12 @@
   bottom: 0;
   background: radial-gradient(
       circle at 20% 80%,
-      rgba(120, 119, 198, 0.3) 0%,
+      rgba(3, 199, 90, 0.05) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 20%,
-      rgba(255, 119, 198, 0.15) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 40%,
-      rgba(120, 219, 255, 0.1) 0%,
+      rgba(66, 148, 225, 0.05) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -40,55 +43,94 @@
   overflow: hidden;
 }
 
-.floating-cube {
+.floating-shape {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 60px;
+  height: 60px;
   background: linear-gradient(
-    45deg,
+    135deg,
     rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.02)
+    rgba(255, 255, 255, 0.01)
   );
-  border: 1px solid var(--glass-border);
-  animation: float 20s infinite linear;
-  transform-style: preserve-3d;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: floatModern 15s infinite ease-in-out;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
 
-.floating-cube:nth-child(1) {
+/* Darker shapes for clean background */
+.app-container-clean .floating-shape {
+  background: linear-gradient(
+    135deg,
+    rgba(3, 199, 90, 0.1),
+    rgba(66, 148, 225, 0.05)
+  );
+  border: 1px solid rgba(3, 199, 90, 0.1);
+}
+
+.floating-shape:nth-child(1) {
   left: 10%;
+  width: 80px;
+  height: 80px;
   animation-delay: 0s;
+  animation-duration: 18s;
 }
-.floating-cube:nth-child(2) {
+.floating-shape:nth-child(2) {
   left: 20%;
+  width: 40px;
+  height: 40px;
   animation-delay: -5s;
+  animation-duration: 25s;
 }
-.floating-cube:nth-child(3) {
+.floating-shape:nth-child(3) {
   left: 30%;
+  width: 100px;
+  height: 100px;
   animation-delay: -10s;
+  animation-duration: 20s;
 }
-.floating-cube:nth-child(4) {
+.floating-shape:nth-child(4) {
   left: 40%;
+  width: 50px;
+  height: 50px;
   animation-delay: -15s;
+  animation-duration: 22s;
 }
-.floating-cube:nth-child(5) {
+.floating-shape:nth-child(5) {
   left: 50%;
+  width: 70px;
+  height: 70px;
   animation-delay: -20s;
+  animation-duration: 19s;
 }
-.floating-cube:nth-child(6) {
+.floating-shape:nth-child(6) {
   left: 60%;
+  width: 45px;
+  height: 45px;
   animation-delay: -25s;
+  animation-duration: 24s;
 }
-.floating-cube:nth-child(7) {
+.floating-shape:nth-child(7) {
   left: 70%;
+  width: 90px;
+  height: 90px;
   animation-delay: -30s;
+  animation-duration: 21s;
 }
-.floating-cube:nth-child(8) {
+.floating-shape:nth-child(8) {
   left: 80%;
+  width: 55px;
+  height: 55px;
   animation-delay: -35s;
+  animation-duration: 23s;
 }
-.floating-cube:nth-child(9) {
+.floating-shape:nth-child(9) {
   left: 90%;
+  width: 65px;
+  height: 65px;
   animation-delay: -40s;
+  animation-duration: 20s;
 }
 
 /* Title Component */

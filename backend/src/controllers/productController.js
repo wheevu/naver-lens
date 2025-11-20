@@ -37,6 +37,7 @@ function applyFilters(products, filters) {
     category2,
     category3,
     category4,
+    searchCategory,
     brand,
     mallName,
     minPrice,
@@ -49,6 +50,16 @@ function applyFilters(products, filters) {
     if (category2 && product.category2 !== category2) return false;
     if (category3 && product.category3 !== category3) return false;
     if (category4 && product.category4 !== category4) return false;
+
+    if (searchCategory) {
+      const cat = searchCategory.toLowerCase();
+      const matches =
+        (product.category1 && product.category1.toLowerCase().includes(cat)) ||
+        (product.category2 && product.category2.toLowerCase().includes(cat)) ||
+        (product.category3 && product.category3.toLowerCase().includes(cat)) ||
+        (product.category4 && product.category4.toLowerCase().includes(cat));
+      if (!matches) return false;
+    }
 
     if (brand) {
       const productBrand = product.brand?.toLowerCase() || '';
@@ -104,7 +115,7 @@ function paginate(products, page, limit) {
       total,
       totalPages,
       hasNext: totalPages > 0 && page < totalPages,
-      hasPrev: total > 0 && page > 1
+      hasPrev: totalPages > 0 && page > 1
     }
   };
 }
@@ -132,6 +143,7 @@ function getAllProducts(req, res) {
       category2: req.query.category2,
       category3: req.query.category3,
       category4: req.query.category4,
+      searchCategory: req.query.searchCategory,
       brand: req.query.brand,
       mallName: req.query.mallName,
       minPrice: parseNumber(req.query.minPrice),
@@ -139,10 +151,15 @@ function getAllProducts(req, res) {
       minRating: parseNumber(req.query.minRating)
     };
 
-    const filtered = applyFilters(products, filters).map(transformProduct);
-    const result = paginate(filtered, page, limit);
+    // Optimize: Filter -> Paginate -> Map
+    // This avoids transforming the entire dataset when we only need one page
+    const filtered = applyFilters(products, filters);
+    const paginatedResult = paginate(filtered, page, limit);
 
-    res.json(result);
+    // Transform only the data for the current page
+    paginatedResult.data = paginatedResult.data.map(transformProduct);
+
+    res.json(paginatedResult);
   } catch (err) {
     console.error('Error getting products:', err);
     res.status(500).json({ error: 'Failed to get products' });

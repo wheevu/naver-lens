@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Menu from "../../assets/Menu.svg";
+import DarkModeToggle from "../common/DarkModeToggle";
 
 const NaverLogoTop = () => (
   <svg
@@ -59,7 +60,7 @@ const TopBar: React.FC<TopBarProps> = ({
 }) => {
   return (
     <div
-      className="w-full"
+      className="w-full dark:bg-gray-800 transition-colors duration-300"
       style={{
         background: bgColor,
         borderBottom: `1px solid ${borderColor}`,
@@ -84,6 +85,11 @@ const TopBar: React.FC<TopBarProps> = ({
         </div>
 
         <div className={`flex items-center gap-3 text-sm ${textColorClass}`}>
+          <DarkModeToggle />
+          <div
+            className="border-l h-3"
+            style={{ borderColor: borderColor }}
+          ></div>
           <Link
             to="/login"
             className={`${hoverTextColorClass} transition-colors`}
