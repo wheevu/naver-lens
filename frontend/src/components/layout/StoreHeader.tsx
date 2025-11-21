@@ -1,11 +1,12 @@
 import React from "react";
 import TopBar from "./TopBar";
+import { useTheme } from "../../context/ThemeContext";
 
 export interface StoreData {
   name: string;
   followers: number;
   avatarUrl: string;
-  themeColor: string;
+  themeColor?: string;
   buttonColor?: string;
 }
 
@@ -30,19 +31,23 @@ const SearchIcon = () => (
 );
 
 const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
+  const { theme } = useTheme();
+
+  const backgroundColor =
+    store.themeColor || (theme === "dark" ? "#1a1a2e" : "#ffffff");
+
   return (
     <header
       className="w-full relative transition-colors duration-500"
       style={{
-        backgroundColor: store.themeColor,
+        backgroundColor: backgroundColor,
         fontFamily: "var(--font-secondary)",
       }}
     >
       <TopBar
-        bgColor={store.themeColor}
+        bgColor={backgroundColor}
         borderColor="rgba(0, 0, 0, 0.15)"
-        textColorClass="text-(--text-primary)/80"
-        hoverTextColorClass="hover:text-(--text-primary)"
+        hoverTextColorClass="hover:text-white"
       />
 
       <div className="w-full max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
@@ -53,10 +58,16 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
             className="w-14 h-14 rounded-full bg-black/20"
           />
           <div className="flex flex-col">
-            <span className="text-(--text-primary) text-lg font-bold">
+            <span
+              className="text-lg font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
               {store.name}
             </span>
-            <span className="text-(--text-primary)/70 text-sm">
+            <span
+              className="text-sm opacity-80"
+              style={{ color: "var(--text-secondary)" }}
+            >
               관심고객수 {loading ? "..." : store.followers.toLocaleString()}
             </span>
           </div>

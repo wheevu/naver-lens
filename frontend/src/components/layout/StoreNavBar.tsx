@@ -2,36 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { type StoreData } from "./StoreHeader";
 import { isLightColor } from "../../utils/color";
+import { useTheme } from "../../context/ThemeContext";
 
-const PowerIcon = () => (
+const FollowIcon = () => (
   <svg
-    width="14"
+    width="16"
     height="14"
-    viewBox="0 0 14 14"
-    fill="none"
+    viewBox="0 0 16 14"
+    fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-3.5 h-3.5"
   >
-    <path
-      d="M2.934 13.066C1.701 11.833 1 10.185 1 8.42V2.414L7 1L13 2.414V8.42C13 10.185 12.299 11.833 11.066 13.066L7 11.652L2.934 13.066Z"
-      fill="#00C73C"
-    />
-  </svg>
-);
-const InfoIcon = () => (
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 14 14"
-    fill="black"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-3.5 h-3.5 opacity-30"
-  >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M7 13.5C10.5899 13.5 13.5 10.5899 13.5 7C13.5 3.41015 10.5899 0.5 7 0.5C3.41015 0.5 0.5 3.41015 0.5 7C0.5 10.5899 3.41015 13.5 7 13.5ZM7.875 3.5V4.75H6.125V3.5H7.875ZM7.875 6.125V10.5H6.125V6.125H7.875Z"
-    />
+    <path d="M14.4 11.06C14.07 10.74 13.62 10.57 13.15 10.57C11.53 10.57 10.22 11.87 10.22 13.46C10.22 13.6 10.23 13.73 10.25 13.86H5.75C5.77 13.73 5.78 13.6 5.78 13.46C5.78 11.87 4.47 10.57 2.85 10.57C2.38 10.57 1.93 10.74 1.6 11.06C0.63 10.09 0 8.78 0 7.33C0 3.76 2.83 0.93 6.4 0.93H9.6C13.17 0.93 16 3.76 16 7.33C16 8.78 15.37 10.09 14.4 11.06Z" />
   </svg>
 );
 
@@ -55,22 +36,27 @@ interface StoreNavBarProps {
 }
 
 const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
-  const isLightBg = isLightColor(store.themeColor);
+  const { theme } = useTheme();
+
+  const backgroundColor =
+    store.themeColor || (theme === "dark" ? "#1a1a2e" : "#ffffff");
+
+  const isLightBg = isLightColor(backgroundColor);
 
   const textColor = isLightBg ? "text-gray-900" : "text-white";
-  const mutedTextColor = isLightBg ? "text-gray-600" : "text-white/70";
-  const logoColor = isLightBg ? "text-black" : "text-white";
-  // const hoverTextColor = isLightBg ? "hover:text-black" : "hover:text-white";
+  const mutedTextColor = isLightBg ? "text-gray-500" : "text-white/70";
+  const hoverTextColor = isLightBg ? "hover:text-black" : "hover:text-gray-200";
+  const borderColor = isLightBg ? "border-gray-200" : "border-white/10";
 
-  const btnBg = store.buttonColor || store.themeColor;
+  const btnBg = store.buttonColor || backgroundColor;
   const isBtnLight = isLightColor(btnBg);
   const btnTextColor = isBtnLight ? "text-gray-900" : "text-white";
 
   return (
     <div
-      className="w-full shadow-sm"
+      className="w-full shadow-sm transition-colors duration-500"
       style={{
-        backgroundColor: store.themeColor,
+        backgroundColor: backgroundColor,
         fontFamily: "var(--font-secondary)",
       }}
     >
@@ -82,11 +68,12 @@ const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
             borderRadius: "var(--radius-md)",
           }}
         >
+          <FollowIcon />
           <span className="text-sm font-bold">알림받기</span>
         </button>
 
         <div className="flex-1 flex justify-center">
-          <h1 className={`text-4xl font-bold tracking-tighter ${logoColor}`}>
+          <h1 className={`text-4xl font-bold tracking-tighter ${textColor}`}>
             {store.name}
           </h1>
         </div>
@@ -105,14 +92,14 @@ const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
         </div>
       </div>
 
-      <nav className="w-full border-t border-b border-gray-200">
+      <nav className={`w-full border-t border-b ${borderColor}`}>
         <div className="w-full max-w-7xl mx-auto px-4 flex justify-start items-center h-16 overflow-x-auto">
           <div className="flex flex-nowrap gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-bold whitespace-nowrap text-gray-800 hover:text-naver-green`}
+                className={`text-sm font-bold whitespace-nowrap ${textColor} ${hoverTextColor}`}
               >
                 {item.name}
                 {item.isMore && " ▾"}
