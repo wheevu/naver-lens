@@ -10,63 +10,66 @@ const optionValueSchema = mongoose.Schema({
 
 const productSchema = mongoose.Schema(
     {
-        productId: { 
-            type: String, 
-            required: true, 
-            unique: true 
+        productId: {
+            type: String,
+            required: true,
+            unique: true
         },
-        title: { 
-            type: String, 
-            required: true 
+        title: {
+            type: String,
+            required: true
         },
-        brand: { 
-            type: String 
+        brand: {
+            type: String
         },
-        maker: { 
-            type: String 
+        maker: {
+            type: String
         },
-        images: { 
+        images: {
             type: [String] // Array of image URLs
         },
-        price: { 
-            type: Number, 
-            required: true 
+        price: {
+            type: Number,
+            required: true
         },
-        originalPrice: { 
-            type: Number 
+        originalPrice: {
+            type: Number
         },
-        mallName: { 
-            type: String 
+        mallName: {
+            type: String
         },
-        shipping: { 
-            type: String 
+        mallColor: {
+            type: String
         },
-        rating: { 
-            type: Number 
+        shipping: {
+            type: String
         },
-        reviewCount: { 
-            type: Number 
+        rating: {
+            type: Number
         },
-        options: { 
+        reviewCount: {
+            type: Number
+        },
+        options: {
             type: [optionValueSchema] // Use the sub-schema defined above
         },
-        description: { 
-            type: String 
+        description: {
+            type: String
         },
-        reviews: { 
+        reviews: {
             type: [String] // Array of review texts
         },
-        category1: { 
-            type: String 
+        category1: {
+            type: String
         },
-        category2: { 
-            type: String 
+        category2: {
+            type: String
         },
-        category3: { 
-            type: String 
+        category3: {
+            type: String
         },
-        category4: { 
-            type: String 
+        category4: {
+            type: String
         },
     },
     {

@@ -14,6 +14,7 @@ function transformProduct(product) {
     originalPrice: product.originalPrice,
     brand: product.brand,
     mallName: product.mallName,
+    mallColor: product.mallColor,
     rating: product.rating,
     reviewCount: product.reviewCount,
     categories: {
