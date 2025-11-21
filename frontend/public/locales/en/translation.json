@@ -1,0 +1,24 @@
+{
+    "topbar": {
+      "naverPay": "Naver Pay",
+      "login": "Login",
+      "customerService": "Service"
+    },
+    "search": {
+      "placeholder": "Search for products or brands"
+    },
+    "nav": {
+      "home": "Home",
+      "best": "Best",
+      "category": "Categories",
+      "myShopping": "My Shopping",
+      "cart": "Cart"
+    },
+    "product": {
+      "reviews": "Reviews",
+      "shipping": "Shipping",
+      "buy": "Buy Now",
+      "addToCart": "Add to Cart",
+      "total": "Total Price"
+    }
+}

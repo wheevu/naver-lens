@@ -8,6 +8,7 @@ import ProductImageGallery from "../components/product/ProductImageGallery";
 import ProductReviews from "../components/product/ProductReviews";
 import axios from "../api/axios";
 import NotFound from "./NotFound";
+import ProductSummaryChat from "../components/product/ProductSummaryChat";
 
 const defaultStoreData: StoreData = {
   name: "Loading...",
@@ -154,6 +155,8 @@ const ProductPage = () => {
         </div>
 
         <ProductReviews reviews={product.reviews} />
+
+        {product && <ProductSummaryChat productId={product.productId} />}
       </main>
     </div>
   );

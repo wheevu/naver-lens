@@ -1,0 +1,24 @@
+{
+    "topbar": {
+      "naverPay": "네이버페이",
+      "login": "로그인",
+      "customerService": "고객센터"
+    },
+    "search": {
+      "placeholder": "상품명 또는 브랜드 입력"
+    },
+    "nav": {
+      "home": "홈",
+      "best": "베스트",
+      "category": "카테고리",
+      "myShopping": "마이쇼핑",
+      "cart": "장바구니"
+    },
+    "product": {
+      "reviews": "리뷰",
+      "shipping": "택배배송",
+      "buy": "구매하기",
+      "addToCart": "장바구니",
+      "total": "총 상품 금액"
+    }
+}
