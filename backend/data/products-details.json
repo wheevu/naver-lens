@@ -12,12 +12,30 @@
     "price": 89000,
     "originalPrice": 129000,
     "mallName": "SportDirect",
+    "mallColor": "#235F31",
     "shipping": "Free over 50,000 KRW",
     "rating": 4.7,
     "reviewCount": 842,
     "options": [
-      { "name": "Size", "values": ["230", "240", "250", "260", "270", "280"] },
-      { "name": "Color", "values": ["Black", "White", "Navy"] }
+      {
+        "name": "Size",
+        "values": [
+          "230",
+          "240",
+          "250",
+          "260",
+          "270",
+          "280"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "White",
+          "Navy"
+        ]
+      }
     ],
     "description": "Lightweight Boost cushioning, Primeknit upper, Continental™ rubber outsole for extraordinary grip in wet and dry conditions.",
     "reviews": [
@@ -43,12 +61,28 @@
     "price": 45000,
     "originalPrice": 69000,
     "mallName": "StyleHub",
+    "mallColor": "#FF5733",
     "shipping": "3,000 KRW",
     "rating": 4.3,
     "reviewCount": 215,
     "options": [
-      { "name": "Size", "values": ["220", "230", "240", "250"] },
-      { "name": "Color", "values": ["Beige", "Black", "Red"] }
+      {
+        "name": "Size",
+        "values": [
+          "220",
+          "230",
+          "240",
+          "250"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Beige",
+          "Black",
+          "Red"
+        ]
+      }
     ],
     "description": "Elegant open-toe design with adjustable ankle strap. Perfect for summer parties and formal events.",
     "category1": "Fashion",
@@ -68,12 +102,28 @@
     "price": 32000,
     "originalPrice": 0,
     "mallName": "KiddoWorld",
+    "mallColor": "#33FF57",
     "shipping": "2,500 KRW",
     "rating": 4.6,
     "reviewCount": 567,
     "options": [
-      { "name": "Size (Kids)", "values": ["160", "170", "180", "190"] },
-      { "name": "Character", "values": ["Chase", "Marshall", "Skye"] }
+      {
+        "name": "Size (Kids)",
+        "values": [
+          "160",
+          "170",
+          "180",
+          "190"
+        ]
+      },
+      {
+        "name": "Character",
+        "values": [
+          "Chase",
+          "Marshall",
+          "Skye"
+        ]
+      }
     ],
     "description": "Fun light-up sneakers with every step. Durable rubber sole, breathable mesh upper. Official Paw Patrol design.",
     "category1": "Fashion",
@@ -94,11 +144,19 @@
     "price": 119000,
     "originalPrice": 159000,
     "mallName": "TechMart",
+    "mallColor": "#3357FF",
     "shipping": "Free",
     "rating": 4.8,
     "reviewCount": 1293,
     "options": [
-      { "name": "Color", "values": ["Black", "White", "Silver"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "White",
+          "Silver"
+        ]
+      }
     ],
     "description": "Active Noise Cancellation, 12-hour battery, IPX4 water resistance, touch controls, premium sound with deep bass.",
     "reviews": [
@@ -124,11 +182,19 @@
     "price": 39000,
     "originalPrice": 0,
     "mallName": "BagWorld",
+    "mallColor": "#FF33A1",
     "shipping": "Free over 30,000 KRW",
     "rating": 4.5,
     "reviewCount": 412,
     "options": [
-      { "name": "Color", "values": ["Black", "Gray", "Navy"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Gray",
+          "Navy"
+        ]
+      }
     ],
     "description": "Padded laptop compartment, water-resistant fabric, multiple pockets, ergonomic shoulder straps.",
     "category1": "Fashion",
@@ -148,12 +214,28 @@
     "price": 28000,
     "originalPrice": 45000,
     "mallName": "UrbanWear",
+    "mallColor": "#A133FF",
     "shipping": "3,000 KRW",
     "rating": 4.4,
     "reviewCount": 728,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L", "XL"] },
-      { "name": "Color", "values": ["Gray", "Black", "Beige"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "Black",
+          "Beige"
+        ]
+      }
     ],
     "description": "Soft fleece lining, oversized fit, kangaroo pocket, drawstring hood. Perfect for casual wear.",
     "reviews": [
@@ -180,12 +262,26 @@
     "price": 189000,
     "originalPrice": 249000,
     "mallName": "GadgetZone",
+    "mallColor": "#33FFF5",
     "shipping": "Free",
     "rating": 4.6,
     "reviewCount": 981,
     "options": [
-      { "name": "Size", "values": ["40mm", "44mm"] },
-      { "name": "Color", "values": ["Black", "Green", "Pink"] }
+      {
+        "name": "Size",
+        "values": [
+          "40mm",
+          "44mm"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Green",
+          "Pink"
+        ]
+      }
     ],
     "description": "Heart rate monitor, sleep tracking, GPS, water-resistant, 7-day battery, AMOLED display.",
     "category1": "Electronics",
@@ -205,11 +301,18 @@
     "price": 22000,
     "originalPrice": 0,
     "mallName": "LuxuryGoods",
+    "mallColor": "#FFD700",
     "shipping": "Free over 50,000 KRW",
     "rating": 4.7,
     "reviewCount": 305,
     "options": [
-      { "name": "Color", "values": ["Black", "Brown"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Brown"
+        ]
+      }
     ],
     "description": "Genuine leather, 8 card slots, RFID protection, slim design, gift box included.",
     "category1": "Fashion",
@@ -229,11 +332,18 @@
     "price": 49000,
     "originalPrice": 69000,
     "mallName": "PCGear",
+    "mallColor": "#000000",
     "shipping": "Free",
     "rating": 4.8,
     "reviewCount": 1123,
     "options": [
-      { "name": "Color", "values": ["Black", "White"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "White"
+        ]
+      }
     ],
     "description": "16K DPI sensor, 11 programmable buttons, RGB lighting, lightweight 63g, Hero sensor.",
     "category1": "Electronics",
@@ -253,6 +363,7 @@
     "price": 59000,
     "originalPrice": 89000,
     "mallName": "HomeCafe",
+    "mallColor": "#8B4513",
     "shipping": "Free",
     "rating": 4.5,
     "reviewCount": 678,
@@ -275,11 +386,19 @@
     "price": 18000,
     "originalPrice": 0,
     "mallName": "ShadeShop",
+    "mallColor": "#808080",
     "shipping": "2,500 KRW",
     "rating": 4.6,
     "reviewCount": 892,
     "options": [
-      { "name": "Lens Color", "values": ["Black", "Brown", "Green"] }
+      {
+        "name": "Lens Color",
+        "values": [
+          "Black",
+          "Brown",
+          "Green"
+        ]
+      }
     ],
     "description": "100% UV protection, polarized lenses, lightweight frame, includes case and cloth.",
     "category1": "Fashion",
@@ -299,11 +418,19 @@
     "price": 35000,
     "originalPrice": 55000,
     "mallName": "SoundWave",
+    "mallColor": "#000080",
     "shipping": "Free",
     "rating": 4.7,
     "reviewCount": 1356,
     "options": [
-      { "name": "Color", "values": ["Black", "Blue", "Red"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Blue",
+          "Red"
+        ]
+      }
     ],
     "description": "IP67 waterproof, 10-hour playtime, 360° sound, built-in mic, portable clip.",
     "category1": "Electronics",
@@ -323,11 +450,19 @@
     "price": 15000,
     "originalPrice": 0,
     "mallName": "FitLife",
+    "mallColor": "#008000",
     "shipping": "3,000 KRW",
     "rating": 4.8,
     "reviewCount": 1024,
     "options": [
-      { "name": "Color", "values": ["Purple", "Green", "Blue"] }
+      {
+        "name": "Color",
+        "values": [
+          "Purple",
+          "Green",
+          "Blue"
+        ]
+      }
     ],
     "description": "Eco-friendly PVC, alignment markers, non-slip surface, carry strap included.",
     "category1": "Sports",
@@ -347,11 +482,19 @@
     "price": 25000,
     "originalPrice": 39000,
     "mallName": "BrightHome",
+    "mallColor": "#FFFF00",
     "shipping": "Free",
     "rating": 4.5,
     "reviewCount": 743,
     "options": [
-      { "name": "Color Temperature", "values": ["Warm", "Cool", "Daylight"] }
+      {
+        "name": "Color Temperature",
+        "values": [
+          "Warm",
+          "Cool",
+          "Daylight"
+        ]
+      }
     ],
     "description": "5 brightness levels, USB charging port, eye-care LED, foldable design.",
     "category1": "Home",
@@ -371,12 +514,28 @@
     "price": 89000,
     "originalPrice": 129000,
     "mallName": "ColdGear",
+    "mallColor": "#ADD8E6",
     "shipping": "Free",
     "rating": 4.7,
     "reviewCount": 589,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L", "XL"] },
-      { "name": "Color", "values": ["Black", "Olive", "Gray"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Olive",
+          "Gray"
+        ]
+      }
     ],
     "description": "700-fill down insulation, water-repellent, adjustable hood, inner pockets.",
     "category1": "Fashion",
@@ -396,6 +555,7 @@
     "price": 29000,
     "originalPrice": 0,
     "mallName": "KitchenPro",
+    "mallColor": "#C0C0C0",
     "shipping": "Free over 30,000 KRW",
     "rating": 4.6,
     "reviewCount": 421,
@@ -418,11 +578,19 @@
     "price": 19000,
     "originalPrice": 0,
     "mallName": "RunEasy",
+    "mallColor": "#FF4500",
     "shipping": "2,500 KRW",
     "rating": 4.5,
     "reviewCount": 367,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L"
+        ]
+      }
     ],
     "description": "Two 10oz bottles, bounce-free, zip pocket, reflective trim, adjustable fit.",
     "category1": "Sports",
@@ -442,11 +610,18 @@
     "price": 79000,
     "originalPrice": 109000,
     "mallName": "KeyMaster",
+    "mallColor": "#4B0082",
     "shipping": "Free",
     "rating": 4.8,
     "reviewCount": 954,
     "options": [
-      { "name": "Switch Type", "values": ["Cherry MX Red", "Cherry MX Blue"] }
+      {
+        "name": "Switch Type",
+        "values": [
+          "Cherry MX Red",
+          "Cherry MX Blue"
+        ]
+      }
     ],
     "description": "Full-size, per-key RGB, aluminum frame, detachable wrist rest, macro keys.",
     "category1": "Electronics",
@@ -465,6 +640,7 @@
     "price": 22000,
     "originalPrice": 0,
     "mallName": "BeautyLab",
+    "mallColor": "#FFC0CB",
     "shipping": "3,000 KRW",
     "rating": 4.7,
     "reviewCount": 1823,
@@ -493,11 +669,19 @@
     "price": 15000,
     "originalPrice": 0,
     "mallName": "SleepWell",
+    "mallColor": "#483D8B",
     "shipping": "2,500 KRW",
     "rating": 4.6,
     "reviewCount": 678,
     "options": [
-      { "name": "Color", "values": ["Black", "Gray", "Blue"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Gray",
+          "Blue"
+        ]
+      }
     ],
     "description": "360° head support, compact carry case, machine washable cover, adjustable clasp.",
     "category1": "Travel",
@@ -517,6 +701,7 @@
     "price": 89000,
     "originalPrice": 129000,
     "mallName": "CookSmart",
+    "mallColor": "#B22222",
     "shipping": "Free",
     "rating": 4.7,
     "reviewCount": 2104,
@@ -538,11 +723,19 @@
     "price": 12000,
     "originalPrice": 0,
     "mallName": "CapZone",
+    "mallColor": "#2F4F4F",
     "shipping": "2,500 KRW",
     "rating": 4.5,
     "reviewCount": 892,
     "options": [
-      { "name": "Color", "values": ["Black", "Navy", "Red"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Navy",
+          "Red"
+        ]
+      }
     ],
     "description": "100% cotton, curved brim, embroidered logo, adjustable back strap.",
     "category1": "Fashion",
@@ -562,11 +755,18 @@
     "price": 149000,
     "originalPrice": 199000,
     "mallName": "AudioPro",
+    "mallColor": "#708090",
     "shipping": "Free",
     "rating": 4.8,
     "reviewCount": 1678,
     "options": [
-      { "name": "Color", "values": ["Black", "Silver"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Silver"
+        ]
+      }
     ],
     "description": "Industry-leading ANC, 20-hour battery, plush ear cushions, voice assistant.",
     "category1": "Electronics",
@@ -585,6 +785,7 @@
     "price": 18000,
     "originalPrice": 0,
     "mallName": "FitGear",
+    "mallColor": "#2E8B57",
     "shipping": "3,000 KRW",
     "rating": 4.7,
     "reviewCount": 2341,
@@ -606,11 +807,19 @@
     "price": 22000,
     "originalPrice": 0,
     "mallName": "TimeDecor",
+    "mallColor": "#D2691E",
     "shipping": "Free over 30,000 KRW",
     "rating": 4.6,
     "reviewCount": 456,
     "options": [
-      { "name": "Color", "values": ["Black", "White", "Wood"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "White",
+          "Wood"
+        ]
+      }
     ],
     "description": "Silent sweep movement, minimalist design, 12-inch diameter, easy to read numerals.",
     "category1": "Home",
@@ -634,8 +843,23 @@
     "rating": 4.5,
     "reviewCount": 823,
     "options": [
-      { "name": "Size", "values": ["XS", "S", "M", "L"] },
-      { "name": "Color", "values": ["Black", "Pink", "Blue"] }
+      {
+        "name": "Size",
+        "values": [
+          "XS",
+          "S",
+          "M",
+          "L"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Pink",
+          "Blue"
+        ]
+      }
     ],
     "description": "Dri-FIT technology, medium support, racerback design, removable pads.",
     "category1": "Fashion",
@@ -679,7 +903,14 @@
     "rating": 4.5,
     "reviewCount": 567,
     "options": [
-      { "name": "Color", "values": ["White", "Terracotta", "Gray"] }
+      {
+        "name": "Color",
+        "values": [
+          "White",
+          "Terracotta",
+          "Gray"
+        ]
+      }
     ],
     "description": "Hand-glazed ceramic, drainage hole, matching saucer included.",
     "category1": "Home",
@@ -702,7 +933,14 @@
     "rating": 4.6,
     "reviewCount": 789,
     "options": [
-      { "name": "Color", "values": ["Silver", "Black", "Blue"] }
+      {
+        "name": "Color",
+        "values": [
+          "Silver",
+          "Black",
+          "Blue"
+        ]
+      }
     ],
     "description": "Keeps hot 12h, cold 24h, leak-proof lid, double-wall vacuum insulation.",
     "category1": "Home",
@@ -726,8 +964,21 @@
     "rating": 4.8,
     "reviewCount": 923,
     "options": [
-      { "name": "Material", "values": ["PU Leather", "Fabric"] },
-      { "name": "Color", "values": ["Black", "Red", "Blue"] }
+      {
+        "name": "Material",
+        "values": [
+          "PU Leather",
+          "Fabric"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Red",
+          "Blue"
+        ]
+      }
     ],
     "description": "4D armrests, lumbar support, reclining, memory foam head pillow.",
     "category1": "Furniture",
@@ -771,8 +1022,21 @@
     "rating": 4.6,
     "reviewCount": 678,
     "options": [
-      { "name": "Size", "values": ["M", "L"] },
-      { "name": "Color", "values": ["Matte Black", "White", "Red"] }
+      {
+        "name": "Size",
+        "values": [
+          "M",
+          "L"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Matte Black",
+          "White",
+          "Red"
+        ]
+      }
     ],
     "description": "In-mold construction, 25 vents, Roc Loc fit system, CPSC certified.",
     "category1": "Sports",
@@ -819,7 +1083,14 @@
     "rating": 4.5,
     "reviewCount": 892,
     "options": [
-      { "name": "Color", "values": ["Gray", "Cream", "Navy"] }
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "Cream",
+          "Navy"
+        ]
+      }
     ],
     "description": "Ultra-soft microfiber fleece, machine washable, lightweight warmth.",
     "category1": "Home",
@@ -843,8 +1114,23 @@
     "rating": 4.6,
     "reviewCount": 734,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L", "XL"] },
-      { "name": "Color", "values": ["Black", "Gray", "Blue"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Gray",
+          "Blue"
+        ]
+      }
     ],
     "description": "4-way stretch, moisture-wicking, built-in brief, zip pocket.",
     "category1": "Fashion",
@@ -891,7 +1177,14 @@
     "rating": 4.6,
     "reviewCount": 987,
     "options": [
-      { "name": "Color", "values": ["White", "Black", "Stone"] }
+      {
+        "name": "Color",
+        "values": [
+          "White",
+          "Black",
+          "Stone"
+        ]
+      }
     ],
     "description": "Ultrasonic, 7-hour run time, auto shut-off, ambient light, BPA-free.",
     "category1": "Home",
@@ -915,7 +1208,14 @@
     "rating": 4.5,
     "reviewCount": 456,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L"
+        ]
+      }
     ],
     "description": "Moisture-wicking fabric, full zip, 3 rear pockets, silicone gripper.",
     "category1": "Sports",
@@ -961,7 +1261,14 @@
     "rating": 4.7,
     "reviewCount": 2341,
     "options": [
-      { "name": "Shade", "values": ["Rose", "Coral", "Natural"] }
+      {
+        "name": "Shade",
+        "values": [
+          "Rose",
+          "Coral",
+          "Natural"
+        ]
+      }
     ],
     "description": "100% natural, beeswax base, sun protection, long-lasting moisture.",
     "category1": "Beauty",
@@ -1026,7 +1333,14 @@
     "rating": 4.6,
     "reviewCount": 892,
     "options": [
-      { "name": "Color", "values": ["Gray", "Beige", "Navy"] }
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "Beige",
+          "Navy"
+        ]
+      }
     ],
     "description": "Triple-weave blackout fabric, thermal insulation, rod pocket, machine washable.",
     "category1": "Home",
@@ -1049,7 +1363,14 @@
     "rating": 4.5,
     "reviewCount": 734,
     "options": [
-      { "name": "Lens Color", "values": ["Clear", "Smoke", "Blue"] }
+      {
+        "name": "Lens Color",
+        "values": [
+          "Clear",
+          "Smoke",
+          "Blue"
+        ]
+      }
     ],
     "description": "UV protection, adjustable nose bridge, silicone strap, anti-fog coating.",
     "category1": "Sports",
@@ -1093,7 +1414,14 @@
     "rating": 4.7,
     "reviewCount": 1456,
     "options": [
-      { "name": "Color", "values": ["White", "Gray", "Blue"] }
+      {
+        "name": "Color",
+        "values": [
+          "White",
+          "Gray",
+          "Blue"
+        ]
+      }
     ],
     "description": "600 GSM, highly absorbent, soft feel, machine washable, quick dry.",
     "category1": "Home",
@@ -1117,8 +1445,23 @@
     "rating": 4.7,
     "reviewCount": 823,
     "options": [
-      { "name": "Size", "values": ["230", "240", "250", "260", "270"] },
-      { "name": "Color", "values": ["Brown", "Black"] }
+      {
+        "name": "Size",
+        "values": [
+          "230",
+          "240",
+          "250",
+          "260",
+          "270"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Brown",
+          "Black"
+        ]
+      }
     ],
     "description": "GORE-TEX waterproof, Vibram sole, cushioned EVA, ankle support.",
     "category1": "Fashion",
@@ -1162,7 +1505,14 @@
     "rating": 4.7,
     "reviewCount": 2341,
     "options": [
-      { "name": "Flavor", "values": ["Chocolate", "Vanilla", "Strawberry"] }
+      {
+        "name": "Flavor",
+        "values": [
+          "Chocolate",
+          "Vanilla",
+          "Strawberry"
+        ]
+      }
     ],
     "description": "24g protein per serving, low sugar, gluten-free, mixes easily.",
     "category1": "Health",
@@ -1206,7 +1556,14 @@
     "rating": 4.6,
     "reviewCount": 892,
     "options": [
-      { "name": "Color", "values": ["Black", "Pink", "Navy"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Pink",
+          "Navy"
+        ]
+      }
     ],
     "description": "100% mulberry silk, adjustable strap, blocks light, gentle on skin.",
     "category1": "Beauty",
@@ -1293,7 +1650,14 @@
     "rating": 4.6,
     "reviewCount": 2103,
     "options": [
-      { "name": "Color", "values": ["Black", "Navy", "Pink"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Navy",
+          "Pink"
+        ]
+      }
     ],
     "description": "Padded laptop sleeve, front utility pocket, side water bottle pocket, lifetime warranty.",
     "category1": "Fashion",
@@ -1358,7 +1722,14 @@
     "rating": 4.5,
     "reviewCount": 1678,
     "options": [
-      { "name": "Color", "values": ["Black", "Blue", "Rose"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Blue",
+          "Rose"
+        ]
+      }
     ],
     "description": "24/7 heart rate, sleep stages, 10-day battery, water-resistant, connected GPS.",
     "category1": "Electronics",
@@ -1402,7 +1773,13 @@
     "rating": 4.5,
     "reviewCount": 678,
     "options": [
-      { "name": "Color", "values": ["Black", "Silver"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Silver"
+        ]
+      }
     ],
     "description": "3 brightness levels, 60-hour runtime, flexible gooseneck, sturdy clip.",
     "category1": "Home",
@@ -1425,8 +1802,24 @@
     "rating": 4.7,
     "reviewCount": 1892,
     "options": [
-      { "name": "Size", "values": ["220", "230", "240", "250", "260"] },
-      { "name": "Color", "values": ["Black", "White", "Checkerboard"] }
+      {
+        "name": "Size",
+        "values": [
+          "220",
+          "230",
+          "240",
+          "250",
+          "260"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "White",
+          "Checkerboard"
+        ]
+      }
     ],
     "description": "Canvas upper, waffle outsole, padded collar, classic style.",
     "category1": "Fashion",
@@ -1512,8 +1905,22 @@
     "rating": 4.6,
     "reviewCount": 2103,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L"] },
-      { "name": "Color", "values": ["White", "Gray", "Black"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "White",
+          "Gray",
+          "Black"
+        ]
+      }
     ],
     "description": "3-layer AIRism fabric, washable, breathable, adjustable ear loops.",
     "category1": "Fashion",
@@ -1557,7 +1964,14 @@
     "rating": 4.7,
     "reviewCount": 1892,
     "options": [
-      { "name": "Color", "values": ["Clear", "Blue", "Green"] }
+      {
+        "name": "Color",
+        "values": [
+          "Clear",
+          "Blue",
+          "Green"
+        ]
+      }
     ],
     "description": "Tritan plastic, leak-proof, wide mouth, measurement markings, dishwasher safe.",
     "category1": "Sports",
@@ -1601,7 +2015,13 @@
     "rating": 4.5,
     "reviewCount": 892,
     "options": [
-      { "name": "Color", "values": ["Black", "Gray"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Gray"
+        ]
+      }
     ],
     "description": "Shock-absorbing neoprene, plush lining, slim profile, water-resistant.",
     "category1": "Electronics",
@@ -1687,7 +2107,14 @@
     "rating": 4.6,
     "reviewCount": 1023,
     "options": [
-      { "name": "Color", "values": ["Gray", "Cream", "Brown"] }
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "Cream",
+          "Brown"
+        ]
+      }
     ],
     "description": "Orthopedic foam base, bolster rails, removable washable cover, non-slip bottom.",
     "category1": "Pet",
@@ -1800,7 +2227,7 @@
     "category3": "Phone Holders",
     "category4": ""
   },
-    {
+  {
     "productId": "900000079",
     "title": "Eye Cream Anti-Aging 15ml",
     "brand": "Olay",
@@ -1857,7 +2284,13 @@
     "rating": 4.6,
     "reviewCount": 923,
     "options": [
-      { "name": "Color", "values": ["Black", "Wood Effect"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Wood Effect"
+        ]
+      }
     ],
     "description": "IPS display, 1280x800, WiFi, app control, auto-rotate, motion sensor, 8GB storage.",
     "category1": "Electronics",
@@ -1880,7 +2313,14 @@
     "rating": 4.5,
     "reviewCount": 567,
     "options": [
-      { "name": "Color", "values": ["White", "Black", "Navy"] }
+      {
+        "name": "Color",
+        "values": [
+          "White",
+          "Black",
+          "Navy"
+        ]
+      }
     ],
     "description": "Microwave & dishwasher safe, classic design, comfortable handle, 350ml capacity.",
     "category1": "Home",
@@ -1903,7 +2343,15 @@
     "rating": 4.7,
     "reviewCount": 782,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L", "XL"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ]
+      }
     ],
     "description": "360° reflectivity, lightweight mesh, adjustable fit, zippered pocket, breathable.",
     "category1": "Sports",
@@ -1968,7 +2416,13 @@
     "rating": 4.8,
     "reviewCount": 1567,
     "options": [
-      { "name": "Color", "values": ["Black", "Silver"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Silver"
+        ]
+      }
     ],
     "description": "T7 series, up to 1050MB/s, USB 3.2 Gen2, shock-resistant, password protection, 1TB.",
     "category1": "Electronics",
@@ -1991,7 +2445,14 @@
     "rating": 4.7,
     "reviewCount": 3341,
     "options": [
-      { "name": "Color", "values": ["Gray", "Beige", "Navy"] }
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "Beige",
+          "Navy"
+        ]
+      }
     ],
     "description": "Soft corduroy, invisible zipper, machine washable, includes insert, 45x45cm.",
     "category1": "Home",
@@ -2014,7 +2475,14 @@
     "rating": 4.6,
     "reviewCount": 892,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L"
+        ]
+      }
     ],
     "description": "Gel padding, moisture-wicking, touchscreen compatible, pull tabs, half-finger.",
     "category1": "Sports",
@@ -2100,7 +2568,14 @@
     "rating": 4.9,
     "reviewCount": 2341,
     "options": [
-      { "name": "Color", "values": ["Black", "Navy", "Emerald"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Navy",
+          "Emerald"
+        ]
+      }
     ],
     "description": "A5, 251 numbered pages, dotted, ink-proof paper, expandable pocket, 2 bookmarks.",
     "category1": "Office",
@@ -2144,7 +2619,14 @@
     "rating": 4.6,
     "reviewCount": 1123,
     "options": [
-      { "name": "Color", "values": ["Gray", "Ivory", "Blue"] }
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "Ivory",
+          "Blue"
+        ]
+      }
     ],
     "description": "Machine-woven, polypropylene, non-shedding, medium pile, stain-resistant, 120x180cm.",
     "category1": "Home",
@@ -2167,7 +2649,13 @@
     "rating": 4.4,
     "reviewCount": 1678,
     "options": [
-      { "name": "Size", "values": ["S/M", "L/XL"] }
+      {
+        "name": "Size",
+        "values": [
+          "S/M",
+          "L/XL"
+        ]
+      }
     ],
     "description": "Improves posture, reduces back pain, breathable, discreet under clothes.",
     "category1": "Health",
@@ -2190,7 +2678,13 @@
     "rating": 4.7,
     "reviewCount": 2891,
     "options": [
-      { "name": "Color", "values": ["Black", "Graphite"] }
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Graphite"
+        ]
+      }
     ],
     "description": "Vertical design, 57° angle, 4000 DPI, silent clicks, 10-month battery life.",
     "category1": "Electronics",
@@ -2230,6 +2724,7 @@
     "price": 15000,
     "originalPrice": 0,
     "mallName": "CookSmart",
+    "mallColor": "#B22222",
     "shipping": "Free",
     "rating": 4.7,
     "reviewCount": 4123,
@@ -2255,8 +2750,21 @@
     "rating": 4.6,
     "reviewCount": 1456,
     "options": [
-      { "name": "Size", "values": ["S", "M", "L"] },
-      { "name": "Color", "values": ["Gray", "Black"] }
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "Black"
+        ]
+      }
     ],
     "description": "Wireless headband, ultra-thin speakers, 24+ hour battery, washable (remove module).",
     "category1": "Electronics",
@@ -2286,4 +2794,3 @@
     "category4": ""
   }
 ]
- 
