@@ -1,0 +1,40 @@
+[
+  {
+    "product_id": "AVpe7AsMilAPnD_xQ78G",
+    "product_name": "Kindle Paperwhite",
+    "rouge1_precision": 0.07945205479452055,
+    "rouge1_recall": 0.5370370370370371,
+    "rouge1_f1": 0.13842482100238665,
+    "rouge2_precision": 0.013736263736263736,
+    "rouge2_recall": 0.09433962264150944,
+    "rouge2_f1": 0.02398081534772182,
+    "rougeL_precision": 0.06301369863013699,
+    "rougeL_recall": 0.42592592592592593,
+    "rougeL_f1": 0.10978520286396182,
+    "bertscore_precision": 0.4162669777870178,
+    "bertscore_recall": 0.54044508934021,
+    "bertscore_f1": 0.47029706835746765,
+    "generated_length": 361,
+    "reference_length": 51,
+    "length_ratio": 7.078431372549019
+  },
+  {
+    "product_id": "AVpfBEWcilAPnD_xTGb7",
+    "product_name": "Kindle Keyboard",
+    "rouge1_precision": 0.07754010695187166,
+    "rouge1_recall": 0.5,
+    "rouge1_f1": 0.13425925925925927,
+    "rouge2_precision": 0.013404825737265416,
+    "rouge2_recall": 0.08771929824561403,
+    "rouge2_f1": 0.023255813953488372,
+    "rougeL_precision": 0.058823529411764705,
+    "rougeL_recall": 0.3793103448275862,
+    "rougeL_f1": 0.10185185185185185,
+    "bertscore_precision": 0.4367961883544922,
+    "bertscore_recall": 0.5695424675941467,
+    "bertscore_f1": 0.4944140613079071,
+    "generated_length": 373,
+    "reference_length": 50,
+    "length_ratio": 7.46
+  }
+]
