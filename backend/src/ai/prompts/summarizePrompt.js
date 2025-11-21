@@ -23,7 +23,7 @@ Description: ${productData.description || 'N/A'}
 Mall Name: ${productData.mallName || 'N/A'}
 Rating: ${productData.rating || 'N/A'}
 
-Provide a comprehensive summary in Korean that helps users make an informed purchase decision.`;
+Provide a comprehensive summary in ENGLISH that helps users make an informed purchase decision.`;
   }
 };
 
