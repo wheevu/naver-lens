@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "../../api/axios";
 import { useTheme } from "../../context/ThemeContext";
+import { type Product } from "../../types/product";
 
 const AiIcon = () => (
   <svg
@@ -48,7 +49,7 @@ const SendIcon = () => (
 );
 
 interface ProductSummaryChatProps {
-  productId: string;
+  product: Product;
 }
 
 interface SummaryResponse {
@@ -67,9 +68,7 @@ interface SummaryResponse {
   };
 }
 
-const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({
-  productId,
-}) => {
+const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [summary, setSummary] = useState<string | null>(null);
@@ -86,7 +85,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({
 
     try {
       const response = await axios.post<SummaryResponse>("/api/summarize", {
-        productId: productId,
+        productData: product,
       });
 
       if (response.data.success) {
@@ -106,7 +105,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({
     if (isOpen && !summary) {
       fetchSummary();
     }
-  }, [isOpen, productId]);
+  }, [isOpen, product.productId]);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
@@ -147,7 +146,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({
 
           <div className="p-4 overflow-y-auto min-h-[200px] max-h-[350px] bg-opacity-50 bg-gray-50 dark:bg-gray-900/50">
             <div className="flex gap-3 mb-4">
-              <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white flex-shrink-0 shadow-md">
+              <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
                 <AiIcon />
               </div>
               <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm">
@@ -160,7 +159,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({
 
             {loading && (
               <div className="flex gap-3 mb-4">
-                <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white flex-shrink-0 shadow-md">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
                   <AiIcon />
                 </div>
                 <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl rounded-tl-none shadow-sm">
@@ -183,7 +182,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({
 
             {summary && !loading && (
               <div className="flex gap-3 mb-2 animate-in fade-in zoom-in duration-300">
-                <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white flex-shrink-0 shadow-md">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
                   <AiIcon />
                 </div>
                 <div
