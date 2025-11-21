@@ -95,7 +95,7 @@ const QuickLinks = () => {
             </div>
             <div className="text-center">
               <span
-                className="text-sm text-gray-300"
+                className="text-sm text-(--text-primary)"
                 style={{ fontFamily: "var(--font-secondary)" }}
               >
                 {item.name}

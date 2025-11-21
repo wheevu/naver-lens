@@ -41,8 +41,8 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
       <TopBar
         bgColor={store.themeColor}
         borderColor="rgba(0, 0, 0, 0.15)"
-        textColorClass="text-white/80"
-        hoverTextColorClass="hover:text-white"
+        textColorClass="text-(--text-primary)/80"
+        hoverTextColorClass="hover:text-(--text-primary)"
       />
 
       <div className="w-full max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
@@ -53,8 +53,10 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
             className="w-14 h-14 rounded-full bg-black/20"
           />
           <div className="flex flex-col">
-            <span className="text-white text-lg font-bold">{store.name}</span>
-            <span className="text-white/70 text-sm">
+            <span className="text-(--text-primary) text-lg font-bold">
+              {store.name}
+            </span>
+            <span className="text-(--text-primary)/70 text-sm">
               관심고객수 {loading ? "..." : store.followers.toLocaleString()}
             </span>
           </div>

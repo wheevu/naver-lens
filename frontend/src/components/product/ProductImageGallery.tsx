@@ -82,14 +82,14 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
         />
         <button
           onClick={handlePrev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 text-white/50 hover:text-white z-10"
+          className="absolute left-5 top-1/2 -translate-y-1/2 text-(--text-primary)/50 hover:text-(--text-primary) z-10"
           aria-label="Previous Image"
         >
           <PrevIcon />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 text-white/50 hover:text-white z-10"
+          className="absolute right-5 top-1/2 -translate-y-1/2 text-(--text-primary)/50 hover:text-(--text-primary) z-10"
           aria-label="Next Image"
         >
           <NextIcon />

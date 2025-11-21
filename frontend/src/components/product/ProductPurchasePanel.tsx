@@ -99,24 +99,26 @@ const ProductBenefits: React.FC = () => (
       border: "1px solid var(--glass-border)",
     }}
   >
-    <strong className="text-white font-bold">혜택 정보 (Mockup)</strong>
+    <strong className="text-(--text-primary) font-bold">
+      혜택 정보 (Mockup)
+    </strong>
     <ul className="text-sm mt-2">
       <li className="flex justify-between text-gray-300">
         <span>최대 적립 포인트</span>
-        <span className="text-white font-bold">3,273원</span>
+        <span className="text-(--text-primary) font-bold">3,273원</span>
       </li>
       <li className="flex justify-between text-gray-400 text-xs mt-1">
         <span>기본적립</span>
         <span>239원</span>
       </li>
       <li className="flex justify-between text-gray-400 text-xs mt-1">
-        <Link to="#" className="flex items-center hover:text-white">
+        <Link to="#" className="flex items-center hover:text-(--text-primary)">
           네이버 현대카드 Ed2로 결제 시 <ArrowRightIcon />
         </Link>
         <span className="text-green-400">1,676원</span>
       </li>
       <li className="flex justify-between text-gray-400 text-xs mt-1">
-        <Link to="#" className="flex items-center hover:text-white">
+        <Link to="#" className="flex items-center hover:text-(--text-primary)">
           네이버페이 머니 결제 시 <ArrowRightIcon />
         </Link>
         <span>478원</span>
@@ -133,7 +135,7 @@ const ProductBenefits: React.FC = () => (
       </li>
     </ul>
     <button
-      className="w-full text-center py-2.5 mt-3 rounded-md text-sm font-bold text-white"
+      className="w-full text-center py-2.5 mt-3 rounded-md text-sm font-bold text-(--text-primary)"
       style={{
         background: "var(--naver-green)",
         borderRadius: "var(--radius-md)",
@@ -166,10 +168,10 @@ const SelectedOptionsList: React.FC<{
         }}
       >
         <div className="flex justify-between items-center">
-          <span className="text-white text-sm">{item.name}</span>
+          <span className="text-(--text-primary) text-sm">{item.name}</span>
           <button
             onClick={() => onRemove(item.id)}
-            className="text-gray-500 hover:text-white text-lg"
+            className="text-gray-500 hover:text-(--text-primary) text-lg"
           >
             &times;
           </button>
@@ -181,19 +183,21 @@ const SelectedOptionsList: React.FC<{
           >
             <button
               onClick={() => onQuantityChange(item.id, item.quantity - 1)}
-              className="px-2 py-0.5 text-white/70 hover:text-white"
+              className="px-2 py-0.5 text-(--text-primary)/70 hover:text-(--text-primary)"
             >
               -
             </button>
-            <span className="px-3 text-sm text-white">{item.quantity}</span>
+            <span className="px-3 text-sm text-(--text-primary)">
+              {item.quantity}
+            </span>
             <button
               onClick={() => onQuantityChange(item.id, item.quantity + 1)}
-              className="px-2 py-0.5 text-white/70 hover:text-white"
+              className="px-2 py-0.5 text-(--text-primary)/70 hover:text-(--text-primary)"
             >
               +
             </button>
           </div>
-          <span className="text-white font-bold">
+          <span className="text-(--text-primary) font-bold">
             {item.price.toLocaleString()}원
           </span>
         </div>
@@ -282,13 +286,15 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
     >
       <div className="flex items-center gap-1 text-sm text-gray-300">
         <RatingStarIcon />
-        <span className="font-bold text-white">
+        <span className="font-bold text-(--text-primary)">
           {product.rating.toFixed(1)}
         </span>
         <span>({product.reviewCount.toLocaleString()} 리뷰)</span>
       </div>
 
-      <h1 className="text-2xl font-bold text-white mt-2">{product.title}</h1>
+      <h1 className="text-2xl font-bold text-(--text-primary) mt-2">
+        {product.title}
+      </h1>
 
       <div className="mt-4">
         {product.originalPrice > 0 && (
@@ -305,7 +311,7 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
               {discountPercent}%
             </span>
           )}
-          <span className="text-3xl font-bold text-white">
+          <span className="text-3xl font-bold text-(--text-primary)">
             {product.price.toLocaleString()}원
           </span>
         </div>
@@ -320,7 +326,7 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
             <select
               value={selectedOptions[opt.name] || ""}
               onChange={(e) => handleOptionChange(opt.name, e.target.value)}
-              className="w-full h-12 px-4 bg-white/10 text-white rounded-md border"
+              className="w-full h-12 px-4 bg-white/10 text-(--text-primary) rounded-md border"
               style={{
                 borderRadius: "var(--radius-sm)",
                 borderColor: "var(--glass-border)",
@@ -346,15 +352,17 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
       />
 
       <div className="flex justify-between items-center mt-6">
-        <span className="text-lg text-white font-bold">총 상품 금액</span>
-        <span className="text-2xl font-bold text-white">
+        <span className="text-lg text-(--text-primary) font-bold">
+          총 상품 금액
+        </span>
+        <span className="text-2xl font-bold text-(--text-primary)">
           {totalPrice.toLocaleString()}원
         </span>
       </div>
 
       <div className="flex gap-2 mt-4">
         <button
-          className="flex-1 py-4 text-center text-white font-bold rounded-md"
+          className="flex-1 py-4 text-center text-(--text-primary) font-bold rounded-md"
           style={{
             background: "var(--naver-green)",
             borderRadius: "var(--radius-md)",
@@ -363,7 +371,7 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
           구매하기
         </button>
         <button
-          className="py-4 px-5 text-white/80 rounded-md hover:text-white"
+          className="py-4 px-5 text-(--text-primary)/80 rounded-md hover:text-(--text-primary)"
           style={{
             background: "var(--glass-bg)",
             border: "1px solid var(--glass-border)",
@@ -373,7 +381,7 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
           <HeartIcon />
         </button>
         <button
-          className="py-4 px-5 text-white/80 rounded-md hover:text-white"
+          className="py-4 px-5 text-(--text-primary)/80 rounded-md hover:text-(--text-primary)"
           style={{
             background: "var(--glass-bg)",
             border: "1px solid var(--glass-border)",

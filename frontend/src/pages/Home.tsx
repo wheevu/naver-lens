@@ -16,7 +16,9 @@ const Home = () => {
         <QuickLinks />
         <BlogProductSection />
         <ProductGridSection />
-        <h2 className="text-white dark:text-gray-100 text-2xl mt-8">Main Content Goes Here</h2>
+        {/* <h2 className="text-(--text-primary) dark:text-gray-100 text-2xl mt-8">
+          Main Content Goes Here
+        </h2> */}
       </main>
 
       {/* Footer */}

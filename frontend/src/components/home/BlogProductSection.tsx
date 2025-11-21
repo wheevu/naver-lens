@@ -8,7 +8,7 @@ import axios from "../../api/axios";
 /* ------------------------------------------------------------------ */
 interface ApiProduct {
   id: string;
-  // title property seems to be the 'name' in console logs, 
+  // title property seems to be the 'name' in console logs,
   // but let's assume 'name' is the correct property based on the log structure
   name: string; // <-- Changed 'title' to 'name' to match console log keys
   brand: string;
@@ -103,13 +103,13 @@ const mapProduct = (p: ApiProduct): ProductListItemProps => {
     ? 0
     : Number(p.shipping?.replace(/[^\d]/g, "")) || undefined;
 
-  console.log('p diddy', p)
+  console.log("p diddy", p);
 
   return {
     id: p.id,
     name: name || "No description",
     // FIX: Changed p.images?.[0] ?? "" to p.imageUrl
-    imageUrl: p.imageUrl, 
+    imageUrl: p.imageUrl,
     finalPrice: p.price,
     originalPrice,
     discountRate,
@@ -135,7 +135,7 @@ const BlogProductSection = () => {
         // NOTE: If you changed the ApiProduct interface to use 'name' instead of 'title',
         // ensure your API endpoint is actually returning a property called 'name'.
         const { data } = await axios.get<ApiResponse>("/api/products");
-        console.log('cool', data)
+        console.log("cool", data);
         setAllProducts(data.data ?? []);
       } catch (e) {
         console.error(e);
@@ -157,7 +157,8 @@ const BlogProductSection = () => {
     const list = blogs.map((b) => {
       const three = pool.slice(0, 3).map(mapProduct);
       pool = pool.slice(3);
-      if (pool.length < 3) pool = [...allProducts].sort(() => Math.random() - 0.5);
+      if (pool.length < 3)
+        pool = [...allProducts].sort(() => Math.random() - 0.5);
       return { blog: b, products: three };
     });
     setPaired(list);
@@ -180,21 +181,25 @@ const BlogProductSection = () => {
           className="text-2xl font-bold"
           style={{ fontFamily: "var(--font-secondary)" }}
         >
-          <span className="text-white">인기 </span>
+          <span className="text-(--text-primary)">인기 </span>
           <span style={{ color: "var(--naver-green)" }}>패션</span>
-          <span className="text-white"> 블로그와 함께 찾는 상품</span>
+          <span className="text-(--text-primary)">
+            {" "}
+            블로그와 함께 찾는 상품
+          </span>
         </h3>
       </div>
 
       <div className="mb-4">
         <p className="text-base text-gray-400">
-          최근 7일간 <span className="text-gray-300">패션</span> 분야 클릭 많은 블로그
+          최근 7일간 <span className="text-gray-300">패션</span> 분야 클릭 많은
+          블로그
         </p>
       </div>
 
       {loading ? (
         <div className="flex justify-center items-center h-40">
-          <p className="text-white text-lg">Đang tải...</p>
+          <p className="text-(--text-primary) text-lg">Đang tải...</p>
         </div>
       ) : paired.length === 0 ? (
         <div className="text-center text-gray-400 py-10">
@@ -205,7 +210,7 @@ const BlogProductSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
             {current.map((item, i) => (
               <BlogPanel
-                key={`${page}-${i}`}          // unique per page
+                key={`${page}-${i}`} // unique per page
                 blog={item.blog}
                 products={item.products}
               />

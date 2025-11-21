@@ -84,7 +84,7 @@ const StorePage = () => {
         </div>
 
         <div
-          className="text-white mt-12 border-t pt-8"
+          className="text-(--text-primary) mt-12 border-t pt-8"
           style={{ borderColor: "var(--glass-border)" }}
         >
           <h3 className="text-2xl font-bold mb-4">Mô tả sản phẩm</h3>

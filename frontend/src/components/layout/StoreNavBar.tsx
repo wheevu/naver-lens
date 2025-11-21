@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { type StoreData } from "./StoreHeader";
-import FollowIcon from "../../assets/IconBellPlusWhite.svg";
+import { isLightColor } from "../../utils/color";
 
 const PowerIcon = () => (
   <svg
@@ -55,28 +55,33 @@ interface StoreNavBarProps {
 }
 
 const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
-  const isDarkBg = store.themeColor !== "#FFFFFF";
-  const buttonTextColor = isDarkBg ? "text-gray-900" : "text-white";
-  const buttonBgColor = store.buttonColor || store.themeColor;
+  const isLightBg = isLightColor(store.themeColor);
 
-  const textColor = isDarkBg ? "text-white" : "text-gray-800";
-  const mutedTextColor = isDarkBg ? "text-white/70" : "text-gray-600";
-  const logoColor = isDarkBg ? "text-white" : "text-black";
+  const textColor = isLightBg ? "text-gray-900" : "text-white";
+  const mutedTextColor = isLightBg ? "text-gray-600" : "text-white/70";
+  const logoColor = isLightBg ? "text-black" : "text-white";
+  // const hoverTextColor = isLightBg ? "hover:text-black" : "hover:text-white";
+
+  const btnBg = store.buttonColor || store.themeColor;
+  const isBtnLight = isLightColor(btnBg);
+  const btnTextColor = isBtnLight ? "text-gray-900" : "text-white";
 
   return (
     <div
-      className="w-full bg-white shadow-sm"
-      style={{ fontFamily: "var(--font-secondary)" }}
+      className="w-full shadow-sm"
+      style={{
+        backgroundColor: store.themeColor,
+        fontFamily: "var(--font-secondary)",
+      }}
     >
       <div className="w-full max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <button
-          className={`h-9 px-5 flex items-center gap-2 rounded-md transition-opacity hover:opacity-90 ${buttonTextColor}`}
+          className={`h-9 px-5 flex items-center gap-2 rounded-md transition-opacity hover:opacity-90 ${btnTextColor}`}
           style={{
-            backgroundColor: buttonBgColor,
+            backgroundColor: btnBg,
             borderRadius: "var(--radius-md)",
           }}
         >
-          <img src={FollowIcon} alt="" />
           <span className="text-sm font-bold">알림받기</span>
         </button>
 
@@ -86,12 +91,10 @@ const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
           </h1>
         </div>
 
-        <div className={`block items-center gap-5 ${mutedTextColor} text-xs`}>
+        <div className={`flex items-center gap-4 ${mutedTextColor} text-xs`}>
           <div className="flex items-center gap-1">
             <span>스토어등급</span>
-            <PowerIcon />
             <span className={`font-bold ${textColor}`}>파워</span>
-            <InfoIcon />
           </div>
           <div className="flex items-center gap-2">
             <span>오늘 {loading ? "..." : "949"}</span>
@@ -103,17 +106,13 @@ const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
       </div>
 
       <nav className="w-full border-t border-b border-gray-200">
-        <div className="w-full max-w-7xl mx-auto px-4 flex justify-center items-center h-16 overflow-x-auto">
+        <div className="w-full max-w-7xl mx-auto px-4 flex justify-start items-center h-16 overflow-x-auto">
           <div className="flex flex-nowrap gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-bold whitespace-nowrap ${
-                  item.isMore
-                    ? "text-gray-500 hover:text-black"
-                    : "text-black hover:text-green-600"
-                }`}
+                className={`text-sm font-bold whitespace-nowrap text-gray-800 hover:text-naver-green`}
               >
                 {item.name}
                 {item.isMore && " ▾"}

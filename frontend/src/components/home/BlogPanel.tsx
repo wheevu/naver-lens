@@ -31,7 +31,6 @@ interface BlogPanelProps {
 }
 
 const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
-  console.log('blog panel: ', products) // id undefined
   return (
     <div
       className="w-full flex flex-col rounded-lg overflow-hidden"
@@ -49,7 +48,7 @@ const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
           className="absolute inset-0 w-full h-full object-cover backdrop-blur-lg"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20"
+          className="absolute inset-0 bg-linear-to-b from-black/50 to-black/20"
           style={{ backdropFilter: "blur(8px)" }}
         />
         <div className="absolute inset-0 p-6 flex flex-col justify-start">
@@ -60,12 +59,14 @@ const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
             >
               <BlogTagIcon />
             </span>
-            <span className="ml-2 text-sm text-white/70">by. {blog.author}</span>
+            <span className="ml-2 text-sm text-(--text-primary)/70">
+              by. {blog.author}
+            </span>
           </div>
 
           <div className="flex justify-between items-end mt-2 grow">
             <h4
-              className="text-xl font-bold text-white w-3/4 [text-shadow:0px_1px_1px_rgb(0_0_0/_0.20)]"
+              className="text-xl font-bold text-(--text-primary) w-3/4 [text-shadow:0px_1px_1px_rgb(0_0_0/_0.20)]"
               style={{ fontFamily: "var(--font-secondary)" }}
             >
               {blog.title}

@@ -5,8 +5,8 @@ import axios from "../../api/axios";
 
 interface Product {
   id: string;
-  name: string;  
-  imageUrl?: string;  
+  name: string;
+  imageUrl?: string;
   price: number;
   originalPrice: number;
   brand?: string;
@@ -18,7 +18,16 @@ interface SearchPopupProps {
   onClose: () => void;
 }
 
-const mockKeywords = ["나이키", "아디다스", "패딩", "아이폰", "에어팟", "갤럭시", "자라", "루이비통"];
+const mockKeywords = [
+  "나이키",
+  "아디다스",
+  "패딩",
+  "아이폰",
+  "에어팟",
+  "갤럭시",
+  "자라",
+  "루이비통",
+];
 
 const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
   const [results, setResults] = useState<Product[]>([]);
@@ -36,9 +45,10 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
       const products = res.data.data || [];
 
       const filtered = products
-        .filter((p) =>
-          p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          p.brand?.toLowerCase().includes(searchTerm.toLowerCase())
+        .filter(
+          (p) =>
+            p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            p.brand?.toLowerCase().includes(searchTerm.toLowerCase())
         )
         .slice(0, 8);
 
@@ -70,7 +80,9 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
         {/* Kết quả tìm kiếm */}
         {query && (
           <div className="mb-6">
-            <h3 className="text-sm font-semibold text-gray-400 mb-3">검색 결과</h3>
+            <h3 className="text-sm font-semibold text-gray-400 mb-3">
+              검색 결과
+            </h3>
 
             {loading ? (
               <div className="text-center py-8 text-gray-300">검색 중...</div>
@@ -81,9 +93,14 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {results.map((product) => {
-                  const discount = product.originalPrice > product.price
-                    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
-                    : 0;
+                  const discount =
+                    product.originalPrice > product.price
+                      ? Math.round(
+                          ((product.originalPrice - product.price) /
+                            product.originalPrice) *
+                            100
+                        )
+                      : 0;
 
                   return (
                     <Link
@@ -94,19 +111,25 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
                     >
                       <div className="bg-gray-800/60 rounded-lg overflow-hidden border border-gray-700 hover:border-purple-500 transition-all duration-300">
                         <img
-                          src={product.imageUrl || "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image"}
+                          src={
+                            product.imageUrl ||
+                            "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image"
+                          }
                           alt={product.name}
                           className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
-                            e.currentTarget.src = "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image";
+                            e.currentTarget.src =
+                              "https://via.placeholder.com/300x300/1a1a1a/888?text=No+Image";
                           }}
                         />
                         <div className="p-3">
-                          <p className="text-white text-xs line-clamp-2 font-medium leading-tight">
+                          <p className="text-(--text-primary) text-xs line-clamp-2 font-medium leading-tight">
                             {product.name}
                           </p>
                           {product.brand && (
-                            <p className="text-gray-400 text-xs mt-1">{product.brand}</p>
+                            <p className="text-gray-400 text-xs mt-1">
+                              {product.brand}
+                            </p>
                           )}
                           <div className="mt-2 flex items-center gap-1.5">
                             {discount > 0 && (
@@ -114,7 +137,7 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
                                 {discount}%
                               </span>
                             )}
-                            <span className="text-white font-bold text-sm">
+                            <span className="text-(--text-primary) font-bold text-sm">
                               {product.price.toLocaleString()}원
                             </span>
                           </div>
@@ -130,12 +153,14 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
 
         {/* 추천 검색어 */}
         <div className="pt-4 border-t border-gray-700">
-          <h3 className="text-sm font-semibold text-gray-400 mb-3">추천 검색어</h3>
+          <h3 className="text-sm font-semibold text-gray-400 mb-3">
+            추천 검색어
+          </h3>
           <div className="flex flex-wrap gap-2">
             {mockKeywords.map((kw) => (
               <button
                 key={kw}
-                className="px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-purple-600 hover:text-white"
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-purple-600 hover:text-(--text-primary)"
                 style={{
                   background: "rgba(147, 51, 234, 0.15)",
                   color: "#c4b5fd",
@@ -153,7 +178,7 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ query, onClose }) => {
           <span className="text-xs text-gray-500">자동저장 끄기</span>
           <button
             onClick={onClose}
-            className="text-xs font-medium text-gray-400 hover:text-white transition"
+            className="text-xs font-medium text-gray-400 hover:text-(--text-primary) transition"
           >
             닫기
           </button>

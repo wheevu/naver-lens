@@ -1,110 +1,64 @@
-/* CSS Variables */
 :root {
-  /* Fonts */
   --font-primary: "Orbitron", monospace;
   --font-secondary: "Space Grotesk", sans-serif;
 
-  /* NAVER */
   --naver-green: #03c75a;
   --naver-green-light: #0cf09b;
-  --naver-dark: #19202c;
-  --naver-slate-dark: #3e4f6d;
-  --naver-slate: #7b899a;
-  --naver-gray-light: #cbd0d3;
-  --naver-white: #edf2f7;
   --system-red: #e83e3e;
-  --system-orange: #ec8f5a;
-  --system-green: #4bbe7b;
   --system-blue: #4294e1;
 
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 24px;
 
-  /* Colors */
+  --transition-default: all 0.3s ease;
+}
+
+/* --- LIGHT THEME --- */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f6f8;
+
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #f0f2f5 100%);
+
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  --gradient-button: linear-gradient(135deg, #03c75a 0%, #0cf09b 100%);
+}
+
+/* --- DARK THEME --- */
+[data-theme="dark"] {
+  --bg-primary: #0c0c0c;
+  --bg-secondary: #1a1a2e;
+
   --gradient-primary: linear-gradient(
-    160deg,
-    #020617 0%,
-    #0f172a 40%,
-    #1e293b 80%,
-    rgba(3, 199, 90, 0.15) 100%
-  );
-  --bg-clean: linear-gradient(
     135deg,
-    #ffffff 0%,
-    #f0fdf4 100%
-  );
-  --gradient-button: linear-gradient(
-    135deg,
-    var(--naver-green) 0%,
-    var(--naver-green-light) 100%
-  );
-  --gradient-button-hover: linear-gradient(
-    135deg,
-    var(--naver-green-light) 0%,
-    var(--naver-green) 100%
-  );
-  --gradient-success: linear-gradient(
-    135deg,
-    var(--system-green) 0%,
-    #3a9c63 100%
-  );
-  --gradient-success-hover: linear-gradient(
-    135deg,
-    #3a9c63 0%,
-    var(--system-green) 100%
-  );
-  --gradient-text: linear-gradient(
-    135deg,
-    #fff 0%,
-    #f0f9ff 25%,
-    #dbeafe 50%,
-    #93c5fd 75%,
-    #3b82f6 100%
-  );
-  --gradient-back: linear-gradient(
-    135deg,
-    rgba(107, 114, 128, 0.8) 0%,
-    rgba(75, 85, 99, 0.8) 100%
+    #0c0c0c 0%,
+    #1a1a2e 25%,
+    #16213e 50%,
+    #0f3460 75%,
+    #533483 100%
   );
 
-  /* Glass effects */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --card-bg: rgba(255, 255, 255, 0.7);
   --glass-bg: rgba(0, 0, 0, 0.4);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(20px);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  --glass-shadow-hover: 0 16px 64px rgba(0, 0, 0, 0.4),
-    0 0 80px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
-  /* Butt shadows */
-  --button-shadow: 0 8px 25px rgba(3, 199, 90, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  --button-shadow-hover: 0 12px 35px rgba(3, 199, 90, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  --button-shadow-active: 0 4px 15px rgba(3, 199, 90, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-
-  /* Transitions */
-  --transition-default: all 0.3s ease;
-  --transition-fast: all 0.2s ease;
-}
-
-/* Dark Mode Variables */
-.dark {
-  --gradient-primary: linear-gradient(
-    160deg,
-    #0f172a 0%,
-    #1e293b 40%,
-    #334155 80%,
-    rgba(3, 199, 90, 0.1) 100%
-  );
-  --glass-bg: rgba(0, 0, 0, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  --glass-shadow-hover: 0 16px 64px rgba(0, 0, 0, 0.6),
-    0 0 80px rgba(3, 199, 90, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --gradient-button: linear-gradient(135deg, #03c75a 0%, #0cf09b 100%);
 }
 
 * {
@@ -114,5 +68,7 @@
 body {
   margin: 0;
   font-family: var(--font-secondary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: var(--transition-default);
 }

@@ -56,7 +56,7 @@ const TopBar: React.FC<TopBarProps> = ({
   bgColor = "var(--glass-bg)",
   borderColor = "var(--glass-border)",
   textColorClass = "text-gray-300",
-  hoverTextColorClass = "hover:text-white",
+  hoverTextColorClass = "hover:text-(--text-primary)",
 }) => {
   return (
     <div
