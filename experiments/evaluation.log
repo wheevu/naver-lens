@@ -1,0 +1,1423 @@
+2025-11-21 22:56:52,542 - absl - INFO - Using default tokenizer.
+2025-11-21 22:56:52,543 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 22:57:02,768 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 22:57:02,770 - __main__ - INFO - ================================================================================
+2025-11-21 22:57:02,771 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 22:57:02,771 - __main__ - INFO - ================================================================================
+2025-11-21 22:57:02,772 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 22:57:04,283 - src.data_loader - INFO - Successfully loaded 1597 products from 7817_1.csv
+2025-11-21 22:57:04,283 - __main__ - INFO - Loaded 1597 products
+2025-11-21 22:57:04,284 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 22:57:04,284 - __main__ - INFO - Processing product 1/1597: Kindle Paperwhite...
+2025-11-21 22:57:13,303 - __main__ - INFO - Processing product 2/1597: Kindle Paperwhite...
+2025-11-21 22:57:23,920 - __main__ - INFO - Processing product 3/1597: Kindle Paperwhite...
+2025-11-21 22:57:33,364 - __main__ - INFO - Processing product 4/1597: Kindle Paperwhite...
+2025-11-21 22:57:41,383 - __main__ - INFO - Processing product 5/1597: Kindle Paperwhite...
+2025-11-21 22:57:52,290 - __main__ - INFO - Processing product 6/1597: Kindle Paperwhite...
+2025-11-21 22:58:01,841 - __main__ - INFO - Processing product 7/1597: Kindle Paperwhite...
+2025-11-21 22:58:10,776 - __main__ - INFO - Processing product 8/1597: Kindle Paperwhite...
+2025-11-21 22:58:21,300 - __main__ - INFO - Processing product 9/1597: Kindle Paperwhite...
+2025-11-21 22:58:32,472 - __main__ - INFO - Processing product 10/1597: Kindle Paperwhite...
+2025-11-21 22:58:43,187 - __main__ - INFO - Processing product 11/1597: Kindle Paperwhite...
+2025-11-21 22:58:55,426 - __main__ - INFO - Processing product 12/1597: Kindle Paperwhite...
+2025-11-21 22:59:04,129 - __main__ - INFO - Processing product 13/1597: Kindle Paperwhite...
+2025-11-21 22:59:16,087 - __main__ - INFO - Processing product 14/1597: Kindle Paperwhite...
+2025-11-21 22:59:24,846 - __main__ - INFO - Processing product 15/1597: Kindle Paperwhite...
+2025-11-21 22:59:36,740 - __main__ - INFO - Processing product 16/1597: Kindle Paperwhite...
+2025-11-21 22:59:49,902 - __main__ - INFO - Processing product 17/1597: Kindle Paperwhite...
+2025-11-21 23:00:00,265 - __main__ - INFO - Processing product 18/1597: Kindle Paperwhite...
+2025-11-21 23:00:10,391 - __main__ - INFO - Processing product 19/1597: Kindle Paperwhite...
+2025-11-21 23:00:23,092 - __main__ - INFO - Processing product 20/1597: Kindle Paperwhite...
+2025-11-21 23:00:32,713 - __main__ - INFO - Processing product 21/1597: Kindle Paperwhite...
+2025-11-21 23:00:45,267 - __main__ - INFO - Processing product 22/1597: Kindle Paperwhite...
+2025-11-21 23:00:55,498 - __main__ - INFO - Processing product 23/1597: Kindle Paperwhite...
+2025-11-21 23:01:06,187 - __main__ - INFO - Processing product 24/1597: Kindle Keyboard...
+2025-11-21 23:01:16,032 - __main__ - INFO - Processing product 25/1597: Kindle Keyboard...
+2025-11-21 23:01:25,424 - __main__ - INFO - Processing product 26/1597: Kindle Keyboard...
+2025-11-21 23:01:37,304 - __main__ - INFO - Processing product 27/1597: Kindle Keyboard...
+2025-11-21 23:01:49,720 - __main__ - INFO - Processing product 28/1597: Kindle Keyboard...
+2025-11-21 23:01:58,938 - __main__ - INFO - Processing product 29/1597: Kindle Keyboard...
+2025-11-21 23:02:10,299 - __main__ - INFO - Processing product 30/1597: Kindle Keyboard...
+2025-11-21 23:02:22,230 - __main__ - INFO - Processing product 31/1597: Kindle Keyboard...
+2025-11-21 23:02:32,816 - __main__ - INFO - Processing product 32/1597: Kindle Keyboard...
+2025-11-21 23:02:44,600 - __main__ - INFO - Processing product 33/1597: Kindle Keyboard...
+2025-11-21 23:02:55,529 - __main__ - INFO - Processing product 34/1597: Kindle Keyboard...
+2025-11-21 23:03:05,233 - __main__ - INFO - Processing product 35/1597: Kindle Keyboard...
+2025-11-21 23:03:18,489 - __main__ - INFO - Processing product 36/1597: Kindle Keyboard...
+2025-11-21 23:03:25,954 - __main__ - INFO - Processing product 37/1597: Kindle Keyboard...
+2025-11-21 23:03:39,324 - __main__ - INFO - Processing product 38/1597: Kindle Keyboard...
+2025-11-21 23:03:50,281 - __main__ - INFO - Processing product 39/1597: Kindle Keyboard...
+2025-11-21 23:03:58,800 - __main__ - INFO - Processing product 40/1597: Kindle Keyboard...
+2025-11-21 23:04:09,428 - __main__ - INFO - Processing product 41/1597: Kindle Keyboard...
+2025-11-21 23:04:20,556 - __main__ - INFO - Processing product 42/1597: Kindle Keyboard...
+2025-11-21 23:04:39,075 - absl - INFO - Using default tokenizer.
+2025-11-21 23:04:39,076 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:04:44,943 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:04:44,945 - __main__ - INFO - ================================================================================
+2025-11-21 23:04:44,945 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:04:44,946 - __main__ - INFO - ================================================================================
+2025-11-21 23:04:44,946 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:04:44,957 - src.data_loader - INFO - Successfully loaded 20 products from 7817_1.csv
+2025-11-21 23:04:44,957 - __main__ - INFO - Loaded 20 products
+2025-11-21 23:04:44,958 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:08:24,861 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:08:24,862 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:08:24,862 - __main__ - INFO - Computing metrics for product 1/20...
+2025-11-21 23:08:49,638 - __main__ - INFO - Computing metrics for product 2/20...
+2025-11-21 23:08:53,817 - __main__ - INFO - Computing metrics for product 3/20...
+2025-11-21 23:08:57,795 - __main__ - INFO - Computing metrics for product 4/20...
+2025-11-21 23:09:01,458 - __main__ - INFO - Computing metrics for product 5/20...
+2025-11-21 23:09:05,141 - __main__ - INFO - Computing metrics for product 6/20...
+2025-11-21 23:09:08,811 - __main__ - INFO - Computing metrics for product 7/20...
+2025-11-21 23:09:12,498 - __main__ - INFO - Computing metrics for product 8/20...
+2025-11-21 23:09:16,171 - __main__ - INFO - Computing metrics for product 9/20...
+2025-11-21 23:09:19,839 - __main__ - INFO - Computing metrics for product 10/20...
+2025-11-21 23:09:23,539 - __main__ - INFO - Computing metrics for product 11/20...
+2025-11-21 23:09:25,667 - __main__ - INFO - Computing metrics for product 12/20...
+2025-11-21 23:09:29,352 - __main__ - INFO - Computing metrics for product 13/20...
+2025-11-21 23:09:33,016 - __main__ - INFO - Computing metrics for product 14/20...
+2025-11-21 23:09:37,131 - __main__ - INFO - Computing metrics for product 15/20...
+2025-11-21 23:09:40,803 - __main__ - INFO - Computing metrics for product 16/20...
+2025-11-21 23:09:44,555 - __main__ - INFO - Computing metrics for product 17/20...
+2025-11-21 23:09:48,166 - __main__ - INFO - Computing metrics for product 18/20...
+2025-11-21 23:09:51,807 - __main__ - INFO - Computing metrics for product 19/20...
+2025-11-21 23:09:55,673 - __main__ - INFO - Computing metrics for product 20/20...
+2025-11-21 23:09:56,392 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:09:56,392 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:09:56,392 - __main__ - INFO - LLM judging product 1/20...
+2025-11-21 23:09:59,133 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:09:59,133 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:01,869 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:01,870 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:04,263 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:04,264 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:04,264 - __main__ - ERROR - Failed to judge product 1: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:04,266 - __main__ - INFO - LLM judging product 2/20...
+2025-11-21 23:10:04,898 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:04,898 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:07,364 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:07,365 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:09,841 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:09,842 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:09,842 - __main__ - ERROR - Failed to judge product 2: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:09,843 - __main__ - INFO - LLM judging product 3/20...
+2025-11-21 23:10:10,140 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:10,140 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:12,566 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:12,567 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:15,072 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:15,073 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:15,073 - __main__ - ERROR - Failed to judge product 3: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:15,076 - __main__ - INFO - LLM judging product 4/20...
+2025-11-21 23:10:15,813 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:15,814 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:18,596 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:18,597 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:22,030 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:22,031 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:22,031 - __main__ - ERROR - Failed to judge product 4: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:22,032 - __main__ - INFO - LLM judging product 5/20...
+2025-11-21 23:10:22,390 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:22,390 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:24,904 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:24,904 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:24,431 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:24,432 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:24,432 - __main__ - ERROR - Failed to judge product 5: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:24,434 - __main__ - INFO - LLM judging product 6/20...
+2025-11-21 23:10:24,805 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:24,805 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:27,791 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:27,792 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:30,328 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:30,329 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:30,329 - __main__ - ERROR - Failed to judge product 6: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:30,331 - __main__ - INFO - LLM judging product 7/20...
+2025-11-21 23:10:30,918 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:30,918 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:33,555 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:33,556 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:36,006 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:36,007 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:36,007 - __main__ - ERROR - Failed to judge product 7: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:36,009 - __main__ - INFO - LLM judging product 8/20...
+2025-11-21 23:10:36,518 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:36,519 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:40,023 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:40,024 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:42,405 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:42,406 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:42,406 - __main__ - ERROR - Failed to judge product 8: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:42,407 - __main__ - INFO - LLM judging product 9/20...
+2025-11-21 23:10:42,838 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:42,839 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:45,514 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:45,515 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:47,896 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:47,897 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:47,897 - __main__ - ERROR - Failed to judge product 9: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:47,898 - __main__ - INFO - LLM judging product 10/20...
+2025-11-21 23:10:48,713 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:48,713 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:51,150 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:51,150 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:53,605 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:53,606 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:53,606 - __main__ - ERROR - Failed to judge product 10: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:53,607 - __main__ - INFO - LLM judging product 11/20...
+2025-11-21 23:10:53,974 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:53,974 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:56,318 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:56,318 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:56,601 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:56,602 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:56,602 - __main__ - ERROR - Failed to judge product 11: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:56,603 - __main__ - INFO - LLM judging product 12/20...
+2025-11-21 23:10:56,959 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:56,960 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:10:59,425 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:10:59,426 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:01,737 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:01,738 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:01,738 - __main__ - ERROR - Failed to judge product 12: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:01,739 - __main__ - INFO - LLM judging product 13/20...
+2025-11-21 23:11:02,097 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:02,098 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:04,419 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:04,420 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:07,231 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:07,232 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:07,232 - __main__ - ERROR - Failed to judge product 13: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:07,234 - __main__ - INFO - LLM judging product 14/20...
+2025-11-21 23:11:07,534 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:07,534 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:09,929 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:09,930 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:12,318 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:12,319 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:12,319 - __main__ - ERROR - Failed to judge product 14: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:12,321 - __main__ - INFO - LLM judging product 15/20...
+2025-11-21 23:11:12,677 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:12,677 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:15,052 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:15,053 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:17,431 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:17,432 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:17,432 - __main__ - ERROR - Failed to judge product 15: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:17,434 - __main__ - INFO - LLM judging product 16/20...
+2025-11-21 23:11:18,120 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:18,120 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:20,442 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:20,443 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:24,073 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:24,073 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:24,074 - __main__ - ERROR - Failed to judge product 16: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:24,075 - __main__ - INFO - LLM judging product 17/20...
+2025-11-21 23:11:24,368 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:24,369 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:24,268 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:24,278 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:26,893 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:26,894 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:26,894 - __main__ - ERROR - Failed to judge product 17: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:26,895 - __main__ - INFO - LLM judging product 18/20...
+2025-11-21 23:11:27,509 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:27,510 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:30,104 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:30,105 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:32,652 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:32,653 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:32,654 - __main__ - ERROR - Failed to judge product 18: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:32,655 - __main__ - INFO - LLM judging product 19/20...
+2025-11-21 23:11:33,211 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:33,211 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:37,306 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:37,307 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:39,799 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:39,800 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:39,800 - __main__ - ERROR - Failed to judge product 19: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:39,801 - __main__ - INFO - LLM judging product 20/20...
+2025-11-21 23:11:40,112 - src.metrics_evaluator - ERROR - rouge_score not installed. Install with: pip install rouge-score
+2025-11-21 23:11:40,113 - src.metrics_evaluator - ERROR - bert_score not installed. Install with: pip install bert-score
+2025-11-21 23:11:40,115 - __main__ - INFO - ================================================================================
+2025-11-21 23:11:40,115 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:11:40,115 - __main__ - INFO - ================================================================================
+2025-11-21 23:11:40,115 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:11:40,195 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:40,195 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:40,781 - src.data_loader - INFO - Successfully loaded 20 unique products from 7817_1.csv
+2025-11-21 23:11:40,782 - __main__ - INFO - Loaded 20 products
+2025-11-21 23:11:40,783 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:11:40,783 - __main__ - INFO - Processing product 1/20: Kindle Paperwhite...
+2025-11-21 23:11:42,576 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:42,577 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:44,957 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:11:44,958 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:44,958 - __main__ - ERROR - Failed to judge product 20: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:11:44,963 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:11:44,963 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:11:44,964 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:11:49,915 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:11:49,916 - src.visualizer - WARNING - No valid judge results to plot
+2025-11-21 23:11:49,916 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:11:49,916 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:11:49,917 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:11:49,920 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:11:49,921 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:11:49,921 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:11:49,929 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:11:49,930 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:11:49,930 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:11:49,930 - __main__ - INFO - ================================================================================
+2025-11-21 23:11:49,931 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:11:49,931 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:11:49,931 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:11:49,932 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:11:49,932 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:11:49,932 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:11:49,933 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:11:53,870 - __main__ - INFO - Processing product 2/20: Kindle Keyboard...
+2025-11-21 23:12:04,653 - __main__ - INFO - Processing product 3/20: Certified Refurbished Amazon Fire TV (Previous Gen...
+2025-11-21 23:12:17,559 - __main__ - INFO - Processing product 4/20: Amazon Echo Dot Case (fits Echo Dot 2nd Generation...
+2025-11-21 23:12:26,583 - __main__ - INFO - Processing product 5/20: Amazon Tap Sling Cover - Tangerine...
+2025-11-21 23:12:38,448 - __main__ - INFO - Processing product 6/20: Kindle Fire HDX 8.9"...
+2025-11-21 23:12:51,612 - __main__ - INFO - Processing product 7/20: Amazon Echo Dot Case (fits Echo Dot 2nd Generation...
+2025-11-21 23:12:58,622 - __main__ - INFO - Processing product 8/20: Amazon Tap Sling Cover - Blue...
+2025-11-21 23:13:10,241 - __main__ - INFO - Processing product 9/20: Amazon Echo Dot Case (fits Echo Dot 2nd Generation...
+2025-11-21 23:13:22,579 - __main__ - INFO - Processing product 10/20: All-New Amazon Fire TV Game Controller...
+2025-11-21 23:13:32,991 - __main__ - INFO - Processing product 11/20: Fire HD 7 Tablet...
+2025-11-21 23:13:45,400 - __main__ - INFO - Processing product 12/20: Amazon Fire TV Game Controller...
+2025-11-21 23:13:55,016 - __main__ - INFO - Processing product 13/20: Amazon Tap Sling Cover - White...
+2025-11-21 23:14:06,763 - __main__ - INFO - Processing product 14/20: Amazon Tap Sling Cover - Magenta...
+2025-11-21 23:14:17,377 - __main__ - INFO - Processing product 15/20: Certified Refurbished Kindle E-reader...
+2025-11-21 23:14:29,874 - __main__ - INFO - Processing product 16/20: Amazon Tap Sling Cover - Green...
+2025-11-21 23:14:41,335 - __main__ - INFO - Processing product 17/20: Kindle Paperwhite E-reader - Black...
+2025-11-21 23:14:54,866 - __main__ - INFO - Processing product 18/20: Kindle Paperwhite 3G...
+2025-11-21 23:15:06,341 - __main__ - INFO - Processing product 19/20: Fire HD 10 Tablet with Alexa...
+2025-11-21 23:15:16,364 - __main__ - INFO - Processing product 20/20: Amazon Echo Dot Case (fits Echo Dot 2nd Generation...
+2025-11-21 23:15:31,961 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:15:31,961 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:15:31,962 - __main__ - INFO - Computing metrics for product 1/20...
+2025-11-21 23:15:31,962 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,962 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,963 - __main__ - INFO - Computing metrics for product 2/20...
+2025-11-21 23:15:31,963 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,963 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,964 - __main__ - INFO - Computing metrics for product 3/20...
+2025-11-21 23:15:31,964 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,964 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,964 - __main__ - INFO - Computing metrics for product 4/20...
+2025-11-21 23:15:31,964 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,965 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,965 - __main__ - INFO - Computing metrics for product 5/20...
+2025-11-21 23:15:31,965 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,965 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,966 - __main__ - INFO - Computing metrics for product 6/20...
+2025-11-21 23:15:31,966 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,966 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,966 - __main__ - INFO - Computing metrics for product 7/20...
+2025-11-21 23:15:31,967 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,967 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,967 - __main__ - INFO - Computing metrics for product 8/20...
+2025-11-21 23:15:31,967 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,967 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,968 - __main__ - INFO - Computing metrics for product 9/20...
+2025-11-21 23:15:31,968 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,968 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,969 - __main__ - INFO - Computing metrics for product 10/20...
+2025-11-21 23:15:31,969 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,969 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,970 - __main__ - INFO - Computing metrics for product 11/20...
+2025-11-21 23:15:31,970 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,970 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,971 - __main__ - INFO - Computing metrics for product 12/20...
+2025-11-21 23:15:31,971 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,971 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,972 - __main__ - INFO - Computing metrics for product 13/20...
+2025-11-21 23:15:31,972 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,972 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,972 - __main__ - INFO - Computing metrics for product 14/20...
+2025-11-21 23:15:31,973 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,973 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,973 - __main__ - INFO - Computing metrics for product 15/20...
+2025-11-21 23:15:31,973 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,974 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,974 - __main__ - INFO - Computing metrics for product 16/20...
+2025-11-21 23:15:31,974 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,975 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,975 - __main__ - INFO - Computing metrics for product 17/20...
+2025-11-21 23:15:31,975 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,975 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,976 - __main__ - INFO - Computing metrics for product 18/20...
+2025-11-21 23:15:31,976 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,976 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,976 - __main__ - INFO - Computing metrics for product 19/20...
+2025-11-21 23:15:31,976 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,977 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,977 - __main__ - INFO - Computing metrics for product 20/20...
+2025-11-21 23:15:31,977 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:15:31,977 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:15:31,982 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:15:31,982 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:15:31,983 - __main__ - INFO - LLM judging product 1/20...
+2025-11-21 23:15:32,539 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:15:32,539 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:36,655 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:15:36,655 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:39,085 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:15:39,086 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:39,087 - __main__ - ERROR - Failed to judge product 1: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:39,087 - __main__ - INFO - LLM judging product 2/20...
+2025-11-21 23:15:38,984 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:15:38,985 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:41,331 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:15:41,332 - src.llm_judge - ERROR - Request failed (attempt 2): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:43,646 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:15:43,647 - src.llm_judge - ERROR - Request failed (attempt 3): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:43,647 - __main__ - ERROR - Failed to judge product 2: 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:15:43,648 - __main__ - INFO - LLM judging product 3/20...
+2025-11-21 23:15:43,974 - src.llm_judge - ERROR - API error: 400 - {"status":{"code":"40001","message":"Invalid parameter: thinking. Please refer to API documentation ensure all parameter values, types, and formats are correct"},"result":null}
+2025-11-21 23:15:43,975 - src.llm_judge - ERROR - Request failed (attempt 1): 400 Client Error: Bad Request for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-007
+2025-11-21 23:18:01,563 - src.metrics_evaluator - ERROR - rouge_score not installed. Install with: pip install rouge-score
+2025-11-21 23:18:01,564 - src.metrics_evaluator - ERROR - bert_score not installed. Install with: pip install bert-score
+2025-11-21 23:18:01,565 - __main__ - INFO - ================================================================================
+2025-11-21 23:18:01,566 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:18:01,566 - __main__ - INFO - ================================================================================
+2025-11-21 23:18:01,566 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:18:02,214 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:18:02,214 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:18:02,215 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:18:02,215 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:18:12,723 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:18:12,723 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:18:12,724 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:18:12,724 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:18:12,724 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:18:12,726 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:18:12,726 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:18:12,727 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:18:13,089 - src.llm_judge - ERROR - API error: 404 - {"status":{"code":"40400","message":"Not Found"},"result":null}
+2025-11-21 23:18:13,089 - src.llm_judge - ERROR - Request failed (attempt 1): 404 Client Error: Not Found for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/v3/chat-completions/HCX-007
+2025-11-21 23:18:15,516 - src.llm_judge - ERROR - API error: 404 - {"status":{"code":"40400","message":"Not Found"},"result":null}
+2025-11-21 23:18:15,517 - src.llm_judge - ERROR - Request failed (attempt 2): 404 Client Error: Not Found for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/v3/chat-completions/HCX-007
+2025-11-21 23:18:18,581 - src.llm_judge - ERROR - API error: 404 - {"status":{"code":"40400","message":"Not Found"},"result":null}
+2025-11-21 23:18:18,582 - src.llm_judge - ERROR - Request failed (attempt 3): 404 Client Error: Not Found for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/v3/chat-completions/HCX-007
+2025-11-21 23:18:18,582 - __main__ - ERROR - Failed to judge product 1: 404 Client Error: Not Found for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/v3/chat-completions/HCX-007
+2025-11-21 23:18:18,584 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:18:18,585 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:18:18,585 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:18:20,588 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:18:20,588 - src.visualizer - WARNING - No valid judge results to plot
+2025-11-21 23:18:20,588 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:18:20,589 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:18:20,589 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:18:20,591 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:18:20,592 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:18:20,592 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:18:20,595 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:18:20,596 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:18:20,596 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:18:20,596 - __main__ - INFO - ================================================================================
+2025-11-21 23:18:20,597 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:18:20,597 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:18:20,597 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:18:20,598 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:18:20,598 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:18:20,598 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:18:20,598 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:19:05,603 - src.metrics_evaluator - ERROR - rouge_score not installed. Install with: pip install rouge-score
+2025-11-21 23:19:05,603 - src.metrics_evaluator - ERROR - bert_score not installed. Install with: pip install bert-score
+2025-11-21 23:19:05,605 - __main__ - INFO - ================================================================================
+2025-11-21 23:19:05,605 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:19:05,606 - __main__ - INFO - ================================================================================
+2025-11-21 23:19:05,606 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:19:06,238 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:19:06,239 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:19:06,239 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:19:06,239 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:19:17,019 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:19:17,020 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:19:17,020 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:19:17,020 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:19:17,021 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:19:17,024 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:19:17,024 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:19:17,024 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:19:34,497 - src.llm_judge - ERROR - Empty response from judge API
+2025-11-21 23:19:34,500 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:19:34,500 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:19:34,500 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:19:35,800 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:19:35,801 - src.visualizer - WARNING - No valid judge results to plot
+2025-11-21 23:19:35,801 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:19:35,801 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:19:35,802 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:19:35,804 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:19:35,805 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:19:35,805 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:19:35,809 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:19:35,809 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:19:35,809 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:19:35,810 - __main__ - INFO - ================================================================================
+2025-11-21 23:19:35,810 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:19:35,810 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:19:35,810 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:19:35,811 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:19:35,811 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:19:35,811 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:19:35,811 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:22:23,486 - src.metrics_evaluator - ERROR - rouge_score not installed. Install with: pip install rouge-score
+2025-11-21 23:22:23,487 - src.metrics_evaluator - ERROR - bert_score not installed. Install with: pip install bert-score
+2025-11-21 23:22:23,488 - __main__ - INFO - ================================================================================
+2025-11-21 23:22:23,488 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:22:23,489 - __main__ - INFO - ================================================================================
+2025-11-21 23:22:23,489 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:22:24,049 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:22:24,050 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:22:24,050 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:22:24,050 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:22:34,933 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:22:34,934 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:22:34,934 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:22:34,934 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:22:34,934 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:22:34,936 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:22:34,936 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:22:34,936 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:22:49,328 - src.llm_judge - ERROR - Failed to parse JSON from response: Expecting ':' delimiter: line 2 column 43 (char 44)
+2025-11-21 23:22:49,331 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:22:49,332 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:22:49,332 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:22:50,673 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:22:51,657 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:22:51,657 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:22:51,658 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:22:51,661 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:22:51,661 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:22:51,661 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:22:51,662 - __main__ - ERROR - 
+✗ Evaluation failed: x and y must have length at least 2.
+Traceback (most recent call last):
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 386, in main
+    results = pipeline.run(args.input, args.num_samples)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 181, in run
+    aggregate_stats = self._compute_aggregate_stats(metrics_results, judge_results)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 312, in _compute_aggregate_stats
+    pearson_rouge, _ = pearsonr(rouge_l, overall_scores)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/lib/python3.12/site-packages/scipy/stats/_stats_py.py", line 4724, in pearsonr
+    raise ValueError('x and y must have length at least 2.')
+ValueError: x and y must have length at least 2.
+2025-11-21 23:23:44,212 - src.metrics_evaluator - ERROR - rouge_score not installed. Install with: pip install rouge-score
+2025-11-21 23:23:44,213 - src.metrics_evaluator - ERROR - bert_score not installed. Install with: pip install bert-score
+2025-11-21 23:23:44,215 - __main__ - INFO - ================================================================================
+2025-11-21 23:23:44,215 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:23:44,215 - __main__ - INFO - ================================================================================
+2025-11-21 23:23:44,215 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:23:44,793 - src.data_loader - INFO - Successfully loaded 3 unique products from 7817_1.csv
+2025-11-21 23:23:44,794 - __main__ - INFO - Loaded 3 products
+2025-11-21 23:23:44,794 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:23:44,794 - __main__ - INFO - Processing product 1/3: Kindle Paperwhite...
+2025-11-21 23:23:55,435 - __main__ - INFO - Processing product 2/3: Kindle Keyboard...
+2025-11-21 23:24:07,502 - __main__ - INFO - Processing product 3/3: Certified Refurbished Amazon Fire TV (Previous Gen...
+2025-11-21 23:24:19,593 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:24:19,593 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:24:19,593 - __main__ - INFO - Computing metrics for product 1/3...
+2025-11-21 23:24:19,594 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:24:19,594 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:24:19,594 - __main__ - INFO - Computing metrics for product 2/3...
+2025-11-21 23:24:19,594 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:24:19,594 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:24:19,595 - __main__ - INFO - Computing metrics for product 3/3...
+2025-11-21 23:24:19,595 - src.metrics_evaluator - WARNING - Skipping ROUGE: scorer not available or empty texts
+2025-11-21 23:24:19,595 - src.metrics_evaluator - WARNING - Skipping BERTScore: scorer not available or empty texts
+2025-11-21 23:24:19,597 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:24:19,597 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:24:19,597 - __main__ - INFO - LLM judging product 1/3...
+2025-11-21 23:24:34,537 - src.llm_judge - ERROR - Empty response from judge API
+2025-11-21 23:24:34,537 - __main__ - INFO - LLM judging product 2/3...
+2025-11-21 23:24:51,666 - src.llm_judge - ERROR - Empty response from judge API
+2025-11-21 23:24:51,667 - __main__ - INFO - LLM judging product 3/3...
+2025-11-21 23:25:04,196 - src.llm_judge - ERROR - Failed to parse JSON from response: Expecting ':' delimiter: line 2 column 43 (char 44)
+2025-11-21 23:25:04,199 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:25:04,200 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:25:04,200 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:25:05,581 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:25:06,446 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:25:06,499 - __main__ - ERROR - 
+✗ Evaluation failed: SVD did not converge in Linear Least Squares
+Traceback (most recent call last):
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 386, in main
+    results = pipeline.run(args.input, args.num_samples)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 175, in run
+    self.visualizer.create_all_visualizations(
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/src/visualizer.py", line 63, in create_all_visualizations
+    self.plot_correlations(metrics_results, judge_results)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/src/visualizer.py", line 257, in plot_correlations
+    z = np.polyfit(rouge1, overall_judge, 1)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/lib/python3.12/site-packages/numpy/lib/polynomial.py", line 669, in polyfit
+    c, resids, rank, s = lstsq(lhs, rhs, rcond)
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/lib/python3.12/site-packages/numpy/linalg/linalg.py", line 2326, in lstsq
+    x, resids, rank, s = gufunc(a, b, rcond, signature=signature, extobj=extobj)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/lib/python3.12/site-packages/numpy/linalg/linalg.py", line 124, in _raise_linalgerror_lstsq
+    raise LinAlgError("SVD did not converge in Linear Least Squares")
+numpy.linalg.LinAlgError: SVD did not converge in Linear Least Squares
+2025-11-21 23:26:37,149 - absl - INFO - Using default tokenizer.
+2025-11-21 23:26:37,150 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:26:45,306 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:26:45,307 - __main__ - INFO - ================================================================================
+2025-11-21 23:26:45,308 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:26:45,308 - __main__ - INFO - ================================================================================
+2025-11-21 23:26:45,308 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:26:46,043 - src.data_loader - INFO - Successfully loaded 3 unique products from 7817_1.csv
+2025-11-21 23:26:46,044 - __main__ - INFO - Loaded 3 products
+2025-11-21 23:26:46,044 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:26:46,045 - __main__ - INFO - Processing product 1/3: Kindle Paperwhite...
+2025-11-21 23:26:56,503 - __main__ - INFO - Processing product 2/3: Kindle Keyboard...
+2025-11-21 23:27:09,193 - __main__ - INFO - Processing product 3/3: Certified Refurbished Amazon Fire TV (Previous Gen...
+2025-11-21 23:27:20,620 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:27:20,620 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:27:20,620 - __main__ - INFO - Computing metrics for product 1/3...
+2025-11-21 23:27:24,419 - __main__ - INFO - Computing metrics for product 2/3...
+2025-11-21 23:27:29,587 - __main__ - INFO - Computing metrics for product 3/3...
+2025-11-21 23:27:33,254 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:27:33,254 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:27:33,254 - __main__ - INFO - LLM judging product 1/3...
+2025-11-21 23:27:52,489 - src.llm_judge - ERROR - Empty response from judge API
+2025-11-21 23:27:52,490 - __main__ - INFO - LLM judging product 2/3...
+2025-11-21 23:28:07,101 - src.llm_judge - ERROR - Empty response from judge API
+2025-11-21 23:28:07,102 - __main__ - INFO - LLM judging product 3/3...
+2025-11-21 23:28:21,610 - src.llm_judge - ERROR - Empty response from judge API
+2025-11-21 23:28:21,613 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:28:21,614 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:28:21,614 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:28:23,559 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:28:23,559 - src.visualizer - WARNING - No valid judge results to plot
+2025-11-21 23:28:23,559 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:28:25,701 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:28:25,704 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:28:25,705 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:28:25,705 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:28:25,712 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:28:25,712 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:28:25,713 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:28:25,713 - __main__ - INFO - ================================================================================
+2025-11-21 23:28:25,713 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:28:25,713 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:28:25,713 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:28:25,714 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:28:25,714 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:28:25,714 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:28:25,714 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:33:55,113 - absl - INFO - Using default tokenizer.
+2025-11-21 23:33:55,113 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:33:59,896 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:33:59,898 - __main__ - INFO - ================================================================================
+2025-11-21 23:33:59,898 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:33:59,899 - __main__ - INFO - ================================================================================
+2025-11-21 23:33:59,899 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:34:00,797 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:34:00,797 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:34:00,798 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:34:00,798 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:34:13,891 - __main__ - INFO - Saved generated summaries to results_test/generated_summaries.json
+2025-11-21 23:34:13,892 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:34:13,892 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:34:17,698 - __main__ - INFO - Saved metrics results to results_test/metrics_results.json
+2025-11-21 23:34:17,698 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:34:17,698 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:34:41,132 - src.llm_judge - WARNING - No JSON found in response, attempting fallback parsing
+2025-11-21 23:34:41,136 - __main__ - INFO - Saved LLM judge results to results_test/llm_judge_results.json
+2025-11-21 23:34:41,136 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:34:41,137 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:34:42,581 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:34:43,605 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:34:43,606 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:34:43,607 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:34:43,609 - src.visualizer - INFO - Summary report saved to results_test/summary_report.txt
+2025-11-21 23:34:43,610 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:34:43,610 - src.visualizer - INFO - All visualizations saved to results_test/visualizations
+2025-11-21 23:34:43,611 - __main__ - ERROR - 
+✗ Evaluation failed: x and y must have length at least 2.
+Traceback (most recent call last):
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 386, in main
+    results = pipeline.run(args.input, args.num_samples)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 181, in run
+    aggregate_stats = self._compute_aggregate_stats(metrics_results, judge_results)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 312, in _compute_aggregate_stats
+    pearson_rouge, _ = pearsonr(rouge_l, overall_scores)
+  File "/root/anaconda3/envs/naver/lib/python3.9/site-packages/scipy/stats/_stats_py.py", line 4724, in pearsonr
+    raise ValueError('x and y must have length at least 2.')
+ValueError: x and y must have length at least 2.
+2025-11-21 23:36:53,648 - absl - INFO - Using default tokenizer.
+2025-11-21 23:36:53,648 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:36:55,708 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:36:55,710 - __main__ - INFO - ================================================================================
+2025-11-21 23:36:55,710 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:36:55,710 - __main__ - INFO - ================================================================================
+2025-11-21 23:36:55,711 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:36:56,501 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:36:56,501 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:36:56,502 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:36:56,502 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:37:09,356 - __main__ - INFO - Saved generated summaries to results_test/generated_summaries.json
+2025-11-21 23:37:09,356 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:37:09,356 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:37:13,167 - __main__ - INFO - Saved metrics results to results_test/metrics_results.json
+2025-11-21 23:37:13,167 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:37:13,167 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:37:34,345 - src.llm_judge - ERROR - Empty response from judge API. Response keys: ['status', 'result']
+2025-11-21 23:37:34,345 - src.llm_judge - ERROR - Full response: {
+  "status": {
+    "code": "20000",
+    "message": "OK"
+  },
+  "result": {
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "thinkingContent": "Okay, let's start evaluating the generated summary against the original product data. \n\nFirst, **factuality**. The summary mentions features like waterproof design and adjustable lighting. The original specs don't list waterproofing, so that's a hallucination. The price range is correct, and the rating is accurate. But the specs 
+2025-11-21 23:37:34,348 - __main__ - INFO - Saved LLM judge results to results_test/llm_judge_results.json
+2025-11-21 23:37:34,348 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:37:34,348 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:37:35,925 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:37:35,926 - src.visualizer - WARNING - No valid judge results to plot
+2025-11-21 23:37:35,926 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:37:35,926 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:37:35,927 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:37:35,929 - src.visualizer - INFO - Summary report saved to results_test/summary_report.txt
+2025-11-21 23:37:35,930 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:37:35,930 - src.visualizer - INFO - All visualizations saved to results_test/visualizations
+2025-11-21 23:37:35,934 - __main__ - INFO - Saved final report to results_test/final_report.json
+2025-11-21 23:37:35,935 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:37:35,935 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:37:35,935 - __main__ - INFO - ================================================================================
+2025-11-21 23:37:35,936 - __main__ - INFO - 
+Results saved to: results_test
+2025-11-21 23:37:35,936 - __main__ - INFO - - Generated summaries: results_test/generated_summaries.json
+2025-11-21 23:37:35,936 - __main__ - INFO - - Metrics results: results_test/metrics_results.json
+2025-11-21 23:37:35,936 - __main__ - INFO - - LLM judge results: results_test/llm_judge_results.json
+2025-11-21 23:37:35,937 - __main__ - INFO - - Final report: results_test/final_report.json
+2025-11-21 23:37:35,937 - __main__ - INFO - - Visualizations: results_test/visualizations/
+2025-11-21 23:37:35,937 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:39:32,714 - absl - INFO - Using default tokenizer.
+2025-11-21 23:39:32,715 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:39:36,568 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:39:36,572 - __main__ - INFO - ================================================================================
+2025-11-21 23:39:36,572 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:39:36,572 - __main__ - INFO - ================================================================================
+2025-11-21 23:39:36,573 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:39:37,402 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:39:37,403 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:39:37,403 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:39:37,403 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:39:50,322 - __main__ - INFO - Saved generated summaries to results_test/generated_summaries.json
+2025-11-21 23:39:50,323 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:39:50,323 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:39:53,607 - __main__ - INFO - Saved metrics results to results_test/metrics_results.json
+2025-11-21 23:39:53,608 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:39:53,608 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:40:16,123 - src.llm_judge - ERROR - Failed to parse JSON from response: Expecting ':' delimiter: line 2 column 43 (char 44)
+2025-11-21 23:40:16,126 - __main__ - INFO - Saved LLM judge results to results_test/llm_judge_results.json
+2025-11-21 23:40:16,127 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:40:16,127 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:40:17,878 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:40:18,978 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:40:18,978 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:40:18,978 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:40:18,982 - src.visualizer - INFO - Summary report saved to results_test/summary_report.txt
+2025-11-21 23:40:18,983 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:40:18,983 - src.visualizer - INFO - All visualizations saved to results_test/visualizations
+2025-11-21 23:40:18,984 - __main__ - ERROR - 
+✗ Evaluation failed: x and y must have length at least 2.
+Traceback (most recent call last):
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 386, in main
+    results = pipeline.run(args.input, args.num_samples)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 181, in run
+    aggregate_stats = self._compute_aggregate_stats(metrics_results, judge_results)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 312, in _compute_aggregate_stats
+    pearson_rouge, _ = pearsonr(rouge_l, overall_scores)
+  File "/root/anaconda3/envs/naver/lib/python3.9/site-packages/scipy/stats/_stats_py.py", line 4724, in pearsonr
+    raise ValueError('x and y must have length at least 2.')
+ValueError: x and y must have length at least 2.
+2025-11-21 23:41:20,262 - absl - INFO - Using default tokenizer.
+2025-11-21 23:41:20,262 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:41:24,273 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:41:24,277 - __main__ - INFO - ================================================================================
+2025-11-21 23:41:24,277 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:41:24,277 - __main__ - INFO - ================================================================================
+2025-11-21 23:41:24,278 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:41:25,101 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:41:25,102 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:41:25,102 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:41:25,102 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:41:35,740 - __main__ - INFO - Saved generated summaries to results_test/generated_summaries.json
+2025-11-21 23:41:35,741 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:41:35,741 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:41:39,200 - __main__ - INFO - Saved metrics results to results_test/metrics_results.json
+2025-11-21 23:41:39,201 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:41:39,201 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:42:02,458 - src.llm_judge - INFO - Using thinkingContent as content is empty
+2025-11-21 23:42:02,459 - src.llm_judge - WARNING - No JSON found in response, attempting fallback parsing
+2025-11-21 23:42:02,463 - __main__ - INFO - Saved LLM judge results to results_test/llm_judge_results.json
+2025-11-21 23:42:02,464 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:42:02,464 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:42:01,845 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:42:02,958 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:42:02,958 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:42:02,959 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:42:02,962 - src.visualizer - INFO - Summary report saved to results_test/summary_report.txt
+2025-11-21 23:42:02,962 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:42:02,962 - src.visualizer - INFO - All visualizations saved to results_test/visualizations
+2025-11-21 23:42:02,963 - __main__ - ERROR - 
+✗ Evaluation failed: x and y must have length at least 2.
+Traceback (most recent call last):
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 386, in main
+    results = pipeline.run(args.input, args.num_samples)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 181, in run
+    aggregate_stats = self._compute_aggregate_stats(metrics_results, judge_results)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 312, in _compute_aggregate_stats
+    pearson_rouge, _ = pearsonr(rouge_l, overall_scores)
+  File "/root/anaconda3/envs/naver/lib/python3.9/site-packages/scipy/stats/_stats_py.py", line 4724, in pearsonr
+    raise ValueError('x and y must have length at least 2.')
+ValueError: x and y must have length at least 2.
+2025-11-21 23:43:44,945 - absl - INFO - Using default tokenizer.
+2025-11-21 23:43:44,945 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:43:48,792 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:43:48,795 - __main__ - INFO - ================================================================================
+2025-11-21 23:43:48,795 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:43:48,795 - __main__ - INFO - ================================================================================
+2025-11-21 23:43:48,795 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:43:49,664 - src.data_loader - INFO - Successfully loaded 1 unique products from 7817_1.csv
+2025-11-21 23:43:49,665 - __main__ - INFO - Loaded 1 products
+2025-11-21 23:43:49,665 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:43:49,665 - __main__ - INFO - Processing product 1/1: Kindle Paperwhite...
+2025-11-21 23:44:01,540 - __main__ - INFO - Saved generated summaries to results_test/generated_summaries.json
+2025-11-21 23:44:01,541 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:44:01,541 - __main__ - INFO - Computing metrics for product 1/1...
+2025-11-21 23:44:01,903 - __main__ - INFO - Saved metrics results to results_test/metrics_results.json
+2025-11-21 23:44:01,903 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:44:01,904 - __main__ - INFO - LLM judging product 1/1...
+2025-11-21 23:44:25,470 - src.llm_judge - INFO - Using thinkingContent as content is empty
+2025-11-21 23:44:25,471 - src.llm_judge - WARNING - No JSON found in response, attempting fallback parsing
+2025-11-21 23:44:25,475 - __main__ - INFO - Saved LLM judge results to results_test/llm_judge_results.json
+2025-11-21 23:44:25,475 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:44:25,475 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:44:27,252 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:44:28,376 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:44:28,377 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-21 23:44:28,377 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:44:28,380 - src.visualizer - INFO - Summary report saved to results_test/summary_report.txt
+2025-11-21 23:44:28,380 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:44:28,380 - src.visualizer - INFO - All visualizations saved to results_test/visualizations
+2025-11-21 23:44:28,382 - __main__ - ERROR - 
+✗ Evaluation failed: x and y must have length at least 2.
+Traceback (most recent call last):
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 386, in main
+    results = pipeline.run(args.input, args.num_samples)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 181, in run
+    aggregate_stats = self._compute_aggregate_stats(metrics_results, judge_results)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 312, in _compute_aggregate_stats
+    pearson_rouge, _ = pearsonr(rouge_l, overall_scores)
+  File "/root/anaconda3/envs/naver/lib/python3.9/site-packages/scipy/stats/_stats_py.py", line 4724, in pearsonr
+    raise ValueError('x and y must have length at least 2.')
+ValueError: x and y must have length at least 2.
+2025-11-21 23:44:59,962 - absl - INFO - Using default tokenizer.
+2025-11-21 23:44:59,962 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:45:04,451 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:45:04,454 - __main__ - INFO - ================================================================================
+2025-11-21 23:45:04,455 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:45:04,455 - __main__ - INFO - ================================================================================
+2025-11-21 23:45:04,455 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:45:05,244 - src.data_loader - INFO - Successfully loaded 3 unique products from 7817_1.csv
+2025-11-21 23:45:05,244 - __main__ - INFO - Loaded 3 products
+2025-11-21 23:45:05,245 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:45:05,245 - __main__ - INFO - Processing product 1/3: Kindle Paperwhite...
+2025-11-21 23:45:17,252 - __main__ - INFO - Processing product 2/3: Kindle Keyboard...
+2025-11-21 23:45:30,676 - __main__ - INFO - Processing product 3/3: Certified Refurbished Amazon Fire TV (Previous Gen...
+2025-11-21 23:45:44,195 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:45:44,196 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:45:44,196 - __main__ - INFO - Computing metrics for product 1/3...
+2025-11-21 23:45:44,528 - __main__ - INFO - Computing metrics for product 2/3...
+2025-11-21 23:45:52,531 - __main__ - INFO - Computing metrics for product 3/3...
+2025-11-21 23:45:56,045 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:45:56,046 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:45:56,046 - __main__ - INFO - LLM judging product 1/3...
+2025-11-21 23:46:13,034 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 116 (char 117). Trying more aggressive fixes...
+2025-11-21 23:46:13,035 - __main__ - INFO - LLM judging product 2/3...
+2025-11-21 23:46:23,043 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 107 (char 108). Trying more aggressive fixes...
+2025-11-21 23:46:23,044 - __main__ - INFO - LLM judging product 3/3...
+2025-11-21 23:46:38,589 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 69 (char 70). Trying more aggressive fixes...
+2025-11-21 23:46:38,592 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:46:38,593 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:46:38,593 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:46:40,433 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:46:41,780 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:46:43,638 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:46:43,644 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:46:43,645 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:46:43,645 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:46:43,670 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:46:43,670 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:46:43,671 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:46:43,671 - __main__ - INFO - ================================================================================
+2025-11-21 23:46:43,671 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:46:43,671 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:46:43,672 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:46:43,672 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:46:43,672 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:46:43,672 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:46:43,673 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:47:17,091 - absl - INFO - Using default tokenizer.
+2025-11-21 23:47:17,091 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:47:20,867 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:47:20,869 - __main__ - INFO - ================================================================================
+2025-11-21 23:47:20,869 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:47:20,869 - __main__ - INFO - ================================================================================
+2025-11-21 23:47:20,869 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:47:21,695 - src.data_loader - INFO - Successfully loaded 3 unique products from 7817_1.csv
+2025-11-21 23:47:21,696 - __main__ - INFO - Loaded 3 products
+2025-11-21 23:47:21,696 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:47:21,696 - __main__ - INFO - Processing product 1/3: Kindle Paperwhite...
+2025-11-21 23:47:34,372 - __main__ - INFO - Processing product 2/3: Kindle Keyboard...
+2025-11-21 23:47:47,353 - __main__ - INFO - Processing product 3/3: Certified Refurbished Amazon Fire TV (Previous Gen...
+2025-11-21 23:47:59,826 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:47:59,826 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:47:59,827 - __main__ - INFO - Computing metrics for product 1/3...
+2025-11-21 23:47:58,814 - __main__ - INFO - Computing metrics for product 2/3...
+2025-11-21 23:48:07,044 - __main__ - INFO - Computing metrics for product 3/3...
+2025-11-21 23:48:10,687 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:48:10,687 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:48:10,687 - __main__ - INFO - LLM judging product 1/3...
+2025-11-21 23:48:24,325 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 125 (char 126). Trying more aggressive fixes...
+2025-11-21 23:48:24,327 - __main__ - INFO - LLM judging product 2/3...
+2025-11-21 23:48:39,311 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 102 (char 103). Trying more aggressive fixes...
+2025-11-21 23:48:39,311 - __main__ - INFO - LLM judging product 3/3...
+2025-11-21 23:48:50,254 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 134 (char 135). Trying more aggressive fixes...
+2025-11-21 23:48:50,257 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:48:50,257 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:48:50,257 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:48:51,814 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-21 23:48:52,881 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-21 23:48:54,734 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-21 23:48:54,740 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:48:54,740 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:48:54,741 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:48:54,741 - __main__ - ERROR - 
+✗ Evaluation failed: 'conciseness'
+Traceback (most recent call last):
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 386, in main
+    results = pipeline.run(args.input, args.num_samples)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 181, in run
+    aggregate_stats = self._compute_aggregate_stats(metrics_results, judge_results)
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 262, in _compute_aggregate_stats
+    conciseness_scores = [j['scores']['conciseness'] for j in valid_results]
+  File "/mnt/c/Users/beeha/VSCode/Self-study/All HUGE Projects (capstone)/GenAI/naver_ai_hackathon/experiments/evaluate_llm.py", line 262, in <listcomp>
+    conciseness_scores = [j['scores']['conciseness'] for j in valid_results]
+KeyError: 'conciseness'
+2025-11-21 23:55:20,916 - absl - INFO - Using default tokenizer.
+2025-11-21 23:55:20,917 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:55:27,767 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:55:27,770 - __main__ - INFO - ================================================================================
+2025-11-21 23:55:27,770 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:55:27,771 - __main__ - INFO - ================================================================================
+2025-11-21 23:55:27,771 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:55:26,277 - src.data_loader - INFO - Successfully loaded 3 unique products from 7817_1.csv
+2025-11-21 23:55:26,278 - __main__ - INFO - Loaded 3 products
+2025-11-21 23:55:26,278 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:55:26,278 - __main__ - INFO - Processing product 1/3: Kindle Paperwhite...
+2025-11-21 23:55:27,103 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:27,103 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:30,003 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:30,004 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:32,460 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:32,461 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:32,462 - __main__ - ERROR - Failed to generate summary for product 1: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:32,463 - __main__ - INFO - Processing product 2/3: Kindle Keyboard...
+2025-11-21 23:55:39,455 - absl - INFO - Using default tokenizer.
+2025-11-21 23:55:39,456 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:55:43,087 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:55:43,090 - __main__ - INFO - ================================================================================
+2025-11-21 23:55:43,090 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:55:43,090 - __main__ - INFO - ================================================================================
+2025-11-21 23:55:43,090 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:55:43,857 - src.data_loader - INFO - Successfully loaded 3 unique products from 7817_1.csv
+2025-11-21 23:55:43,858 - __main__ - INFO - Loaded 3 products
+2025-11-21 23:55:43,859 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:55:43,859 - __main__ - INFO - Processing product 1/3: Kindle Paperwhite...
+2025-11-21 23:55:44,547 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:44,548 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:46,892 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:46,893 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:49,595 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:49,596 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:49,596 - __main__ - ERROR - Failed to generate summary for product 1: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:49,598 - __main__ - INFO - Processing product 2/3: Kindle Keyboard...
+2025-11-21 23:55:49,889 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:49,890 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:52,186 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:52,186 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:54,519 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:54,519 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:54,520 - __main__ - ERROR - Failed to generate summary for product 2: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:54,521 - __main__ - INFO - Processing product 3/3: Certified Refurbished Amazon Fire TV (Previous Gen...
+2025-11-21 23:55:54,889 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:54,889 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:57,192 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:57,193 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:57,028 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:55:57,028 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:57,029 - __main__ - ERROR - Failed to generate summary for product 3: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:55:57,035 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:55:57,036 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:55:57,036 - __main__ - WARNING - Skipping metrics for product 1 due to generation error
+2025-11-21 23:55:57,036 - __main__ - WARNING - Skipping metrics for product 2 due to generation error
+2025-11-21 23:55:57,036 - __main__ - WARNING - Skipping metrics for product 3 due to generation error
+2025-11-21 23:55:57,038 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:55:57,039 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:55:57,039 - __main__ - WARNING - Skipping LLM judge for product 1 due to generation error
+2025-11-21 23:55:57,039 - __main__ - WARNING - Skipping LLM judge for product 2 due to generation error
+2025-11-21 23:55:57,039 - __main__ - WARNING - Skipping LLM judge for product 3 due to generation error
+2025-11-21 23:55:57,042 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:55:57,043 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:55:57,043 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:55:57,046 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:55:57,047 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:55:57,047 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:55:57,056 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:55:57,057 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:55:57,057 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:55:57,058 - __main__ - INFO - ================================================================================
+2025-11-21 23:55:57,058 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:55:57,058 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:55:57,059 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:55:57,059 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:55:57,060 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:55:57,060 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:55:57,060 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:56:01,725 - absl - INFO - Using default tokenizer.
+2025-11-21 23:56:01,725 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:56:05,435 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:56:05,439 - __main__ - INFO - ================================================================================
+2025-11-21 23:56:05,439 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:56:05,440 - __main__ - INFO - ================================================================================
+2025-11-21 23:56:05,440 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:56:06,253 - src.data_loader - INFO - Successfully loaded 3 unique products from 7817_1.csv
+2025-11-21 23:56:06,254 - __main__ - INFO - Loaded 3 products
+2025-11-21 23:56:06,254 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:56:06,254 - __main__ - INFO - Processing product 1/3: Kindle Paperwhite...
+2025-11-21 23:56:06,596 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:06,596 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:09,317 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:09,318 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:11,637 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:11,637 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:11,638 - __main__ - ERROR - Failed to generate summary for product 1: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:11,639 - __main__ - INFO - Processing product 2/3: Kindle Keyboard...
+2025-11-21 23:56:11,922 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:11,922 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:14,241 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:14,242 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:16,937 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:16,938 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:16,938 - __main__ - ERROR - Failed to generate summary for product 2: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:16,940 - __main__ - INFO - Processing product 3/3: Certified Refurbished Amazon Fire TV (Previous Gen...
+2025-11-21 23:56:17,271 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:17,272 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:19,561 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:19,562 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:22,238 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:56:22,239 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:22,239 - __main__ - ERROR - Failed to generate summary for product 3: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:56:22,248 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:56:22,248 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:56:22,248 - __main__ - WARNING - Skipping metrics for product 1 due to generation error
+2025-11-21 23:56:22,249 - __main__ - WARNING - Skipping metrics for product 2 due to generation error
+2025-11-21 23:56:22,249 - __main__ - WARNING - Skipping metrics for product 3 due to generation error
+2025-11-21 23:56:22,251 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:56:22,251 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:56:22,252 - __main__ - WARNING - Skipping LLM judge for product 1 due to generation error
+2025-11-21 23:56:22,252 - __main__ - WARNING - Skipping LLM judge for product 2 due to generation error
+2025-11-21 23:56:22,252 - __main__ - WARNING - Skipping LLM judge for product 3 due to generation error
+2025-11-21 23:56:22,254 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:56:22,254 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:56:22,255 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:56:22,258 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:56:22,259 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:56:22,259 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:56:22,266 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:56:22,266 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:56:22,267 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:56:22,267 - __main__ - INFO - ================================================================================
+2025-11-21 23:56:22,267 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:56:22,267 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:56:22,267 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:56:22,268 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:56:22,268 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:56:22,268 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:56:22,268 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-21 23:56:56,052 - absl - INFO - Using default tokenizer.
+2025-11-21 23:56:56,052 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-21 23:56:59,371 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-21 23:56:59,374 - __main__ - INFO - ================================================================================
+2025-11-21 23:56:59,375 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-21 23:56:59,375 - __main__ - INFO - ================================================================================
+2025-11-21 23:56:59,375 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-21 23:57:00,098 - src.data_loader - INFO - Successfully loaded 2 unique products from 7817_1.csv
+2025-11-21 23:57:00,099 - __main__ - INFO - Loaded 2 products
+2025-11-21 23:57:00,099 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-21 23:57:00,100 - __main__ - INFO - Processing product 1/2: Kindle Paperwhite...
+2025-11-21 23:57:00,831 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:57:00,832 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:03,520 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:57:03,521 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:05,833 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:57:05,834 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:05,834 - __main__ - ERROR - Failed to generate summary for product 1: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:05,835 - __main__ - INFO - Processing product 2/2: Kindle Keyboard...
+2025-11-21 23:57:06,169 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:57:06,170 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:08,838 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:57:08,838 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:11,205 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-21 23:57:11,206 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:11,206 - __main__ - ERROR - Failed to generate summary for product 2: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-21 23:57:11,213 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-21 23:57:11,213 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-21 23:57:11,214 - __main__ - WARNING - Skipping metrics for product 1 due to generation error
+2025-11-21 23:57:11,214 - __main__ - WARNING - Skipping metrics for product 2 due to generation error
+2025-11-21 23:57:11,216 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-21 23:57:11,217 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-21 23:57:11,217 - __main__ - WARNING - Skipping LLM judge for product 1 due to generation error
+2025-11-21 23:57:11,217 - __main__ - WARNING - Skipping LLM judge for product 2 due to generation error
+2025-11-21 23:57:11,220 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-21 23:57:11,220 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-21 23:57:11,220 - src.visualizer - INFO - Creating visualizations...
+2025-11-21 23:57:11,223 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-21 23:57:11,223 - src.visualizer - INFO - ✓ Created summary table
+2025-11-21 23:57:11,223 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-21 23:57:11,228 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-21 23:57:11,228 - __main__ - INFO - 
+================================================================================
+2025-11-21 23:57:11,229 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-21 23:57:11,229 - __main__ - INFO - ================================================================================
+2025-11-21 23:57:11,229 - __main__ - INFO - 
+Results saved to: results
+2025-11-21 23:57:11,229 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-21 23:57:11,230 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-21 23:57:11,230 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-21 23:57:11,230 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-21 23:57:11,230 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-21 23:57:11,231 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-22 00:00:44,373 - src.naver_api - ERROR - NaverClovaClient initialized with NO API KEY!
+2025-11-22 00:00:45,070 - absl - INFO - Using default tokenizer.
+2025-11-22 00:00:45,071 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-22 00:00:53,458 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-22 00:00:53,460 - __main__ - INFO - ================================================================================
+2025-11-22 00:00:53,461 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-22 00:00:53,461 - __main__ - INFO - ================================================================================
+2025-11-22 00:00:53,461 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-22 00:00:54,275 - src.data_loader - INFO - Successfully loaded 2 unique products from 7817_1.csv
+2025-11-22 00:00:54,276 - __main__ - INFO - Loaded 2 products
+2025-11-22 00:00:54,276 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-22 00:00:54,276 - __main__ - INFO - Processing product 1/2: Kindle Paperwhite...
+2025-11-22 00:00:54,277 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:00:54,277 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer None...None', 'Accept': 'application/json'}
+2025-11-22 00:00:54,277 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:00:55,914 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-22 00:00:55,915 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:00:55,461 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:00:55,462 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer None...None', 'Accept': 'application/json'}
+2025-11-22 00:00:55,462 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:00:57,210 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-22 00:00:57,210 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:00:59,300 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:00:59,300 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer None...None', 'Accept': 'application/json'}
+2025-11-22 00:00:59,301 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:01:01,196 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-22 00:01:01,196 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:01,197 - __main__ - ERROR - Failed to generate summary for product 1: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:01,198 - __main__ - INFO - Processing product 2/2: Kindle Keyboard...
+2025-11-22 00:01:01,198 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:01,199 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer None...None', 'Accept': 'application/json'}
+2025-11-22 00:01:01,199 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:01:01,535 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-22 00:01:01,535 - src.naver_api - ERROR - Request failed (attempt 1): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:03,648 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:03,649 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer None...None', 'Accept': 'application/json'}
+2025-11-22 00:01:03,649 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:01:04,937 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-22 00:01:04,937 - src.naver_api - ERROR - Request failed (attempt 2): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:07,096 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:07,097 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer None...None', 'Accept': 'application/json'}
+2025-11-22 00:01:07,097 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:01:08,178 - src.naver_api - ERROR - API error: 401 - {"status":{"code":"40104","message":"Invalid Key - Please use new API Key that starts with 'nv-*'."}}
+2025-11-22 00:01:08,179 - src.naver_api - ERROR - Request failed (attempt 3): 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:08,179 - __main__ - ERROR - Failed to generate summary for product 2: 401 Client Error: Unauthorized for url: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:08,184 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-22 00:01:08,184 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-22 00:01:08,184 - __main__ - WARNING - Skipping metrics for product 1 due to generation error
+2025-11-22 00:01:08,184 - __main__ - WARNING - Skipping metrics for product 2 due to generation error
+2025-11-22 00:01:08,187 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-22 00:01:08,187 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-22 00:01:08,188 - __main__ - WARNING - Skipping LLM judge for product 1 due to generation error
+2025-11-22 00:01:08,188 - __main__ - WARNING - Skipping LLM judge for product 2 due to generation error
+2025-11-22 00:01:08,190 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-22 00:01:08,190 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-22 00:01:08,191 - src.visualizer - INFO - Creating visualizations...
+2025-11-22 00:01:08,193 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-22 00:01:08,193 - src.visualizer - INFO - ✓ Created summary table
+2025-11-22 00:01:08,194 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-22 00:01:08,199 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-22 00:01:08,199 - __main__ - INFO - 
+================================================================================
+2025-11-22 00:01:08,200 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-22 00:01:08,200 - __main__ - INFO - ================================================================================
+2025-11-22 00:01:08,200 - __main__ - INFO - 
+Results saved to: results
+2025-11-22 00:01:08,200 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-22 00:01:08,200 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-22 00:01:08,201 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-22 00:01:08,201 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-22 00:01:08,201 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-22 00:01:08,201 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-22 00:01:51,010 - src.naver_api - INFO - NaverClovaClient initialized with API key: nv-d...tLcT (length: 39)
+2025-11-22 00:01:51,011 - src.naver_api - INFO - Authorization header will be: Bearer nv-d...tLcT
+2025-11-22 00:01:51,402 - absl - INFO - Using default tokenizer.
+2025-11-22 00:01:51,402 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-22 00:01:54,958 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-22 00:01:54,961 - __main__ - INFO - ================================================================================
+2025-11-22 00:01:54,962 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-22 00:01:54,962 - __main__ - INFO - ================================================================================
+2025-11-22 00:01:54,962 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-22 00:01:55,647 - src.data_loader - INFO - Successfully loaded 2 unique products from 7817_1.csv
+2025-11-22 00:01:55,649 - __main__ - INFO - Loaded 2 products
+2025-11-22 00:01:55,650 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-22 00:01:55,650 - __main__ - INFO - Processing product 1/2: Kindle Paperwhite...
+2025-11-22 00:01:55,650 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:01:55,651 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer nv-d...tLcT', 'Accept': 'application/json'}
+2025-11-22 00:01:55,651 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:02:10,915 - __main__ - INFO - Processing product 2/2: Kindle Keyboard...
+2025-11-22 00:02:10,916 - src.naver_api - INFO - Request URL: https://clovastudio.stream.ntruss.com/v3/chat-completions/HCX-005
+2025-11-22 00:02:10,916 - src.naver_api - INFO - Request headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer nv-d...tLcT', 'Accept': 'application/json'}
+2025-11-22 00:02:10,917 - src.naver_api - INFO - Payload keys: ['messages', 'temperature', 'topP', 'maxTokens', 'repeatPenalty']
+2025-11-22 00:02:21,753 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-22 00:02:21,753 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-22 00:02:21,753 - __main__ - INFO - Computing metrics for product 1/2...
+2025-11-22 00:02:25,744 - src.metrics_evaluator - ERROR - Failed to compute BERTScore: Failed to import transformers.models.bert.modeling_bert because of the following error (look up to see its traceback):
+operator torchvision::nms does not exist
+2025-11-22 00:02:25,747 - __main__ - INFO - Computing metrics for product 2/2...
+2025-11-22 00:02:26,323 - src.metrics_evaluator - ERROR - Failed to compute BERTScore: Failed to import transformers.models.bert.modeling_bert because of the following error (look up to see its traceback):
+partially initialized module 'torchvision' has no attribute 'extension' (most likely due to a circular import)
+2025-11-22 00:02:26,326 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-22 00:02:26,326 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-22 00:02:26,327 - __main__ - INFO - LLM judging product 1/2...
+2025-11-22 00:02:39,816 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 175 (char 176). Trying more aggressive fixes...
+2025-11-22 00:02:39,817 - __main__ - INFO - LLM judging product 2/2...
+2025-11-22 00:02:59,615 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 94 (char 95). Trying more aggressive fixes...
+2025-11-22 00:02:59,617 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-22 00:02:59,617 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-22 00:02:59,617 - src.visualizer - INFO - Creating visualizations...
+2025-11-22 00:03:01,555 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-22 00:03:00,710 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-22 00:03:00,710 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-22 00:03:00,711 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-22 00:03:00,714 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-22 00:03:00,715 - src.visualizer - INFO - ✓ Created summary table
+2025-11-22 00:03:00,715 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-22 00:03:00,743 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-22 00:03:00,743 - __main__ - INFO - 
+================================================================================
+2025-11-22 00:03:00,743 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-22 00:03:00,743 - __main__ - INFO - ================================================================================
+2025-11-22 00:03:00,744 - __main__ - INFO - 
+Results saved to: results
+2025-11-22 00:03:00,744 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-22 00:03:00,744 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-22 00:03:00,744 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-22 00:03:00,745 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-22 00:03:00,745 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-22 00:03:00,745 - __main__ - INFO - 
+✓ Evaluation completed successfully!
+2025-11-22 00:03:16,739 - src.naver_api - INFO - NaverClovaClient initialized with API key: nv-d...tLcT (length: 39)
+2025-11-22 00:03:16,739 - src.naver_api - INFO - Authorization header will be: Bearer nv-d...tLcT
+2025-11-22 00:03:17,029 - absl - INFO - Using default tokenizer.
+2025-11-22 00:03:17,029 - src.metrics_evaluator - INFO - ROUGE scorer initialized
+2025-11-22 00:03:24,425 - src.metrics_evaluator - INFO - BERTScore initialized
+2025-11-22 00:03:24,427 - __main__ - INFO - ================================================================================
+2025-11-22 00:03:24,427 - __main__ - INFO - Starting LLM Product Summarization Evaluation Pipeline
+2025-11-22 00:03:24,428 - __main__ - INFO - ================================================================================
+2025-11-22 00:03:24,428 - __main__ - INFO - 
+[Step 1/5] Loading and preprocessing data...
+2025-11-22 00:03:25,250 - src.data_loader - INFO - Successfully loaded 2 unique products from 7817_1.csv
+2025-11-22 00:03:25,251 - __main__ - INFO - Loaded 2 products
+2025-11-22 00:03:25,251 - __main__ - INFO - 
+[Step 2/5] Generating summaries with NAVER CLOVA...
+2025-11-22 00:03:25,252 - __main__ - INFO - Processing product 1/2: Kindle Paperwhite...
+2025-11-22 00:03:34,497 - __main__ - INFO - Processing product 2/2: Kindle Keyboard...
+2025-11-22 00:03:45,704 - __main__ - INFO - Saved generated summaries to results/generated_summaries.json
+2025-11-22 00:03:45,705 - __main__ - INFO - 
+[Step 3/5] Computing automatic metrics (ROUGE, BERTScore)...
+2025-11-22 00:03:45,705 - __main__ - INFO - Computing metrics for product 1/2...
+2025-11-22 00:03:50,349 - __main__ - INFO - Computing metrics for product 2/2...
+2025-11-22 00:04:01,162 - __main__ - INFO - Saved metrics results to results/metrics_results.json
+2025-11-22 00:04:01,163 - __main__ - INFO - 
+[Step 4/5] Evaluating with LLM-as-judge (HCX-007)...
+2025-11-22 00:04:01,163 - __main__ - INFO - LLM judging product 1/2...
+2025-11-22 00:04:21,305 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 120 (char 121). Trying more aggressive fixes...
+2025-11-22 00:04:21,307 - __main__ - INFO - LLM judging product 2/2...
+2025-11-22 00:04:30,976 - src.llm_judge - WARNING - First JSON parse failed: Expecting property name enclosed in double quotes: line 2 column 104 (char 105). Trying more aggressive fixes...
+2025-11-22 00:04:30,984 - __main__ - INFO - Saved LLM judge results to results/llm_judge_results.json
+2025-11-22 00:04:30,984 - __main__ - INFO - 
+[Step 5/5] Generating visualizations and reports...
+2025-11-22 00:04:30,985 - src.visualizer - INFO - Creating visualizations...
+2025-11-22 00:04:34,312 - src.visualizer - INFO - ✓ Created metrics distribution plots
+2025-11-22 00:04:35,694 - src.visualizer - INFO - ✓ Created LLM judge score plots
+2025-11-22 00:04:35,694 - src.visualizer - WARNING - Not enough valid data for correlation analysis
+2025-11-22 00:04:35,695 - src.visualizer - INFO - ✓ Created correlation plots
+2025-11-22 00:04:35,698 - src.visualizer - INFO - Summary report saved to results/summary_report.txt
+2025-11-22 00:04:35,698 - src.visualizer - INFO - ✓ Created summary table
+2025-11-22 00:04:35,698 - src.visualizer - INFO - All visualizations saved to results/visualizations
+2025-11-22 00:04:35,713 - __main__ - INFO - Saved final report to results/final_report.json
+2025-11-22 00:04:35,713 - __main__ - INFO - 
+================================================================================
+2025-11-22 00:04:35,713 - __main__ - INFO - Evaluation Pipeline Completed Successfully!
+2025-11-22 00:04:35,714 - __main__ - INFO - ================================================================================
+2025-11-22 00:04:35,714 - __main__ - INFO - 
+Results saved to: results
+2025-11-22 00:04:35,714 - __main__ - INFO - - Generated summaries: results/generated_summaries.json
+2025-11-22 00:04:35,714 - __main__ - INFO - - Metrics results: results/metrics_results.json
+2025-11-22 00:04:35,715 - __main__ - INFO - - LLM judge results: results/llm_judge_results.json
+2025-11-22 00:04:35,715 - __main__ - INFO - - Final report: results/final_report.json
+2025-11-22 00:04:35,715 - __main__ - INFO - - Visualizations: results/visualizations/
+2025-11-22 00:04:35,715 - __main__ - INFO - 
+✓ Evaluation completed successfully!

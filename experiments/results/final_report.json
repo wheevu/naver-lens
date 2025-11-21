@@ -1,0 +1,724 @@
+{
+  "config": {
+    "input_file": "7817_1.csv",
+    "num_samples": 2,
+    "model": "HCX-005",
+    "judge_model": "HCX-007"
+  },
+  "aggregate_statistics": {
+    "metrics": {
+      "rouge1": {
+        "mean": 0.13634204013082296,
+        "std": 0.0020827808715636886,
+        "min": 0.13425925925925927,
+        "max": 0.13842482100238665
+      },
+      "rouge2": {
+        "mean": 0.023618314650605095,
+        "std": 0.0003625006971167237,
+        "min": 0.023255813953488372,
+        "max": 0.02398081534772182
+      },
+      "rougeL": {
+        "mean": 0.10581852735790684,
+        "std": 0.0039666755060549855,
+        "min": 0.10185185185185185,
+        "max": 0.10978520286396182
+      },
+      "bertscore": {
+        "mean": 0.4823555648326874,
+        "std": 0.012058496475219727,
+        "min": 0.47029706835746765,
+        "max": 0.4944140613079071
+      }
+    },
+    "llm_judge": {
+      "factuality": {
+        "mean": 4.5,
+        "std": 0.5,
+        "min": 4.0,
+        "max": 5.0
+      },
+      "coverage": {
+        "mean": 3.5,
+        "std": 0.5,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "proscons_accuracy": {
+        "mean": 3.5,
+        "std": 0.5,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "readability": {
+        "mean": 3.5,
+        "std": 0.5,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "conciseness": {
+        "mean": 3.0,
+        "std": 0.0,
+        "min": 3.0,
+        "max": 3.0
+      },
+      "overall": {
+        "mean": 3.6,
+        "std": 0.3999999999999999,
+        "min": 3.2,
+        "max": 4.0
+      }
+    },
+    "correlation": {
+      "rougeL_vs_overall": {
+        "pearson": -1.0,
+        "spearman": -0.9999999999999999
+      },
+      "bertscore_vs_overall": {
+        "pearson": 1.0,
+        "spearman": 0.9999999999999999
+      }
+    }
+  },
+  "summaries": [
+    {
+      "product_id": "AVpe7AsMilAPnD_xQ78G",
+      "product_name": "Kindle Paperwhite",
+      "generated_summary": "**Product Overview**\n\nThe Kindle Paperwhite is a popular e-reader device designed by Amazon. It features dimensions of 169mm x 117mm x 9.1mm and weighs just 205 grams, making it portable and easy to handle. This device is part of Amazon's line of Kindle products and is primarily intended for reading digital books.\n\n**Pricing & Availability**\n\nThe Kindle Paperwhite has a wide price range starting at $17.99 up to$139.99, depending on different models and storage capacities available. Given its versatility and positive customer feedback, the pricing seems competitive within the market of e-readers.\n\n**Customer Sentiment**\n\nThis product holds an impressive overall rating of 4.7 out of 5 stars based on 23 reviews. Most customers express high satisfaction, as evident from numerous 5-star ratings. The sentiment leans overwhelmingly towards positivity, indicating general customer contentment with their purchase.\n\n**Pros**\n- Customers praise the comfortable reading experience even during extended periods due to the glare-free display.\n- Many users appreciate the compact size and lightweight design, making it convenient for portability.\n- Users find the battery life to be quite remarkable, lasting weeks without needing a recharge.\n- Integration with the vast Amazon library allows for easy access to a large collection of eBooks.\n- Some customers mention the adjustable font sizes and lighting options cater to various reading preferences.\n\n**Cons**\n- A few users report occasional software glitches or slow response times.\n- The absence of a built-in light on earlier models might require additional accessories for night-time reading.\n- Some customers feel that the touch screen could be more responsive.\n- A couple of users wish for more customization options regarding the interface and layout.\n\n**Recommendation**\n\nThe Kindle Paperwhite is best suited for avid readers looking for a dedicated e-reader that offers a comfortable reading experience, long-lasting battery, and access to a massive eBook library. Its lightweight design also makes it ideal for travelers or individuals seeking a portable reading solution. However, users expecting extensive multimedia capabilities should consider alternative devices better suited for such purposes. In conclusion, given its positive reception and core functionality, the Kindle Paperwhite stands as a reliable choice for anyone prioritizing reading convenience and quality over multimedia features.",
+      "reference_summary": "Kindle Paperwhite by Amazon Price: USD 17.99 - 139.99 Rating: 4.7/5.0 \nPositive highlights: i initially had trouble deciding between the paperwhite and the voyage because reviews more or less ... allow me to preface this with a little history. i am (was) a casual reader who owned a nook simple t...",
+      "product_data": {
+        "id": "AVpe7AsMilAPnD_xQ78G",
+        "name": "Kindle Paperwhite",
+        "brand": "Amazon",
+        "manufacturer": "Amazon",
+        "categories": [
+          "Amazon Devices",
+          "mazon.co.uk"
+        ],
+        "dimension": "169 mm x 117 mm x 9.1 mm",
+        "weight": "205 grams",
+        "prices": {
+          "current_price": 139.99,
+          "currency": "USD",
+          "price_range": "USD 17.99 - 139.99"
+        },
+        "reviews": [
+          {
+            "text": "I initially had trouble deciding between the paperwhite and the voyage because reviews more or less said the same thing: the paperwhite is great, but if you have spending money, go for the voyage.Fortunately, I had friends who owned each, so I ended up buying the paperwhite on this basis: both models now have 300 ppi, so the 80 dollar jump turns out pricey the voyage's page press isn't always sensitive, and if you are fine with a specific setting, you don't need auto light adjustment).It's been a week and I am loving my paperwhite, no regrets! The touch screen is receptive and easy to use, and I keep the light at a specific setting regardless of the time of day. (In any case, it's not hard to change the setting either, as you'll only be changing the light level at a certain time of day, not every now and then while reading).Also glad that I went for the international shipping option with Amazon. Extra expense, but delivery was on time, with tracking, and I didnt need to worry about customs, which I may have if I used a third party shipping service.",
+            "title": "Paperwhite voyage, no regrets!",
+            "rating": 5.0,
+            "date": "2015-08-08T00:00:00.000Z",
+            "do_recommend": "",
+            "num_helpful": "139",
+            "username": "Cristina M"
+          },
+          {
+            "text": "Allow me to preface this with a little history. I am (was) a casual reader who owned a Nook Simple Touch from 2011. I've read the Harry Potter series, Girl with the Dragon Tattoo series, 1984, Brave New World, and a few other key titles. Fair to say my Nook did not get as much use as many others may have gotten from theirs.Fast forward to today. I have had a full week with my new Kindle Paperwhite and I have to admit, I'm in love. Not just with the Kindle, but with reading all over again! Now let me relate this review, love, and reading all back to the Kindle. The investment of 139.00 is in the experience you will receive when you buy a Kindle. You are not simply paying for a screen there is an entire experience included in buying from Amazon.I have been reading The Hunger Games trilogy and shall be moving onto the Divergent series soon after. Here is the thing with the Nook that hindered me for the past 4 years: I was never inspired to pick it up, get it into my hands, and just dive in. There was never that feeling of oh man, reading on this thing is so awesome. However, with my Paperwhite, I now have that feeling! That desire is back and I simply adore my Kindle. If you are considering purchasing one, stop thinking about it simply go for it. After a full week, 3 downloaded books, and a ton of reading, I still have half of my battery left as well.Make yourself happy. Inspire the reader inside of you.",
+            "title": "One Simply Could Not Ask For More",
+            "rating": 5.0,
+            "date": "2015-09-01T00:00:00.000Z",
+            "do_recommend": "",
+            "num_helpful": "126",
+            "username": "Ricky"
+          },
+          {
+            "text": "I am enjoying it so far. Great for reading. Had the original Fire since 2012. The Fire used to make my eyes hurt if I read too long. Haven't experienced that with the Paperwhite yet.",
+            "title": "Great for those that just want an e-reader",
+            "rating": 4.0,
+            "date": "2015-07-20T00:00:00.000Z",
+            "do_recommend": "",
+            "num_helpful": "69",
+            "username": "Tedd Gardiner"
+          },
+          {
+            "text": "I bought one of the first Paperwhites and have been very pleased with it its been a constant companion and I suppose Ive read, on average, a book every three days for the past however many years on it. I wouldnt give it up youd have to pry it from my cold dead fingers.For sundry logistical reasons, Ive also made good use of Amazons Kindle app on my iPhone. No Paperwhite screen, naturally, and all the cool usability that delivers, but it works well and has its own attractions as a companion to the Kindle.Of course, there are aspects of the Paperwhite which I would like to critique. Ah you knew that was coming somewhere, didnt you.As a member of BookBub, I get a daily list of alerts and book deals in my chosen genres. I take on many of them, however, Ive found that, even with the best will in the world, I cant keep up. Some days it seems that for every book I read, Ive bought two. Theres just so much good stuff out there! The accumulative effect of this is that the number of books actually on my Paperwhite has been creeping ever upward for some time. Its now at about 400.With this in mind, Ive noticed that while page-turning has remained exactly the same, just about every other action on the Kindle has become positively glacial. Not just very slow, but so slow you think its malfunctioning. The general consensus appears to be that its to be expected once one has that many books downloaded onto a Kindle, it will begin to behave in a flakey manner. This drives me mad. Amazon states it can hold thousands of books. I believe them. But I figure I would need a second Paperwhite to read while Im waiting for actions to complete on the first one.Read more",
+            "title": "Love / Hate relationship",
+            "rating": 5.0,
+            "date": "2017-06-16T00:00:00.000Z",
+            "do_recommend": "",
+            "num_helpful": "2",
+            "username": "Dougal"
+          },
+          {
+            "text": "I have to say upfront - I don't like coroporate, hermetically closed stuff like anything by Apple or in this case, Amazon. I like having devices on which I can put anything I want and use it. But...I was a fairly happy user of a Nook Touch for several years, but couldn't use all its functionalities since I live in Serbia. Then I lost the Nook and since no other devices can actually be fully used in Serbia (buying books with them, using their online capabilities) except the Kindle, and since no one except Amazon ships to Serbia, and since I've actually been a happy Amazon customer since 2005 over friends' accounts and since 2007 through my own, and since the Kindle definitely has the best technology - why not buy itSo I did. What I read in many reviews about the screen/light of the Paperwhite and similar devices was no problem with mine. The light disperses just fine, except a few black blotches (maybe you can see it in the picture) at the bottom of the screen, which are actually shadows of the black plastic casing and thus can't really be avoided. As you can see in the picture without the light - there are no blotches with light out.The Paperwhite's screen is just marvelous at 300 ppi, the touchscreen works just fine, the store works here in Serbia, and in these two days I've been using it, I'm a happy guy.I had to get the hang on how to make sideloaded books behave at least almost like Amazon books, but that's fine. That's the one thing I'd like to see Amazon do in some future upgrades: make the Kindle treat sideloaded books just like the ones bought from them directly, with sharing funcion (quotes and Goodreads) enabled and so on.The size is perfect, it sits very well in the hand, the light doesn't hurt the eyes in the dark (like the light on a tab does)... the packaging was fine, no problems there and what remains to be seen now is the battery life.So far, I can only recommend it.",
+            "title": "I LOVE IT",
+            "rating": 5.0,
+            "date": "2016-08-11T00:00:00.000Z",
+            "do_recommend": "",
+            "num_helpful": "17",
+            "username": "Miljan David Tanic"
+          },
+          {
+            "text": "My previous kindle was a DX, this is my second kindle in years. Love the form factor and all but I do miss the physical buttons for page turning. There is a glitch in the software though. I use the English interface but occasionally I would like to translate words into traditional Chinese. However, it seems that the traditional Chinese characters cannot display correctly and become small boxes. The simplified Chinese characters can be displayed correctly though.",
+            "title": "Great device for reading. 8 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-07-08T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Kelvin Law"
+          },
+          {
+            "text": "Allow me to preface this with a little history. I am (was) a casual reader who owned a Nook Simple Touch from 2011. I've read the Harry Potter series, Girl with the Dragon Tattoo series, 1984, Brave New World, and a few other key titles. Fair to say my Nook did not get as much use as many others may have gotten from theirs.Fast forward to today. I have had a full week with my new Kindle Paperwhite and I have to admit, I'm in love. Not just with the Kindle, but with reading all over again! Now let me relate this review, love, and reading all back to the Kindle. The investment of 139.00 is in the experience you will receive when you buy a Kindle. You are not simply paying for a screen there is an entire experience included in buying from Amazon.I have been reading The Hunger Games trilogy and shall be moving onto the Divergent series soon after. Here is the thing with the Nook that hindered me for the past 4 years: I was never inspired to pick it up, get it into my hands, and just dive in. There was never that feeling of oh man, reading on this thing is so awesome. However, with my Paperwhite, I now have that feeling! That desire is back and I simply adore my Kindle. If you are considering purchasing one, stop thinking about it simply go for it. After a full week, 3 downloaded books, and a ton of reading, I still have half of my battery left as well.Make yourself happy. Inspire the reader inside of you.",
+            "title": "One Simply Could Not Ask For More 28 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-09-01T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ricky"
+          },
+          {
+            "text": "Just got mine right now. Looks the same as the previous generation except for the Kindle logo (it's black this time), feels a little heavier, the screen is a little warmer toned than the previous one, BUT the resolution is SO MUCH BETTER! The 300 ppi are definitely obvious and the new font is worth the money.Totally recommend it for a book lover!I'll give it 4 stars instead of 5 because I am used to a cooler screen, but I'm sure I'll get used to this one soon too :)",
+            "title": "Definitely better than the previous generation 16 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-07-03T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Bandler"
+          },
+          {
+            "text": "I initially had trouble deciding between the paperwhite and the voyage because reviews more or less said the same thing: the paperwhite is great, but if you have spending money, go for the voyage.Fortunately, I had friends who owned each, so I ended up buying the paperwhite on this basis: both models now have 300 ppi, so the 80 dollar jump turns out pricey the voyage's page press isn't always sensitive, and if you are fine with a specific setting, you don't need auto light adjustment).It's been a week and I am loving my paperwhite, no regrets! The touch screen is receptive and easy to use, and I keep the light at a specific setting regardless of the time of day. (In any case, it's not hard to change the setting either, as you'll only be changing the light level at a certain time of day, not every now and then while reading).Also glad that I went for the international shipping option with Amazon. Extra expense, but delivery was on time, with tracking, and I didnt need to worry about customs, which I may have if I used a third party shipping service.",
+            "title": "Paperwhite voyage, no regrets! 16 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-08-08T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Cristina M"
+          },
+          {
+            "text": "I am enjoying it so far. Great for reading. Had the original Fire since 2012. The Fire used to make my eyes hurt if I read too long. Haven't experienced that with the Paperwhite yet.",
+            "title": "Great for those that just want an e-reader 19 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-07-20T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Tedd Gardiner"
+          },
+          {
+            "text": "As reviewed by the wife This is the perfect thing for a new mommy who loves to read books! As soon as I had my baby girl, I had to stop reading my novels because I had to give the baby my full attention. But how much time do I spend laying in bed, on my side, with the baby while she feeds Especially prior to 4 months when feeding took as long as 45 minutes! Not to mention cluster feeds during growth spurts! A book was out of the question because it's sooo tiring to hold up in side-lying-breastfeeding-position. My new Kindle was the solution! It's light, easy to disinfect (I use baby wipes on the case whenever I feel like it's not clean enough to go on the bed with the baby) and you don't need to keep a finger in the middle of the pages to keep it from closing - you know what I mean!And for some reason it's much easier to go through a book with a Kindle compared to an actual book. I never thought I'd be converted into the Kindle culture but here we are!",
+            "title": "Give this to a book-loving-new-mommy-who-breastfeeds 34 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-07-01T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Miguel Martinez"
+          },
+          {
+            "text": "My new Kindle Paperwhite came from the USA to a small town in Sweden in just five days. Payment of tax and customs handled by Amazon. Had not the UPS been so square (they think everyone sits at home all day) I had received it a day earlier.I am very pleased with the e-reader, easy on the eyes, and comfortable to hold in one hand. Even if I buy many books from Amazon I also want to read books in the ePub format. A positive surprise was how easy it is to convert ePub format to Amazon's own format. I use the program Calibre and then I just send the book as an attachment in an e-mail to my Kindle. Quick and easy!",
+            "title": "Trouble-free international shipping, and easy to convert ePub 9 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-08-05T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Magnus Brattemark"
+          },
+          {
+            "text": "I am enjoying it so far. Great for reading. Had the original Fire since 2012. The Fire used to make my eyes hurt if I read too long. Haven't experienced that with the Paperwhite yet.",
+            "title": "Great for those that just want an e-reader 18 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "2015-07-20T00:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Tedd Gardiner"
+          },
+          {
+            "text": "Had older model, that you could text to speech, this one hasn't. Liked the smaller size, but having to buy a different cover! Still getting used to shelf quite different from my 4 year old model.Paper white is nice reading.",
+            "title": "Liked the smaller size",
+            "rating": 4.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Janet Matthews Jan"
+          },
+          {
+            "text": "This is a review of the Kindle Paperwhite launched July 2015. Essentially. the same as the previous Kindle Paperwhite but with a fantastic upgraded (300 dpi) screen, more memory and storage it's a terrific reading device. This review aims to describe both this product, and compare it with the other Kindle devices available to help you choose the best one for you.Before I start, Ive noticed several complains about Kindle not supporting the ePub format used by Canadian public libraries. Dont be put off, theres a solution in the Frequently Asked Questions section below.This review is broken up into sections so you can skip the less interesting bits. If youre in a hurry Ive included a summary at the start, and a Frequently Asked Questions section at the end.Summary - What can you do with it-----------------------------------------* Read a book. It can store 1,000s of books - take an entire library away with you on holiday.* Buy a book. You can browse the Amazon kindle store, and buy books over a WIFI connection* Borrow a book. Using the Kindle Owners Library you can borrow one of 60,000 books (if you have Amazon Prime Membership)* Share your books. Using Amazon Family Library to link two Amazon accounts and four children and share your books with the entire family* Highlight a section. Using the touch screen, you can highlight a particulary interesting few lines. If several people highlight the same section, that's also indicated.* Record a bookmark. To come back to it later* Read a book on your Kindle, continue on your smartphone or tablet computer, and it will jump to your last known position* Look up a word, and record them in the vocabulary builder* Track a characters appearance throughout a book using the X Ray feature.* Read for weeks without needing to recharge - typically 4-6 weeks* Share you books (Multiple Kindles on the same account, or family sharing)* Access every book you've ever owned on the cloud - available for download within seconds over WIFI or 3G..What Devices are available--------------------------------As of July 2015, Amazon have the following Kindle devices on sale:-1. Kindle 6 (around CDN 79)2. Kindle Paperwhite 6th Generation (212 dpi - launched October 2013) - around CDN 1292. New Kindle Paperwhite 7th Gen (300 dpi - launched July 2015) - around CDN 139-2093. Kindle Voyger - around US 219-289 (Doesnt seem to be on sale in Amazon Canada)4. Kindle Fire - 6 or 7 colour tablet computers at around CDN 300-400So you're faced with a few devices, plus additional options. Which to buy Here's a quick summary in order of cost.*** The entry level Kindle ***An entry level black and white (e-ink) book reader, it has a 6 inch touch screen with enough storage to hold thousands of books, and a battery which should last around 4 weeks.A terrific device to read books, and a worthy contender. For the technically minded, it has a 1Ghz processor and 4Gb of memory with an E-ink display. Essentially this means it's (a) Black and White (b) Fantastic to read even in bright sunlight (c) Requires very little power - hence the battery lasts for weeks instead of hours.*** New Kindle Paperwhite ***Launched in 2015, this is really an upgrade adding a super-sharp display with 300 pixels per inch - the same as the top of the range Voyage. The high resolution screen does provide a crisp text which is pleasing to the eye, but battery life is reduced from 8 weeks of the original Paperwhite to 6 weeks - but still a very long time.Compared to the existing (2013) Paperwhite it also includes double the memory which means its faster and slicker than before, and a new Bookerly font plus better presentation of fonts on screen.If you have an existing Paperwhite its probably not worth upgrading. However, if you own a prior device, youll notice the huge leap in screen quality, contrast and performance.*** The Voyage ***Far more expensive that Paperwhite, this is thinner and 26g lighter. It has more of a quality feel with the screen flush with the e-reader body which makes it look more like a tablet, and keeps dirt from getting caught in the edges. The back has a soft touch plastic finish which feels lovely in the hand, and it has new Page Press buttons on the side to turn the pages. When the buttons are pressed theres a gentle vibration for feedback (nice touch). It has 4Gb of storage (same as the Paperwhite), and a similar battery which should last around 6 weeks on a single charge.Although it has the same sharp (300 dpi) screen as the Paperwhite, the backlight includes an ambient light sensor so it automatically adjusts to different lighting conditions. This means if you read it the dark it will automatically adjust the brightness so it doesnt look too bright. In addition, youll find when you switch off the room light your eyes naturally become accustomed to the darkness. To compensate, the Voyage automatically softens the light slightly. A lovely example of attention to detail in this premium device.*** Kindle Fire Tablet Computer ***The Kindle Fire range is a very different beast to the rest of the Kindle range. Similar to the Apple iPad mini, it has a high resolution screen, a fast processor and lots of memory with a colour screen and a much shorter battery life - hours rather than weeks. Although you can read books on a Fire using the Amazon Kindle App, youll find the Kindle with its sharp black and white screen far more like reading a physical book. Youll find it produces less eye strain, and whereas a tablet computer is better suited to surfing the web, watching videos and reading eMails, the Kindle is a dedicated book reader device.Unlike a Kindle, the Fire produces light at the blue end of the spectrum which means it may make it harder for you to sleep. The Paperwhite and Voyage also ave the advantage of a soft white back-light which is far more suited to reading in bed, and it wont for example, wake your partner if reading in the dark.Finally, unlike the rest of the Kindle range, the Fire is almost useless in bright sunlight so while its fine for everyday use, its less useful on holiday. The Kindle range of devices are perfect to take away on holiday as they can carry thousands of books, and are a pleasure to read even in bright sunlight.What other options do I have----------------------------------Having decided upon the model (Kindle, Paperwhite, Voyage or Fire), the next decision is around:-* Special Offers - ie. adverts* 3G or WIFI connectionPersonally I have no issue with adverts on a Kindle. They only appear on screen when the screen saver is on, and are not at all distracting.The 3G option is a more difficult question. This effectively means you can use your kindle to buy or download books over-the-air instead of at home or near a WIFI hotspot. Personally I went for the WIFI model as the saving is considerable, but its a personal choice. Of course if you wont have WIFI at home, then youll need the 3G option.One point worth mentioning however, is if you have a modern smartphone, you can always create a Personal Hotspot or local WIFI signal that your Kindle (or indeed any other WIFI device) can connect to. Got to Settings Personal Hotspot on your mobile to set one up, and you can connect your WIFI only Kindle while youre out and about.Conclusion-------------If you love books but your on a budget, the original Kindle with WIFI and special offers is a great option. Youll still be able to carry thousands of book around with you, but youll lose out on the soft white back-light and super crisp display of the Papwerwhite.The Kindle Paperwhite is your next best option and is a terrific device for reading with a superb 300 dpi super-sharp screen. Finally, theres the top of the range Voyage with the page press buttons and ambient light sensor which automatically adjusts the brightness.If youre in the market for a Tablet Computer then the Kindle Fire range is worth considering, but youll get a better book reading experience on the Kindle. Myself I have both a Paperwhite and an iPad Air 2. I was skeptical at first, but the Kindle is a perfect device for reading with one hand (on the train), and the back-light and long battery life a huge bonus.Frequently Asked Questions---------------------------------Q: What file format will a Kindle readA: Kindle Format 8 (AZW3), Kindle (AZW), TXT, PDF, unprotected MOBI, PRC natively in addition to HTML, DOC, DOCX, JPEG, GIF, PNG, BMP through conversionQ: What It doesnt support EPUB formatA: No - but you can convert your EPUB books using a freely available program called Calibre. Simple search for You Tube um0teoAR6zw and youll see a video explaining how to do this. Simples.Q: If I lose my Kindle, do I lose my books as wellA: No. All books are available on your Amazon account to download on a new device.Q: Can I save my place in the bookA: Yes. It will automatically save your place, and if you resume on other device it will prompt you to jump to that position.Q: I often need reading glasses - can I adjust the font sizeA: Yes. Theres a range of fonts, and sizes to suit all tastesQ: Can I share books with my partner or childrenA: Yes. You can now share your books using Amazon Family Library to link two Amazon accounts and four children and share your books with the entire familyQ. Can I use a Kindle to read in bedA. Yes. But only on the Paperwhite and Voyage models. Its a pleasure to read in the dark with a soft white light. For the base Kindle model youll need the light onQ. Are there any free books availableA. Yes! Over 40,000 classic titles are available for free (out of copyright), and they can be legally downloaded. If you have a Amazon Prime membership you can also borrow a book from the Kindle Owners Library which includes around 60,000 books.Q: How long does the battery lastA: Depending upon model, you should get between 4 and 6 weeks between charges on around 30 minutes of reading per day. Ive certainly found Ive gone for weeks without charging the deviceQ: How long does it take to chargeA: From absolutely flat, around 4 hoursQ: How many books will the Kindle holdA: Literally thousands. You can also download every book youve ever owned from your Amazon account - so the list is quite literally unlimited.Q: Do I need anything elseA: Youll need a smartphone charger or laptop with a USB socket as the Kindle range doesnt come with a charger (but the Fire does). Amazon also offer an additional charger to buy if you need it. Some people also buy a cover, but I think this is not really needed. It adds to the weight, and is not really needed. It will protect your Kindle from a drop however, and protect the screen if its left knocking around in a bag.",
+            "title": "Superb reading device - but which one's best for you",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "John Kat's the brains"
+          },
+          {
+            "text": "I love my kindle! I got one for my fiance on his birthday, he loved it!!!!!!! so I decided to get one for myself as well and I am glad I did. It is very easy to read books in it. I LOVE the dictionary on this little device. Normally I just skip a word I don't know the meaning of and try to guess what it means in the context but with kindle, I just press and hold my finger on the word I don't know and translation pops up! so essentially, the meaning of a new word is at your finger tips! )If you love to read books, I highly recommend kindle.However, if you only read Manga or Comic books, if you are a fan of buying how to draw, how to sew books I do not recommend kindle for you. It is not easy to navigate trough pictures and slides.So if you are a fan of reading novels just buy it now!If you are a manga fan, just buy your manga books from bookstores.",
+            "title": "I love it!",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "samira"
+          },
+          {
+            "text": "Vraiment bon petit appareil , lger et facile d emploiJ ai hte de m en servir sur les plages cet hiverBelle bibliothque de livres disponiblesBon achat en bref",
+            "title": "Un plaisir",
+            "rating": 4.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Louis simard"
+          },
+          {
+            "text": "Exactly what it is supposed to be. Works great and I love the built-in light. Perfect reader, and very quick delivery.",
+            "title": "Works great and I love the built-in light",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "JanetC"
+          },
+          {
+            "text": "Trs heureux que les livres soient sur Icloud. Aprs m'tre fait voler, c'est bien de pouvoir retrouver tous mes livres avec toutes les notes que j'avais prises.",
+            "title": "Trs utile",
+            "rating": 4.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Shepherd"
+          },
+          {
+            "text": "Only 4 stars because I found it very confusing at first. I had a Kindle before found it very easy to find what I needed to do. The user guide didn't really answer my questions, but I persisted am getting used to it. I really love the backlit screen no buttons to push to change pages. At first I wasn't sure about the smaller screen, but didn't take long to get over that. I'm sure I'm just a creature of habit not very techy. All in all, the Kindle Paperwhite is great.",
+            "title": "I had a Kindle before found it very easy to find what I needed to do",
+            "rating": 4.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Brenda"
+          },
+          {
+            "text": "Almost like reading a real book. Don't is crisp, sharp and easy to read. I've held out from buying a reader for years because I could never quite get past the fact it wasn't a book. With this new kindle I don't even notice, I am immediately immersed. Wildly better than I expected.",
+            "title": "Seamless Reasing Experience",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Fil Gambatesa"
+          },
+          {
+            "text": "I already had an original Kindle Paperwhite and loved it. Buying this in addition seemed like a bit of an indulgence but I am so pleased I made this move. I love the new font and the clarity of the screen. I love that the Kindle comes to life when I open the cover (I bought a new cover with the magnetic clasp). While there is nothing dramatic about the evolving of the Kindle there are enough changes and improvements for me to feel I have made a great purchase which I am happy with. I also have a bunch of books from my Amazon.co.uk site which I access on my 'old' Kindle (I couldn't work out how, if at all, I can move books from one Amazon jurisdiction to another) so this has proved a good purchase all round.",
+            "title": "A great addition to the Kindle range",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Roy Bennett"
+          },
+          {
+            "text": "Received my new kindle in perfect condition and I am very happy it is faster and a clearer it has a. bigger had drive at a good price and a fast delivery that you can count on you can not go wrongThank you",
+            "title": "great kindle",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "satisfied customer"
+          }
+        ],
+        "rating": 4.666666666666667,
+        "asins": "B00QJDU3KY",
+        "colors": "",
+        "sizes": "",
+        "reference_summary": "Kindle Paperwhite by Amazon Price: USD 17.99 - 139.99 Rating: 4.7/5.0 \nPositive highlights: i initially had trouble deciding between the paperwhite and the voyage because reviews more or less ... allow me to preface this with a little history. i am (was) a casual reader who owned a nook simple t..."
+      }
+    },
+    {
+      "product_id": "AVpfBEWcilAPnD_xTGb7",
+      "product_name": "Kindle Keyboard",
+      "generated_summary": "**Product Overview**\n\nThe Kindle Keyboard, manufactured by Amazon, falls under the categories of Kindle Store, Amazon Devices, and Electronics. This dedicated e-reader weighs just 1.1 pounds, making it lightweight and portable. It's designed specifically for reading ebooks, offering users an immersive experience without the distractions found on multi-purpose devices like tablets.\n\n**Pricing & Availability**\n\nCurrently priced at $79.99, the Kindle Keyboard offers great value considering its dedicated purpose and high user satisfaction. At this price point, it presents itself as an affordable option for those looking to transition to digital reading without breaking the bank.\n\n**Customer Sentiment**\n\nBased on 32 customer reviews, the Kindle Keyboard has earned an average rating of 4.0 out of 5 stars. Reviews consistently highlight the device’s effectiveness as a dedicated e-reader, though some users note certain limitations compared to more versatile options.\n\n**Pros**\n- Lightweight design makes prolonged reading sessions comfortable.\n- Users appreciate the distraction-free environment ideal for novels and other long reads.\n- Many reviewers praise the clarity of text and ease of reading even in bright lighting conditions.\n- Some customers find the physical keyboard helpful for annotations and search functions.\n- Battery life is generally considered impressive, lasting weeks between charges.\n\n**Cons**\n- A few users express disappointment with the lack of touch screen capabilities.\n- Compared to tablets, the device lacks multimedia features such as video or audio playback.\n- The physical QWERTY keyboard might not appeal to everyone, especially those preferring minimalist designs.\n- Some users report minor frustrations with navigation and menu responsiveness.\n- As older models, updates and support may be limited compared to newer Kindle models.\n\n**Recommendation**\n\nThe Kindle Keyboard is best suited for avid readers who primarily consume novels and non-fiction books. Its straightforward design and focus on reading make it ideal for those seeking an uninterrupted reading experience away from the multitasking demands of smartphones or tablets. Additionally, those who prefer physical keyboards for easy note-taking or search functionality will likely appreciate this feature. However, individuals expecting advanced multimedia capabilities or touchscreen interfaces might want to explore more recent Kindle models. In conclusion, if your primary need is a dedicated e-reader focused solely on delivering a satisfying reading experience, the Kindle Keyboard could be an excellent choice.",
+      "reference_summary": "Kindle Keyboard by Amazon Price: USD 79.99 Rating: 4.0/5.0 \nConcerns: the kindle is my first e-ink reader. i own an ipad, an iphone, and have owned a windows-based phone ... i'm a first-time kindle owner, so i have nothing to compare the latest kindle to. i don't own a nook...",
+      "product_data": {
+        "id": "AVpfBEWcilAPnD_xTGb7",
+        "name": "Kindle Keyboard",
+        "brand": "Amazon",
+        "manufacturer": "Amazon",
+        "categories": [
+          "Kindle Store",
+          "Amazon Devices",
+          "Electronics"
+        ],
+        "dimension": "",
+        "weight": "1.1 pounds",
+        "prices": {
+          "current_price": 79.99,
+          "currency": "USD",
+          "price_range": "USD 79.99"
+        },
+        "reviews": [
+          {
+            "text": "The Kindle is my first e-ink reader. I own an iPad, an iPhone, and have owned a Windows-based phone in the past that I used as an ereader.My overall impression of the device is good.The good:I'd honestly rather read linear (read from page one to the end, one page at a time) fiction from it than a book, because I can't always get comfortable with a book. Hardcovers are sometimes a bit heavy, and paperbacks don't always lie open easily. The Kindle is incredibly light and thin. I can hold it in one hand easily. The page turn buttons are conveniently located. Page-turns aren't instant, but they're probably quicker than turning a physical page in a printed book (there are just a lot more page-turns unless you choose a small font). The contrast is better than other ereaders I've seen. There is zero eye strain in good light. My eyesight isn't the greatest and I like being able to increase the font size and read without glasses. I love being able to browse the Kindle store and read samples before deciding to purchase. The experimental browser is surprisingly usable, but isn't great. It is useful for browsing wikipedia and blogs. The biggest drawback to the browser is the awkward pointer navigation, using the 5-way pad. It syncs your furthest read page over the internet so you can pick up where you left off using your iPhone or iPad.The so-so:The kindle store could use more categories and sorting options. You can't sort by top rated, and there is no category for alternate histories, for example. Finding a very-specific type of fiction relies on keyword searches, which don't do a great job. The wifi sometimes doesn't connect before it times-out.Read more",
+            "title": "Worth the money. Not perfect, but very very good for start to finish novels in good light",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Jeffrey Stanley"
+          },
+          {
+            "text": "I'm a first-time Kindle owner, so I have nothing to compare the latest Kindle to. I don't own a Nook. I don't own an iPad (and, in any case, that's comparing apples to oranges). I don't have a Sony e-reader. 'This will be a short, simple review.I received my Kindle about a week ago and haven't been able to put it down.Things I like about my Kindle1. The e-ink display is amazing.2. Using the 5-way controller is simple and effective.3. Page turn speeds are faster than I thought they would be.4. It's lightweight, even with the attached cover (I have an Amazon cover with a built-in light)5. Page-turning buttons are quiet and well-placed.6. Recharge time is fast.7. I can order a book and start reading it in less than 60 seconds. Nice!8. Portability... I can take 3,000 books with me when I travel for work and not require additional suitcases or baggage fees.Things I'm not too keen on1. Buttons are too close together and are laid out oddly.2. Lack of individual number buttons is frustrating.3. Power button on the bottom Not a bad thing. Just an odd thing. (Same for the headphone input). I usually rest the bottom of a book on my lap when I read.Things I hope change in the future1. How books are organized... When I put a book in a collection (which is actually a tag), it still appears in the main list. It's not actually moved, it's merely associated.2. The look of the main screen. I'd like folders or some other way to display collections.3. Ability to create personal screen savers.4. E-book pricing, though Amazon has little control over this.Read more",
+            "title": "I Wanted a Dedicated E-Reader, and That's What I Got",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Matthew Coenen"
+          },
+          {
+            "text": "UPDATE NOVEMBER 2011:My review is now over a year old, as is the Kindle Keyboard as Amazon calls it now. There are newer models: the basic, cheapie Kindle and the Kindle Touch, and of course the Kindle Fire quasi-tablet.Each of these models is an excellent choice. Whichever one is right for you just depends on your preferences.The 3 e-ink Kindles are Kindle Keyboard (this one), Kindle Touch (the newest flagship model), and the basic Kindle. All 3 of them have EXACTLY THE SAME 6 DISPLAY, with the same sharp typeface and high contrast that reads like ink on paper with no eyestrain. The Kindle Keyboard is the oldest of these models, and I got one of the first ones when they came out in August 2010.I still absolutely LOVE my Kindle Keyboard and use it almost every day. I have read dozens of books on it. I like the newer models, they have some neat features, but the experience of reading a book on them is no better or worse than on my 1-year-old Kindle Keyboard. Page turns are now smoother and faster on the newest Kindles, but the difference is not enough to make it worth the cost of upgrading, in my opinion.The touch-screen interface of the Kindle Touch is pretty neat. But, unlike my iPad, I only use my Kindle to read books, and reading books is just as nice on any of the current Kindle models. I don't consider the touch screen a must have feature, and I'm normally obsessed with having the latest version of every tech product I own.For that reason, I think the cheapest Kindle is an excellent choice.Read more",
+            "title": "Kindle vs. Nook (updated)",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ron Cronovich"
+          },
+          {
+            "text": "I'm a first-time Kindle owner, so I have nothing to compare the latest Kindle to. I don't own a Nook. I don't own an iPad (and, in any case, that's comparing apples to oranges). I don't have a Sony e-reader. 'This will be a short, simple review.I received my Kindle about a week ago and haven't been able to put it down.Things I like about my Kindle1. The e-ink display is amazing.2. Using the 5-way controller is simple and effective.3. Page turn speeds are faster than I thought they would be.4. It's lightweight, even with the attached cover (I have an Amazon cover with a built-in light)5. Page-turning buttons are quiet and well-placed.6. Recharge time is fast.7. I can order a book and start reading it in less than 60 seconds. Nice!8. Portability... I can take 3,000 books with me when I travel for work and not require additional suitcases or baggage fees.Things I'm not too keen on1. Buttons are too close together and are laid out oddly.2. Lack of individual number buttons is frustrating.3. Power button on the bottom Not a bad thing. Just an odd thing. (Same for the headphone input). I usually rest the bottom of a book on my lap when I read.Things I hope change in the future1. How books are organized... When I put a book in a collection (which is actually a tag), it still appears in the main list. It's not actually moved, it's merely associated.2. The look of the main screen. I'd like folders or some other way to display collections.3. Ability to create personal screen savers.4. E-book pricing, though Amazon has little control over this. Still, most titles are the same price as or less than their hardback/paperback counterparts.Read more",
+            "title": "I Wanted a Dedicated E-Reader, and That's What I Got",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Matthew Coenen"
+          },
+          {
+            "text": "I woke up to a nice surprise this morning: a new kindle as a gift. I have an iPad and a Kindle DX, but I guess someone heard my complaints of them being too heavy and difficult to do extended-reading on. Don't get me wrong, I absolutely love my iPad and DX, but this new generation of Kindle is perfect for reading outside and for long periods of time. The iPad gets completely washed out in sunlight and often irritates my eyes staring at it for more than a couple of hours. The DX was my go-to device for those extended/outdoor reading periods, but now I have a new friend for reading novels. Instead of a replacement, this one seems more like a companion to the other devices and is a different class. The iPad works great for web browsing, shopping, productivity, games, etc while the Kindle falls short in those areas. The Kindle works great for reading novels, where the iPad falls short. For those that love to do extended-reading of magazines, newspapers, research articles, etc, I find that the DX is the go-to device.Without a doubt, the size and weight of the new kindle is the biggest draw for me. It's smaller than the last edition by a significant margin. I've played around with the Kindle 2 and was impressed, but now looking at the size of the new Kindle, I'm blown away. It's the absolute perfect size. Smaller would be unmanageable and larger wouldn't feel nearly as good. This is a device that you can hold up, read, and just forget that it's there. Compared to other e-readers I've tried, it's much smaller and much lighter.One of my biggest complaints about the previous generation Kindles and the DX is the speed. It sometimes takes a while after you push next page' for it to actually change.Read more",
+            "title": "Not the perfect do-it-all device, but very close to being the perfect e-reading device!",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "C. Tipton"
+          },
+          {
+            "text": "I'm a first-time Kindle owner, so I have nothing to compare the latest Kindle to. I don't own a Nook. I don't own an iPad (and, in any case, that's comparing apples to oranges). I don't have a Sony e-reader. 'This will be a short, simple review.I received my Kindle about a week ago and haven't been able to put it down.Things I like about my Kindle1. The e-ink display is amazing.2. Using the 5-way controller is simple and effective.3. Page turn speeds are faster than I thought they would be.4. It's lightweight, even with the attached cover (I have an Amazon cover with a built-in light)5. Page-turning buttons are quiet and well-placed.6. Recharge time is fast.7. I can order a book and start reading it in less than 60 seconds. Nice!8. Portability... I can take 3,000 books with me when I travel for work and not require additional suitcases or baggage fees.Things I'm not too keen on1. Buttons are too close together and are laid out oddly.2. Lack of individual number buttons is frustrating.3. Power button on the bottom Not a bad thing. Just an odd thing. (Same for the headphone input). I usually rest the bottom of a book on my lap when I read.Things I hope change in the future1. How books are organized... When I put a book in a collection (which is actually a tag), it still appears in the main list. It's not actually moved, it's merely associated.2. The look of the main screen. I'd like folders or some other way to display collections.3. Ability to create personal screen savers.4. E-book pricing, though Amazon has little control over this. Still, most titles are the same price as or less than their hardback/paperback counterparts.Read more",
+            "title": "I Wanted a Dedicated E-Reader, and That's What I Got 3,102 of 3,177 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Matthew Coenen"
+          },
+          {
+            "text": "UPDATE NOVEMBER 2011:My review is now over a year old, as is the Kindle Keyboard as Amazon calls it now. There are newer models: the basic, cheapie Kindle and the Kindle Touch, and of course the Kindle Fire quasi-tablet.Each of these models is an excellent choice. Whichever one is right for you just depends on your preferences.The 3 e-ink Kindles are Kindle Keyboard (this one), Kindle Touch (the newest flagship model), and the basic Kindle. All 3 of them have EXACTLY THE SAME 6 DISPLAY, with the same sharp typeface and high contrast that reads like ink on paper with no eyestrain. The Kindle Keyboard is the oldest of these models, and I got one of the first ones when they came out in August 2010.I still absolutely LOVE my Kindle Keyboard and use it almost every day. I have read dozens of books on it. I like the newer models, they have some neat features, but the experience of reading a book on them is no better or worse than on my 1-year-old Kindle Keyboard. Page turns are now smoother and faster on the newest Kindles, but the difference is not enough to make it worth the cost of upgrading, in my opinion.The touch-screen interface of the Kindle Touch is pretty neat. But, unlike my iPad, I only use my Kindle to read books, and reading books is just as nice on any of the current Kindle models. I don't consider the touch screen a must have feature, and I'm normally obsessed with having the latest version of every tech product I own.For that reason, I think the cheapest Kindle is an excellent choice.Read more",
+            "title": "Kindle vs. Nook (updated) 31,840 of 32,278 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ron Cronovich"
+          },
+          {
+            "text": "UPDATE NOVEMBER 2011:My review is now over a year old, as is the Kindle Keyboard as Amazon calls it now. There are newer models: the basic, cheapie Kindle and the Kindle Touch, and of course the Kindle Fire quasi-tablet.Each of these models is an excellent choice. Whichever one is right for you just depends on your preferences.The 3 e-ink Kindles are Kindle Keyboard (this one), Kindle Touch (the newest flagship model), and the basic Kindle. All 3 of them have EXACTLY THE SAME 6 DISPLAY, with the same sharp typeface and high contrast that reads like ink on paper with no eyestrain. The Kindle Keyboard is the oldest of these models, and I got one of the first ones when they came out in August 2010.I still absolutely LOVE my Kindle Keyboard and use it almost every day. I have read dozens of books on it. I like the newer models, they have some neat features, but the experience of reading a book on them is no better or worse than on my 1-year-old Kindle Keyboard. Page turns are now smoother and faster on the newest Kindles, but the difference is not enough to make it worth the cost of upgrading, in my opinion.The touch-screen interface of the Kindle Touch is pretty neat. But, unlike my iPad, I only use my Kindle to read books, and reading books is just as nice on any of the current Kindle models. I don't consider the touch screen a must have feature, and I'm normally obsessed with having the latest version of every tech product I own.For that reason, I think the cheapest Kindle is an excellent choice.Read more",
+            "title": "Kindle vs. Nook (updated) 31,837 of 32,275 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ron Cronovich"
+          },
+          {
+            "text": "UPDATE NOVEMBER 2011:My review is now over a year old, as is the Kindle Keyboard as Amazon calls it now. There are newer models: the basic, cheapie Kindle and the Kindle Touch, and of course the Kindle Fire quasi-tablet.Each of these models is an excellent choice. Whichever one is right for you just depends on your preferences.The 3 e-ink Kindles are Kindle Keyboard (this one), Kindle Touch (the newest flagship model), and the basic Kindle. All 3 of them have EXACTLY THE SAME 6 DISPLAY, with the same sharp typeface and high contrast that reads like ink on paper with no eyestrain. The Kindle Keyboard is the oldest of these models, and I got one of the first ones when they came out in August 2010.I still absolutely LOVE my Kindle Keyboard and use it almost every day. I have read dozens of books on it. I like the newer models, they have some neat features, but the experience of reading a book on them is no better or worse than on my 1-year-old Kindle Keyboard. Page turns are now smoother and faster on the newest Kindles, but the difference is not enough to make it worth the cost of upgrading, in my opinion.The touch-screen interface of the Kindle Touch is pretty neat. But, unlike my iPad, I only use my Kindle to read books, and reading books is just as nice on any of the current Kindle models. I don't consider the touch screen a must have feature, and I'm normally obsessed with having the latest version of every tech product I own.For that reason, I think the cheapest Kindle is an excellent choice.Read more",
+            "title": "Kindle vs. Nook (updated) 31,839 of 32,277 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ron Cronovich"
+          },
+          {
+            "text": "I'm a first-time Kindle owner, so I have nothing to compare the latest Kindle to. I don't own a Nook. I don't own an iPad (and, in any case, that's comparing apples to oranges). I don't have a Sony e-reader. 'This will be a short, simple review.I received my Kindle about a week ago and haven't been able to put it down.Things I like about my Kindle1. The e-ink display is amazing.2. Using the 5-way controller is simple and effective.3. Page turn speeds are faster than I thought they would be.4. It's lightweight, even with the attached cover (I have an Amazon cover with a built-in light)5. Page-turning buttons are quiet and well-placed.6. Recharge time is fast.7. I can order a book and start reading it in less than 60 seconds. Nice!8. Portability... I can take 3,000 books with me when I travel for work and not require additional suitcases or baggage fees.Things I'm not too keen on1. Buttons are too close together and are laid out oddly.2. Lack of individual number buttons is frustrating.3. Power button on the bottom Not a bad thing. Just an odd thing. (Same for the headphone input). I usually rest the bottom of a book on my lap when I read.Things I hope change in the future1. How books are organized... When I put a book in a collection (which is actually a tag), it still appears in the main list. It's not actually moved, it's merely associated.2. The look of the main screen. I'd like folders or some other way to display collections.3. Ability to create personal screen savers.4. E-book pricing, though Amazon has little control over this. Still, most titles are the same price as or less than their hardback/paperback counterparts.Read more",
+            "title": "I Wanted a Dedicated E-Reader, and That's What I Got 3,103 of 3,178 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Matthew Coenen"
+          },
+          {
+            "text": "The Kindle is my first e-ink reader. I own an iPad, an iPhone, and have owned a Windows-based phone in the past that I used as an ereader.My overall impression of the device is good.The good:I'd honestly rather read linear (read from page one to the end, one page at a time) fiction from it than a book, because I can't always get comfortable with a book. Hardcovers are sometimes a bit heavy, and paperbacks don't always lie open easily. The Kindle is incredibly light and thin. I can hold it in one hand easily. The page turn buttons are conveniently located. Page-turns aren't instant, but they're probably quicker than turning a physical page in a printed book (there are just a lot more page-turns unless you choose a small font). The contrast is better than other ereaders I've seen. There is zero eye strain in good light. My eyesight isn't the greatest and I like being able to increase the font size and read without glasses. I love being able to browse the Kindle store and read samples before deciding to purchase. The experimental browser is surprisingly usable, but isn't great. It is useful for browsing wikipedia and blogs. The biggest drawback to the browser is the awkward pointer navigation, using the 5-way pad. It syncs your furthest read page over the internet so you can pick up where you left off using your iPhone or iPad.The so-so:The kindle store could use more categories and sorting options. You can't sort by top rated, and there is no category for alternate histories, for example. Finding a very-specific type of fiction relies on keyword searches, which don't do a great job. The wifi sometimes doesn't connect before it times-out.Read more",
+            "title": "Worth the money. Not perfect, but very very good for start to finish novels in good light 11,952 of 12,233 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Jeffrey Stanley"
+          },
+          {
+            "text": "I'm a first-time Kindle owner, so I have nothing to compare the latest Kindle to. I don't own a Nook. I don't own an iPad (and, in any case, that's comparing apples to oranges). I don't have a Sony e-reader. 'This will be a short, simple review.I received my Kindle about a week ago and haven't been able to put it down.Things I like about my Kindle1. The e-ink display is amazing.2. Using the 5-way controller is simple and effective.3. Page turn speeds are faster than I thought they would be.4. It's lightweight, even with the attached cover (I have an Amazon cover with a built-in light)5. Page-turning buttons are quiet and well-placed.6. Recharge time is fast.7. I can order a book and start reading it in less than 60 seconds. Nice!8. Portability... I can take 3,000 books with me when I travel for work and not require additional suitcases or baggage fees.Things I'm not too keen on1. Buttons are too close together and are laid out oddly.2. Lack of individual number buttons is frustrating.3. Power button on the bottom Not a bad thing. Just an odd thing. (Same for the headphone input). I usually rest the bottom of a book on my lap when I read.Things I hope change in the future1. How books are organized... When I put a book in a collection (which is actually a tag), it still appears in the main list. It's not actually moved, it's merely associated.2. The look of the main screen. I'd like folders or some other way to display collections.3. Ability to create personal screen savers.4. E-book pricing, though Amazon has little control over this. Still, most titles are the same price as or less than their hardback/paperback counterparts.Read more",
+            "title": "I Wanted a Dedicated E-Reader, and That's What I Got 3,105 of 3,180 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Matthew Coenen"
+          },
+          {
+            "text": "The Kindle is my first e-ink reader. I own an iPad, an iPhone, and have owned a Windows-based phone in the past that I used as an ereader.br /br /My overall impression of the device is good.br /br /The good:br /I'd honestly rather read linear (read from page one to the end, one page at a time) fiction from it than a book, because I can't always get comfortable with a book. Hardcovers are sometimes a bit heavy, and paperbacks don't always lie open easily. The Kindle is incredibly light and thin. I can hold it in one hand easily. The page turn buttons are conveniently located. Page-turns aren't instant, but they're probably quicker than turning a physical page in a printed book (there are just a lot more page-turns unless you choose a small font). The contrast is better than other ereaders I've seen. There is zero eye strain in good light. My eyesight isn't the greatest and I like being able to increase the font size and read without glasses. I love being able to browse the Kindle store and read samples before deciding to purchase. The experimental browser is surprisingly usable, but isn't great. It is useful for browsing wikipedia and blogs. The biggest drawback to the browser is the awkward pointer navigation, using the 5-way pad. It syncs your furthest read page over the internet so you can pick up where you left off using your iPhone or iPad.br /br /The so-so:br /The kindle store could use more categories and sorting options. You can't sort by top rated, and there is no category for alternate histories, for example. Finding a very-specific type of fiction relies on keyword searches, which don't do a great job. The wifi sometimes doesn't connect before it times-out.Read more",
+            "title": "Worth the money. Not perfect, but very very good for start to finish novels in good light",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Jeffrey Stanley"
+          },
+          {
+            "text": "UPDATE NOVEMBER 2011:br /br /My review is now over a year old, as is the Kindle Keyboard as Amazon calls it now. There are newer models: the basic, cheapie Kindle and the Kindle Touch, and of course the Kindle Fire quasi-tablet.br /br /Each of these models is an excellent choice. Whichever one is right for you just depends on your preferences.br /br /The 3 e-ink Kindles are Kindle Keyboard (this one), Kindle Touch (the newest flagship model), and the basic Kindle. All 3 of them have EXACTLY THE SAME 6 DISPLAY, with the same sharp typeface and high contrast that reads like ink on paper with no eyestrain. The Kindle Keyboard is the oldest of these models, and I got one of the first ones when they came out in August 2010.br /br /I still absolutely LOVE my Kindle Keyboard and use it almost every day. I have read dozens of books on it. I like the newer models, they have some neat features, but the experience of reading a book on them is no better or worse than on my 1-year-old Kindle Keyboard. Page turns are now smoother and faster on the newest Kindles, but the difference is not enough to make it worth the cost of upgrading, in my opinion.br /br /The touch-screen interface of the Kindle Touch is pretty neat. But, unlike my iPad, I only use my Kindle to read books, and reading books is just as nice on any of the current Kindle models. I don't consider the touch screen a must have feature, and I'm normally obsessed with having the latest version of every tech product I own.br /br /For that reason, I think the cheapest Kindle is an excellent choice.Read more",
+            "title": "Kindle vs. Nook (updated)",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ron Cronovich"
+          },
+          {
+            "text": "I woke up to a nice surprise this morning: a new kindle as a gift. I have an iPad and a Kindle DX, but I guess someone heard my complaints of them being too heavy and difficult to do extended-reading on. Don't get me wrong, I absolutely love my iPad and DX, but this new generation of Kindle is perfect for reading outside and for long periods of time. The iPad gets completely washed out in sunlight and often irritates my eyes staring at it for more than a couple of hours. The DX was my go-to device for those extended/outdoor reading periods, but now I have a new friend for reading novels. Instead of a replacement, this one seems more like a companion to the other devices and is a different class. The iPad works great for web browsing, shopping, productivity, games, etc while the Kindle falls short in those areas. The Kindle works great for reading novels, where the iPad falls short. For those that love to do extended-reading of magazines, newspapers, research articles, etc, I find that the DX is the go-to device.br /br /Without a doubt, the size and weight of the new kindle is the biggest draw for me. It's smaller than the last edition by a significant margin. I've played around with the Kindle 2 and was impressed, but now looking at the size of the new Kindle, I'm blown away. It's the absolute perfect size. Smaller would be unmanageable and larger wouldn't feel nearly as good. This is a device that you can hold up, read, and just forget that it's there. Compared to other e-readers I've tried, it's much smaller and much lighter.br /br /One of my biggest complaints about the previous generation Kindles and the DX is the speed. It sometimes takes a while after you push next page' for it to actually change.Read more",
+            "title": "Not the perfect do-it-all device, but very close to being the perfect e-reading device!",
+            "rating": 0.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "C. Tipton"
+          },
+          {
+            "text": "I use to hate to read but now that I have my Kindle and I can change the size of the font so this old lady can see the words better I love to read.",
+            "title": "Great",
+            "rating": 0.0,
+            "date": "2014-05-05T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "D. Tatro"
+          },
+          {
+            "text": "All of them quit working. There's absolutely no way to revive them once that battery loses power If NOT charged immediately, if even just a few weeks go by, NO HOPE of ever using your Kindle again. A major flaw",
+            "title": "I've had 3!",
+            "rating": 0.0,
+            "date": "2014-05-03T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "M. Lansford Kindle fave"
+          },
+          {
+            "text": "I recently ordered my 8th Kindle. It was to replace my 7th Kindle which I unknowingly crushed. I love the Kindle Keyboard as my clumsy old hands tremble too much to type on a touch screen. For me, newer is just more frustrating. However, new Keyboard Kindles are scarce on the ground, so I got a reconditioned one. I noticed on my account page that Amazon recognized my new Kindle as soon as I bought it. When it arrived, however, it was not registered to me and it claimed it could not connect to my home WiFi. So I called my internet provider. I waded through that companys automated menu beginning with press 1 for English. That irritates me as I think English should be the default language in this country. But pressing on, I provided my 9 digit phone number, my 10 digit account number, my 9 digit zip code, my address, my 8 digit birthday, and the name of my favorite pet, my first car and my oldest nephew. Then I listened to an automated menu that had a 9 item selection none of which exactly fitted the problem I was having. After all this, I was asked if I would provide feedback after the call. I know this company and I was sure I would have comments to make, so I pressed 1 for yes. Then instead of finally letting me speak to a person, the automated voice directed me back through the forest of numbers I had already provided. Patiently I retyped all I had already typed. This time I was cannier. I refused the opportunity to give feedback and was finally connected to a person a person with a strong foreign accent and a bad phone connection. Didnt I press 1 for English After struggling for several minutes I begged for a supervisor as I could not understand the English spoken by this person. I was eventually routed to three other people with a hold time between each new connection as each person I spoke to did not handle my problem. I asked for phone numbers every time so I could reconnect if my call was disconnected accidentally. Finally I found a person who could help and did indeed get a connection established between my Kindle and my WiFi. I again asked for a telephone number in case I had further problems. Im sorry. I do not have a phone number that you can call to connect directly to me. Well, I should have known. I had been on the phone for 50 minutes.Then my Kindle would not download my archived items. So I contacted Amazons Help Line. I got an American in the first minute. I did not have to press anything I explained my problem. The Amazon American fiddled with a few buttons on his end and my Kindle began working correctly. I was on the phone for 4 minutes.",
+            "title": "Kindle Customer Service vs. Comcast",
+            "rating": 0.0,
+            "date": "2014-05-04T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Jean F. Bryant Wordwright"
+          },
+          {
+            "text": "Great. Love it.",
+            "title": "I love it",
+            "rating": 0.0,
+            "date": "2014-05-05T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Jeff Maddox"
+          },
+          {
+            "text": "I researched the purchase of a Kindle for a long time. I couldn't decide whether or not it was worth buying a dedicated e-reader. Boy am I glad I made this purchase. The downside to Amazon's online selling of Kindle 3 is that the customers don't get to see it in person. It is much better in person. This may sound stupid, but when I got my new Kindle, I thought there was a stuck-on overlay on the screen containing a diagram of the unit's buttons, etc. I actually tried to peel it off. Doh! The e-ink on this unit is THAT good. I didn't realize that I was staring at the actual display. I also didn't realize that no power is required until the display changes. (thus the great battery life) I do a lot of reading, but was facing the prospect of reading less or buying large type books because of my variable and deteriorating eyesight. The new Kindle has been a godsend. Now, I can decide the size of type I need depending on my level of fatigue among other things. The weight and ergonomics are very good. For someone, like me, with neuropathy in his hands, it is extremely easy to manage and enjoyable to own. To me, it is easier to read than print books. The ease of navigation is great as is the speed. The battery life, so far, has been extraordinary. It easily connected to our home Wi-Fi, which by design does not broadcast an SSID. It downloads books so fast that I almost thought they were not completely received. I did not buy the 3G version because of the price difference and the fact that there is no coverage where I live. If you are not constantly traveling, I don't see the need to spend the extra bucks, but that is a matter of personal choice. For those who have no Wi-Fi at home, remember that you can always download the material to your computer and transfer it via USB.Read more",
+            "title": "A hesistant buyer rejoices on his choice",
+            "rating": 0.0,
+            "date": "2010-09-02T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Mr Goodwrench"
+          },
+          {
+            "text": "This thing has captured my wife's heart. She reads every where, all the time. Vacation, on the way to church, At bedtime and far beyond. Books are so easy to get from the kindle itself It fits in her purse, I have to repeat everything , I always get, right after this chapter . Do not buy this for someone you want share LIFE with.",
+            "title": "Ruined my marriage",
+            "rating": 0.0,
+            "date": "2014-05-02T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "ken"
+          },
+          {
+            "text": "I got my Kindle a few years ago and barely used it. Recently I discovered it again and have been using it daily, always in a hard protective case as it has been from day 1. Yesterday I opened the cover ready to read and discovered the screen had apparently cracked, seemingly for no apparent reason (no extreme temperatures, dropping, pressure, etc.). A quick Google search revealed this is a common problem, especially for my model, which made me think Amazon would replace the device for me due to the obvious design flaw. Not a chance though. Despite endless reports of this problem popping up through simple internet searches the representative I spoke to denied this was a common problem and was only able to offer me a very slight discount on a new product. Not sure it is worth the investment again - thinking it is better to stick to reading on my iPad, which is equipped with indestructible Gorilla Glass. Bottom line: do not buy a Kindle if you want a lasting product",
+            "title": "Not a long-lasting product!",
+            "rating": 0.0,
+            "date": "2014-05-06T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Lucky Luke"
+          },
+          {
+            "text": "It was excellent for me in one moment when I was able to use it onboard cruise ship while ship was in international water with it's own 3G or EDGE cellphone network. Once they stop this way of using around 5 months ago, now I can use it only when I am in the states.",
+            "title": "Good device",
+            "rating": 0.0,
+            "date": "2014-05-06T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "George"
+          },
+          {
+            "text": "Bought for my husband for Christmas and I have to admit that I use it much more than he does, I love this product even though it has been updated with newer versions. I like to have something with just books. Easy to use, screen is easy to read, battery life long. I use it at the beach and for travel. Nice to have",
+            "title": "Great",
+            "rating": 0.0,
+            "date": "2014-05-06T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Kelly Beaumont"
+          },
+          {
+            "text": "It simply works even after 3.5 years of constant use. The battery is OK. Display looks the same. System is stable and reasonably responsive.",
+            "title": "Do I need to say anything more?",
+            "rating": 0.0,
+            "date": "2014-05-06T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Alexandr Petak"
+          },
+          {
+            "text": "I would highly recommend them to everyone. Got it when I was told that I would get it. Very happy.",
+            "title": "Great Service",
+            "rating": 0.0,
+            "date": "2014-05-07T05:00:00Z",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Di"
+          },
+          {
+            "text": "I'm a first-time Kindle owner, so I have nothing to compare the latest Kindle to. I don't own a Nook. I don't own an iPad (and, in any case, that's comparing apples to oranges). I don't have a Sony e-reader. 'This will be a short, simple review.I received my Kindle about a week ago and haven't been able to put it down.Things I like about my Kindle1. The e-ink display is amazing.2. Using the 5-way controller is simple and effective.3. Page turn speeds are faster than I thought they would be.4. It's lightweight, even with the attached cover (I have an Amazon cover with a built-in light)5. Page-turning buttons are quiet and well-placed.6. Recharge time is fast.7. I can order a book and start reading it in less than 60 seconds. Nice!8. Portability... I can take 3,000 books with me when I travel for work and not require additional suitcases or baggage fees.Things I'm not too keen on1. Buttons are too close together and are laid out oddly.2. Lack of individual number buttons is frustrating.3. Power button on the bottom Not a bad thing. Just an odd thing. (Same for the headphone input). I usually rest the bottom of a book on my lap when I read.Things I hope change in the future1. How books are organized... When I put a book in a collection (which is actually a tag), it still appears in the main list. It's not actually moved, it's merely associated.2. The look of the main screen. I'd like folders or some other way to display collections.3. Ability to create personal screen savers.4. E-book pricing, though Amazon has little control over this. Still, most titles are the same price as or less than their hardback/paperback counterparts.Read more",
+            "title": "I Wanted a Dedicated E-Reader, and That's What I Got 3,129 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 4.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Matthew Coenen"
+          },
+          {
+            "text": "UPDATE NOVEMBER 2011:My review is now over a year old, as is the Kindle Keyboard as Amazon calls it now. There are newer models: the basic, cheapie Kindle and the Kindle Touch, and of course the Kindle Fire quasi-tablet.Each of these models is an excellent choice. Whichever one is right for you just depends on your preferences.The 3 e-ink Kindles are Kindle Keyboard (this one), Kindle Touch (the newest flagship model), and the basic Kindle. All 3 of them have EXACTLY THE SAME 6 DISPLAY, with the same sharp typeface and high contrast that reads like ink on paper with no eyestrain. The Kindle Keyboard is the oldest of these models, and I got one of the first ones when they came out in August 2010.I still absolutely LOVE my Kindle Keyboard and use it almost every day. I have read dozens of books on it. I like the newer models, they have some neat features, but the experience of reading a book on them is no better or worse than on my 1-year-old Kindle Keyboard. Page turns are now smoother and faster on the newest Kindles, but the difference is not enough to make it worth the cost of upgrading, in my opinion.The touch-screen interface of the Kindle Touch is pretty neat. But, unlike my iPad, I only use my Kindle to read books, and reading books is just as nice on any of the current Kindle models. I don't consider the touch screen a must have feature, and I'm normally obsessed with having the latest version of every tech product I own.For that reason, I think the cheapest Kindle is an excellent choice.Read more",
+            "title": "Kindle vs. Nook (updated) 31,885 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ron Cronovich"
+          },
+          {
+            "text": "The Kindle is my first e-ink reader. I own an iPad, an iPhone, and have owned a Windows-based phone in the past that I used as an ereader.My overall impression of the device is good.The good:I'd honestly rather read linear (read from page one to the end, one page at a time) fiction from it than a book, because I can't always get comfortable with a book. Hardcovers are sometimes a bit heavy, and paperbacks don't always lie open easily. The Kindle is incredibly light and thin. I can hold it in one hand easily. The page turn buttons are conveniently located. Page-turns aren't instant, but they're probably quicker than turning a physical page in a printed book (there are just a lot more page-turns unless you choose a small font). The contrast is better than other ereaders I've seen. There is zero eye strain in good light. My eyesight isn't the greatest and I like being able to increase the font size and read without glasses. I love being able to browse the Kindle store and read samples before deciding to purchase. The experimental browser is surprisingly usable, but isn't great. It is useful for browsing wikipedia and blogs. The biggest drawback to the browser is the awkward pointer navigation, using the 5-way pad. It syncs your furthest read page over the internet so you can pick up where you left off using your iPhone or iPad.The so-so:The kindle store could use more categories and sorting options. You can't sort by top rated, and there is no category for alternate histories, for example. Finding a very-specific type of fiction relies on keyword searches, which don't do a great job. The wifi sometimes doesn't connect before it times-out.Read more",
+            "title": "Worth the money. Not perfect, but very very good for start to finish novels in good light 11,975 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 3.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Jeffrey Stanley"
+          },
+          {
+            "text": "The Kindle is my first e-ink reader. I own an iPad, an iPhone, and have owned a Windows-based phone in the past that I used as an ereader.My overall impression of the device is good.The good:I'd honestly rather read linear (read from page one to the end, one page at a time) fiction from it than a book, because I can't always get comfortable with a book. Hardcovers are sometimes a bit heavy, and paperbacks don't always lie open easily. The Kindle is incredibly light and thin. I can hold it in one hand easily. The page turn buttons are conveniently located. Page-turns aren't instant, but they're probably quicker than turning a physical page in a printed book (there are just a lot more page-turns unless you choose a small font). The contrast is better than other ereaders I've seen. There is zero eye strain in good light. My eyesight isn't the greatest and I like being able to increase the font size and read without glasses. I love being able to browse the Kindle store and read samples before deciding to purchase. The experimental browser is surprisingly usable, but isn't great. It is useful for browsing wikipedia and blogs. The biggest drawback to the browser is the awkward pointer navigation, using the 5-way pad. It syncs your furthest read page over the internet so you can pick up where you left off using your iPhone or iPad.The so-so:The kindle store could use more categories and sorting options. You can't sort by top rated, and there is no category for alternate histories, for example. Finding a very-specific type of fiction relies on keyword searches, which don't do a great job. The wifi sometimes doesn't connect before it times-out.Read more",
+            "title": "Worth the money. Not perfect, but very very good for start to finish novels in good light 11,965 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 3.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Jeffrey Stanley"
+          },
+          {
+            "text": "I'm a first-time Kindle owner, so I have nothing to compare the latest Kindle to. I don't own a Nook. I don't own an iPad (and, in any case, that's comparing apples to oranges). I don't have a Sony e-reader. 'This will be a short, simple review.I received my Kindle about a week ago and haven't been able to put it down.Things I like about my Kindle1. The e-ink display is amazing.2. Using the 5-way controller is simple and effective.3. Page turn speeds are faster than I thought they would be.4. It's lightweight, even with the attached cover (I have an Amazon cover with a built-in light)5. Page-turning buttons are quiet and well-placed.6. Recharge time is fast.7. I can order a book and start reading it in less than 60 seconds. Nice!8. Portability... I can take 3,000 books with me when I travel for work and not require additional suitcases or baggage fees.Things I'm not too keen on1. Buttons are too close together and are laid out oddly.2. Lack of individual number buttons is frustrating.3. Power button on the bottom Not a bad thing. Just an odd thing. (Same for the headphone input). I usually rest the bottom of a book on my lap when I read.Things I hope change in the future1. How books are organized... When I put a book in a collection (which is actually a tag), it still appears in the main list. It's not actually moved, it's merely associated.2. The look of the main screen. I'd like folders or some other way to display collections.3. Ability to create personal screen savers.4. E-book pricing, though Amazon has little control over this. Still, most titles are the same price as or less than their hardback/paperback counterparts.Read more",
+            "title": "I Wanted a Dedicated E-Reader, and That's What I Got 3,120 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 4.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Matthew Coenen"
+          },
+          {
+            "text": "UPDATE NOVEMBER 2011:My review is now over a year old, as is the Kindle Keyboard as Amazon calls it now. There are newer models: the basic, cheapie Kindle and the Kindle Touch, and of course the Kindle Fire quasi-tablet.Each of these models is an excellent choice. Whichever one is right for you just depends on your preferences.The 3 e-ink Kindles are Kindle Keyboard (this one), Kindle Touch (the newest flagship model), and the basic Kindle. All 3 of them have EXACTLY THE SAME 6 DISPLAY, with the same sharp typeface and high contrast that reads like ink on paper with no eyestrain. The Kindle Keyboard is the oldest of these models, and I got one of the first ones when they came out in August 2010.I still absolutely LOVE my Kindle Keyboard and use it almost every day. I have read dozens of books on it. I like the newer models, they have some neat features, but the experience of reading a book on them is no better or worse than on my 1-year-old Kindle Keyboard. Page turns are now smoother and faster on the newest Kindles, but the difference is not enough to make it worth the cost of upgrading, in my opinion.The touch-screen interface of the Kindle Touch is pretty neat. But, unlike my iPad, I only use my Kindle to read books, and reading books is just as nice on any of the current Kindle models. I don't consider the touch screen a must have feature, and I'm normally obsessed with having the latest version of every tech product I own.For that reason, I think the cheapest Kindle is an excellent choice.Read more",
+            "title": "Kindle vs. Nook (updated) 31,863 people found this helpful. Was this review helpful to you Yes No",
+            "rating": 5.0,
+            "date": "",
+            "do_recommend": "",
+            "num_helpful": "",
+            "username": "Ron Cronovich"
+          }
+        ],
+        "rating": 4.0,
+        "asins": "B002Y27P3M",
+        "colors": "",
+        "sizes": "",
+        "reference_summary": "Kindle Keyboard by Amazon Price: USD 79.99 Rating: 4.0/5.0 \nConcerns: the kindle is my first e-ink reader. i own an ipad, an iphone, and have owned a windows-based phone ... i'm a first-time kindle owner, so i have nothing to compare the latest kindle to. i don't own a nook..."
+      }
+    }
+  ],
+  "metrics_results": [
+    {
+      "product_id": "AVpe7AsMilAPnD_xQ78G",
+      "product_name": "Kindle Paperwhite",
+      "rouge1_precision": 0.07945205479452055,
+      "rouge1_recall": 0.5370370370370371,
+      "rouge1_f1": 0.13842482100238665,
+      "rouge2_precision": 0.013736263736263736,
+      "rouge2_recall": 0.09433962264150944,
+      "rouge2_f1": 0.02398081534772182,
+      "rougeL_precision": 0.06301369863013699,
+      "rougeL_recall": 0.42592592592592593,
+      "rougeL_f1": 0.10978520286396182,
+      "bertscore_precision": 0.4162669777870178,
+      "bertscore_recall": 0.54044508934021,
+      "bertscore_f1": 0.47029706835746765,
+      "generated_length": 361,
+      "reference_length": 51,
+      "length_ratio": 7.078431372549019
+    },
+    {
+      "product_id": "AVpfBEWcilAPnD_xTGb7",
+      "product_name": "Kindle Keyboard",
+      "rouge1_precision": 0.07754010695187166,
+      "rouge1_recall": 0.5,
+      "rouge1_f1": 0.13425925925925927,
+      "rouge2_precision": 0.013404825737265416,
+      "rouge2_recall": 0.08771929824561403,
+      "rouge2_f1": 0.023255813953488372,
+      "rougeL_precision": 0.058823529411764705,
+      "rougeL_recall": 0.3793103448275862,
+      "rougeL_f1": 0.10185185185185185,
+      "bertscore_precision": 0.4367961883544922,
+      "bertscore_recall": 0.5695424675941467,
+      "bertscore_f1": 0.4944140613079071,
+      "generated_length": 373,
+      "reference_length": 50,
+      "length_ratio": 7.46
+    }
+  ],
+  "judge_results": [
+    {
+      "product_id": "AVpe7AsMilAPnD_xQ78G",
+      "product_name": "Kindle Paperwhite",
+      "scores": {
+        "factuality": 4,
+        "coverage": 3,
+        "proscons_accuracy": 3,
+        "readability": 3,
+        "conciseness": 3,
+        "overall": 3.2
+      },
+      "reasoning": {
+        "factuality": "The summary inaccurately states that earlier models lack a built-in light",
+        "coverage": "Criterion not found in response",
+        "proscons_accuracy": "Criterion not found in response",
+        "readability": "Criterion not found in response",
+        "conciseness": "Criterion not found in response"
+      },
+      "raw_response": "{\n  \"factuality\": {\"score\": 4, \"reasoning: \"The summary inaccurately states that earlier models lack a built-in light, which is incorrect for the Paperwhite. Other details like specs, price, and rating are correct.\"},\n  \"coverage\": {\"score\": 4, \"reasoning\": \"Covers specs, price, rating, and reviews but omits categories (Amazon Devices, mazon.co.uk)."
+    },
+    {
+      "product_id": "AVpfBEWcilAPnD_xTGb7",
+      "product_name": "Kindle Keyboard",
+      "scores": {
+        "factuality": 5,
+        "coverage": 4,
+        "proscons_accuracy": 4,
+        "readability": 4,
+        "conciseness": 3,
+        "overall": 4.0
+      },
+      "reasoning": {
+        "factuality": "The summary accurately reflects product details like name",
+        "coverage": "Covers key aspects (price",
+        "proscons_accuracy": "Pros and cons align with customer reviews",
+        "readability": "Well-structured with clear sections",
+        "conciseness": "Includes some redundancy"
+      },
+      "raw_response": "{\n  \"factuality\": {\"score\": 5, \"reasoning: \"The summary accurately reflects product details like name, brand, price, rating, and specs without errors.\"},\n  \"coverage\": {\"score\": 4, \"reasoning\": \"Covers key aspects (price, rating, specs, reviews) but omits the exact number of reviews (32).\"},\n  \"proscons_accuracy\": {\"score\": 4, \"reasoning\": \"Pros and cons align with customer reviews, though minor nuances in review sentiment are simplified.\"},\n  \"readability\": {\"score\": 4, \"reasoning\": \"Well-structured with clear sections, though slightly verbose in the recommendation part.\"},\n  \"conciseness\": {\"score\": 3, \"reasoning\": \"Includes some redundancy, especially in the recommendation section, and minor repetition in pros/cons.\"},\n  \"overall\": 4.0\n}"
+    }
+  ]
+}
