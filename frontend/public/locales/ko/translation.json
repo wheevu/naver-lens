@@ -1,24 +1,63 @@
 {
-    "topbar": {
-      "naverPay": "네이버페이",
-      "login": "로그인",
-      "customerService": "고객센터"
-    },
-    "search": {
-      "placeholder": "상품명 또는 브랜드 입력"
-    },
-    "nav": {
-      "home": "홈",
-      "best": "베스트",
-      "category": "카테고리",
-      "myShopping": "마이쇼핑",
-      "cart": "장바구니"
-    },
-    "product": {
-      "reviews": "리뷰",
-      "shipping": "택배배송",
-      "buy": "구매하기",
-      "addToCart": "장바구니",
-      "total": "총 상품 금액"
-    }
+  "common": {
+    "login": "로그인",
+    "categories": "카테고리",
+    "myShopping": "마이쇼핑",
+    "cart": "장바구니",
+    "searchPlaceholder": "상품명 또는 브랜드 입력",
+    "close": "닫기"
+  },
+  "topbar": {
+    "naverPay": "네이버페이",
+    "login": "로그인",
+    "customerService": "고객센터"
+  },
+  "searchPopup": {
+    "recent": "최근 검색어",
+    "noHistory": "최근 검색어 내역이 없습니다.",
+    "recommendedProducts": "추천 검색어 기반 상품",
+    "recommendedKeywords": "추천 검색어",
+    "autoSaveOff": "자동저장 끄기"
+  },
+  "gnb": {
+    "sale": "넾다세일",
+    "home": "홈",
+    "todayDeal": "오늘끝딜",
+    "kurlyMart": "컬리N마트",
+    "best": "베스트",
+    "winterFashion": "겨울 패션 블프",
+    "superReward": "슈퍼적립",
+    "liveShopping": "쇼핑 라이브",
+    "fastDelivery": "지금배달",
+    "giftShop": "선물샵",
+    "fashionBeauty": "패션뷰티",
+    "nDelivery": "N배송",
+    "foodWindow": "푸드윈도",
+    "luxury": "럭셔리",
+    "mister": "미스터",
+    "specialOffer": "기획전",
+    "coupon": "쿠폰/혜택"
+  },
+  "store": {
+    "followers": "관심고객수",
+    "follow": "알림받기",
+    "grade": "스토어등급",
+    "power": "파워",
+    "today": "오늘",
+    "total": "전체",
+    "searchPlaceholder": "검색어를 입력해주세요"
+  },
+  "storeNav": {
+    "best": "베스트",
+    "livingHealth": "생활/건강",
+    "beauty": "화장품/미용",
+    "digital": "디지털/가전",
+    "food": "식품",
+    "all": "전체상품",
+    "qna": "묻고 답하기",
+    "notice": "공지사항",
+    "reviewEvent": "리뷰이벤트",
+    "story": "쇼핑스토리",
+    "more": "더보기"
+  }
 }

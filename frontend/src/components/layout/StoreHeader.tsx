@@ -1,6 +1,7 @@
 import React from "react";
 import TopBar from "./TopBar";
 import { useTheme } from "../../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 export interface StoreData {
   name: string;
@@ -9,12 +10,10 @@ export interface StoreData {
   themeColor?: string;
   buttonColor?: string;
 }
-
 interface StoreHeaderProps {
   store: StoreData;
   loading: boolean;
 }
-
 const SearchIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +31,7 @@ const SearchIcon = () => (
 
 const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
   const { theme } = useTheme();
-
+  const { t } = useTranslation();
   const backgroundColor =
     store.themeColor || (theme === "dark" ? "#1a1a2e" : "#ffffff");
 
@@ -47,6 +46,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
       <TopBar
         bgColor={backgroundColor}
         borderColor="rgba(0, 0, 0, 0.15)"
+        textColorClass="text-white/80"
         hoverTextColorClass="hover:text-white"
       />
 
@@ -68,7 +68,8 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
               className="text-sm opacity-80"
               style={{ color: "var(--text-secondary)" }}
             >
-              관심고객수 {loading ? "..." : store.followers.toLocaleString()}
+              {t("store.followers")}{" "}
+              {loading ? "..." : store.followers.toLocaleString()}
             </span>
           </div>
         </div>
@@ -76,7 +77,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
         <div className="relative w-72">
           <input
             type="text"
-            placeholder="검색어를 입력해주세요"
+            placeholder={t("store.searchPlaceholder")}
             className="w-full h-10 pl-5 pr-12 rounded-full text-sm bg-white/90 text-black placeholder:text-gray-500"
             style={{ borderRadius: "var(--radius-lg)" }}
           />

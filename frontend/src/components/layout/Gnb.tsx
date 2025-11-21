@@ -1,41 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface NavItem {
-  name: string;
+  key: string;
   path: string;
   isActive?: boolean;
   isExternal?: boolean;
 }
 
 const navGroup1: NavItem[] = [
-  { name: "넾다세일", path: "/sale" },
-  { name: "홈", path: "/", isActive: true },
-  { name: "오늘끝딜", path: "/today-deal" },
-  { name: "컬리N마트", path: "/kurly-mart" },
-  { name: "베스트", path: "/best" },
-  { name: "겨울 패션 블프", path: "/winter-fashion" },
+  { key: "gnb.sale", path: "/sale" },
+  { key: "gnb.home", path: "/", isActive: true },
+  { key: "gnb.todayDeal", path: "/today-deal" },
+  { key: "gnb.kurlyMart", path: "/kurly-mart" },
+  { key: "gnb.best", path: "/best" },
+  { key: "gnb.winterFashion", path: "/winter-fashion" },
 ];
 
 const navGroup2: NavItem[] = [
-  { name: "슈퍼적립", path: "/super-reward" },
-  {
-    name: "쇼핑 라이브",
-    path: "/live",
-    isExternal: true,
-  },
-  { name: "지금배달", path: "/fast-delivery" },
-  { name: "선물샵", path: "/gift-shop" },
-  { name: "패션뷰티", path: "/fashion-beauty" },
+  { key: "gnb.superReward", path: "/super-reward" },
+  { key: "gnb.liveShopping", path: "/live", isExternal: true },
+  { key: "gnb.fastDelivery", path: "/fast-delivery" },
+  { key: "gnb.giftShop", path: "/gift-shop" },
+  { key: "gnb.fashionBeauty", path: "/fashion-beauty" },
 ];
 
 const navGroup3: NavItem[] = [
-  { name: "N배송", path: "/n-delivery" },
-  { name: "푸드윈도", path: "/food-window" },
-  { name: "럭셔리", path: "/luxury" },
-  { name: "미스터", path: "/mister" },
-  { name: "기획전", path: "/special-offer" },
-  { name: "쿠폰/혜택", path: "/coupons" },
+  { key: "gnb.nDelivery", path: "/n-delivery" },
+  { key: "gnb.foodWindow", path: "/food-window" },
+  { key: "gnb.luxury", path: "/luxury" },
+  { key: "gnb.mister", path: "/mister" },
+  { key: "gnb.specialOffer", path: "/special-offer" },
+  { key: "gnb.coupon", path: "/coupons" },
 ];
 
 const navGroups = [navGroup1, navGroup2, navGroup3];
@@ -44,33 +41,24 @@ const ExternalLinkIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
-    fill="none"
+    fill="currentColor"
     className="w-3 h-3 ml-0.5"
   >
-    <path
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeWidth="1.25"
-      d="M4.734 2H2.761s0 0 0 0A.76.76 0 002 2.76v6.48c0 .42.34.76.76.76h6.464c.42 0 .76-.34.76-.76 0 0 0 0 0 0V7.274"
-    ></path>
-    <path
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.25"
-      d="M10 2v3.043M10 2H6.962M10 2L6.456 5.55"
-    ></path>{" "}
+    <path d="M11.78 1.28a.75.75 0 0 1 0 1.06L5.56 8.562l6.22 6.22a.75.75 0 1 1-1.06 1.06l-6.75-6.75a.75.75 0 0 1 0-1.06l6.75-6.75a.75.75 0 0 1 1.06 0Z" />
+    <path d="M12.25 1.75a.75.75 0 0 0-1.5 0v2.546l-6.53-6.53a.75.75 0 0 0-1.06 1.06L9.69 5.25H7.143a.75.75 0 0 0 0 1.5h4.357a.75.75 0 0 0 .75-.75V1.75Z" />
   </svg>
 );
 
 const VerticalDivider = () => (
-  <div className="h-4 w-px" style={{ background: "var(--glass-border)" }}></div>
+  <div className="h-4 w-px bg-[var(--glass-border)]"></div>
 );
 
 const Gnb = () => {
+  const { t } = useTranslation();
+
   return (
     <nav
-      className="w-full h-12 shadow-md dark:bg-gray-800 transition-colors duration-300"
+      className="w-full h-12 shadow-md"
       style={{
         background: "var(--glass-bg)",
         borderTop: "1px solid var(--glass-border)",
@@ -78,23 +66,34 @@ const Gnb = () => {
         fontFamily: "var(--font-secondary)",
       }}
     >
-      <div className="container mx-auto max-w-7xl px-4 h-full flex items-center justify-start gap-4">
+      <div
+        className="container mx-auto max-w-7xl px-4 h-full flex items-center justify-start gap-4 overflow-x-auto"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        <style>
+          {`
+            .container::-webkit-scrollbar {
+              display: none;
+            }
+          `}
+        </style>
         {navGroups.map((group, groupIndex) => (
           <React.Fragment key={groupIndex}>
             {groupIndex > 0 && <VerticalDivider />}
-
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 whitespace-nowrap">
               {group.map((item) => {
                 const commonClasses =
-                  "text-base text-(--text-primary) font-bold flex items-center h-12 transition-colors duration-200 hover:text-purple-300 dark:hover:text-naver-green-light";
-
+                  "text-base font-bold flex items-center h-12 transition-colors duration-200 hover:text-purple-300 shrink-0";
                 const activeClasses = item.isActive
-                  ? "text-purple-400 dark:text-naver-green border-b-2 border-purple-400 dark:border-naver-green"
-                  : "text-(--text-primary) dark:text-gray-200";
+                  ? "text-purple-400 border-b-2 border-purple-400"
+                  : "text-[var(--text-primary)]";
 
                 const content = (
                   <>
-                    {item.name}
+                    {t(item.key)}
                     {item.isExternal && <ExternalLinkIcon />}
                   </>
                 );
@@ -102,7 +101,7 @@ const Gnb = () => {
                 if (item.isExternal) {
                   return (
                     <a
-                      key={item.name}
+                      key={item.key}
                       href={item.path}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -115,7 +114,7 @@ const Gnb = () => {
 
                 return (
                   <Link
-                    key={item.name}
+                    key={item.key}
                     to={item.path}
                     className={`${commonClasses} ${activeClasses}`}
                   >

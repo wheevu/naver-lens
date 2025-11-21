@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { type StoreData } from "./StoreHeader";
 import { isLightColor } from "../../utils/color";
 import { useTheme } from "../../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 const FollowIcon = () => (
   <svg
@@ -17,17 +18,17 @@ const FollowIcon = () => (
 );
 
 const navItems = [
-  { name: "베스트", path: "#" },
-  { name: "생활/건강", path: "#" },
-  { name: "화장품/미용", path: "#" },
-  { name: "디지털/가전", path: "#" },
-  { name: "식품", path: "#" },
-  { name: "전체상품", path: "#" },
-  { name: "묻고 답하기", path: "#" },
-  { name: "공지사항", path: "#" },
-  { name: "리뷰이벤트", path: "#" },
-  { name: "쇼핑스토리", path: "#" },
-  { name: "더보기", path: "#", isMore: true },
+  { key: "storeNav.best", path: "#" },
+  { key: "storeNav.livingHealth", path: "#" },
+  { key: "storeNav.beauty", path: "#" },
+  { key: "storeNav.digital", path: "#" },
+  { key: "storeNav.food", path: "#" },
+  { key: "storeNav.all", path: "#" },
+  { key: "storeNav.qna", path: "#" },
+  { key: "storeNav.notice", path: "#" },
+  { key: "storeNav.reviewEvent", path: "#" },
+  { key: "storeNav.story", path: "#" },
+  { key: "storeNav.more", path: "#", isMore: true },
 ];
 
 interface StoreNavBarProps {
@@ -37,10 +38,10 @@ interface StoreNavBarProps {
 
 const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
   const { theme } = useTheme();
+  const { t } = useTranslation();
 
   const backgroundColor =
     store.themeColor || (theme === "dark" ? "#1a1a2e" : "#ffffff");
-
   const isLightBg = isLightColor(backgroundColor);
 
   const textColor = isLightBg ? "text-gray-900" : "text-white";
@@ -69,7 +70,7 @@ const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
           }}
         >
           <FollowIcon />
-          <span className="text-sm font-bold">알림받기</span>
+          <span className="text-sm font-bold">{t("store.follow")}</span>
         </button>
 
         <div className="flex-1 flex justify-center">
@@ -80,13 +81,16 @@ const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
 
         <div className={`flex items-center gap-4 ${mutedTextColor} text-xs`}>
           <div className="flex items-center gap-1">
-            <span>스토어등급</span>
-            <span className={`font-bold ${textColor}`}>파워</span>
+            <span>{t("store.grade")}</span>
+            <span className={`font-bold ${textColor}`}>{t("store.power")}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span>오늘 {loading ? "..." : "949"}</span>
             <span>
-              전체 {loading ? "..." : store.followers.toLocaleString()}
+              {t("store.today")} {loading ? "..." : "949"}
+            </span>
+            <span>
+              {t("store.total")}{" "}
+              {loading ? "..." : store.followers.toLocaleString()}
             </span>
           </div>
         </div>
@@ -97,11 +101,11 @@ const StoreNavBar: React.FC<StoreNavBarProps> = ({ store, loading }) => {
           <div className="flex flex-nowrap gap-6">
             {navItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.key}
                 to={item.path}
                 className={`text-sm font-bold whitespace-nowrap ${textColor} ${hoverTextColor}`}
               >
-                {item.name}
+                {t(item.key)}
                 {item.isMore && " ▾"}
               </Link>
             ))}

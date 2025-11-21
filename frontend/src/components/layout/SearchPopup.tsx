@@ -1,4 +1,3 @@
-// src/components/SearchPopup.tsx
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../api/axios";
