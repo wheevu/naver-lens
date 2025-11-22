@@ -23,12 +23,17 @@ class TextProcessor {
   static extractProductInfo(rawData) {
     return {
       name: this.stripHtml(this.sanitizeInput(rawData.title || rawData.name)),
-      price: this.sanitizeInput(rawData.lprice || rawData.price),
+      price: rawData.lprice || rawData.price || null,
+      originalPrice: rawData.originalPrice || null,
       brand: this.sanitizeInput(rawData.brand),
       category: this.sanitizeInput(rawData.category1 || rawData.category),
       description: this.stripHtml(this.sanitizeInput(rawData.description)),
       mallName: this.sanitizeInput(rawData.mallName),
-      rating: rawData.rating || 'N/A',
+      shipping: this.sanitizeInput(rawData.shipping),
+      rating: rawData.rating || null,
+      reviewCount: rawData.reviewCount || 0,
+      reviews: rawData.reviews || [],
+      options: rawData.options || [],
       productId: rawData.productId
     };
   }
