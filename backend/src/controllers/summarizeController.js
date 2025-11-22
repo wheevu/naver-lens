@@ -64,8 +64,12 @@ async function summarizeProduct(req, res) {
 
     console.log('Generating summary for:', productData.title || productData.name);
 
+    // Extract language parameter
+    const lang = req.body.lang || 'en'; // Default to English
+    console.log('🌐 Requested language:', lang);
+
     // Generate summary
-    const result = await service.summarizeProduct(productData);
+    const result = await service.summarizeProduct(productData, lang);
 
     console.log('Summary generated successfully', result);
     return res.status(200).json(result);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import axios from "../../api/axios";
 import { useTheme } from "../../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 import { type Product } from "../../types/product";
 
 const AiIcon = () => (
@@ -179,6 +180,7 @@ const SatisfactionChart: React.FC<{
 
 const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   const { theme } = useTheme();
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [summary, setSummary] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -201,6 +203,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
     try {
       const response = await axios.post<SummaryResponse>("/api/summarize", {
         productData: product,
+        lang: i18n.language === "ko" ? "ko" : "en",
       });
 
       if (response.data.success) {
