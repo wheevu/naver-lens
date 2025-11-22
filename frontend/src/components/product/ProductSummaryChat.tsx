@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import axios from "../../api/axios";
 import { useTheme } from "../../context/ThemeContext";
 import { type Product } from "../../types/product";
@@ -68,6 +68,115 @@ interface SummaryResponse {
   };
 }
 
+interface SummaryData {
+  overview: string;
+  ratings: {
+    score: string;
+    count: string;
+    sentiment: string;
+    coverage: string;
+  };
+  satisfaction: {
+    aspects: Array<{
+      name: string;
+      score: number;
+      feedback: string;
+    }>;
+  };
+  keywords: {
+    positive: Array<{ word: string; count: number }>;
+    concerns: Array<{ word: string; count: number }>;
+    notable: Array<{ word: string; count: number }>;
+  };
+  strengths: string[];
+  considerations: string[];
+  bestFor: string;
+  productInfo: {
+    brand: string;
+    category: string;
+    options: string;
+  };
+}
+
+// Helper function to parse JSON from summary
+const parseSummaryJSON = (summary: string): SummaryData | null => {
+  try {
+    // Try to parse directly
+    const parsed = JSON.parse(summary);
+    return parsed;
+  } catch (e) {
+    // Try to extract JSON from markdown code blocks
+    const jsonMatch = summary.match(/```json\s*([\s\S]*?)\s*```/) ||
+                     summary.match(/```\s*([\s\S]*?)\s*```/);
+    if (jsonMatch) {
+      try {
+        return JSON.parse(jsonMatch[1]);
+      } catch (e2) {
+        console.error("Failed to parse JSON from code block:", e2);
+        console.log("Summary snippet:", summary.substring(summary.length - 200));
+      }
+    }
+    
+    // Try to find JSON between braces
+    const braceMatch = summary.match(/\{[\s\S]*\}/);
+    if (braceMatch) {
+      try {
+        return JSON.parse(braceMatch[0]);
+      } catch (e3) {
+        console.error("Failed to parse JSON from braces:", e3);
+        console.log("Last 200 chars of summary:", summary.substring(summary.length - 200));
+      }
+    }
+    
+    console.error("Failed to parse summary JSON:", e);
+    console.log("Summary length:", summary.length);
+    console.log("Last 300 chars:", summary.substring(summary.length - 300));
+    return null;
+  }
+};
+
+// Chart component
+const SatisfactionChart: React.FC<{ 
+  aspects: Array<{name: string; score: number; feedback: string}>; 
+  theme: string 
+}> = ({ aspects, theme }) => {
+  return (
+    <div className="my-3 space-y-2.5">
+      {aspects.map((aspect, index) => (
+        <div key={index} className="space-y-1">
+          <div className="flex justify-between items-baseline text-xs">
+            <span className={`font-medium ${theme === "dark" ? "text-gray-200" : "text-gray-800"}`}>
+              {aspect.name}
+            </span>
+            <span className={theme === "dark" ? "text-gray-400" : "text-gray-500"}>
+              {aspect.score}%
+            </span>
+          </div>
+          <div className={`w-full h-2 rounded-full overflow-hidden ${
+            theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+          }`}>
+            <div
+              className="h-full rounded-full transition-all duration-500 ease-out"
+              style={{
+                width: `${aspect.score}%`,
+                background: aspect.score >= 70 
+                  ? 'linear-gradient(90deg, #10b981, #34d399)'
+                  : aspect.score >= 50
+                  ? 'linear-gradient(90deg, #f59e0b, #fbbf24)'
+                  : 'linear-gradient(90deg, #ef4444, #f87171)'
+              }}
+            />
+          </div>
+          <p className={`text-xs italic ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
+            {aspect.feedback}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
 const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
@@ -76,6 +185,12 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   const [error, setError] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Parse summary JSON
+  const summaryData = useMemo(() => {
+    if (!summary) return null;
+    return parseSummaryJSON(summary);
+  }, [summary]);
 
   const fetchSummary = async () => {
     if (summary) return;
@@ -116,7 +231,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
             backgroundColor: theme === "dark" ? "#1f2937" : "#ffffff",
             color: theme === "dark" ? "#f3f4f6" : "#1f2937",
             border: "1px solid var(--glass-border)",
-            maxHeight: "500px",
+            maxHeight: "600px",
           }}
         >
           <div
@@ -144,15 +259,17 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
             </button>
           </div>
 
-          <div className="p-4 overflow-y-auto min-h-[200px] max-h-[350px] bg-opacity-50 bg-gray-50 dark:bg-gray-900/50">
+          <div className="p-4 overflow-y-auto min-h-[200px] max-h-[400px] bg-opacity-50 bg-gray-50 dark:bg-gray-900/50 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600">{" "}
             <div className="flex gap-3 mb-4">
               <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
                 <AiIcon />
               </div>
-              <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm">
-                <p>
-                  Hello. I'm an AI Chatbot of NAVER. I can provide you with
-                  wonderful insight of into product.
+              <div className={`p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm ${
+                theme === "dark" ? "bg-gray-800 text-gray-200" : "bg-gray-100 text-gray-800"
+              }`}>
+                <p className="leading-relaxed">
+                  Hi! I'm your AI shopping assistant. I'll analyze customer reviews 
+                  and provide you with helpful insights about this product.
                 </p>
               </div>
             </div>
@@ -162,11 +279,19 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
                   <AiIcon />
                 </div>
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl rounded-tl-none shadow-sm">
+                <div className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${
+                  theme === "dark" ? "bg-gray-800" : "bg-gray-100"
+                }`}>
                   <div className="flex space-x-1 h-3 items-center">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.3s] ${
+                      theme === "dark" ? "bg-gray-500" : "bg-gray-400"
+                    }`}></div>
+                    <div className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.15s] ${
+                      theme === "dark" ? "bg-gray-500" : "bg-gray-400"
+                    }`}></div>
+                    <div className={`w-2 h-2 rounded-full animate-bounce ${
+                      theme === "dark" ? "bg-gray-500" : "bg-gray-400"
+                    }`}></div>
                   </div>
                 </div>
               </div>
@@ -180,49 +305,261 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
               </div>
             )}
 
-            {summary && !loading && (
+            {summary && !loading && summaryData && (
               <div className="flex gap-3 mb-2 animate-in fade-in zoom-in duration-300">
                 <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
                   <AiIcon />
                 </div>
                 <div
-                  className="p-3 rounded-2xl rounded-tl-none shadow-md text-sm leading-relaxed"
+                  className={`p-4 rounded-2xl rounded-tl-none shadow-md text-sm leading-relaxed overflow-hidden ${
+                    theme === "dark" ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"
+                  }`}
                   style={{
-                    background: theme === "dark" ? "#374151" : "#ffffff",
                     border: "1px solid var(--glass-border)",
+                    maxWidth: "100%",
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
                   }}
                 >
-                  <p className="whitespace-pre-line text-gray-800 dark:text-gray-200">
-                    {summary}
-                  </p>
-                  <div className="mt-2 text-xs text-gray-400 flex justify-end items-center gap-1">
-                    <span>Generated by AI</span>
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                    </svg>
+                  {/* Product Overview */}
+                  <section className="mb-4">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      I. Product Overview
+                    </h2>
+                    <p className={`text-sm leading-relaxed ${
+                      theme === "dark" ? "text-gray-300" : "text-gray-700"
+                    }`}>
+                      {summaryData.overview}
+                    </p>
+                  </section>
+
+                  {/* Customer Ratings */}
+                  <section className="mb-4">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      II. Customer Ratings
+                    </h2>
+                    <ul className="space-y-1 text-sm">
+                      <li className={theme === "dark" ? "text-gray-300" : "text-gray-700"}>
+                        <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                          Rating:
+                        </strong> ⭐{summaryData.ratings.score} from {summaryData.ratings.count}
+                      </li>
+                      <li className={theme === "dark" ? "text-gray-300" : "text-gray-700"}>
+                        <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                          Sentiment:
+                        </strong> {summaryData.ratings.sentiment}
+                      </li>
+                      <li className={theme === "dark" ? "text-gray-300" : "text-gray-700"}>
+                        <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                          Coverage:
+                        </strong> {summaryData.ratings.coverage}
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Satisfaction Chart */}
+                  <section className="mb-4">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      III. User's satisfaction
+                    </h2>
+                    <SatisfactionChart aspects={summaryData.satisfaction.aspects} theme={theme} />
+                  </section>
+
+                  {/* Keywords */}
+                  <section className="mb-4">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      IV. Keywords
+                    </h2>
+                    <div className="space-y-2 text-sm">
+                      <div>
+                        <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                          Positive:
+                        </strong>
+                        <span className={`ml-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"}`}>
+                          {summaryData.keywords.positive.map((kw, i) => (
+                            <span key={i}>
+                              {kw.word} ({kw.count}){i < summaryData.keywords.positive.length - 1 ? " • " : ""}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                      {summaryData.keywords.concerns.length > 0 && (
+                        <div>
+                          <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                            Concerns:
+                          </strong>
+                          <span className={`ml-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"}`}>
+                            {summaryData.keywords.concerns.map((kw, i) => (
+                              <span key={i}>
+                                {kw.word} ({kw.count}){i < summaryData.keywords.concerns.length - 1 ? " • " : ""}
+                              </span>
+                            ))}
+                          </span>
+                        </div>
+                      )}
+                      {summaryData.keywords.notable.length > 0 && (
+                        <div>
+                          <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                            Notable:
+                          </strong>
+                          <span className={`ml-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"}`}>
+                            {summaryData.keywords.notable.map((kw, i) => (
+                              <span key={i}>
+                                {kw.word} ({kw.count}){i < summaryData.keywords.notable.length - 1 ? " • " : ""}
+                              </span>
+                            ))}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </section>
+
+                  {/* Strengths */}
+                  <section className="mb-4">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      V. Strengths
+                    </h2>
+                    <ul className="space-y-1.5 ml-4">
+                      {summaryData.strengths.map((strength, i) => (
+                        <li key={i} className={`text-sm flex items-start gap-2 ${
+                          theme === "dark" ? "text-gray-300" : "text-gray-700"
+                        }`}>
+                          <span className={`mt-0.5 flex-shrink-0 ${
+                            theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}>•</span>
+                          <span>{strength}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Considerations */}
+                  <section className="mb-4">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      VI. Considerations
+                    </h2>
+                    <ul className="space-y-1.5 ml-4">
+                      {summaryData.considerations.map((consideration, i) => (
+                        <li key={i} className={`text-sm flex items-start gap-2 ${
+                          theme === "dark" ? "text-gray-300" : "text-gray-700"
+                        }`}>
+                          <span className={`mt-0.5 flex-shrink-0 ${
+                            theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}>•</span>
+                          <span>{consideration}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Best For */}
+                  <section className="mb-4">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      VII. Best For
+                    </h2>
+                    <p className={`text-sm leading-relaxed ${
+                      theme === "dark" ? "text-gray-300" : "text-gray-700"
+                    }`}>
+                      {summaryData.bestFor}
+                    </p>
+                  </section>
+
+                  {/* Product Info */}
+                  <section className="mb-2">
+                    <h2 className={`text-base font-bold mb-2 ${
+                      theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                    }`}>
+                      *Product Info
+                    </h2>
+                    <ul className="space-y-1 text-sm">
+                      <li className={theme === "dark" ? "text-gray-300" : "text-gray-700"}>
+                        <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                          Brand:
+                        </strong> {summaryData.productInfo.brand}
+                      </li>
+                      <li className={theme === "dark" ? "text-gray-300" : "text-gray-700"}>
+                        <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                          Category:
+                        </strong> {summaryData.productInfo.category}
+                      </li>
+                      <li className={theme === "dark" ? "text-gray-300" : "text-gray-700"}>
+                        <strong className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"}`}>
+                          Options:
+                        </strong> {summaryData.productInfo.options}
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Footer */}
+                  <div className={`mt-3 pt-3 border-t text-xs flex flex-col justify-between items-center ${
+                    theme === "dark" 
+                      ? "border-gray-700 text-gray-400" 
+                      : "border-gray-200 text-gray-500"
+                  }`}>
+                    <span className="flex items-center gap-1">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                      </svg>
+                      Generated by AI
+                    </span>
+                    <span className="text-xs">
+                      AI can make mistakes - verify details
+                    </span>
                   </div>
                 </div>
+              </div>
+            )}
+
+            {summary && !loading && !summaryData && (
+              <div className="flex justify-center mb-4">
+                <span className="text-xs text-red-500 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full border border-red-200 dark:border-red-800">
+                  Failed to parse summary. Please try again.
+                </span>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="p-3 border-t dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+          <div className={`p-3 border-t ${
+            theme === "dark" 
+              ? "border-gray-700 bg-gray-900" 
+              : "border-gray-200 bg-gray-50"
+          }`}>
             <div className="relative">
               <input
                 type="text"
                 placeholder="Ask more about this product..."
                 disabled
-                className="w-full pl-4 pr-10 py-2 rounded-full text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-none opacity-60 cursor-not-allowed"
+                className={`w-full pl-4 pr-10 py-2 rounded-full text-sm border focus:outline-none opacity-60 cursor-not-allowed ${
+                  theme === "dark"
+                    ? "bg-gray-800 border-gray-700 text-gray-300 placeholder-gray-500"
+                    : "bg-white border-gray-200 text-gray-700 placeholder-gray-400"
+                }`}
               />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-gray-400">
+              <button className={`absolute right-2 top-1/2 -translate-y-1/2 p-1.5 ${
+                theme === "dark" ? "text-gray-500" : "text-gray-400"
+              }`}>
                 <SendIcon />
               </button>
             </div>
