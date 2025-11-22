@@ -39,6 +39,11 @@ npm run dev
 curl http://localhost:3001/api/products/900000016
 ```
 
+Or on PowerShell:
+```powershell
+curl.exe http://localhost:3001/api/products/900000016
+```
+
 2. `POST` summarize (need naver api key):
 
 ```bash
@@ -47,6 +52,24 @@ curl -X POST http://localhost:3001/api/summarize \
   -d '{
     "productId": "900000016"
   }'
+```
+
+Or on PowerShell (Option 1 - Using variable):
+```powershell
+$body = '{"productId": "900000016"}'; curl.exe -X POST http://localhost:3001/api/summarize -H "Content-Type: application/json" -d $body
+```
+
+Or on PowerShell (Option 2 - Using file):
+```powershell
+# First create test-request.json with content: {"productId": "900000016"}
+curl.exe -X POST http://localhost:3001/api/summarize -H "Content-Type: application/json" -d "@test-request.json"
+```
+
+Or on PowerShell (Option 3 - Using Invoke-WebRequest):
+```powershell
+$headers = @{"Content-Type" = "application/json"}
+$body = '{"productId": "900000016"}'
+Invoke-WebRequest -Uri "http://localhost:3001/api/summarize" -Method POST -Headers $headers -Body $body
 ```
 
 ## Explanation

@@ -12,8 +12,10 @@ class SummarizeService {
 
   /**
    * Summarize product using NAVER CLOVA AI
+   * @param {Object} productData - Product information
+   * @param {string} lang - Language for summary ('en' or 'ko')
    */
-  async summarizeProduct(productData) {
+  async summarizeProduct(productData, lang = 'en') {
     try {
       // 1. Extract and sanitize product info
       const cleanedData = TextProcessor.extractProductInfo(productData);
@@ -22,18 +24,18 @@ class SummarizeService {
       const messages = [
         {
           role: 'system',
-          content: summarizationPrompts.system
+          content: summarizationPrompts.system(lang)
         },
         {
           role: 'user',
-          content: summarizationPrompts.userTemplate(cleanedData)
+          content: summarizationPrompts.userTemplate(cleanedData, lang)
         }
       ];
 
       // 3. Generate summary using NAVER CLOVA
       const response = await this.clovaProvider.chatCompletion(messages, {
         model: 'HCX-005',
-        maxTokens: 500,
+        maxTokens: 1500,  // Increased for complete JSON response
         temperature: 0.5,
         topP: 0.8
       });

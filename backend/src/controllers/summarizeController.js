@@ -33,7 +33,8 @@ async function summarizeProduct(req, res) {
     // Option 1: Get product by ID from our data
     if (req.body.productId) {
       // console.log('🔍 Looking up product by ID:', req.body.productId);
-      const products = await loadDetailsProducts();
+      const result = await loadDetailsProducts();
+      const products = result.data; // Extract the data array from the result object
       productData = products.find(p => p.productId === req.body.productId);
 
       if (!productData) {
@@ -63,9 +64,14 @@ async function summarizeProduct(req, res) {
 
     console.log('Generating summary for:', productData.title || productData.name);
 
-    // Generate summary
-    const result = await service.summarizeProduct(productData);
+    // Extract language parameter
+    const lang = req.body.lang || 'en'; // Default to English
+    console.log('🌐 Requested language:', lang);
 
+    // Generate summary
+    const result = await service.summarizeProduct(productData, lang);
+
+    console.log('Summary generated successfully', result);
     return res.status(200).json(result);
   } catch (error) {
     console.error('❌ Summarization controller error:', error);
