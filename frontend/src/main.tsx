@@ -1,11 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode, Suspense } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import { ThemeProvider } from "./context/ThemeContext.tsx";
+import "./i18n";
 
-import './index.css'
-import App from './App.tsx'
-
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <Suspense fallback={<div>Loading...</div>}>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </Suspense>
+  </StrictMode>
+);

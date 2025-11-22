@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Toggle this manually for testing
-const isDev = false;
+const isDev = true;
 
 // backend port
 const instance = axios.create({

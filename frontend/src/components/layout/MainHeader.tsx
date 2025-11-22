@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import SearchPopup from "./SearchPopup";
 import Logo from "../../assets/NaverShopLogo.png";
+import { useTranslation } from "react-i18next";
 
 const SearchIcon = () => (
   <svg
@@ -78,6 +79,7 @@ const CartIcon = () => (
 );
 
 const MainHeader = () => {
+  const { t } = useTranslation();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const searchRef = useRef<HTMLDivElement>(null);
@@ -85,7 +87,10 @@ const MainHeader = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setIsSearchOpen(false);
       }
     };
@@ -112,10 +117,10 @@ const MainHeader = () => {
             <input
               ref={inputRef}
               type="text"
+              placeholder={t("common.searchPlaceholder")}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="상품명 또는 브랜드 입력"
-              className="w-full h-12 pl-5 pr-14 rounded-lg text-lg text-white border-2 border-purple-500 dark:border-naver-green focus:border-purple-400 dark:focus:border-naver-green-light focus:ring-2 focus:ring-purple-400 dark:focus:ring-naver-green focus:outline-none transition-colors duration-300"
+              className="w-full h-12 pl-5 pr-14 rounded-lg text-lg text-(--text-primary) border-2 border-purple-500 dark:border-naver-green focus:border-purple-400 dark:focus:border-naver-green-light focus:ring-2 focus:ring-purple-400 dark:focus:ring-naver-green focus:outline-none transition-colors duration-300"
               style={{
                 background: "rgba(0, 0, 0, 0.3)",
                 fontFamily: "var(--font-secondary)",
@@ -138,27 +143,27 @@ const MainHeader = () => {
           )}
         </div>
 
-        <div className="flex items-center gap-5 text-white dark:text-gray-200 transition-colors duration-300">
+        <div className="flex items-center gap-5 text-(--text-primary) dark:text-gray-200 transition-colors duration-300">
           <Link
             to="/categories"
             className="flex flex-col items-center gap-1 hover:text-purple-300 dark:hover:text-naver-green-light transition-colors duration-200"
           >
             <CategoryIcon />
-            <span className="text-xs">카테고리</span>
+            <span className="text-xs">{t("common.categories")}</span>
           </Link>
           <Link
             to="/my"
             className="flex flex-col items-center gap-1 hover:text-purple-300 dark:hover:text-naver-green-light transition-colors duration-200"
           >
             <MyShoppingIcon />
-            <span className="text-xs">마이쇼핑</span>
+            <span className="text-xs">{t("common.myShopping")}</span>
           </Link>
           <Link
             to="/cart"
             className="flex flex-col items-center gap-1 hover:text-purple-300 dark:hover:text-naver-green-light transition-colors duration-200"
           >
             <CartIcon />
-            <span className="text-xs">장바구니</span>
+            <span className="text-xs">{t("common.cart")}</span>
             {/* Optional: cart count badge */}
           </Link>
         </div>

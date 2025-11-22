@@ -41,13 +41,13 @@ const ProductListItem: React.FC<ProductListItemProps> = ({
   discountRate,
   shippingFee,
 }) => {
-  console.log('testing', id) // undefined here
+  console.log("testing", id); // undefined here
   // Prevent empty src → React will not render <img>
   const safeSrc = imageUrl || null;
 
   return (
     <Link
-      to={`/store/${id}`}               // ← correct route
+      to={`/store/${id}`} // ← correct route
       className="w-full flex justify-start items-center gap-3 group"
     >
       <div
@@ -67,13 +67,13 @@ const ProductListItem: React.FC<ProductListItemProps> = ({
         )}
 
         <button
-          className="absolute bottom-2 right-2 p-1.5 rounded-full transition-colors text-white/70 hover:text-white"
+          className="absolute bottom-2 right-2 p-1.5 rounded-full transition-colors text-(--text-primary)/70 hover:text-(--text-primary)"
           style={{
             background: "var(--glass-bg)",
             backdropFilter: "var(--glass-blur)",
           }}
           aria-label="Add to wishlist"
-          onClick={(e) => e.stopPropagation()}   // prevent navigation when clicking heart
+          onClick={(e) => e.stopPropagation()} // prevent navigation when clicking heart
         >
           <HeartIcon />
         </button>
@@ -81,7 +81,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({
 
       <div className="flex flex-col justify-start items-start overflow-hidden">
         <p
-          className="text-white text-sm font-normal truncate w-full group-hover:text-gray-200"
+          className="text-(--text-primary) text-sm font-normal truncate w-full group-hover:text-gray-200"
           style={{ fontFamily: "var(--font-secondary)" }}
         >
           {name}
@@ -95,11 +95,14 @@ const ProductListItem: React.FC<ProductListItemProps> = ({
 
         <div className="flex items-center gap-2">
           {discountRate && (
-            <span className="text-base font-bold" style={{ color: "var(--naver-green)" }}>
+            <span
+              className="text-base font-bold"
+              style={{ color: "var(--naver-green)" }}
+            >
               {discountRate}%
             </span>
           )}
-          <span className="text-white text-lg font-bold">
+          <span className="text-(--text-primary) text-lg font-bold">
             {finalPrice.toLocaleString()}원
           </span>
         </div>

@@ -48,7 +48,7 @@ const Pagination: React.FC<PaginationProps> = ({
     <div className="w-full flex justify-center items-center gap-4 py-6">
       <button
         onClick={handlePrev}
-        className="w-16 h-10 flex justify-center items-center rounded-lg transition-colors text-white/70 hover:text-white disabled:opacity-30"
+        className="w-16 h-10 flex justify-center items-center rounded-lg transition-colors text-(--text-primary)/70 hover:text-(--text-primary) disabled:opacity-30"
         style={{
           background: "var(--glass-bg)",
           border: "1px solid var(--glass-border)",
@@ -60,7 +60,7 @@ const Pagination: React.FC<PaginationProps> = ({
       </button>
 
       <div
-        className="text-base font-bold text-white"
+        className="text-base font-bold text-(--text-primary)"
         style={{ fontFamily: "var(--font-secondary)" }}
       >
         {currentPage}
@@ -69,7 +69,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
       <button
         onClick={handleNext}
-        className="w-16 h-10 flex justify-center items-center rounded-lg transition-colors text-white/70 hover:text-white disabled:opacity-30"
+        className="w-16 h-10 flex justify-center items-center rounded-lg transition-colors text-(--text-primary)/70 hover:text-(--text-primary) disabled:opacity-30"
         style={{
           background: "var(--glass-bg)",
           border: "1px solid var(--glass-border)",

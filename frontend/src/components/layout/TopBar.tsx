@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Menu from "../../assets/Menu.svg";
 import DarkModeToggle from "../common/DarkModeToggle";
+import LanguageToggle from "../common/LanguageToggle";
 
 const NaverLogoTop = () => (
   <svg
@@ -55,9 +57,11 @@ interface TopBarProps {
 const TopBar: React.FC<TopBarProps> = ({
   bgColor = "var(--glass-bg)",
   borderColor = "var(--glass-border)",
-  textColorClass = "text-gray-300",
-  hoverTextColorClass = "hover:text-white",
+  textColorClass = "text-gray-500 dark:text-gray-400",
+  hoverTextColorClass = "hover:text-(--text-primary)",
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className="w-full dark:bg-gray-800 transition-colors duration-300"
@@ -80,11 +84,13 @@ const TopBar: React.FC<TopBarProps> = ({
             className={`flex items-center gap-1 ${textColorClass} ${hoverTextColorClass} transition-colors text-xs`}
           >
             <NaverPayIcon />
-            <span>네이버페이</span>
+            <span>{t("topbar.naverPay")}</span>
           </Link>
         </div>
 
         <div className={`flex items-center gap-3 text-sm ${textColorClass}`}>
+          <LanguageToggle />
+          <div className="h-3 border-l border-gray-300 dark:border-gray-600 mx-1"></div>
           <DarkModeToggle />
           <div
             className="border-l h-3"
@@ -94,7 +100,7 @@ const TopBar: React.FC<TopBarProps> = ({
             to="/login"
             className={`${hoverTextColorClass} transition-colors`}
           >
-            로그인
+            {t("topbar.login")}
           </Link>
           <div
             className="border-l h-3"
@@ -103,6 +109,7 @@ const TopBar: React.FC<TopBarProps> = ({
           <Link
             to="/customer-service"
             className={`${hoverTextColorClass} transition-colors`}
+            title={t("topbar.customerService")}
           >
             <img src={Menu} alt="" />
           </Link>

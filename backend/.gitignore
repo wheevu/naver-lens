@@ -19,5 +19,6 @@ yarn-error.log*
 package-lock.json*.zip
 package-lock.json
 test-request.json
+summarizePrompt.js.backup
 *.zip
 *.env

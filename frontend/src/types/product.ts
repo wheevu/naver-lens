@@ -12,11 +12,13 @@ export interface Product {
   price: number;
   originalPrice: number;
   mallName: string;
+  mallColor?: string;
   shipping: string;
   rating: number;
   reviewCount: number;
   options: ProductOption[];
   description: string;
+  reviews?: string[];
   category1: string;
   category2: string;
   category3: string;

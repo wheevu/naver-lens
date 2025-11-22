@@ -71,7 +71,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <button
-          className="absolute bottom-2 right-2 p-1.5 rounded-full transition-colors text-white/70 hover:text-white"
+          className="absolute bottom-2 right-2 p-1.5 rounded-full transition-colors text-(--text-primary)/70 hover:text-(--text-primary)"
           style={{
             background: "var(--glass-bg)",
             backdropFilter: "var(--glass-blur)",
@@ -82,7 +82,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </button>
         {tag && (
           <span
-            className="absolute top-0 left-0 px-2 py-1.5 text-xs font-bold text-white"
+            className="absolute top-0 left-0 px-2 py-1.5 text-xs font-bold text-(--text-primary)"
             style={{
               background: "var(--naver-dark)",
               borderTopLeftRadius: "var(--radius-lg)",
@@ -96,7 +96,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       <div className="flex flex-col pt-3 px-1">
         <Link to={`/store/${id}`}>
-          <p className="text-white text-sm font-normal h-10 overflow-hidden text-ellipsis group-hover:text-gray-200">
+          <p className="text-(--text-primary) text-sm font-normal h-10 overflow-hidden text-ellipsis group-hover:text-gray-200">
             {name}
           </p>
         </Link>
@@ -116,7 +116,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               {discountRate}%
             </span>
           )}
-          <span className="text-white text-lg font-bold">
+          <span className="text-(--text-primary) text-lg font-bold">
             {finalPrice.toLocaleString()}원
           </span>
         </div>

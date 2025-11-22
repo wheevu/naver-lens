@@ -1,19 +1,19 @@
 import React from "react";
 import TopBar from "./TopBar";
+import { useTheme } from "../../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 export interface StoreData {
   name: string;
   followers: number;
   avatarUrl: string;
-  themeColor: string;
+  themeColor?: string;
   buttonColor?: string;
 }
-
 interface StoreHeaderProps {
   store: StoreData;
   loading: boolean;
 }
-
 const SearchIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -30,16 +30,21 @@ const SearchIcon = () => (
 );
 
 const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
+  const { theme } = useTheme();
+  const { t } = useTranslation();
+  const backgroundColor =
+    store.themeColor || (theme === "dark" ? "#1a1a2e" : "#ffffff");
+
   return (
     <header
       className="w-full relative transition-colors duration-500"
       style={{
-        backgroundColor: store.themeColor,
+        backgroundColor: backgroundColor,
         fontFamily: "var(--font-secondary)",
       }}
     >
       <TopBar
-        bgColor={store.themeColor}
+        bgColor={backgroundColor}
         borderColor="rgba(0, 0, 0, 0.15)"
         textColorClass="text-white/80"
         hoverTextColorClass="hover:text-white"
@@ -53,9 +58,18 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
             className="w-14 h-14 rounded-full bg-black/20"
           />
           <div className="flex flex-col">
-            <span className="text-white text-lg font-bold">{store.name}</span>
-            <span className="text-white/70 text-sm">
-              관심고객수 {loading ? "..." : store.followers.toLocaleString()}
+            <span
+              className="text-lg font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {store.name}
+            </span>
+            <span
+              className="text-sm opacity-80"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {t("store.followers")}{" "}
+              {loading ? "..." : store.followers.toLocaleString()}
             </span>
           </div>
         </div>
@@ -63,7 +77,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
         <div className="relative w-72">
           <input
             type="text"
-            placeholder="검색어를 입력해주세요"
+            placeholder={t("store.searchPlaceholder")}
             className="w-full h-10 pl-5 pr-12 rounded-full text-sm bg-white/90 text-black placeholder:text-gray-500"
             style={{ borderRadius: "var(--radius-lg)" }}
           />

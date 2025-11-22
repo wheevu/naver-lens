@@ -167,13 +167,13 @@ const EventCarousel = () => {
                   ></img>
                   <div className="absolute top-[45px] left-[26px] w-[320px]">
                     <h2
-                      className="text-3xl font-bold text-white"
+                      className="text-3xl font-bold text-(--text-primary)"
                       style={{ fontFamily: "var(--font-secondary)" }}
                     >
                       {slide.title}
                     </h2>
                     <p
-                      className="text-lg text-white/90 mt-1.5"
+                      className="text-lg text-(--text-primary)/90 mt-1.5"
                       style={{ fontFamily: "var(--font-secondary)" }}
                     >
                       {slide.subtitle}
@@ -202,7 +202,7 @@ const EventCarousel = () => {
             <div className="flex items-center gap-1 p-1">
               <button
                 onClick={scrollPrev}
-                className="p-1 text-white/70 hover:text-white transition-colors"
+                className="p-1 text-(--text-primary)/70 hover:text-(--text-primary) transition-colors"
                 aria-label="Previous slide"
               >
                 <ChevronLeftIcon />
@@ -210,7 +210,7 @@ const EventCarousel = () => {
               <div className="h-3 w-px bg-white/40"></div>
               <button
                 onClick={scrollNext}
-                className="p-1 text-white/70 hover:text-white transition-colors"
+                className="p-1 text-(--text-primary)/70 hover:text-(--text-primary) transition-colors"
                 aria-label="Next slide"
               >
                 <ChevronRightIcon />
@@ -219,7 +219,7 @@ const EventCarousel = () => {
             <div className="p-1">
               <button
                 onClick={toggleAutoplay}
-                className="p-1 text-white/70 hover:text-white transition-colors"
+                className="p-1 text-(--text-primary)/70 hover:text-(--text-primary) transition-colors"
                 aria-label={isPlaying ? "Pause autoplay" : "Play autoplay"}
               >
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}

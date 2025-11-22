@@ -1,0 +1,63 @@
+{
+  "common": {
+    "login": "Login",
+    "categories": "Categories",
+    "myShopping": "My Shopping",
+    "cart": "Cart",
+    "searchPlaceholder": "Search products or brands",
+    "close": "Close"
+  },
+  "topbar": {
+    "naverPay": "Naver Pay",
+    "login": "Login",
+    "customerService": "Service"
+  },
+  "searchPopup": {
+    "recent": "Recent Searches",
+    "noHistory": "No recent search history.",
+    "recommendedProducts": "Recommended Products",
+    "recommendedKeywords": "Recommended Keywords",
+    "autoSaveOff": "Auto-save Off"
+  },
+  "gnb": {
+    "sale": "Super Sale",
+    "home": "Home",
+    "todayDeal": "Today's Deal",
+    "kurlyMart": "Kurly Mart",
+    "best": "Best",
+    "winterFashion": "Winter Fashion",
+    "superReward": "Super Reward",
+    "liveShopping": "Shopping Live",
+    "fastDelivery": "Fast Delivery",
+    "giftShop": "Gift Shop",
+    "fashionBeauty": "Fashion & Beauty",
+    "nDelivery": "N Delivery",
+    "foodWindow": "Food Window",
+    "luxury": "Luxury",
+    "mister": "Mr.",
+    "specialOffer": "Special",
+    "coupon": "Coupon/Benefit"
+  },
+  "store": {
+    "followers": "Followers",
+    "follow": "Follow",
+    "grade": "Store Grade",
+    "power": "Power",
+    "today": "Today",
+    "total": "Total",
+    "searchPlaceholder": "Search in store"
+  },
+  "storeNav": {
+    "best": "Best",
+    "livingHealth": "Living/Health",
+    "beauty": "Beauty",
+    "digital": "Digital",
+    "food": "Food",
+    "all": "All Products",
+    "qna": "Q&A",
+    "notice": "Notice",
+    "reviewEvent": "Review Event",
+    "story": "Shopping Story",
+    "more": "More"
+  }
+}

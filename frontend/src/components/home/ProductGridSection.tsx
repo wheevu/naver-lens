@@ -129,11 +129,14 @@ const ProductGridSection = () => {
   const handlePage = (p: number) => setPage(p);
 
   return (
-    <div className="w-full py-10" style={{ fontFamily: "var(--font-secondary)" }}>
+    <div
+      className="w-full py-10"
+      style={{ fontFamily: "var(--font-secondary)" }}
+    >
       <div className="mb-1.5">
         <h3 className="text-2xl font-bold">
           <span style={{ color: "var(--naver-green)" }}>{selectedKorean}</span>
-          <span className="text-white"> 상품 어떠세요?</span>
+          <span className="text-(--text-primary)"> 상품 어떠세요?</span>
         </h3>
       </div>
 
@@ -145,7 +148,9 @@ const ProductGridSection = () => {
               key={kor}
               onClick={() => handleCategory(idx)}
               className={`px-3 h-10 rounded-[20px] text-xs font-bold whitespace-nowrap transition-colors ${
-                active ? "text-white" : "text-gray-400 hover:text-white"
+                active
+                  ? "text-(--text-primary)"
+                  : "text-gray-400 hover:text-(--text-primary)"
               }`}
               style={{
                 background: active ? "var(--naver-green)" : "var(--glass-bg)",
@@ -162,7 +167,7 @@ const ProductGridSection = () => {
       <div className="relative grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 pt-4 min-h-[300px]">
         {loading ? (
           <div className="absolute inset-0 flex justify-center items-center">
-            <p className="text-white text-lg">Đang tải...</p>
+            <p className="text-(--text-primary) text-lg">Đang tải...</p>
           </div>
         ) : displayed.length === 0 ? (
           <div className="col-span-full text-center text-gray-400">
