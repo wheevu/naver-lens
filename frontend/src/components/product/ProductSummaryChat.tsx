@@ -295,9 +295,9 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 }`}
               >
                 <p className="leading-relaxed">
-                  Hi! I'm your AI shopping assistant. I'll analyze customer
-                  reviews and provide you with helpful insights about this
-                  product.
+                  Hi! I'm NAVER Lens - your AI shopping assistant. I'll analyze
+                  customer reviews and provide you with helpful insights about
+                  this product.
                 </p>
               </div>
             </div>
@@ -557,7 +557,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                           }`}
                         >
                           <span
-                            className={`mt-0.5 flex-shrink-0 ${
+                            className={`mt-0.5 shrink-0 ${
                               theme === "dark"
                                 ? "text-indigo-400"
                                 : "text-indigo-600"
@@ -589,7 +589,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                           }`}
                         >
                           <span
-                            className={`mt-0.5 flex-shrink-0 ${
+                            className={`mt-0.5 shrink-0 ${
                               theme === "dark"
                                 ? "text-indigo-400"
                                 : "text-indigo-600"
