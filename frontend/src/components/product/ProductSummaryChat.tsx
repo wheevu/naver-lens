@@ -132,7 +132,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 <AiIcon />
               </div>
               <div>
-                <h3 className="font-bold text-sm">AI Smart Summary</h3>
+                <h3 className="font-bold text-sm">NAVER Lens</h3>
                 <p className="text-xs opacity-80">Product Highlights</p>
               </div>
             </div>
@@ -151,8 +151,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
               </div>
               <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm">
                 <p>
-                  Hello. I'm an AI Chatbot of NAVER. I can provide you with
-                  wonderful insight of into product.
+                  Hello. I'm NAVER Lens. I can provide you with wonderful
+                  insight of into product.
                 </p>
               </div>
             </div>

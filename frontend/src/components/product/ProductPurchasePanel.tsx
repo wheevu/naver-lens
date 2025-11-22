@@ -1,7 +1,10 @@
+// src/components/product/ProductPurchasePanel.tsx
 import React, { useEffect, useState } from "react";
 import { type Product } from "../../types/product";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // Import hook
 
+// ... (Giữ nguyên các Icon: RatingStarIcon, ArrowRightIcon, NPayIcon, CartIcon, HeartIcon) ...
 const RatingStarIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -64,88 +67,77 @@ const HeartIcon = () => (
 const CartIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-7 h-7"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className="w-5 h-5"
   >
-    <path
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeWidth="1.3"
-      d="M17.75 12.75V8A3.75 3.75 0 0014 4.25v0A3.75 3.75 0 0010.25 8v4.75"
-    ></path>
-    <path
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.3"
-      d="M22.442 10.25H5.558a.836.836 0 00-.813 1.03l2.113 8.897a3.346 3.346 0 003.255 2.573h7.774a3.346 3.346 0 003.255-2.573l2.113-8.897a.836.836 0 00-.813-1.03z"
-    ></path>
+    <path d="M1 1.75A.75.75 0 011.75 1h1.628a1.75 1.75 0 011.734 1.51L5.18 3a.75.75 0 01.75.75 2.5 2.5 0 100 5 .75.75 0 01-.75.75H5.18l-.5 2.5a.75.75 0 01-.75.75H2.5a.75.75 0 010-1.5h.345L4.12 4.22 2.62 3.11A.75.75 0 012.25 2.5H1.75A.75.75 0 011 1.75zM6 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM6.5 5.5h5.45l1.63 8.13a.75.75 0 00.74.62h2.43a.75.75 0 000-1.5H14.5l-1.36-6.83A.75.75 0 0012.39 5.5H6.5a.75.75 0 000 1.5h.32l.12.6a.75.75 0 001.43-.3l-.12-.6h3.4l-.12.6a.75.75 0 001.43-.3l.12-.6H6.5v-1.5z" />
   </svg>
 );
 
-interface ProductPurchasePanelProps {
-  product: Product;
-}
-
-const ProductBenefits: React.FC = () => (
-  <div
-    className="p-4 rounded-lg my-4"
-    style={{
-      background: "var(--glass-bg)",
-      borderRadius: "var(--radius-lg)",
-      border: "1px solid var(--glass-border)",
-    }}
-  >
-    <strong className="text-(--text-primary) font-bold">
-      혜택 정보 (Mockup)
-    </strong>
-    <ul className="text-sm mt-2">
-      <li className="flex justify-between text-gray-300">
-        <span>최대 적립 포인트</span>
-        <span className="text-(--text-primary) font-bold">3,273원</span>
-      </li>
-      <li className="flex justify-between text-gray-400 text-xs mt-1">
-        <span>기본적립</span>
-        <span>239원</span>
-      </li>
-      <li className="flex justify-between text-gray-400 text-xs mt-1">
-        <Link to="#" className="flex items-center hover:text-(--text-primary)">
-          네이버 현대카드 Ed2로 결제 시 <ArrowRightIcon />
-        </Link>
-        <span className="text-green-400">1,676원</span>
-      </li>
-      <li className="flex justify-between text-gray-400 text-xs mt-1">
-        <Link to="#" className="flex items-center hover:text-(--text-primary)">
-          네이버페이 머니 결제 시 <ArrowRightIcon />
-        </Link>
-        <span>478원</span>
-      </li>
-      <li
-        className="flex justify-between text-gray-400 text-xs mt-2 border-t pt-2"
-        style={{ borderColor: "var(--glass-border)" }}
-      >
-        <span className="flex items-center text-green-400 font-bold">
-          <NPayIcon />
-          멤버십 추가 적립
-        </span>
-        <span className="text-green-400">958원</span>
-      </li>
-    </ul>
-    <button
-      className="w-full text-center py-2.5 mt-3 rounded-md text-sm font-bold text-(--text-primary)"
+// --- Component con: Benefits ---
+const ProductBenefits: React.FC = () => {
+  const { t } = useTranslation();
+  return (
+    <div
+      className="p-4 rounded-lg my-4"
       style={{
-        background: "var(--naver-green)",
-        borderRadius: "var(--radius-md)",
+        background: "var(--glass-bg)",
+        borderRadius: "var(--radius-lg)",
+        border: "1px solid var(--glass-border)",
       }}
     >
-      최대 5% 적립 시작하기
-    </button>
-  </div>
-);
+      <strong className="text-(--text-primary) font-bold">
+        {t("product.benefitInfo")}
+      </strong>
+      <ul className="text-sm mt-2">
+        <li className="flex justify-between text-(--text-secondary)">
+          <span>{t("product.maxPoint")}</span>
+          <span className="text-(--text-primary) font-bold">
+            3,273{t("common.won")}
+          </span>
+        </li>
+        <li className="flex justify-between text-gray-400 text-xs mt-1">
+          <span>{t("product.basicAccum")}</span>
+          <span>239{t("common.won")}</span>
+        </li>
+        <li className="flex justify-between text-gray-400 text-xs mt-1">
+          <Link to="#" className="flex items-center hover:text-white">
+            {t("product.paymentCard")} <ArrowRightIcon />
+          </Link>
+          <span className="text-green-400">1,676{t("common.won")}</span>
+        </li>
+        <li className="flex justify-between text-gray-400 text-xs mt-1">
+          <Link to="#" className="flex items-center hover:text-white">
+            {t("product.paymentMoney")} <ArrowRightIcon />
+          </Link>
+          <span>478{t("common.won")}</span>
+        </li>
+        <li
+          className="flex justify-between text-gray-400 text-xs mt-2 border-t pt-2"
+          style={{ borderColor: "var(--glass-border)" }}
+        >
+          <span className="flex items-center text-green-400 font-bold">
+            <NPayIcon />
+            {t("product.membershipPlus")}
+          </span>
+          <span className="text-green-400">958{t("common.won")}</span>
+        </li>
+      </ul>
+      <button
+        className="w-full text-center py-2.5 mt-3 rounded-md text-sm font-bold text-white"
+        style={{
+          background: "var(--naver-green)",
+          borderRadius: "var(--radius-md)",
+        }}
+      >
+        {t("product.startAccum")}
+      </button>
+    </div>
+  );
+};
 
+// --- Component con: SelectedOptionsList ---
 interface SelectedItem {
   id: string;
   name: string;
@@ -156,79 +148,87 @@ const SelectedOptionsList: React.FC<{
   items: SelectedItem[];
   onRemove: (id: string) => void;
   onQuantityChange: (id: string, newQty: number) => void;
-}> = ({ items, onRemove, onQuantityChange }) => (
-  <div className="flex flex-col gap-3 mt-3">
-    {items.map((item) => (
-      <div
-        key={item.id}
-        className="p-3 rounded-md"
-        style={{
-          background: "var(--glass-bg)",
-          borderRadius: "var(--radius-sm)",
-        }}
-      >
-        <div className="flex justify-between items-center">
-          <span className="text-(--text-primary) text-sm">{item.name}</span>
-          <button
-            onClick={() => onRemove(item.id)}
-            className="text-gray-500 hover:text-(--text-primary) text-lg"
-          >
-            &times;
-          </button>
-        </div>
-        <div className="flex justify-between items-center mt-2">
-          <div
-            className="flex items-center border rounded"
-            style={{ borderColor: "var(--glass-border)" }}
-          >
+}> = ({ items, onRemove, onQuantityChange }) => {
+  const { t } = useTranslation(); // Hook
+  const handleRemove = (id: string) => () => onRemove(id);
+  const handleQtyChange = (id: string, newQty: number) => () => {
+    if (newQty < 1) onRemove(id);
+    else onQuantityChange(id, newQty);
+  };
+
+  return (
+    <div className="flex flex-col gap-3 mt-3">
+      {items.map((item) => (
+        <div
+          key={item.id}
+          className="p-3 rounded-md border"
+          style={{
+            background: "var(--glass-bg)",
+            borderColor: "var(--glass-border)",
+          }}
+        >
+          <div className="flex justify-between items-center">
+            <span className="text-(--text-primary) text-sm">{item.name}</span>
             <button
-              onClick={() => onQuantityChange(item.id, item.quantity - 1)}
-              className="px-2 py-0.5 text-(--text-primary)/70 hover:text-(--text-primary)"
+              onClick={handleRemove(item.id)}
+              className="text-gray-500 hover:text-(--text-primary) text-lg"
             >
-              -
-            </button>
-            <span className="px-3 text-sm text-(--text-primary)">
-              {item.quantity}
-            </span>
-            <button
-              onClick={() => onQuantityChange(item.id, item.quantity + 1)}
-              className="px-2 py-0.5 text-(--text-primary)/70 hover:text-(--text-primary)"
-            >
-              +
+              &times;
             </button>
           </div>
-          <span className="text-(--text-primary) font-bold">
-            {item.price.toLocaleString()}원
-          </span>
+          <div className="flex justify-between items-center mt-2">
+            <div
+              className="flex items-center border rounded"
+              style={{ borderColor: "var(--glass-border)" }}
+            >
+              <button
+                onClick={handleQtyChange(item.id, item.quantity - 1)}
+                className="px-2 py-0.5 text-(--text-secondary) hover:text-(--text-primary)"
+              >
+                -
+              </button>
+              <span className="px-3 text-sm text-(--text-primary)">
+                {item.quantity}
+              </span>
+              <button
+                onClick={handleQtyChange(item.id, item.quantity + 1)}
+                className="px-2 py-0.5 text-(--text-secondary) hover:text-(--text-primary)"
+              >
+                +
+              </button>
+            </div>
+            <span className="text-(--text-primary) font-bold">
+              {item.price.toLocaleString()}
+              {t("common.won")}
+            </span>
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-);
+      ))}
+    </div>
+  );
+};
+
+interface ProductPurchasePanelProps {
+  product: Product;
+}
 
 const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
   product,
 }) => {
+  const { t } = useTranslation();
   const [selectedOptions, setSelectedOptions] = useState<
     Record<string, string>
   >({});
   const [addedItems, setAddedItems] = useState<SelectedItem[]>([]);
 
   const handleOptionChange = (name: string, value: string) => {
-    setSelectedOptions((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setSelectedOptions((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleRemoveItem = (id: string) => {
     setAddedItems((prev) => prev.filter((item) => item.id !== id));
   };
   const handleQuantityChange = (id: string, newQty: number) => {
-    if (newQty < 1) {
-      handleRemoveItem(id);
-      return;
-    }
     setAddedItems((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, quantity: newQty } : item
@@ -240,19 +240,17 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
     const allOptionsSelected = product.options.every(
       (opt) => selectedOptions[opt.name]
     );
-
     if (allOptionsSelected && product.options.length > 0) {
       const optionNames = product.options.map(
         (opt) => selectedOptions[opt.name]
       );
       const combinedName = `${product.title} - (${optionNames.join(", ")})`;
       const combinedId = `${product.productId}-${optionNames.join("-")}`;
-
       const existingItem = addedItems.find((item) => item.id === combinedId);
 
-      if (existingItem) {
+      if (existingItem)
         handleQuantityChange(existingItem.id, existingItem.quantity + 1);
-      } else {
+      else
         setAddedItems((prev) => [
           ...prev,
           {
@@ -262,34 +260,34 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
             quantity: 1,
           },
         ]);
-      }
 
       setSelectedOptions({});
     }
   }, [selectedOptions, product, addedItems]);
 
+  const totalPrice = addedItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   const discountPercent = product.originalPrice
     ? Math.round(
         ((product.originalPrice - product.price) / product.originalPrice) * 100
       )
     : 0;
 
-  const totalPrice = addedItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
   return (
     <div
       className="w-full md:w-1/2 md:pl-10"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
-      <div className="flex items-center gap-1 text-sm text-gray-300">
+      <div className="flex items-center gap-1 text-sm text-(--text-muted)">
         <RatingStarIcon />
         <span className="font-bold text-(--text-primary)">
           {product.rating.toFixed(1)}
         </span>
-        <span>({product.reviewCount.toLocaleString()} 리뷰)</span>
+        <span>
+          ({product.reviewCount.toLocaleString()} {t("product.reviews")})
+        </span>
       </div>
 
       <h1 className="text-2xl font-bold text-(--text-primary) mt-2">
@@ -299,7 +297,8 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
       <div className="mt-4">
         {product.originalPrice > 0 && (
           <del className="text-gray-500 text-lg">
-            {product.originalPrice.toLocaleString()}원
+            {product.originalPrice.toLocaleString()}
+            {t("common.won")}
           </del>
         )}
         <div className="flex items-end gap-2">
@@ -312,7 +311,8 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
             </span>
           )}
           <span className="text-3xl font-bold text-(--text-primary)">
-            {product.price.toLocaleString()}원
+            {product.price.toLocaleString()}
+            {t("common.won")}
           </span>
         </div>
         <span className="text-sm text-gray-400">{product.shipping}</span>
@@ -320,20 +320,30 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
 
       <ProductBenefits />
 
+      <div
+        className="text-sm text-(--text-secondary) border-t border-b py-4"
+        style={{ borderColor: "var(--glass-border)" }}
+      >
+        <span className="w-20 inline-block font-bold">
+          {t("product.shipping")}
+        </span>
+        <span>{product.shipping}</span>
+      </div>
+
       <div className="flex flex-col gap-3 my-4">
         {product.options.map((opt) => (
           <div key={opt.name}>
             <select
               value={selectedOptions[opt.name] || ""}
               onChange={(e) => handleOptionChange(opt.name, e.target.value)}
-              className="w-full h-12 px-4 bg-white/10 text-(--text-primary) rounded-md border"
+              className="w-full h-12 px-4 bg-(--glass-bg) text-(--text-primary) rounded-md border focus:outline-none focus:ring-2 focus:ring-naver-green"
               style={{
                 borderRadius: "var(--radius-sm)",
                 borderColor: "var(--glass-border)",
               }}
             >
-              <option value="" disabled className="text-black">
-                {opt.name} 선택
+              <option value="" disabled className="text-gray-500">
+                {opt.name} {t("product.selectOption")}
               </option>
               {opt.values.map((val) => (
                 <option key={val} value={val} className="text-black">
@@ -353,25 +363,26 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
 
       <div className="flex justify-between items-center mt-6">
         <span className="text-lg text-(--text-primary) font-bold">
-          총 상품 금액
+          {t("product.total")}
         </span>
         <span className="text-2xl font-bold text-(--text-primary)">
-          {totalPrice.toLocaleString()}원
+          {totalPrice.toLocaleString()}
+          {t("common.won")}
         </span>
       </div>
 
       <div className="flex gap-2 mt-4">
         <button
-          className="flex-1 py-4 text-center text-(--text-primary) font-bold rounded-md"
+          className="flex-1 py-4 text-center text-white font-bold rounded-md transition-opacity hover:opacity-90"
           style={{
             background: "var(--naver-green)",
             borderRadius: "var(--radius-md)",
           }}
         >
-          구매하기
+          {t("product.buy")}
         </button>
         <button
-          className="py-4 px-5 text-(--text-primary)/80 rounded-md hover:text-(--text-primary)"
+          className="py-4 px-5 text-(--text-primary) rounded-md hover:bg-black/5 transition-colors"
           style={{
             background: "var(--glass-bg)",
             border: "1px solid var(--glass-border)",
@@ -381,7 +392,7 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
           <HeartIcon />
         </button>
         <button
-          className="py-4 px-5 text-(--text-primary)/80 rounded-md hover:text-(--text-primary)"
+          className="py-4 px-5 text-(--text-primary) rounded-md hover:bg-black/5 transition-colors"
           style={{
             background: "var(--glass-bg)",
             border: "1px solid var(--glass-border)",
