@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ProductListItem, {
   type ProductListItemProps,
 } from "../common/ProductListItem";
+import { useTranslation } from "react-i18next";
 
 const BlogTagIcon = () => (
   <svg
@@ -31,6 +32,7 @@ interface BlogPanelProps {
 }
 
 const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
+  const { t } = useTranslation();
   return (
     <div
       className="w-full flex flex-col rounded-lg overflow-hidden"
@@ -60,7 +62,7 @@ const BlogPanel: React.FC<BlogPanelProps> = ({ blog, products }) => {
               <BlogTagIcon />
             </span>
             <span className="ml-2 text-sm text-(--text-primary)/70">
-              by. {blog.author}
+              {t("common.by")} {blog.author}
             </span>
           </div>
 

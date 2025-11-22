@@ -1,10 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface ProductReviewsProps {
   reviews?: string[];
 }
 
 const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews }) => {
+  const { t } = useTranslation();
   return (
     <div
       className="mt-12 border-t pt-8"
@@ -17,7 +19,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews }) => {
           fontFamily: "var(--font-secondary)",
         }}
       >
-        상품 리뷰 ({reviews?.length})
+        {t("product.reviews")} ({reviews?.length})
       </h3>
 
       <div className="space-y-6">
@@ -48,7 +50,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews }) => {
                   className="text-sm font-bold"
                   style={{ color: "var(--text-primary)" }}
                 >
-                  익명 (Anonymous)
+                  {t("product.anonymous")}
                 </span>
                 <span
                   className="text-xs opacity-60"

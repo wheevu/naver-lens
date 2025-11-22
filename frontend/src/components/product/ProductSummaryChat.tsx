@@ -49,6 +49,29 @@ const SendIcon = () => (
   </svg>
 );
 
+const OnboardingTooltip = ({ onClose }: { onClose: () => void }) => (
+  <div className="absolute bottom-20 right-0 w-64 z-40 animate-bounce">
+    <div className="relative bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 text-sm">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+      >
+        ✕
+      </button>
+
+      <h4 className="font-bold mb-1 text-(--naver-green)">NAVER Lens</h4>
+      <p className="text-(--text-secondary) text-xs mb-0">
+        Click here to get a general view on the product!
+      </p>
+
+      <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white dark:bg-gray-800 border-b border-r border-gray-200 dark:border-gray-700 transform rotate-45"></div>
+    </div>
+  </div>
+);
+
 interface ProductSummaryChatProps {
   product: Product;
 }
@@ -94,6 +117,7 @@ interface SummaryData {
   bestFor: string;
   productInfo: {
     brand: string;
+
     category: string;
     options: string;
   };
@@ -199,13 +223,37 @@ const SatisfactionChart: React.FC<{
 
 const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   const { theme } = useTheme();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [summary, setSummary] = useState<string | null>(null);
+  const [summaryLang, setSummaryLang] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [showTooltip, setShowTooltip] = useState(false);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const hasSeenTooltip = localStorage.getItem("hasSeenAiTooltip");
+    if (!hasSeenTooltip) {
+      const timer = setTimeout(() => setShowTooltip(true), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleToggle = () => {
+    if (!isOpen) {
+      setShowTooltip(false);
+      localStorage.setItem("hasSeenAiTooltip", "true");
+    }
+    setIsOpen(!isOpen);
+  };
+
+  const handleCloseTooltip = () => {
+    setShowTooltip(false);
+    localStorage.setItem("hasSeenAiTooltip", "true");
+  };
 
   // Parse summary JSON
   const summaryData = useMemo(() => {
@@ -214,10 +262,13 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   }, [summary]);
 
   const fetchSummary = async () => {
-    if (summary) return;
-
+    if (summary && summaryLang === i18n.language) return;
     setLoading(true);
     setError(null);
+
+    if (summaryLang !== i18n.language) {
+      setSummary(null);
+    }
 
     try {
       const response = await axios.post<SummaryResponse>("/api/summarize", {
@@ -227,6 +278,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
 
       if (response.data.success) {
         setSummary(response.data.data.summary.summary);
+        setSummaryLang(i18n.language);
       } else {
         setError("Cannot summarize at the moment");
       }
@@ -239,13 +291,17 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   };
 
   useEffect(() => {
-    if (isOpen && !summary) {
+    if (isOpen) {
       fetchSummary();
     }
-  }, [isOpen, product.productId, summary]);
+  }, [isOpen, product.productId, i18n.language]);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
+      {showTooltip && !isOpen && (
+        <OnboardingTooltip onClose={handleCloseTooltip} />
+      )}
+
       {isOpen && (
         <div
           className="mb-4 w-80 sm:w-96 rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-bottom-4"
@@ -269,8 +325,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 <AiIcon />
               </div>
               <div>
-                <h3 className="font-bold text-sm">NAVER Lens</h3>
-                <p className="text-xs opacity-80">Product Highlights</p>
+                <h3 className="font-bold text-sm">{t("product.aiTitle")}</h3>
+                <p className="text-xs opacity-80">{t("product.aiSubtitle")}</p>
               </div>
             </div>
             <button
@@ -294,11 +350,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                     : "bg-gray-100 text-gray-800"
                 }`}
               >
-                <p className="leading-relaxed">
-                  Hi! I'm NAVER Lens - your AI shopping assistant. I'll analyze
-                  customer reviews and provide you with helpful insights about
-                  this product.
-                </p>
+                <p className="leading-relaxed">{t("product.aiGreeting")}</p>
               </div>
             </div>
             {loading && (
@@ -695,10 +747,10 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                       >
                         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                       </svg>
-                      Generated by AI
+                      {t("product.generatedByAi")}
                     </span>
                     <span className="text-xs">
-                      AI can make mistakes - verify details
+                      {t("product.verifyDetails")}
                     </span>
                   </div>
                 </div>
@@ -707,7 +759,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
             {summary && !loading && !summaryData && (
               <div className="flex justify-center mb-4">
                 <span className="text-xs text-red-500 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full border border-red-200 dark:border-red-800">
-                  Failed to parse summary. Please try again.
+                  {t("product.aiError")}
                 </span>
               </div>
             )}
@@ -724,7 +776,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Ask more about this product..."
+                placeholder={t("product.askPlaceholder")}
                 disabled
                 className={`w-full pl-4 pr-10 py-2 rounded-full text-sm border focus:outline-none opacity-60 cursor-not-allowed ${
                   theme === "dark"
@@ -745,7 +797,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
       )}
 
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         className={`
           group flex items-center justify-center w-14 h-14 rounded-full shadow-lg 
           transform transition-all duration-300 hover:scale-110 active:scale-95
@@ -761,10 +813,12 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
         ) : (
           <div className="relative">
             <AiIcon />
-            <span className="absolute -top-1 -right-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-            </span>
+            {showTooltip && (
+              <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+              </span>
+            )}
           </div>
         )}
         <span className="sr-only">Toggle AI Chat</span>

@@ -64,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       style={{ fontFamily: "var(--font-secondary)" }}
     >
       <Link
-        to={`/product/${id}`}
+        to={`/store/${id}`}
         className="relative w-full aspect-square rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800"
         style={{ borderRadius: "var(--radius-lg)" }}
       >
@@ -99,7 +99,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </Link>
 
       <div className="flex flex-col pt-3 px-1">
-        <Link to={`/product/${id}`}>
+        <Link to={`/store/${id}`}>
           <p className="text-(--text-primary) text-sm font-normal h-10 overflow-hidden text-ellipsis group-hover:opacity-80 transition-opacity">
             {name}
           </p>

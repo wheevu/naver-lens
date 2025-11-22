@@ -1,175 +1,97 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BlogPanel from "./BlogPanel";
 import Pagination from "../common/Pagination";
-import axios from "../../api/axios";
+import { type ProductListItemProps } from "../common/ProductListItem";
+import { useTranslation } from "react-i18next";
 
-/* ------------------------------------------------------------------ */
-/* API Types – exactly the shape of your real endpoint               */
-/* ------------------------------------------------------------------ */
-interface ApiProduct {
-  id: string;
-  // title property seems to be the 'name' in console logs,
-  // but let's assume 'name' is the correct property based on the log structure
-  name: string; // <-- Changed 'title' to 'name' to match console log keys
-  brand: string;
-  maker: string;
-  // images: string[]; // <-- Removed array of images as it's not in the logs
-  imageUrl: string; // <-- Added imageUrl to match console logs
-  price: number;
-  originalPrice: number;
-  mallName: string;
-  shipping: string;
-  rating: number;
-  reviewCount: number;
-  options: { name: string; values: string[] }[];
-  descriptionPreview: string;
-  reviews?: string[];
-  category1: string;
-  category2: string;
-  category3: string;
-  category4: string;
-}
-
-interface ApiResponse {
-  data: ApiProduct[];
-  pagination?: any;
-}
-
-type Blog = {
-  author: string;
-  title: string;
-  thumbnailUrl: string;
-  bgImageUrl: string;
-  link: string;
+const blog1 = {
+  author: "유피",
+  title: "2025 비비안스타킹 착시 스타킹 작년보다 업그레이드 되...",
+  thumbnailUrl: "https://placehold.co/80x80/000000/FFFFFF?text=Blog1",
+  bgImageUrl: "https://placehold.co/624x176/333333/FFFFFF?text=Blog+BG+1",
+  link: "/blog/yupi",
 };
-
-const blogs: Blog[] = [
+const products1: ProductListItemProps[] = [
   {
-    author: "유피",
-    title: "2025 비비안스타킹 착시 스타킹 작년보다 업그레이드 되...",
-    thumbnailUrl: "https://placehold.co/80x80/000000/FFFFFF?text=Blog1",
-    bgImageUrl: "https://placehold.co/624x176/333333/FFFFFF?text=Blog+BG+1",
-    link: "/blog/yupi",
+    id: "p1a",
+    name: "착시 기모 스타킹 2p 검스 겨울 스타킹 타이즈...",
+    imageUrl: "https://placehold.co/112x112/EEEEEE/000000?text=Stocking1",
+    finalPrice: 11900,
+    originalPrice: 19900,
+    discountRate: 38,
+    shippingFee: 3000,
   },
   {
-    author: "안경 an경뷰티",
-    title: "메이투(meitu) 겨울코트 느낌 나는 수지 아크네 목도리 패션코디 zip",
-    thumbnailUrl: "https://placehold.co/80x80/5588FF/FFFFFF?text=Blog2",
-    bgImageUrl: "https://placehold.co/624x176/555555/FFFFFF?text=Blog+BG+2",
-    link: "/blog/ankung",
+    id: "p1b",
+    name: "비비안 고탄력 팬티스타킹 5매 10매 여름 스타...",
+    imageUrl: "https://placehold.co/112x112/EEEEEE/000000?text=Stocking2",
+    finalPrice: 8900,
+    originalPrice: 9900,
+    discountRate: 10,
+    shippingFee: 3000,
   },
   {
-    author: "안경뷰티",
-    title: "메이투(meitu) 겨울코트 느낌 나는 수지 아크네 목도리 패션코디 zip",
-    thumbnailUrl: "https://placehold.co/80x80/FF5555/FFFFFF?text=Blog3",
-    bgImageUrl: "https://placehold.co/624x176/553333/FFFFFF?text=Blog+BG+3",
-    link: "/blog/author3",
-  },
-  {
-    author: "안경뷰티",
-    title: "메이투(meitu) 겨울코트 느낌 나는 수지 아크네 목도리 패션코디 zip",
-    thumbnailUrl: "https://placehold.co/80x80/55FF55/FFFFFF?text=Blog4",
-    bgImageUrl: "https://placehold.co/624x176/335533/FFFFFF?text=Blog+BG+4",
-    link: "/blog/author4",
+    id: "p1c",
+    name: "비비안 기모 스타킹 유발 무발 스타킹 겨울 검정...",
+    imageUrl: "https://placehold.co/112x112/EEEEEE/000000?text=Stocking3",
+    finalPrice: 7900,
+    originalPrice: 9900,
+    discountRate: 20,
+    shippingFee: 3000,
   },
 ];
-
-export type ProductListItemProps = {
-  id: string;
-  name: string;
-  imageUrl: string;
-  finalPrice: number;
-  originalPrice?: number;
-  discountRate?: number;
-  shippingFee?: number;
+const blog2 = {
+  author: "안경뷰티",
+  title: "메이투(meitu) 겨울코트 느낌 나는 수지 아크네 목도리 패션코디 zip",
+  thumbnailUrl: "https://placehold.co/80x80/5588FF/FFFFFF?text=Blog2",
+  bgImageUrl: "https://placehold.co/624x176/555555/FFFFFF?text=Blog+BG+2",
+  link: "/blog/ankung",
 };
-
-const MAX_DESC_LEN = 80;
-
-const mapProduct = (p: ApiProduct): ProductListItemProps => {
-  console.log("Raw product:", p);
-  console.log("productId:", p.id);
-  const raw = p.descriptionPreview ?? "";
-  const name =
-    raw.length > MAX_DESC_LEN ? raw.slice(0, MAX_DESC_LEN) + "…" : raw;
-
-  const originalPrice = p.originalPrice > 0 ? p.originalPrice : undefined;
-  const discountRate =
-    originalPrice && p.price < originalPrice
-      ? Math.round(((originalPrice - p.price) / originalPrice) * 100)
-      : undefined;
-
-  const shippingFee = p.shipping?.toLowerCase().includes("free")
-    ? 0
-    : Number(p.shipping?.replace(/[^\d]/g, "")) || undefined;
-
-  return {
-    id: p.id,
-    name: name || "No description",
-    imageUrl: p.imageUrl,
-    finalPrice: p.price,
-    originalPrice,
-    discountRate,
-    shippingFee,
-  };
-};
-
+const products2: ProductListItemProps[] = [
+  {
+    id: "p2a",
+    name: "아크네 머플러 목도리 스키니 네로우 울스카프...",
+    imageUrl: "https://placehold.co/112x112/EEEEEE/000000?text=Scarf1",
+    finalPrice: 199000,
+    originalPrice: 310000,
+    discountRate: 35,
+  },
+  {
+    id: "p2b",
+    name: "아크네 목도리 스튜디오 머플러 네로우 스키니...",
+    imageUrl: "https://placehold.co/112x112/EEEEEE/000000?text=Scarf2",
+    finalPrice: 189000,
+    originalPrice: 260000,
+    discountRate: 27,
+    shippingFee: 3000,
+  },
+  {
+    id: "p2c",
+    name: "아크네스튜디오 머플러 핑크탭 스키니 네로우 ...",
+    imageUrl: "https://placehold.co/112x112/EEEEEE/000000?text=Scarf3",
+    finalPrice: 179000,
+    originalPrice: 320000,
+    discountRate: 44,
+    shippingFee: 4000,
+  },
+];
+const allBlogsData = [
+  { blog: blog1, products: products1 },
+  { blog: blog2, products: products2 },
+  { blog: blog1, products: products1 },
+  { blog: blog2, products: products2 },
+  { blog: blog1, products: products1 },
+  { blog: blog2, products: products2 },
+];
 const ITEMS_PER_PAGE = 2;
 
 const BlogProductSection = () => {
-  const [page, setPage] = useState(1);
-  const [allProducts, setAllProducts] = useState<ApiProduct[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [paired, setPaired] = useState<
-    { blog: Blog; products: ProductListItemProps[] }[]
-  >([]);
-
-  /* ---- fetch all products once ---- */
-  useEffect(() => {
-    const load = async () => {
-      setLoading(true);
-      try {
-        // NOTE: If you changed the ApiProduct interface to use 'name' instead of 'title',
-        // ensure your API endpoint is actually returning a property called 'name'.
-        const { data } = await axios.get<ApiResponse>("/api/products");
-        console.log("cool", data);
-        setAllProducts(data.data ?? []);
-      } catch (e) {
-        console.error(e);
-        setAllProducts([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-    load();
-  }, []);
-
-  /* ---- pair blogs with 3 random products ---- */
-  useEffect(() => {
-    if (!allProducts.length) {
-      setPaired([]);
-      return;
-    }
-    let pool = [...allProducts].sort(() => Math.random() - 0.5);
-    const list = blogs.map((b) => {
-      const three = pool.slice(0, 3).map(mapProduct);
-      pool = pool.slice(3);
-      if (pool.length < 3)
-        pool = [...allProducts].sort(() => Math.random() - 0.5);
-      return { blog: b, products: three };
-    });
-    setPaired(list);
-  }, [allProducts]);
-
-  /* ---- pagination ---- */
-  const totalPages = Math.ceil(paired.length / ITEMS_PER_PAGE);
-  const start = (page - 1) * ITEMS_PER_PAGE;
-  const end = start + ITEMS_PER_PAGE;
-  const current = paired.slice(start, end);
-
-  useEffect(() => {
-    if (page > totalPages && totalPages > 0) setPage(totalPages);
-  }, [totalPages, page]);
+  const { t } = useTranslation();
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(allBlogsData.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentBlogsToShow = allBlogsData.slice(startIndex, endIndex);
 
   return (
     <div className="w-full py-10">
@@ -178,53 +100,32 @@ const BlogProductSection = () => {
           className="text-2xl font-bold"
           style={{ fontFamily: "var(--font-secondary)" }}
         >
-          <span className="text-(--text-primary)">인기 </span>
-          <span style={{ color: "var(--naver-green)" }}>패션</span>
           <span className="text-(--text-primary)">
-            {" "}
-            블로그와 함께 찾는 상품
+            {t("home.fashionBlogTitle")}
           </span>
         </h3>
       </div>
-
       <div className="mb-4">
         <p className="text-base text-gray-400">
-          최근 7일간 <span className="text-gray-300">패션</span> 분야 클릭 많은
-          블로그
+          {t("home.fashionBlogSubtitle")}
         </p>
       </div>
 
-      {loading ? (
-        <div className="flex justify-center items-center h-40">
-          <p className="text-(--text-primary) text-lg">Đang tải...</p>
-        </div>
-      ) : paired.length === 0 ? (
-        <div className="text-center text-gray-400 py-10">
-          상품 데이터를 불러올 수 없습니다.
-        </div>
-      ) : (
-        <>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-            {current.map((item, i) => (
-              <BlogPanel
-                key={`${page}-${i}`} // unique per page
-                blog={item.blog}
-                products={item.products}
-              />
-            ))}
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+        {currentBlogsToShow.map((data, index) => (
+          <BlogPanel
+            key={`${currentPage}-${index}`}
+            blog={data.blog}
+            products={data.products}
+          />
+        ))}
+      </div>
 
-          {totalPages > 1 && (
-            <div className="mt-8">
-              <Pagination
-                currentPage={page}
-                totalPages={totalPages}
-                onPageChange={setPage}
-              />
-            </div>
-          )}
-        </>
-      )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 };

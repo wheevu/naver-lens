@@ -9,7 +9,35 @@
     "currency": "원",
     "won": "원",
     "freeShipping": "무료배송",
-    "shippingFee": "배송비"
+    "shippingFee": "배송비",
+    "loading": "로딩중...",
+    "errorData": "데이터를 불러올 수 없습니다.",
+    "ad": "AD",
+    "by": "by.",
+    "noProducts": "이 카테고리에서 찾을 수 있는 상품이 없습니다."
+  },
+  "home": {
+    "fashionBlogTitle": "인기 패션 블로그",
+    "fashionBlogSubtitle": "최근 7일간 패션 분야 클릭 많은 블로그",
+    "categoryProductsTitle": "상품 어떠세요?",
+    "carousel": {
+      "prev": "이전 슬라이드",
+      "next": "다음 슬라이드",
+      "pause": "자동재생 정지",
+      "play": "자동재생 시작"
+    },
+    "quickLinks": {
+      "highend": "하이엔드",
+      "kurlyMart": "컬리N마트",
+      "marathon": "마라톤적립",
+      "delivery": "지금배달",
+      "superReward": "슈퍼적립",
+      "superSale": "슈퍼특가",
+      "nDelivery": "N배송",
+      "liveShopping": "쇼핑라이브",
+      "giftShop": "선물샵",
+      "coupon": "쿠폰/혜택"
+    }
   },
   "topbar": {
     "naverPay": "네이버페이",
@@ -65,6 +93,17 @@
     "story": "쇼핑스토리",
     "more": "더보기"
   },
+  "categories": {
+    "furniture": "가구/인테리어",
+    "digital": "디지털/가전",
+    "living": "생활/건강",
+    "sports": "스포츠/레저",
+    "food": "식품",
+    "kids": "출산/육아",
+    "fashionClothing": "패션의류",
+    "fashionAccessories": "패션잡화",
+    "beauty": "화장품/미용"
+  },
   "product": {
     "reviews": "리뷰",
     "rating": "평점",
@@ -81,13 +120,14 @@
     "selected": "선택 완료",
     "anonymous": "익명",
     "generatedByAi": "AI가 생성함",
+    "verifyDetails": "AI도 실수를 할 수 있습니다 - 세부 사항을 확인하세요",
     "description": "상세정보",
     "paymentCard": "네이버 현대카드 Ed2로 결제 시",
     "paymentMoney": "네이버페이 머니 결제 시",
     "membershipPlus": "멤버십 추가 적립",
-    "aiTitle": "AI 스마트 요약",
+    "aiTitle": "NAVER Lens",
     "aiSubtitle": "상품 핵심 포인트",
-    "aiGreeting": "안녕하세요! 네이버 쇼핑 AI입니다. 상품의 핵심 포인트를 요약해 드릴 수 있습니다.",
+    "aiGreeting": "안녕하세요! 저는 NAVER Lens - 여러분의 AI 쇼핑 도우미입니다. 고객 리뷰를 분석하여 이 제품에 대한 유용한 정보를 제공해 드리겠습니다.",
     "aiError": "지금은 요약을 생성할 수 없습니다.",
     "connectionError": "AI 서버 연결 오류입니다.",
     "askPlaceholder": "상품에 대해 더 물어보세요..."

@@ -9,6 +9,7 @@ import ProductReviews from "../components/product/ProductReviews";
 import axios from "../api/axios";
 import NotFound from "./NotFound";
 import ProductSummaryChat from "../components/product/ProductSummaryChat";
+import { useTranslation } from "react-i18next";
 
 const defaultStoreData: StoreData = {
   name: "Loading...",
@@ -45,6 +46,8 @@ const ProductPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!productId) {
@@ -148,7 +151,9 @@ const ProductPage = () => {
             color: "var(--text-primary)",
           }}
         >
-          <h3 className="text-2xl font-bold mb-4">상세정보 (Description)</h3>
+          <h3 className="text-2xl font-bold mb-4">
+            {t("product.description")}
+          </h3>
           <p className="opacity-80 whitespace-pre-line leading-relaxed">
             {product.description}
           </p>

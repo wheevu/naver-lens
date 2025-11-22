@@ -1,10 +1,8 @@
-// src/components/product/ProductPurchasePanel.tsx
 import React, { useEffect, useState } from "react";
 import { type Product } from "../../types/product";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next"; // Import hook
+import { useTranslation } from "react-i18next";
 
-// ... (Giữ nguyên các Icon: RatingStarIcon, ArrowRightIcon, NPayIcon, CartIcon, HeartIcon) ...
 const RatingStarIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -67,15 +65,28 @@ const HeartIcon = () => (
 const CartIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-    className="w-5 h-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-7 h-7"
   >
-    <path d="M1 1.75A.75.75 0 011.75 1h1.628a1.75 1.75 0 011.734 1.51L5.18 3a.75.75 0 01.75.75 2.5 2.5 0 100 5 .75.75 0 01-.75.75H5.18l-.5 2.5a.75.75 0 01-.75.75H2.5a.75.75 0 010-1.5h.345L4.12 4.22 2.62 3.11A.75.75 0 012.25 2.5H1.75A.75.75 0 011 1.75zM6 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM6.5 5.5h5.45l1.63 8.13a.75.75 0 00.74.62h2.43a.75.75 0 000-1.5H14.5l-1.36-6.83A.75.75 0 0012.39 5.5H6.5a.75.75 0 000 1.5h.32l.12.6a.75.75 0 001.43-.3l-.12-.6h3.4l-.12.6a.75.75 0 001.43-.3l.12-.6H6.5v-1.5z" />
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="1.3"
+      d="M17.75 12.75V8A3.75 3.75 0 0014 4.25v0A3.75 3.75 0 0010.25 8v4.75"
+    ></path>
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.3"
+      d="M22.442 10.25H5.558a.836.836 0 00-.813 1.03l2.113 8.897a3.346 3.346 0 003.255 2.573h7.774a3.346 3.346 0 003.255-2.573l2.113-8.897a.836.836 0 00-.813-1.03z"
+    ></path>
   </svg>
 );
 
-// --- Component con: Benefits ---
 const ProductBenefits: React.FC = () => {
   const { t } = useTranslation();
   return (
@@ -137,7 +148,6 @@ const ProductBenefits: React.FC = () => {
   );
 };
 
-// --- Component con: SelectedOptionsList ---
 interface SelectedItem {
   id: string;
   name: string;
