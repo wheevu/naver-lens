@@ -103,12 +103,9 @@ const mapProduct = (p: ApiProduct): ProductListItemProps => {
     ? 0
     : Number(p.shipping?.replace(/[^\d]/g, "")) || undefined;
 
-  console.log("p diddy", p);
-
   return {
     id: p.id,
     name: name || "No description",
-    // FIX: Changed p.images?.[0] ?? "" to p.imageUrl
     imageUrl: p.imageUrl,
     finalPrice: p.price,
     originalPrice,

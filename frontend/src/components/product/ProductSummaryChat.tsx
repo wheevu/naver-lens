@@ -91,11 +91,11 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
       if (response.data.success) {
         setSummary(response.data.data.summary.summary);
       } else {
-        setError("Không thể tạo tóm tắt lúc này.");
+        setError("Cannot summarize at the moment");
       }
     } catch (err) {
       console.error(err);
-      setError("Lỗi kết nối đến AI Server.");
+      setError("Fail to connect AI Server.");
     } finally {
       setLoading(false);
     }
@@ -105,7 +105,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
     if (isOpen && !summary) {
       fetchSummary();
     }
-  }, [isOpen, product.productId]);
+  }, [isOpen, product.productId, summary]);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
@@ -151,8 +151,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
               </div>
               <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm">
                 <p>
-                  Xin chào! Tôi là AI của Naver Shop. Tôi có thể giúp bạn tóm
-                  tắt nhanh các điểm nổi bật của sản phẩm này.
+                  Hello. I'm an AI Chatbot of NAVER. I can provide you with
+                  wonderful insight of into product.
                 </p>
               </div>
             </div>

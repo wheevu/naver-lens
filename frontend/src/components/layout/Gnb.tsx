@@ -50,7 +50,7 @@ const ExternalLinkIcon = () => (
 );
 
 const VerticalDivider = () => (
-  <div className="h-4 w-px bg-[var(--glass-border)]"></div>
+  <div className="h-4 w-px bg-(--glass-border)"></div>
 );
 
 const Gnb = () => {

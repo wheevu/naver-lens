@@ -156,7 +156,7 @@ const ProductPage = () => {
 
         <ProductReviews reviews={product.reviews} />
 
-        {product && <ProductSummaryChat product={product} />}
+        {<ProductSummaryChat product={product} />}
       </main>
     </div>
   );
