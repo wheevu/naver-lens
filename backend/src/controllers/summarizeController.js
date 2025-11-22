@@ -67,6 +67,7 @@ async function summarizeProduct(req, res) {
     // Generate summary
     const result = await service.summarizeProduct(productData);
 
+    console.log('Summary generated successfully', result);
     return res.status(200).json(result);
   } catch (error) {
     console.error('❌ Summarization controller error:', error);

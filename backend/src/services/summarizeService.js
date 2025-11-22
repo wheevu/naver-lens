@@ -33,7 +33,7 @@ class SummarizeService {
       // 3. Generate summary using NAVER CLOVA
       const response = await this.clovaProvider.chatCompletion(messages, {
         model: 'HCX-005',
-        maxTokens: 500,
+        maxTokens: 1500,  // Increased for complete JSON response
         temperature: 0.5,
         topP: 0.8
       });
