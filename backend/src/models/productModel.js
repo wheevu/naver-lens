@@ -71,6 +71,9 @@ const productSchema = mongoose.Schema(
         category4: {
             type: String
         },
+        ai_summary: {
+            type: String
+        },
     },
     {
         timestamps: true, // Adds createdAt and updatedAt fields
