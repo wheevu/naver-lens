@@ -58,6 +58,65 @@ class SummarizeService {
       throw error;
     }
   }
+
+  /**
+   * Summarize product using NAVER CLOVA AI with streaming
+   * @param {Object} productData - Product information
+   * @param {string} lang - Language for summary ('en' or 'ko')
+   * @param {Function} onToken - Callback for each token
+   * @param {Function} onComplete - Callback when streaming completes
+   * @param {Function} onError - Callback for errors
+   */
+  async summarizeProductStream(productData, lang = 'en', onToken, onComplete, onError) {
+    try {
+      // 1. Extract and sanitize product info
+      const cleanedData = TextProcessor.extractProductInfo(productData);
+
+      // 2. Build messages for CLOVA
+      const messages = [
+        {
+          role: 'system',
+          content: summarizationPrompts.system(lang)
+        },
+        {
+          role: 'user',
+          content: summarizationPrompts.userTemplate(cleanedData, lang)
+        }
+      ];
+
+      // 3. Stream summary using NAVER CLOVA
+      await this.clovaProvider.chatCompletionStream(
+        messages,
+        {
+          model: 'HCX-005',
+          maxTokens: 1500,
+          temperature: 0.5,
+          topP: 0.8
+        },
+        onToken,
+        (result) => {
+          // Format and return result when complete
+          const formattedSummary = TextProcessor.formatSummary(result.fullContent, cleanedData);
+          onComplete({
+            success: true,
+            data: {
+              product: cleanedData,
+              summary: formattedSummary
+            },
+            usage: result.usage,
+            finishReason: result.finishReason
+          });
+        },
+        onError
+      );
+    } catch (error) {
+      console.error('Product summarization streaming error:', error);
+      if (onError) {
+        onError(error);
+      }
+      throw error;
+    }
+  }
 }
 
 export default SummarizeService;

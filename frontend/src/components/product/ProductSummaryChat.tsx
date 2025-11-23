@@ -123,11 +123,173 @@ interface SummaryData {
   };
 }
 
+// Helper function to parse partial JSON and extract completed sections
+const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
+  try {
+    // Try to parse the complete JSON first
+    const cleaned = text.trim();
+    if (cleaned.startsWith('{')) {
+      // Find the last complete closing brace for the main object
+      let depth = 0;
+      let lastCompletePos = -1;
+      for (let i = 0; i < cleaned.length; i++) {
+        if (cleaned[i] === '{') depth++;
+        if (cleaned[i] === '}') {
+          depth--;
+          if (depth === 0) {
+            lastCompletePos = i + 1;
+            break;
+          }
+        }
+      }
+      
+      if (lastCompletePos > 0) {
+        const completeJSON = cleaned.substring(0, lastCompletePos);
+        try {
+          return JSON.parse(completeJSON);
+        } catch (e) {
+          // If full parse fails, try to extract individual complete fields
+        }
+      }
+    }
+    
+    // Extract individual complete fields
+    const partial: Partial<SummaryData> = {};
+    
+    // Try to extract overview
+    const overviewMatch = text.match(/"overview"\s*:\s*"([^"]*(?:\\.[^"]*)*)"/);
+    if (overviewMatch) {
+      partial.overview = overviewMatch[1].replace(/\\"/g, '"').replace(/\\n/g, '\n');
+    }
+    
+    // Try to extract ratings object
+    const ratingsMatch = text.match(/"ratings"\s*:\s*\{([^}]*)\}/);
+    if (ratingsMatch) {
+      try {
+        partial.ratings = JSON.parse(`{${ratingsMatch[1]}}`);
+      } catch (e) {
+        // Partial ratings, extract what we can
+        const scoreMatch = text.match(/"score"\s*:\s*"([^"]*)"/);
+        const countMatch = text.match(/"count"\s*:\s*"([^"]*)"/);
+        if (scoreMatch || countMatch) {
+          partial.ratings = {
+            score: scoreMatch?.[1] || '',
+            count: countMatch?.[1] || '',
+            sentiment: '',
+            coverage: ''
+          };
+        }
+      }
+    }
+    
+    // Try to extract satisfaction aspects
+    const satisfactionMatch = text.match(/"satisfaction"\s*:\s*\{[^}]*"aspects"\s*:\s*\[(.*?)\]/s);
+    if (satisfactionMatch) {
+      try {
+        const aspectsText = `[${satisfactionMatch[1]}]`;
+        const aspects = JSON.parse(aspectsText);
+        partial.satisfaction = { aspects };
+      } catch (e) {
+        // Extract partial aspects
+        const aspectMatches = text.matchAll(/\{"name"\s*:\s*"([^"]*)"\s*,\s*"score"\s*:\s*(\d+)\s*,\s*"feedback"\s*:\s*"([^"]*)"\}/g);
+        const aspects = Array.from(aspectMatches).map(m => ({
+          name: m[1],
+          score: parseInt(m[2]),
+          feedback: m[3]
+        }));
+        if (aspects.length > 0) {
+          partial.satisfaction = { aspects };
+        }
+      }
+    }
+    
+    // Try to extract keywords
+    const keywordsMatch = text.match(/"keywords"\s*:\s*\{(.*?)\}/s);
+    if (keywordsMatch) {
+      try {
+        partial.keywords = JSON.parse(`{${keywordsMatch[1]}}`);
+      } catch (e) {
+        // Partial keywords
+      }
+    }
+    
+    // Try to extract strengths array
+    const strengthsMatch = text.match(/"strengths"\s*:\s*\[(.*?)\]/s);
+    if (strengthsMatch) {
+      try {
+        partial.strengths = JSON.parse(`[${strengthsMatch[1]}]`);
+      } catch (e) {
+        // Extract partial strengths
+        const items = strengthsMatch[1].match(/"([^"]*(?:\\.[^"]*)*)"/g);
+        if (items) {
+          partial.strengths = items.map(item => item.slice(1, -1).replace(/\\"/g, '"'));
+        }
+      }
+    }
+    
+    // Try to extract considerations array
+    const considerationsMatch = text.match(/"considerations"\s*:\s*\[(.*?)\]/s);
+    if (considerationsMatch) {
+      try {
+        partial.considerations = JSON.parse(`[${considerationsMatch[1]}]`);
+      } catch (e) {
+        const items = considerationsMatch[1].match(/"([^"]*(?:\\.[^"]*)*)"/g);
+        if (items) {
+          partial.considerations = items.map(item => item.slice(1, -1).replace(/\\"/g, '"'));
+        }
+      }
+    }
+    
+    // Try to extract bestFor
+    const bestForMatch = text.match(/"bestFor"\s*:\s*"([^"]*(?:\\.[^"]*)*)"/);
+    if (bestForMatch) {
+      partial.bestFor = bestForMatch[1].replace(/\\"/g, '"');
+    }
+    
+    // Try to extract productInfo
+    const productInfoMatch = text.match(/"productInfo"\s*:\s*\{([^}]*)\}/);
+    if (productInfoMatch) {
+      try {
+        partial.productInfo = JSON.parse(`{${productInfoMatch[1]}}`);
+      } catch (e) {
+        // Partial productInfo
+      }
+    }
+    
+    return Object.keys(partial).length > 0 ? partial : null;
+  } catch (e) {
+    return null;
+  }
+};
+
 // Helper function to parse JSON from summary
 const parseSummaryJSON = (summary: string): SummaryData | null => {
   try {
+    // Clean the summary - extract only the first complete JSON object
+    let cleanedSummary = summary.trim();
+    
+    // If it starts with {, find the matching closing brace
+    if (cleanedSummary.startsWith('{')) {
+      let depth = 0;
+      let jsonEnd = -1;
+      for (let i = 0; i < cleanedSummary.length; i++) {
+        if (cleanedSummary[i] === '{') depth++;
+        if (cleanedSummary[i] === '}') {
+          depth--;
+          if (depth === 0) {
+            jsonEnd = i + 1;
+            break;
+          }
+        }
+      }
+      if (jsonEnd > 0 && jsonEnd < cleanedSummary.length) {
+        console.log('Trimming summary from', cleanedSummary.length, 'to', jsonEnd);
+        cleanedSummary = cleanedSummary.substring(0, jsonEnd);
+      }
+    }
+    
     // Try to parse directly
-    const parsed = JSON.parse(summary);
+    const parsed = JSON.parse(cleanedSummary);
     return parsed;
   } catch (e) {
     // Try to extract JSON from markdown code blocks
@@ -139,29 +301,22 @@ const parseSummaryJSON = (summary: string): SummaryData | null => {
         return JSON.parse(jsonMatch[1]);
       } catch (e2) {
         console.error("Failed to parse JSON from code block:", e2);
-        console.log(
-          "Summary snippet:",
-          summary.substring(summary.length - 200)
-        );
       }
     }
 
-    // Try to find JSON between braces
-    const braceMatch = summary.match(/\{[\s\S]*\}/);
+    // Try to find JSON between braces with cleaning
+    const braceMatch = summary.match(/\{[\s\S]*?\}/);
     if (braceMatch) {
       try {
         return JSON.parse(braceMatch[0]);
       } catch (e3) {
         console.error("Failed to parse JSON from braces:", e3);
-        console.log(
-          "Last 200 chars of summary:",
-          summary.substring(summary.length - 200)
-        );
       }
     }
 
     console.error("Failed to parse summary JSON:", e);
     console.log("Summary length:", summary.length);
+    console.log("First 300 chars:", summary.substring(0, 300));
     console.log("Last 300 chars:", summary.substring(summary.length - 300));
     return null;
   }
@@ -228,6 +383,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   const [summary, setSummary] = useState<string | null>(null);
   const [summaryLang, setSummaryLang] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [showTooltip, setShowTooltip] = useState(false);
@@ -255,15 +411,23 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
     localStorage.setItem("hasSeenAiTooltip", "true");
   };
 
-  // Parse summary JSON
+  // Parse summary JSON - use partial parsing during streaming, full parsing when complete
   const summaryData = useMemo(() => {
     if (!summary) return null;
-    return parseSummaryJSON(summary);
-  }, [summary]);
+    
+    if (isStreaming) {
+      // During streaming, parse partial JSON
+      return parsePartialJSON(summary) as SummaryData | null;
+    } else {
+      // When complete, parse full JSON
+      return parseSummaryJSON(summary);
+    }
+  }, [summary, isStreaming]);
 
   const fetchSummary = async () => {
     if (summary && summaryLang === i18n.language) return;
     setLoading(true);
+    setIsStreaming(false);
     setError(null);
 
     if (summaryLang !== i18n.language) {
@@ -271,22 +435,117 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
     }
 
     try {
-      const response = await axios.post<SummaryResponse>("/api/summarize", {
-        productData: product,
-        lang: i18n.language === "ko" ? "ko" : "en",
+      // Get base URL from axios instance
+      const baseURL = axios.defaults.baseURL || 'http://localhost:3001';
+      
+      // Use fetch API for streaming SSE response
+      const response = await fetch(`${baseURL}/api/summarize`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productData: product,
+          lang: i18n.language === "ko" ? "ko" : "en",
+        })
       });
 
-      if (response.data.success) {
-        setSummary(response.data.data.summary.summary);
-        setSummaryLang(i18n.language);
-      } else {
-        setError("Cannot summarize at the moment");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+
+      const reader = response.body?.getReader();
+      if (!reader) {
+        throw new Error('Response body is not readable');
+      }
+
+      const decoder = new TextDecoder();
+      let buffer = '';
+      let currentEvent = '';
+      let streamedSummary = '';
+      let hasCompleted = false;
+      let firstToken = true;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        
+        if (done) {
+          // Stream ended
+          if (!hasCompleted && streamedSummary) {
+            setSummaryLang(i18n.language);
+          }
+          setLoading(false);
+          setIsStreaming(false);
+          break;
+        }
+        
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+
+        for (const line of lines) {
+          if (line.startsWith('event:')) {
+            currentEvent = line.slice(6).trim();
+            continue;
+          }
+          
+          if (line.startsWith('data:')) {
+            const data = JSON.parse(line.slice(5).trim());
+            
+            if (currentEvent === 'token') {
+              // First token received - switch to streaming mode
+              if (firstToken) {
+                setLoading(false);
+                setIsStreaming(true);
+                firstToken = false;
+              }
+              
+              // Accumulate tokens but don't update UI constantly
+              streamedSummary += data.content;
+              
+              // Update UI periodically (every ~50 chars) for performance
+              if (streamedSummary.length % 50 < data.content.length) {
+                setSummary(streamedSummary);
+              }
+            } else if (currentEvent === 'complete') {
+              // Final complete event with full summary
+              hasCompleted = true;
+              setIsStreaming(false);
+              
+              if (data.success && data.data?.summary?.summary) {
+                // Use the complete summary from the server
+                setSummary(data.data.summary.summary);
+                setSummaryLang(i18n.language);
+              } else if (streamedSummary) {
+                // Fallback to streamed content if no summary in complete event
+                setSummary(streamedSummary);
+                setSummaryLang(i18n.language);
+              }
+              setLoading(false);
+            } else if (currentEvent === 'error') {
+              hasCompleted = true;
+              setIsStreaming(false);
+              setError(data.message || "Cannot summarize at the moment");
+              setLoading(false);
+            } else if (currentEvent === 'metadata') {
+              // Handle metadata
+              console.log('Metadata:', data.cached ? '📦 Using cached summary' : '🔄 Generating new summary');
+            }
+          }
+        }
+      }
+
+      // Final update with complete streamed content
+      if (streamedSummary && !hasCompleted) {
+        setSummary(streamedSummary);
+        setSummaryLang(i18n.language);
+      }
+
     } catch (err) {
-      console.error(err);
+      console.error('Fetch summary error:', err);
       setError("Fail to connect AI Server.");
-    } finally {
       setLoading(false);
+      setIsStreaming(false);
     }
   };
 
@@ -337,7 +596,14 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
             </button>
           </div>
 
-          <div className="p-4 overflow-y-auto min-h-[200px] max-h-[400px] bg-opacity-50 bg-gray-50 dark:bg-gray-900/50 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600">
+          <div 
+            className="p-4 overflow-y-auto min-h-[200px] max-h-[400px] scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600"
+            style={theme === "light" ? {
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(12, 240, 155, 0.03) 100%)'
+            } : {
+              background: 'rgba(17, 24, 39, 0.5)'
+            }}
+          >
             {" "}
             <div className="flex gap-3 mb-4">
               <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
@@ -347,8 +613,12 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 className={`p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm ${
                   theme === "dark"
                     ? "bg-gray-800 text-gray-200"
-                    : "bg-gray-100 text-gray-800"
+                    : "text-gray-800"
                 }`}
+                style={theme === "light" ? {
+                  background: 'var(--chat-bubble-light)',
+                  border: '1px solid rgba(12, 240, 155, 0.1)'
+                } : undefined}
               >
                 <p className="leading-relaxed">{t("product.aiGreeting")}</p>
               </div>
@@ -360,8 +630,12 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 </div>
                 <div
                   className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${
-                    theme === "dark" ? "bg-gray-800" : "bg-gray-100"
+                    theme === "dark" ? "bg-gray-800" : ""
                   }`}
+                  style={theme === "light" ? {
+                    background: 'var(--chat-bubble-light)',
+                    border: '1px solid rgba(12, 240, 155, 0.1)'
+                  } : undefined}
                 >
                   <div className="flex space-x-1 h-3 items-center">
                     <div
@@ -383,15 +657,53 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 </div>
               </div>
             )}
-            {error && !loading && (
+            {/* Show streaming progress indicator */}
+            {/* {isStreaming && (
+              <div className="flex gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
+                  <AiIcon />
+                </div>
+                <div
+                  className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${
+                    theme === "dark" ? "bg-gray-800" : "bg-gray-100"
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="flex space-x-1">
+                      <div
+                        className={`w-2 h-2 rounded-full animate-pulse ${
+                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                        }`}
+                      ></div>
+                      <div
+                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.2s] ${
+                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                        }`}
+                      ></div>
+                      <div
+                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.4s] ${
+                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                        }`}
+                      ></div>
+                    </div>
+                    <span className={`text-xs ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
+                      Analyzing reviews...
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )} */}
+            {error && !loading && !isStreaming && (
               <div className="flex justify-center mb-4">
                 <span className="text-xs text-red-500 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full border border-red-200 dark:border-red-800">
                   {error}
                 </span>
               </div>
             )}
-            {summary && !loading && summaryData && (
-              <div className="flex gap-3 mb-2 animate-in fade-in zoom-in duration-300">
+            
+            {/* Show summary sections as they become available during streaming or when complete */}
+            {summaryData && Object.keys(summaryData).length > 0 && (
+              <div className="flex gap-3 mb-2 animate-in fade-in duration-300">
                 <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
                   <AiIcon />
                 </div>
@@ -399,9 +711,15 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   className={`p-4 rounded-2xl rounded-tl-none shadow-md text-sm leading-relaxed overflow-hidden ${
                     theme === "dark"
                       ? "bg-gray-800 text-gray-100"
-                      : "bg-white text-gray-900"
+                      : "text-gray-900"
                   }`}
-                  style={{
+                  style={theme === "light" ? {
+                    background: 'var(--chat-bubble-light)',
+                    border: '1px solid rgba(12, 240, 155, 0.15)',
+                    maxWidth: "100%",
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
+                  } : {
                     border: "1px solid var(--glass-border)",
                     maxWidth: "100%",
                     wordBreak: "break-word",
@@ -409,354 +727,427 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   }}
                 >
                   {/* Product Overview */}
-                  <section className="mb-4">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                      }`}
-                    >
-                      I. Product Overview
-                    </h2>
-                    <p
-                      className={`text-sm leading-relaxed ${
-                        theme === "dark" ? "text-gray-300" : "text-gray-700"
-                      }`}
-                    >
-                      {summaryData.overview}
-                    </p>
-                  </section>
+                  {summaryData?.overview && (
+                    <section className="mb-4">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        I. Product Overview
+                      </h2>
+                      <p
+                        className={`text-sm leading-relaxed ${
+                          theme === "dark" ? "text-gray-300" : "text-gray-700"
+                        }`}
+                      >
+                        {summaryData.overview}
+                      </p>
+                    </section>
+                  )}
 
                   {/* Customer Ratings */}
-                  <section className="mb-4">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                      }`}
-                    >
-                      II. Customer Ratings
-                    </h2>
-                    <ul className="space-y-1 text-sm">
-                      <li
-                        className={
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }
+                  {summaryData?.ratings && (
+                    <section className="mb-4">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
                       >
-                        <strong
-                          className={`font-semibold ${
-                            theme === "dark" ? "text-gray-100" : "text-gray-900"
-                          }`}
-                        >
-                          Rating:
-                        </strong>{" "}
-                        ⭐{summaryData.ratings.score} from{" "}
-                        {summaryData.ratings.count}
-                      </li>
-                      <li
-                        className={
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }
-                      >
-                        <strong
-                          className={`font-semibold ${
-                            theme === "dark" ? "text-gray-100" : "text-gray-900"
-                          }`}
-                        >
-                          Sentiment:
-                        </strong>{" "}
-                        {summaryData.ratings.sentiment}
-                      </li>
-                      <li
-                        className={
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }
-                      >
-                        <strong
-                          className={`font-semibold ${
-                            theme === "dark" ? "text-gray-100" : "text-gray-900"
-                          }`}
-                        >
-                          Coverage:
-                        </strong>{" "}
-                        {summaryData.ratings.coverage}
-                      </li>
-                    </ul>
-                  </section>
+                        II. Customer Ratings
+                      </h2>
+                      <ul className="space-y-1 text-sm">
+                        {summaryData?.ratings?.score && (
+                          <li
+                            className={
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }
+                          >
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark" ? "text-gray-100" : "text-gray-900"
+                              }`}
+                            >
+                              Rating:
+                            </strong>{" "}
+                            ⭐{summaryData.ratings.score} {summaryData.ratings.count && `from ${summaryData.ratings.count}`}
+                          </li>
+                        )}
+                        {summaryData?.ratings?.sentiment && (
+                          <li
+                            className={
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }
+                          >
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark" ? "text-gray-100" : "text-gray-900"
+                              }`}
+                            >
+                              Sentiment:
+                            </strong>{" "}
+                            {summaryData.ratings.sentiment}
+                          </li>
+                        )}
+                        {summaryData?.ratings?.coverage && (
+                          <li
+                            className={
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }
+                          >
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark" ? "text-gray-100" : "text-gray-900"
+                              }`}
+                            >
+                              Coverage:
+                            </strong>{" "}
+                            {summaryData.ratings.coverage}
+                          </li>
+                        )}
+                      </ul>
+                    </section>
+                  )}
 
                   {/* Satisfaction Chart */}
-                  <section className="mb-4">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                      }`}
-                    >
-                      III. User's satisfaction
-                    </h2>
-                    <SatisfactionChart
-                      aspects={summaryData.satisfaction.aspects}
-                      theme={theme}
-                    />
-                  </section>
+                  {summaryData.satisfaction?.aspects && summaryData.satisfaction.aspects.length > 0 && (
+                    <section className="mb-4">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        III. User's satisfaction
+                      </h2>
+                      <SatisfactionChart
+                        aspects={summaryData.satisfaction.aspects}
+                        theme={theme}
+                      />
+                    </section>
+                  )}
 
                   {/* Keywords */}
-                  <section className="mb-4">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                      }`}
-                    >
-                      IV. Keywords
-                    </h2>
-                    <div className="space-y-2 text-sm">
-                      <div>
-                        <strong
-                          className={`font-semibold ${
-                            theme === "dark" ? "text-gray-100" : "text-gray-900"
-                          }`}
-                        >
-                          Positive:
-                        </strong>
-                        <span
-                          className={`ml-2 ${
-                            theme === "dark" ? "text-gray-300" : "text-gray-700"
-                          }`}
-                        >
-                          {summaryData.keywords.positive.map((kw, i) => (
-                            <span key={i}>
-                              {kw.word} ({kw.count})
-                              {i < summaryData.keywords.positive.length - 1
-                                ? " • "
-                                : ""}
+                  {summaryData?.keywords && (
+                    <section className="mb-4">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        IV. Keywords
+                      </h2>
+                      <div className="space-y-2 text-sm">
+                        {summaryData?.keywords?.positive && summaryData.keywords.positive.length > 0 && (
+                          <div>
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark" ? "text-gray-100" : "text-gray-900"
+                              }`}
+                            >
+                              Positive:
+                            </strong>
+                            <span
+                              className={`ml-2 ${
+                                theme === "dark" ? "text-gray-300" : "text-gray-700"
+                              }`}
+                            >
+                              {summaryData.keywords.positive.map((kw, i) => (
+                                <span key={i}>
+                                  {kw.word} ({kw.count})
+                                  {i < summaryData.keywords.positive.length - 1
+                                    ? " • "
+                                    : ""}
+                                </span>
+                              ))}
                             </span>
-                          ))}
-                        </span>
+                          </div>
+                        )}
+                        {summaryData?.keywords?.concerns && summaryData.keywords.concerns.length > 0 && (
+                          <div>
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark"
+                                  ? "text-gray-100"
+                                  : "text-gray-900"
+                              }`}
+                            >
+                              Concerns:
+                            </strong>
+                            <span
+                              className={`ml-2 ${
+                                theme === "dark"
+                                  ? "text-gray-300"
+                                  : "text-gray-700"
+                              }`}
+                            >
+                              {summaryData.keywords.concerns.map((kw, i) => (
+                                <span key={i}>
+                                  {kw.word} ({kw.count})
+                                  {i < summaryData.keywords.concerns.length - 1
+                                    ? " • "
+                                    : ""}
+                                </span>
+                              ))}
+                            </span>
+                          </div>
+                        )}
+                        {summaryData?.keywords?.notable && summaryData.keywords.notable.length > 0 && (
+                          <div>
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark"
+                                  ? "text-gray-100"
+                                  : "text-gray-900"
+                              }`}
+                            >
+                              Notable:
+                            </strong>
+                            <span
+                              className={`ml-2 ${
+                                theme === "dark"
+                                  ? "text-gray-300"
+                                  : "text-gray-700"
+                              }`}
+                            >
+                              {summaryData.keywords.notable.map((kw, i) => (
+                                <span key={i}>
+                                  {kw.word} ({kw.count})
+                                  {i < summaryData.keywords.notable.length - 1
+                                    ? " • "
+                                    : ""}
+                                </span>
+                              ))}
+                            </span>
+                          </div>
+                        )}
                       </div>
-                      {summaryData.keywords.concerns.length > 0 && (
-                        <div>
-                          <strong
-                            className={`font-semibold ${
-                              theme === "dark"
-                                ? "text-gray-100"
-                                : "text-gray-900"
-                            }`}
-                          >
-                            Concerns:
-                          </strong>
-                          <span
-                            className={`ml-2 ${
-                              theme === "dark"
-                                ? "text-gray-300"
-                                : "text-gray-700"
-                            }`}
-                          >
-                            {summaryData.keywords.concerns.map((kw, i) => (
-                              <span key={i}>
-                                {kw.word} ({kw.count})
-                                {i < summaryData.keywords.concerns.length - 1
-                                  ? " • "
-                                  : ""}
-                              </span>
-                            ))}
-                          </span>
-                        </div>
-                      )}
-                      {summaryData.keywords.notable.length > 0 && (
-                        <div>
-                          <strong
-                            className={`font-semibold ${
-                              theme === "dark"
-                                ? "text-gray-100"
-                                : "text-gray-900"
-                            }`}
-                          >
-                            Notable:
-                          </strong>
-                          <span
-                            className={`ml-2 ${
-                              theme === "dark"
-                                ? "text-gray-300"
-                                : "text-gray-700"
-                            }`}
-                          >
-                            {summaryData.keywords.notable.map((kw, i) => (
-                              <span key={i}>
-                                {kw.word} ({kw.count})
-                                {i < summaryData.keywords.notable.length - 1
-                                  ? " • "
-                                  : ""}
-                              </span>
-                            ))}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  </section>
+                    </section>
+                  )}
 
                   {/* Strengths */}
-                  <section className="mb-4">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                      }`}
-                    >
-                      V. Strengths
-                    </h2>
-                    <ul className="space-y-1.5 ml-4">
-                      {summaryData.strengths.map((strength, i) => (
-                        <li
-                          key={i}
-                          className={`text-sm flex items-start gap-2 ${
-                            theme === "dark" ? "text-gray-300" : "text-gray-700"
-                          }`}
-                        >
-                          <span
-                            className={`mt-0.5 shrink-0 ${
-                              theme === "dark"
-                                ? "text-indigo-400"
-                                : "text-indigo-600"
+                  {summaryData.strengths && summaryData.strengths.length > 0 && (
+                    <section className="mb-4">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        V. Strengths
+                      </h2>
+                      <ul className="space-y-1.5 ml-4">
+                        {summaryData.strengths.map((strength, i) => (
+                          <li
+                            key={i}
+                            className={`text-sm flex items-start gap-2 ${
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
                             }`}
                           >
-                            •
-                          </span>
-                          <span>{strength}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
+                            <span
+                              className={`mt-0.5 shrink-0 ${
+                                theme === "dark"
+                                  ? "text-indigo-400"
+                                  : "text-indigo-600"
+                              }`}
+                            >
+                              •
+                            </span>
+                            <span>{strength}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
 
                   {/* Considerations */}
-                  <section className="mb-4">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                      }`}
-                    >
-                      VI. Considerations
-                    </h2>
-                    <ul className="space-y-1.5 ml-4">
-                      {summaryData.considerations.map((consideration, i) => (
-                        <li
-                          key={i}
-                          className={`text-sm flex items-start gap-2 ${
-                            theme === "dark" ? "text-gray-300" : "text-gray-700"
-                          }`}
-                        >
-                          <span
-                            className={`mt-0.5 shrink-0 ${
-                              theme === "dark"
-                                ? "text-indigo-400"
-                                : "text-indigo-600"
+                  {summaryData.considerations && summaryData.considerations.length > 0 && (
+                    <section className="mb-4">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        VI. Considerations
+                      </h2>
+                      <ul className="space-y-1.5 ml-4">
+                        {summaryData.considerations.map((consideration, i) => (
+                          <li
+                            key={i}
+                            className={`text-sm flex items-start gap-2 ${
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
                             }`}
                           >
-                            •
-                          </span>
-                          <span>{consideration}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
+                            <span
+                              className={`mt-0.5 shrink-0 ${
+                                theme === "dark"
+                                  ? "text-indigo-400"
+                                  : "text-indigo-600"
+                              }`}
+                            >
+                              •
+                            </span>
+                            <span>{consideration}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
 
                   {/* Best For */}
-                  <section className="mb-4">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                      }`}
-                    >
-                      VII. Best For
-                    </h2>
-                    <p
-                      className={`text-sm leading-relaxed ${
-                        theme === "dark" ? "text-gray-300" : "text-gray-700"
-                      }`}
-                    >
-                      {summaryData.bestFor}
-                    </p>
-                  </section>
+                  {summaryData.bestFor && (
+                    <section className="mb-4">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        VII. Best For
+                      </h2>
+                      <p
+                        className={`text-sm leading-relaxed ${
+                          theme === "dark" ? "text-gray-300" : "text-gray-700"
+                        }`}
+                      >
+                        {summaryData.bestFor}
+                      </p>
+                    </section>
+                  )}
 
                   {/* Product Info */}
-                  <section className="mb-2">
-                    <h2
-                      className={`text-base font-bold mb-2 ${
-                        theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                  {summaryData.productInfo && (
+                    <section className="mb-2">
+                      <h2
+                        className={`text-base font-bold mb-2 ${
+                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        *Product Info
+                      </h2>
+                      <ul className="space-y-1 text-sm">
+                        {summaryData.productInfo.brand && (
+                          <li
+                            className={
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }
+                          >
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark" ? "text-gray-100" : "text-gray-900"
+                              }`}
+                            >
+                              Brand:
+                            </strong>{" "}
+                            {summaryData.productInfo.brand}
+                          </li>
+                        )}
+                        {summaryData.productInfo.category && (
+                          <li
+                            className={
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }
+                          >
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark" ? "text-gray-100" : "text-gray-900"
+                              }`}
+                            >
+                              Category:
+                            </strong>{" "}
+                            {summaryData.productInfo.category}
+                          </li>
+                        )}
+                        {summaryData.productInfo.options && (
+                          <li
+                            className={
+                              theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }
+                          >
+                            <strong
+                              className={`font-semibold ${
+                                theme === "dark" ? "text-gray-100" : "text-gray-900"
+                              }`}
+                            >
+                              Options:
+                            </strong>{" "}
+                            {summaryData.productInfo.options}
+                          </li>
+                        )}
+                      </ul>
+                    </section>
+                  )}
+
+                  {/* Footer - only show when streaming is complete */}
+                  {!isStreaming && (
+                    <div
+                      className={`mt-3 pt-3 border-t text-xs flex flex-col justify-between items-center ${
+                        theme === "dark"
+                          ? "border-gray-700 text-gray-400"
+                          : "border-gray-200 text-gray-500"
                       }`}
                     >
-                      *Product Info
-                    </h2>
-                    <ul className="space-y-1 text-sm">
-                      <li
-                        className={
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }
-                      >
-                        <strong
-                          className={`font-semibold ${
-                            theme === "dark" ? "text-gray-100" : "text-gray-900"
-                          }`}
+                      <span className="flex items-center gap-1">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
                         >
-                          Brand:
-                        </strong>{" "}
-                        {summaryData.productInfo.brand}
-                      </li>
-                      <li
-                        className={
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }
-                      >
-                        <strong
-                          className={`font-semibold ${
-                            theme === "dark" ? "text-gray-100" : "text-gray-900"
-                          }`}
-                        >
-                          Category:
-                        </strong>{" "}
-                        {summaryData.productInfo.category}
-                      </li>
-                      <li
-                        className={
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }
-                      >
-                        <strong
-                          className={`font-semibold ${
-                            theme === "dark" ? "text-gray-100" : "text-gray-900"
-                          }`}
-                        >
-                          Options:
-                        </strong>{" "}
-                        {summaryData.productInfo.options}
-                      </li>
-                    </ul>
-                  </section>
-
-                  {/* Footer */}
-                  <div
-                    className={`mt-3 pt-3 border-t text-xs flex flex-col justify-between items-center ${
-                      theme === "dark"
-                        ? "border-gray-700 text-gray-400"
-                        : "border-gray-200 text-gray-500"
-                    }`}
-                  >
-                    <span className="flex items-center gap-1">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                      </svg>
-                      {t("product.generatedByAi")}
-                    </span>
-                    <span className="text-xs">
-                      {t("product.verifyDetails")}
+                          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                        {t("product.generatedByAi")}
+                      </span>
+                      <span className="text-xs">
+                        {t("product.verifyDetails")}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+            
+            {/* Show streaming indicator at the bottom while streaming */}
+            {isStreaming && (
+              <div className="flex gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
+                  <AiIcon />
+                </div>
+                <div
+                  className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${
+                    theme === "dark" ? "bg-gray-800" : ""
+                  }`}
+                  style={theme === "light" ? {
+                    background: 'var(--chat-bubble-light)',
+                    border: '1px solid rgba(12, 240, 155, 0.1)'
+                  } : undefined}
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="flex space-x-1">
+                      <div
+                        className={`w-2 h-2 rounded-full animate-pulse ${
+                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                        }`}
+                      ></div>
+                      <div
+                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.2s] ${
+                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                        }`}
+                      ></div>
+                      <div
+                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.4s] ${
+                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                        }`}
+                      ></div>
+                    </div>
+                    <span className={`text-xs ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
+                      Analyzing reviews...
                     </span>
                   </div>
                 </div>
               </div>
             )}
-            {summary && !loading && !summaryData && (
+            
+            {summary && !loading && !isStreaming && !summaryData && (
               <div className="flex justify-center mb-4">
                 <span className="text-xs text-red-500 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full border border-red-200 dark:border-red-800">
                   {t("product.aiError")}

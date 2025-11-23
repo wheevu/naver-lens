@@ -23,6 +23,7 @@ function initializeService() {
 /**
  * POST /api/summarize
  * Body: { productId: string } or { productData: object }
+ * Streams the summary response in real-time using SSE
  */
 async function summarizeProduct(req, res) {
   try {
@@ -63,14 +64,92 @@ async function summarizeProduct(req, res) {
       });
     }
 
+    // Extract language parameter
+    const lang = req.body.lang || 'en';
+    console.log('🌐 Requested language:', lang);
+
+    // Set up SSE headers
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.setHeader('X-Accel-Buffering', 'no'); // Disable nginx buffering
+
+    // Helper function to send SSE events
+    const sendSSE = (event, data) => {
+      res.write(`event: ${event}\n`);
+      res.write(`data: ${JSON.stringify(data)}\n\n`);
+    };
+
     // Check MongoDB Cache (works for all input formats if productId is available)
     if (productData.productId) {
       try {
         const cachedProduct = await Product.findOne({ productId: productData.productId });
         if (cachedProduct && cachedProduct.ai_summary) {
-          console.log('✅ Cache Hit: Returning summary from MongoDB for', productData.productId);
-          // Return the same structure as the service would
-          return res.status(200).json({
+          console.log('✅ Cache Hit: Streaming cached summary for', productData.productId);
+          
+          // Stream the cached summary token by token to simulate real-time effect
+          const cachedSummary = cachedProduct.ai_summary;
+          console.log('📦 Cached summary type:', typeof cachedSummary);
+          console.log('📦 Has summary field:', !!cachedSummary.summary);
+          
+          // Extract the actual summary text
+          let summaryText;
+          if (typeof cachedSummary === 'string') {
+            summaryText = cachedSummary;
+          } else if (cachedSummary.summary) {
+            summaryText = typeof cachedSummary.summary === 'string' 
+              ? cachedSummary.summary 
+              : JSON.stringify(cachedSummary.summary);
+          } else {
+            summaryText = JSON.stringify(cachedSummary);
+          }
+          
+          // Clean the summary text - extract only the first complete JSON object
+          if (summaryText.trim().startsWith('{')) {
+            let depth = 0;
+            let jsonEnd = -1;
+            for (let i = 0; i < summaryText.length; i++) {
+              if (summaryText[i] === '{') depth++;
+              if (summaryText[i] === '}') {
+                depth--;
+                if (depth === 0) {
+                  jsonEnd = i + 1;
+                  break;
+                }
+              }
+            }
+            if (jsonEnd > 0 && jsonEnd < summaryText.length) {
+              console.log('⚠️ Detected extra content after JSON, trimming from', summaryText.length, 'to', jsonEnd);
+              summaryText = summaryText.substring(0, jsonEnd);
+            }
+          }
+          
+          console.log('📦 Summary text length:', summaryText.length);
+
+          // Send metadata first
+          sendSSE('metadata', {
+            cached: true,
+            productId: productData.productId,
+            product: {
+              title: cachedProduct.title,
+              productId: cachedProduct.productId,
+              price: cachedProduct.price,
+              brand: cachedProduct.brand
+            }
+          });
+
+          // Stream the cached content character by character (or in chunks)
+          const chunkSize = 20; // Characters per chunk - increased for faster streaming
+          for (let i = 0; i < summaryText.length; i += chunkSize) {
+            const chunk = summaryText.slice(i, i + chunkSize);
+            sendSSE('token', { content: chunk });
+            
+            // Small delay to simulate streaming effect (10ms for smoother, faster streaming)
+            await new Promise(resolve => setTimeout(resolve, 10));
+          }
+
+          // Send completion event
+          sendSSE('complete', {
             success: true,
             data: {
               product: {
@@ -79,9 +158,17 @@ async function summarizeProduct(req, res) {
                 price: cachedProduct.price,
                 brand: cachedProduct.brand
               },
-              summary: cachedProduct.ai_summary
+              summary: {
+                productId: cachedProduct.productId,
+                summary: summaryText,
+                generatedAt: cachedSummary.generatedAt,
+                wordCount: summaryText.split(' ').length
+              }
             }
           });
+
+          console.log('✅ Cached streaming complete');
+          return res.end();
         } else {
           console.log('⚠️ Cache Miss: No cached summary found for', productData.productId);
         }
@@ -92,49 +179,87 @@ async function summarizeProduct(req, res) {
 
     console.log('Generating summary for:', productData.title || productData.name);
 
-    // Extract language parameter
-    const lang = req.body.lang || 'en'; // Default to English
-    console.log('🌐 Requested language:', lang);
-
-    const result = await service.summarizeProduct(productData, lang);
-
-    console.log('Summary generated successfully', result);
-
-    // Save to MongoDB Cache
-    if (productData.productId && result.data && result.data.summary) {
-      try {
-        // result.data.summary is an object with { productId, summary, generatedAt, wordCount }
-        // We store the entire summary object in ai_summary field (schema type: Mixed)
-        console.log('Saving summary to MongoDB for', productData.productId);
-        console.log('Summary object type:', typeof result.data.summary);
-        
-        await Product.findOneAndUpdate(
-          { productId: productData.productId },
-          {
-            $set: {
-              ai_summary: result.data.summary, // Store the whole summary object
-              title: productData.title,
-              price: productData.price || 0, // Required field
-              brand: productData.brand || ''
-            }
-          },
-          { upsert: true, new: true }
-        );
-        console.log('Cache Update: Saved summary to MongoDB for', productData.productId);
-      } catch (dbSaveError) {
-        console.error('Failed to save cache to MongoDB:', dbSaveError.message);
-      }
-    }
-
-    return res.status(200).json(result);
-  } catch (error) {
-    console.error('Summarization controller error:', error);
-    return res.status(500).json({
-      success: false,
-      error: 'Failed to generate product summary',
-      message: error.message,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    // Send metadata for new generation
+    sendSSE('metadata', {
+      cached: false,
+      productId: productData.productId,
+      generating: true
     });
+
+    // Stream new summary from CLOVA API
+    let finalResult = null;
+
+    await service.summarizeProductStream(
+      productData,
+      lang,
+      // onToken callback
+      (token) => {
+        sendSSE('token', { content: token });
+      },
+      // onComplete callback
+      async (result) => {
+        console.log('Summary generated successfully');
+        finalResult = result;
+
+        // Save to MongoDB Cache
+        if (productData.productId && result.data && result.data.summary) {
+          try {
+            console.log('💾 Saving summary to MongoDB for', productData.productId);
+            
+            await Product.findOneAndUpdate(
+              { productId: productData.productId },
+              {
+                $set: {
+                  ai_summary: result.data.summary,
+                  title: productData.title,
+                  price: productData.price || 0,
+                  brand: productData.brand || ''
+                }
+              },
+              { upsert: true, new: true }
+            );
+            console.log('✅ Cache Update: Saved summary to MongoDB for', productData.productId);
+          } catch (dbSaveError) {
+            console.error('❌ Failed to save cache to MongoDB:', dbSaveError.message);
+          }
+        }
+
+        // Send completion event
+        sendSSE('complete', result);
+        res.end();
+      },
+      // onError callback
+      (error) => {
+        console.error('❌ Streaming error:', error);
+        sendSSE('error', {
+          success: false,
+          error: 'Failed to generate product summary',
+          message: error.message
+        });
+        res.end();
+      }
+    );
+
+  } catch (error) {
+    console.error('❌ Summarization controller error:', error);
+    
+    // If headers not sent yet, send error as JSON
+    if (!res.headersSent) {
+      return res.status(500).json({
+        success: false,
+        error: 'Failed to generate product summary',
+        message: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      });
+    } else {
+      // If streaming already started, send error event
+      res.write(`event: error\n`);
+      res.write(`data: ${JSON.stringify({
+        success: false,
+        error: error.message
+      })}\n\n`);
+      res.end();
+    }
   }
 }
 

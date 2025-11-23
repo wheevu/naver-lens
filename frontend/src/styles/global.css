@@ -34,6 +34,11 @@
 
   --gradient-button: linear-gradient(135deg, #03c75a 0%, #0cf09b 100%);
   --button-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  /* Chat bubble colors */
+  --chat-bg-light: rgba(255, 255, 255, 0.95);
+  --chat-bg-light-secondary: rgba(255, 255, 255, 0.85);
+  --chat-bubble-light: linear-gradient(135deg, #ffffff 0%, rgba(12, 240, 155, 0.08) 100%);
 }
 
 /* --- DARK THEME --- */
@@ -64,6 +69,10 @@
   --gradient-button: linear-gradient(135deg, #03c75a 0%, #0cf09b 100%);
   --button-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* Chat bubble colors */
+  --chat-bg-dark: rgba(31, 41, 55, 1);
+  --chat-bg-dark-secondary: rgba(17, 24, 39, 1);
 }
 
 * {

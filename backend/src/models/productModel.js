@@ -51,13 +51,13 @@ const productSchema = mongoose.Schema(
             type: Number
         },
         options: {
-            type: [optionValueSchema] // Use the sub-schema defined above
+            type: [optionValueSchema] 
         },
         description: {
             type: String
         },
         reviews: {
-            type: [String] // Array of review texts
+            type: [String] 
         },
         category1: {
             type: String
@@ -72,7 +72,7 @@ const productSchema = mongoose.Schema(
             type: String
         },
         ai_summary: {
-            type: mongoose.Schema.Types.Mixed // Can store string or object
+            type: mongoose.Schema.Types.Mixed 
         },
     },
     {

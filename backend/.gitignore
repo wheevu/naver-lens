@@ -20,5 +20,6 @@ package-lock.json*.zip
 package-lock.json
 test-request.json
 summarizePrompt.js.backup
+clear-cache.js
 *.zip
 *.env
