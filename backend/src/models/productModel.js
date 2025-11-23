@@ -72,7 +72,7 @@ const productSchema = mongoose.Schema(
             type: String
         },
         ai_summary: {
-            type: String
+            type: mongoose.Schema.Types.Mixed // Can store string or object
         },
     },
     {
