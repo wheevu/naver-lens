@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { type Product } from "../../types/product";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../context/ThemeContext";
 
 const RatingStarIcon = () => (
   <svg
@@ -226,6 +227,7 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
   product,
 }) => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   const [selectedOptions, setSelectedOptions] = useState<
     Record<string, string>
   >({});
@@ -346,17 +348,33 @@ const ProductPurchasePanel: React.FC<ProductPurchasePanelProps> = ({
             <select
               value={selectedOptions[opt.name] || ""}
               onChange={(e) => handleOptionChange(opt.name, e.target.value)}
-              className="w-full h-12 px-4 bg-(--glass-bg) text-(--text-primary) rounded-md border focus:outline-none focus:ring-2 focus:ring-naver-green"
+              className="w-full h-12 px-4 text-(--text-primary) rounded-md border focus:outline-none focus:ring-2 focus:ring-naver-green"
               style={{
+                background: theme === "dark" ? "#1a1f3a" : "#ffffff",
                 borderRadius: "var(--radius-sm)",
                 borderColor: "var(--glass-border)",
+                color: theme === "dark" ? "#ffffff" : "#111111",
               }}
             >
-              <option value="" disabled className="text-gray-500">
+              <option 
+                value="" 
+                disabled 
+                style={{ 
+                  background: theme === "dark" ? "#1a1f3a" : "#f5f6f8",
+                  color: theme === "dark" ? "#9ca3af" : "#555555"
+                }}
+              >
                 {opt.name} {t("product.selectOption")}
               </option>
               {opt.values.map((val) => (
-                <option key={val} value={val} className="text-black">
+                <option 
+                  key={val} 
+                  value={val} 
+                  style={{ 
+                    background: theme === "dark" ? "#1a1f3a" : "#ffffff",
+                    color: theme === "dark" ? "#ffffff" : "#111111"
+                  }}
+                >
                   {val}
                 </option>
               ))}
