@@ -43,12 +43,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({ store, loading }) => {
         fontFamily: "var(--font-secondary)",
       }}
     >
-      <TopBar
-        bgColor={backgroundColor}
-        borderColor="rgba(0, 0, 0, 0.15)"
-        textColorClass="text-white/80"
-        hoverTextColorClass="hover:text-white"
-      />
+      <TopBar bgColor={backgroundColor} borderColor="rgba(0, 0, 0, 0.15)" />
 
       <div className="w-full max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
         <div className="flex items-center gap-3.5">

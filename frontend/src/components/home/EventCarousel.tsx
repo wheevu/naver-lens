@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslation } from "react-i18next";
 
 const ChevronLeftIcon = () => (
   <svg viewBox="0 0 16 16" fill="none" className="w-5 h-5 rotate-180">
@@ -82,51 +83,21 @@ const slidesData = [
 ];
 
 const EventCarousel = () => {
+  const { t } = useTranslation();
   const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
-  const rafRef = useRef<number | null>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      align: "start",
-      loop: true,
-      containScroll: "trimSnaps",
-    },
+    { align: "start", loop: true, containScroll: "trimSnaps" },
     [Autoplay({ delay: 4000, stopOnInteraction: false, playOnInit: true })]
   );
 
-  const readProgress = useCallback(() => {
+  const updateProgress = useCallback(() => {
     if (!emblaApi) return;
     const scrollProgress = emblaApi.scrollProgress();
-    const p = Math.max(0, Math.min(1, scrollProgress)) * 100;
-    setProgress((prev) => (Math.abs(prev - p) > 0.5 ? p : prev));
+    const progress = Math.max(0, Math.min(1, scrollProgress));
+    setProgress(progress * 100);
   }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const loop = () => {
-      readProgress();
-      rafRef.current = requestAnimationFrame(loop);
-    };
-
-    rafRef.current = requestAnimationFrame(loop);
-
-    readProgress();
-
-    const autoplay = emblaApi.plugins().autoplay;
-    if (autoplay) setIsPlaying(autoplay.isPlaying());
-
-    emblaApi.on("reInit", readProgress);
-    emblaApi.on("select", readProgress);
-
-    return () => {
-      emblaApi.off("reInit", readProgress);
-      emblaApi.off("select", readProgress);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = null;
-    };
-  }, [emblaApi, readProgress]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -135,7 +106,6 @@ const EventCarousel = () => {
     if (!emblaApi) return;
     const autoplay = emblaApi.plugins().autoplay;
     if (!autoplay) return;
-
     if (autoplay.isPlaying()) {
       autoplay.stop();
       setIsPlaying(false);
@@ -144,6 +114,19 @@ const EventCarousel = () => {
       setIsPlaying(true);
     }
   }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("scroll", updateProgress);
+    emblaApi.on("reInit", updateProgress);
+    updateProgress();
+    const autoplay = emblaApi.plugins().autoplay;
+    if (autoplay) setIsPlaying(autoplay.isPlaying());
+    return () => {
+      emblaApi.off("scroll", updateProgress);
+      emblaApi.off("reInit", updateProgress);
+    };
+  }, [emblaApi, updateProgress]);
 
   return (
     <div className="w-full">
@@ -164,16 +147,16 @@ const EventCarousel = () => {
                     src={slide.imageUrl}
                     alt={slide.alt}
                     className="absolute inset-0 w-full h-full object-cover"
-                  ></img>
+                  />
                   <div className="absolute top-[45px] left-[26px] w-[320px]">
                     <h2
-                      className="text-3xl font-bold text-(--text-primary)"
+                      className="text-3xl font-bold text-white"
                       style={{ fontFamily: "var(--font-secondary)" }}
                     >
                       {slide.title}
                     </h2>
                     <p
-                      className="text-lg text-(--text-primary)/90 mt-1.5"
+                      className="text-lg text-white/90 mt-1.5"
                       style={{ fontFamily: "var(--font-secondary)" }}
                     >
                       {slide.subtitle}
@@ -198,29 +181,48 @@ const EventCarousel = () => {
               }}
             />
           </div>
+
           <div className="flex items-center gap-1.5 ml-4">
-            <div className="flex items-center gap-1 p-1">
+            <div
+              className="flex items-center gap-1 p-1"
+              style={{
+                background: "var(--glass-bg)",
+                backdropFilter: "var(--glass-blur)",
+                borderRadius: "var(--radius-md)",
+                border: "1px solid var(--glass-border)",
+              }}
+            >
               <button
                 onClick={scrollPrev}
-                className="p-1 text-(--text-primary)/70 hover:text-(--text-primary) transition-colors"
-                aria-label="Previous slide"
+                className="p-1 text-(--text-primary) opacity-70 hover:opacity-100 transition-colors"
+                aria-label={t("home.carousel.prev")}
               >
                 <ChevronLeftIcon />
               </button>
               <div className="h-3 w-px bg-white/40"></div>
               <button
                 onClick={scrollNext}
-                className="p-1 text-(--text-primary)/70 hover:text-(--text-primary) transition-colors"
-                aria-label="Next slide"
+                className="p-1 text-(--text-primary) opacity-70 hover:opacity-100 transition-colors"
+                aria-label={t("home.carousel.next")}
               >
                 <ChevronRightIcon />
               </button>
             </div>
-            <div className="p-1">
+            <div
+              className="p-1"
+              style={{
+                background: "var(--glass-bg)",
+                backdropFilter: "var(--glass-blur)",
+                borderRadius: "var(--radius-md)",
+                border: "1px solid var(--glass-border)",
+              }}
+            >
               <button
                 onClick={toggleAutoplay}
-                className="p-1 text-(--text-primary)/70 hover:text-(--text-primary) transition-colors"
-                aria-label={isPlaying ? "Pause autoplay" : "Play autoplay"}
+                className="p-1 text-(--text-primary) opacity-70 hover:opacity-100 transition-colors"
+                aria-label={
+                  isPlaying ? t("home.carousel.pause") : t("home.carousel.play")
+                }
               >
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}
               </button>

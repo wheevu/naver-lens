@@ -122,7 +122,6 @@ const MainHeader = () => {
               onChange={(e) => setQuery(e.target.value)}
               className="w-full h-12 pl-5 pr-14 rounded-lg text-lg text-(--text-primary) border-2 border-purple-500 dark:border-naver-green focus:border-purple-400 dark:focus:border-naver-green-light focus:ring-2 focus:ring-purple-400 dark:focus:ring-naver-green focus:outline-none transition-colors duration-300"
               style={{
-                background: "rgba(0, 0, 0, 0.3)",
                 fontFamily: "var(--font-secondary)",
               }}
               onFocus={() => setIsSearchOpen(true)}

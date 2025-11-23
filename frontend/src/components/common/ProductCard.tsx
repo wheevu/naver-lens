@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const HeartIcon = () => (
   <svg
@@ -55,6 +56,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   discountRate,
   shippingFee,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className="w-full flex flex-col group"
@@ -62,16 +65,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
     >
       <Link
         to={`/store/${id}`}
-        className="relative w-full aspect-square rounded-lg overflow-hidden"
+        className="relative w-full aspect-square rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800"
         style={{ borderRadius: "var(--radius-lg)" }}
       >
         <img
           src={imageUrl}
           alt={name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
         />
         <button
-          className="absolute bottom-2 right-2 p-1.5 rounded-full transition-colors text-(--text-primary)/70 hover:text-(--text-primary)"
+          className="absolute bottom-2 right-2 p-1.5 rounded-full transition-colors text-white/70 hover:text-white"
           style={{
             background: "var(--glass-bg)",
             backdropFilter: "var(--glass-blur)",
@@ -82,7 +86,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </button>
         {tag && (
           <span
-            className="absolute top-0 left-0 px-2 py-1.5 text-xs font-bold text-(--text-primary)"
+            className="absolute top-0 left-0 px-2 py-1.5 text-xs font-bold text-white"
             style={{
               background: "var(--naver-dark)",
               borderTopLeftRadius: "var(--radius-lg)",
@@ -96,14 +100,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       <div className="flex flex-col pt-3 px-1">
         <Link to={`/store/${id}`}>
-          <p className="text-(--text-primary) text-sm font-normal h-10 overflow-hidden text-ellipsis group-hover:text-gray-200">
+          <p className="text-(--text-primary) text-sm font-normal h-10 overflow-hidden text-ellipsis group-hover:opacity-80 transition-opacity">
             {name}
           </p>
         </Link>
 
         {originalPrice && (
-          <p className="text-gray-500 text-xs line-through pt-1">
-            {originalPrice.toLocaleString()}원
+          <p className="text-gray-400 text-xs line-through pt-1">
+            {originalPrice.toLocaleString()}
+            {t("common.won")}
           </p>
         )}
 
@@ -117,7 +122,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </span>
           )}
           <span className="text-(--text-primary) text-lg font-bold">
-            {finalPrice.toLocaleString()}원
+            {finalPrice.toLocaleString()}
+            {t("common.won")}
           </span>
         </div>
 
@@ -126,8 +132,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <ShippingIcon />
             <span>
               {shippingFee === 0
-                ? "무료배송"
-                : `${shippingFee.toLocaleString()}원`}
+                ? t("common.freeShipping")
+                : `${shippingFee.toLocaleString()}${t("common.won")}`}
             </span>
           </div>
         )}
