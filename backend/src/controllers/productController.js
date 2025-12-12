@@ -1,8 +1,8 @@
 'use strict';
 
 import {
-  getAllProducts as getCachedProducts,
-  getProductById as getCachedProductById
+  getAllProductsAsync as getCachedProductsAsync,
+  getProductByIdAsync as getCachedProductByIdAsync
 } from '../services/productCache.js';
 
 function transformProduct(product) {
@@ -134,9 +134,9 @@ function parsePaginationParams(query) {
   return { page, limit };
 }
 
-function getAllProducts(req, res) {
+async function getAllProducts(req, res) {
   try {
-    const products = getCachedProducts();
+    const products = await getCachedProductsAsync();
     const { page, limit } = parsePaginationParams(req.query);
 
     const filters = {
@@ -167,9 +167,9 @@ function getAllProducts(req, res) {
   }
 }
 
-function getProductById(req, res) {
+async function getProductById(req, res) {
   try {
-    const product = getCachedProductById(req.params.id);
+    const product = await getCachedProductByIdAsync(req.params.id);
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }

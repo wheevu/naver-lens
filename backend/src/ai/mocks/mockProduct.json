@@ -1,0 +1,40 @@
+{
+  "productId": "showcase-product",
+  "title": "Plant Pot Ceramic 6 Inch - Modern Indoor Planter with Drainage Hole and Saucer",
+  "brand": "GreenHome",
+  "maker": "GreenHome Co.",
+  "images": [
+    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600",
+    "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600",
+    "https://images.unsplash.com/photo-1463320726281-696a485928c7?w=600"
+  ],
+  "price": 24900,
+  "originalPrice": 32000,
+  "mallName": "GreenHome Official Store",
+  "mallColor": "#2E7D32",
+  "shipping": "Free Shipping",
+  "rating": 4.5,
+  "reviewCount": 567,
+  "options": [
+    { "name": "Color", "values": ["White", "Terracotta", "Sage Green", "Charcoal"] },
+    { "name": "Size", "values": ["4 inch", "6 inch", "8 inch"] }
+  ],
+  "description": "Elevate your indoor garden with our beautifully hand-glazed ceramic plant pot. This 6-inch planter features a modern minimalist design that complements any home decor style. The included drainage hole ensures proper water flow for healthy plant roots, while the matching saucer protects your surfaces from water damage.\n\nPerfect for succulents, snake plants, small ferns, and other medium-sized houseplants. The thick ceramic walls provide excellent insulation for plant roots and add a premium feel to your space.\n\nFeatures:\n• Hand-glazed ceramic finish\n• Built-in drainage hole\n• Matching saucer included\n• 6-inch diameter, ideal for medium plants\n• Modern minimalist design",
+  "reviews": [
+    "Beautiful pot! The glaze finish is even better in person. My snake plant looks perfect in it.",
+    "Great quality ceramic, feels substantial. Only wish the saucer was a bit larger.",
+    "Elegant design that goes with my minimalist decor. The drainage hole is a must-have feature.",
+    "Received with a small chip on the rim, but customer service sent a replacement quickly.",
+    "Perfect size for my succulent collection. The white color really makes the plants pop!",
+    "Love the hand-glazed look. Each pot has slight variations which makes it unique.",
+    "Sturdy and well-made. The saucer catches most water but be careful not to overwater.",
+    "Bought three in different colors - they look amazing grouped together on my shelf.",
+    "The terracotta color is gorgeous. Matches my boho style perfectly.",
+    "Good value for the quality. Comparable pots at local stores cost twice as much."
+  ],
+  "category1": "Home",
+  "category2": "Garden",
+  "category3": "Planters",
+  "category4": "Ceramic Pots"
+}
+

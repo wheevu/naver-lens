@@ -1,0 +1,40 @@
+{
+  "productId": "showcase-blanket",
+  "title": "Nordic Comfort Chunky Knit Throw Blanket - Premium Chenille 50x60 inch",
+  "brand": "CozyNest",
+  "maker": "CozyNest Home Textiles",
+  "images": [
+    "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600",
+    "https://images.unsplash.com/photo-1616627561839-074385245ff6?w=600",
+    "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=600"
+  ],
+  "price": 45900,
+  "originalPrice": 69000,
+  "mallName": "CozyNest Home Store",
+  "mallColor": "#8D6E63",
+  "shipping": "Free Shipping",
+  "rating": 4.7,
+  "reviewCount": 892,
+  "options": [
+    { "name": "Color", "values": ["Ivory White", "Light Gray", "Blush Pink", "Sage Green", "Camel Brown"] },
+    { "name": "Size", "values": ["50x60 inch", "60x80 inch"] }
+  ],
+  "description": "Transform your living space with the Nordic Comfort Chunky Knit Throw Blanket. Handcrafted from premium chenille yarn, this luxuriously soft blanket adds warmth and Scandinavian-inspired style to any room.\n\nThe chunky cable knit pattern creates a beautiful texture that looks stunning draped over your sofa, bed, or favorite reading chair. Despite its thick appearance, the breathable weave keeps you comfortable year-round.\n\nProduct Highlights:\n• Premium soft chenille material\n• Hand-knitted chunky cable pattern\n• Generous 50x60 inch size\n• Machine washable (gentle cycle)\n• Lightweight yet warm\n• Perfect for home decor and daily use",
+  "reviews": [
+    "So incredibly soft! This is now my favorite blanket for movie nights.",
+    "Beautiful texture and the ivory color matches my living room perfectly.",
+    "Washed it twice already and it still looks brand new. Great quality!",
+    "Arrived beautifully packaged - made a perfect housewarming gift.",
+    "Lighter than expected but still warm enough for cool evenings.",
+    "The chunky knit pattern is gorgeous. Gets lots of compliments from guests.",
+    "Slight shedding in the first wash but stopped after that. Love it!",
+    "Bought the sage green and it's even prettier than in the photos.",
+    "Perfect weight - not too heavy, not too light. Use it every day.",
+    "Great value for the quality. Would definitely buy more colors."
+  ],
+  "category1": "Home",
+  "category2": "Bedding",
+  "category3": "Blankets",
+  "category4": "Throw Blankets"
+}
+

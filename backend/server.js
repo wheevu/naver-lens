@@ -61,13 +61,24 @@ app.use((err, req, res, next) => {
 
 async function startServer() {
   try {
-    // Connect to MongoDB Atlas
-    await connectDB();
+    const showcaseMode = String(process.env.SHOWCASE_MODE || '').toLowerCase() === 'true';
 
-    await initializeCache();
+    if (showcaseMode) {
+      // --- SHOWCASE MODE ---
+      // Skip MongoDB and cache initialization; AI summarization will use mock files.
+      console.log('🎭 SHOWCASE MODE enabled – skipping MongoDB connection and product cache.');
+    } else {
+      // --- NORMAL MODE ---
+      // Connect to MongoDB Atlas
+      await connectDB();
+      await initializeCache();
+    }
 
     app.listen(PORT, () => {
       console.log(`Naver Lens API server listening on port ${PORT}`);
+      if (showcaseMode) {
+        console.log('   └─ /api/summarize will return mock AI responses');
+      }
     });
   } catch (error) {
     console.error('Failed to start server:', error);

@@ -76,7 +76,7 @@ interface ProductSummaryChatProps {
   product: Product;
 }
 
-interface SummaryResponse {
+export interface SummaryResponse {
   success: boolean;
   data: {
     product: {
@@ -142,7 +142,7 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
           }
         }
       }
-      
+
       if (lastCompletePos > 0) {
         const completeJSON = cleaned.substring(0, lastCompletePos);
         try {
@@ -152,16 +152,16 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
         }
       }
     }
-    
+
     // Extract individual complete fields
     const partial: Partial<SummaryData> = {};
-    
+
     // Try to extract overview
     const overviewMatch = text.match(/"overview"\s*:\s*"([^"]*(?:\\.[^"]*)*)"/);
     if (overviewMatch) {
       partial.overview = overviewMatch[1].replace(/\\"/g, '"').replace(/\\n/g, '\n');
     }
-    
+
     // Try to extract ratings object
     const ratingsMatch = text.match(/"ratings"\s*:\s*\{([^}]*)\}/);
     if (ratingsMatch) {
@@ -181,7 +181,7 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
         }
       }
     }
-    
+
     // Try to extract satisfaction aspects
     const satisfactionMatch = text.match(/"satisfaction"\s*:\s*\{[^}]*"aspects"\s*:\s*\[(.*?)\]/s);
     if (satisfactionMatch) {
@@ -202,7 +202,7 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
         }
       }
     }
-    
+
     // Try to extract keywords
     const keywordsMatch = text.match(/"keywords"\s*:\s*\{(.*?)\}/s);
     if (keywordsMatch) {
@@ -212,7 +212,7 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
         // Partial keywords
       }
     }
-    
+
     // Try to extract strengths array
     const strengthsMatch = text.match(/"strengths"\s*:\s*\[(.*?)\]/s);
     if (strengthsMatch) {
@@ -226,7 +226,7 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
         }
       }
     }
-    
+
     // Try to extract considerations array
     const considerationsMatch = text.match(/"considerations"\s*:\s*\[(.*?)\]/s);
     if (considerationsMatch) {
@@ -239,13 +239,13 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
         }
       }
     }
-    
+
     // Try to extract bestFor
     const bestForMatch = text.match(/"bestFor"\s*:\s*"([^"]*(?:\\.[^"]*)*)"/);
     if (bestForMatch) {
       partial.bestFor = bestForMatch[1].replace(/\\"/g, '"');
     }
-    
+
     // Try to extract productInfo
     const productInfoMatch = text.match(/"productInfo"\s*:\s*\{([^}]*)\}/);
     if (productInfoMatch) {
@@ -255,7 +255,7 @@ const parsePartialJSON = (text: string): Partial<SummaryData> | null => {
         // Partial productInfo
       }
     }
-    
+
     return Object.keys(partial).length > 0 ? partial : null;
   } catch (e) {
     return null;
@@ -267,7 +267,7 @@ const parseSummaryJSON = (summary: string): SummaryData | null => {
   try {
     // Clean the summary - extract only the first complete JSON object
     let cleanedSummary = summary.trim();
-    
+
     // If it starts with {, find the matching closing brace
     if (cleanedSummary.startsWith('{')) {
       let depth = 0;
@@ -287,7 +287,7 @@ const parseSummaryJSON = (summary: string): SummaryData | null => {
         cleanedSummary = cleanedSummary.substring(0, jsonEnd);
       }
     }
-    
+
     // Try to parse directly
     const parsed = JSON.parse(cleanedSummary);
     return parsed;
@@ -333,9 +333,8 @@ const SatisfactionChart: React.FC<{
         <div key={index} className="space-y-1">
           <div className="flex justify-between items-baseline text-xs">
             <span
-              className={`font-medium ${
-                theme === "dark" ? "text-gray-200" : "text-gray-800"
-              }`}
+              className={`font-medium ${theme === "dark" ? "text-gray-200" : "text-gray-800"
+                }`}
             >
               {aspect.name}
             </span>
@@ -346,9 +345,8 @@ const SatisfactionChart: React.FC<{
             </span>
           </div>
           <div
-            className={`w-full h-2 rounded-full overflow-hidden ${
-              theme === "dark" ? "bg-gray-700" : "bg-gray-200"
-            }`}
+            className={`w-full h-2 rounded-full overflow-hidden ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+              }`}
           >
             <div
               className="h-full rounded-full transition-all duration-500 ease-out"
@@ -358,15 +356,14 @@ const SatisfactionChart: React.FC<{
                   aspect.score >= 70
                     ? "linear-gradient(90deg, #10b981, #34d399)"
                     : aspect.score >= 50
-                    ? "linear-gradient(90deg, #f59e0b, #fbbf24)"
-                    : "linear-gradient(90deg, #ef4444, #f87171)",
+                      ? "linear-gradient(90deg, #f59e0b, #fbbf24)"
+                      : "linear-gradient(90deg, #ef4444, #f87171)",
               }}
             />
           </div>
           <p
-            className={`text-xs italic ${
-              theme === "dark" ? "text-gray-400" : "text-gray-600"
-            }`}
+            className={`text-xs italic ${theme === "dark" ? "text-gray-400" : "text-gray-600"
+              }`}
           >
             {aspect.feedback}
           </p>
@@ -414,7 +411,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
   // Parse summary JSON - use partial parsing during streaming, full parsing when complete
   const summaryData = useMemo(() => {
     if (!summary) return null;
-    
+
     if (isStreaming) {
       // During streaming, parse partial JSON
       return parsePartialJSON(summary) as SummaryData | null;
@@ -437,7 +434,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
     try {
       // Get base URL from axios instance
       const baseURL = axios.defaults.baseURL || 'http://localhost:3001';
-      
+
       // Use fetch API for streaming SSE response
       const response = await fetch(`${baseURL}/api/summarize`, {
         method: 'POST',
@@ -468,7 +465,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
 
       while (true) {
         const { done, value } = await reader.read();
-        
+
         if (done) {
           // Stream ended
           if (!hasCompleted && streamedSummary) {
@@ -478,7 +475,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
           setIsStreaming(false);
           break;
         }
-        
+
         buffer += decoder.decode(value, { stream: true });
         const lines = buffer.split('\n');
         buffer = lines.pop() || '';
@@ -488,10 +485,10 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
             currentEvent = line.slice(6).trim();
             continue;
           }
-          
+
           if (line.startsWith('data:')) {
             const data = JSON.parse(line.slice(5).trim());
-            
+
             if (currentEvent === 'token') {
               // First token received - switch to streaming mode
               if (firstToken) {
@@ -499,10 +496,10 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 setIsStreaming(true);
                 firstToken = false;
               }
-              
+
               // Accumulate tokens but don't update UI constantly
               streamedSummary += data.content;
-              
+
               // Update UI periodically (every ~50 chars) for performance
               if (streamedSummary.length % 50 < data.content.length) {
                 setSummary(streamedSummary);
@@ -511,7 +508,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
               // Final complete event with full summary
               hasCompleted = true;
               setIsStreaming(false);
-              
+
               if (data.success && data.data?.summary?.summary) {
                 // Use the complete summary from the server
                 setSummary(data.data.summary.summary);
@@ -596,7 +593,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
             </button>
           </div>
 
-          <div 
+          <div
             className="p-4 overflow-y-auto min-h-[200px] max-h-[400px] scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600"
             style={theme === "light" ? {
               background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(12, 240, 155, 0.03) 100%)'
@@ -610,11 +607,10 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 <AiIcon />
               </div>
               <div
-                className={`p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm ${
-                  theme === "dark"
+                className={`p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm ${theme === "dark"
                     ? "bg-gray-800 text-gray-200"
                     : "text-gray-800"
-                }`}
+                  }`}
                 style={theme === "light" ? {
                   background: 'var(--chat-bubble-light)',
                   border: '1px solid rgba(12, 240, 155, 0.1)'
@@ -629,9 +625,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   <AiIcon />
                 </div>
                 <div
-                  className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${
-                    theme === "dark" ? "bg-gray-800" : ""
-                  }`}
+                  className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${theme === "dark" ? "bg-gray-800" : ""
+                    }`}
                   style={theme === "light" ? {
                     background: 'var(--chat-bubble-light)',
                     border: '1px solid rgba(12, 240, 155, 0.1)'
@@ -639,19 +634,16 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 >
                   <div className="flex space-x-1 h-3 items-center">
                     <div
-                      className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.3s] ${
-                        theme === "dark" ? "bg-gray-500" : "bg-gray-400"
-                      }`}
+                      className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.3s] ${theme === "dark" ? "bg-gray-500" : "bg-gray-400"
+                        }`}
                     ></div>
                     <div
-                      className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.15s] ${
-                        theme === "dark" ? "bg-gray-500" : "bg-gray-400"
-                      }`}
+                      className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.15s] ${theme === "dark" ? "bg-gray-500" : "bg-gray-400"
+                        }`}
                     ></div>
                     <div
-                      className={`w-2 h-2 rounded-full animate-bounce ${
-                        theme === "dark" ? "bg-gray-500" : "bg-gray-400"
-                      }`}
+                      className={`w-2 h-2 rounded-full animate-bounce ${theme === "dark" ? "bg-gray-500" : "bg-gray-400"
+                        }`}
                     ></div>
                   </div>
                 </div>
@@ -700,7 +692,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 </span>
               </div>
             )}
-            
+
             {/* Show summary sections as they become available during streaming or when complete */}
             {summaryData && Object.keys(summaryData).length > 0 && (
               <div className="flex gap-3 mb-2 animate-in fade-in duration-300">
@@ -708,11 +700,10 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   <AiIcon />
                 </div>
                 <div
-                  className={`p-4 rounded-2xl rounded-tl-none shadow-md text-sm leading-relaxed overflow-hidden ${
-                    theme === "dark"
+                  className={`p-4 rounded-2xl rounded-tl-none shadow-md text-sm leading-relaxed overflow-hidden ${theme === "dark"
                       ? "bg-gray-800 text-gray-100"
                       : "text-gray-900"
-                  }`}
+                    }`}
                   style={theme === "light" ? {
                     background: 'var(--chat-bubble-light)',
                     border: '1px solid rgba(12, 240, 155, 0.15)',
@@ -730,16 +721,14 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData?.overview && (
                     <section className="mb-4">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         I. Product Overview
                       </h2>
                       <p
-                        className={`text-sm leading-relaxed ${
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }`}
+                        className={`text-sm leading-relaxed ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                          }`}
                       >
                         {summaryData.overview}
                       </p>
@@ -750,9 +739,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData?.ratings && (
                     <section className="mb-4">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         II. Customer Ratings
                       </h2>
@@ -764,9 +752,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                             }
                           >
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark" ? "text-gray-100" : "text-gray-900"
-                              }`}
+                              className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"
+                                }`}
                             >
                               Rating:
                             </strong>{" "}
@@ -780,9 +767,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                             }
                           >
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark" ? "text-gray-100" : "text-gray-900"
-                              }`}
+                              className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"
+                                }`}
                             >
                               Sentiment:
                             </strong>{" "}
@@ -796,9 +782,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                             }
                           >
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark" ? "text-gray-100" : "text-gray-900"
-                              }`}
+                              className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"
+                                }`}
                             >
                               Coverage:
                             </strong>{" "}
@@ -813,9 +798,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData.satisfaction?.aspects && summaryData.satisfaction.aspects.length > 0 && (
                     <section className="mb-4">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         III. User's satisfaction
                       </h2>
@@ -830,9 +814,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData?.keywords && (
                     <section className="mb-4">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         IV. Keywords
                       </h2>
@@ -840,16 +823,14 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                         {summaryData?.keywords?.positive && summaryData.keywords.positive.length > 0 && (
                           <div>
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark" ? "text-gray-100" : "text-gray-900"
-                              }`}
+                              className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"
+                                }`}
                             >
                               Positive:
                             </strong>
                             <span
-                              className={`ml-2 ${
-                                theme === "dark" ? "text-gray-300" : "text-gray-700"
-                              }`}
+                              className={`ml-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                                }`}
                             >
                               {summaryData.keywords.positive.map((kw, i) => (
                                 <span key={i}>
@@ -865,20 +846,18 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                         {summaryData?.keywords?.concerns && summaryData.keywords.concerns.length > 0 && (
                           <div>
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark"
+                              className={`font-semibold ${theme === "dark"
                                   ? "text-gray-100"
                                   : "text-gray-900"
-                              }`}
+                                }`}
                             >
                               Concerns:
                             </strong>
                             <span
-                              className={`ml-2 ${
-                                theme === "dark"
+                              className={`ml-2 ${theme === "dark"
                                   ? "text-gray-300"
                                   : "text-gray-700"
-                              }`}
+                                }`}
                             >
                               {summaryData.keywords.concerns.map((kw, i) => (
                                 <span key={i}>
@@ -894,20 +873,18 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                         {summaryData?.keywords?.notable && summaryData.keywords.notable.length > 0 && (
                           <div>
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark"
+                              className={`font-semibold ${theme === "dark"
                                   ? "text-gray-100"
                                   : "text-gray-900"
-                              }`}
+                                }`}
                             >
                               Notable:
                             </strong>
                             <span
-                              className={`ml-2 ${
-                                theme === "dark"
+                              className={`ml-2 ${theme === "dark"
                                   ? "text-gray-300"
                                   : "text-gray-700"
-                              }`}
+                                }`}
                             >
                               {summaryData.keywords.notable.map((kw, i) => (
                                 <span key={i}>
@@ -928,9 +905,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData.strengths && summaryData.strengths.length > 0 && (
                     <section className="mb-4">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         V. Strengths
                       </h2>
@@ -938,16 +914,14 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                         {summaryData.strengths.map((strength, i) => (
                           <li
                             key={i}
-                            className={`text-sm flex items-start gap-2 ${
-                              theme === "dark" ? "text-gray-300" : "text-gray-700"
-                            }`}
+                            className={`text-sm flex items-start gap-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                              }`}
                           >
                             <span
-                              className={`mt-0.5 shrink-0 ${
-                                theme === "dark"
+                              className={`mt-0.5 shrink-0 ${theme === "dark"
                                   ? "text-indigo-400"
                                   : "text-indigo-600"
-                              }`}
+                                }`}
                             >
                               •
                             </span>
@@ -962,9 +936,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData.considerations && summaryData.considerations.length > 0 && (
                     <section className="mb-4">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         VI. Considerations
                       </h2>
@@ -972,16 +945,14 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                         {summaryData.considerations.map((consideration, i) => (
                           <li
                             key={i}
-                            className={`text-sm flex items-start gap-2 ${
-                              theme === "dark" ? "text-gray-300" : "text-gray-700"
-                            }`}
+                            className={`text-sm flex items-start gap-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                              }`}
                           >
                             <span
-                              className={`mt-0.5 shrink-0 ${
-                                theme === "dark"
+                              className={`mt-0.5 shrink-0 ${theme === "dark"
                                   ? "text-indigo-400"
                                   : "text-indigo-600"
-                              }`}
+                                }`}
                             >
                               •
                             </span>
@@ -996,16 +967,14 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData.bestFor && (
                     <section className="mb-4">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         VII. Best For
                       </h2>
                       <p
-                        className={`text-sm leading-relaxed ${
-                          theme === "dark" ? "text-gray-300" : "text-gray-700"
-                        }`}
+                        className={`text-sm leading-relaxed ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                          }`}
                       >
                         {summaryData.bestFor}
                       </p>
@@ -1016,9 +985,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {summaryData.productInfo && (
                     <section className="mb-2">
                       <h2
-                        className={`text-base font-bold mb-2 ${
-                          theme === "dark" ? "text-indigo-400" : "text-indigo-600"
-                        }`}
+                        className={`text-base font-bold mb-2 ${theme === "dark" ? "text-indigo-400" : "text-indigo-600"
+                          }`}
                       >
                         *Product Info
                       </h2>
@@ -1030,9 +998,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                             }
                           >
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark" ? "text-gray-100" : "text-gray-900"
-                              }`}
+                              className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"
+                                }`}
                             >
                               Brand:
                             </strong>{" "}
@@ -1046,9 +1013,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                             }
                           >
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark" ? "text-gray-100" : "text-gray-900"
-                              }`}
+                              className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"
+                                }`}
                             >
                               Category:
                             </strong>{" "}
@@ -1062,9 +1028,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                             }
                           >
                             <strong
-                              className={`font-semibold ${
-                                theme === "dark" ? "text-gray-100" : "text-gray-900"
-                              }`}
+                              className={`font-semibold ${theme === "dark" ? "text-gray-100" : "text-gray-900"
+                                }`}
                             >
                               Options:
                             </strong>{" "}
@@ -1078,11 +1043,10 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   {/* Footer - only show when streaming is complete */}
                   {!isStreaming && (
                     <div
-                      className={`mt-3 pt-3 border-t text-xs flex flex-col justify-between items-center ${
-                        theme === "dark"
+                      className={`mt-3 pt-3 border-t text-xs flex flex-col justify-between items-center ${theme === "dark"
                           ? "border-gray-700 text-gray-400"
                           : "border-gray-200 text-gray-500"
-                      }`}
+                        }`}
                     >
                       <span className="flex items-center gap-1">
                         <svg
@@ -1105,7 +1069,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 </div>
               </div>
             )}
-            
+
             {/* Show streaming indicator at the bottom while streaming */}
             {isStreaming && (
               <div className="flex gap-3 mb-4">
@@ -1113,9 +1077,8 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   <AiIcon />
                 </div>
                 <div
-                  className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${
-                    theme === "dark" ? "bg-gray-800" : ""
-                  }`}
+                  className={`p-4 rounded-2xl rounded-tl-none shadow-sm ${theme === "dark" ? "bg-gray-800" : ""
+                    }`}
                   style={theme === "light" ? {
                     background: 'var(--chat-bubble-light)',
                     border: '1px solid rgba(12, 240, 155, 0.1)'
@@ -1124,19 +1087,16 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                   <div className="flex items-center gap-2">
                     <div className="flex space-x-1">
                       <div
-                        className={`w-2 h-2 rounded-full animate-pulse ${
-                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
-                        }`}
+                        className={`w-2 h-2 rounded-full animate-pulse ${theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                          }`}
                       ></div>
                       <div
-                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.2s] ${
-                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
-                        }`}
+                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.2s] ${theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                          }`}
                       ></div>
                       <div
-                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.4s] ${
-                          theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
-                        }`}
+                        className={`w-2 h-2 rounded-full animate-pulse [animation-delay:0.4s] ${theme === "dark" ? "bg-indigo-400" : "bg-indigo-600"
+                          }`}
                       ></div>
                     </div>
                     <span className={`text-xs ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
@@ -1146,7 +1106,7 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
                 </div>
               </div>
             )}
-            
+
             {summary && !loading && !isStreaming && !summaryData && (
               <div className="flex justify-center mb-4">
                 <span className="text-xs text-red-500 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full border border-red-200 dark:border-red-800">
@@ -1158,27 +1118,24 @@ const ProductSummaryChat: React.FC<ProductSummaryChatProps> = ({ product }) => {
           </div>
 
           <div
-            className={`p-3 border-t ${
-              theme === "dark"
+            className={`p-3 border-t ${theme === "dark"
                 ? "border-gray-700 bg-gray-900"
                 : "border-gray-200 bg-gray-50"
-            }`}
+              }`}
           >
             <div className="relative">
               <input
                 type="text"
                 placeholder={t("product.askPlaceholder")}
                 disabled
-                className={`w-full pl-4 pr-10 py-2 rounded-full text-sm border focus:outline-none opacity-60 cursor-not-allowed ${
-                  theme === "dark"
+                className={`w-full pl-4 pr-10 py-2 rounded-full text-sm border focus:outline-none opacity-60 cursor-not-allowed ${theme === "dark"
                     ? "bg-gray-800 border-gray-700 text-gray-300 placeholder-gray-500"
                     : "bg-white border-gray-200 text-gray-700 placeholder-gray-400"
-                }`}
+                  }`}
               />
               <button
-                className={`absolute right-2 top-1/2 -translate-y-1/2 p-1.5 ${
-                  theme === "dark" ? "text-gray-500" : "text-gray-400"
-                }`}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 p-1.5 ${theme === "dark" ? "text-gray-500" : "text-gray-400"
+                  }`}
               >
                 <SendIcon />
               </button>

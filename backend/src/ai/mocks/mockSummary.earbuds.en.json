@@ -1,0 +1,36 @@
+{
+  "overview": "The ProSound Elite ANC Wireless Earbuds are highly rated for their impressive noise cancellation and excellent sound quality at a competitive price point. Users consistently praise the value proposition, comparing them favorably to premium brands while noting minor areas for improvement.",
+  "ratings": {
+    "overall": 4.3,
+    "totalReviews": 1243
+  },
+  "satisfaction": [
+    { "aspect": "Sound Quality", "score": 88, "summary": "Rich bass and clear highs praised by most users." },
+    { "aspect": "Noise Cancellation", "score": 85, "summary": "Effective ANC that blocks office and commute noise well." },
+    { "aspect": "Comfort", "score": 82, "summary": "Ergonomic fit suitable for extended wear." },
+    { "aspect": "Call Quality", "score": 65, "summary": "Adequate for calls but struggles in windy conditions." }
+  ],
+  "keywords": {
+    "positive": ["great value", "noise cancellation", "comfortable", "battery life", "sound quality"],
+    "concerns": ["mic quality", "touch controls", "connectivity"],
+    "notable": ["transparency mode", "USB-C", "firmware updates"]
+  },
+  "strengths": [
+    "Exceptional noise cancellation performance for the price range.",
+    "Premium sound quality with rich bass and clear highs.",
+    "Long battery life that easily lasts a full workday.",
+    "Comfortable ergonomic design for extended listening sessions."
+  ],
+  "considerations": [
+    "Microphone performance may be subpar in outdoor or windy environments.",
+    "Touch controls have a learning curve and can be sensitive.",
+    "Some users experienced initial connectivity issues (resolved via firmware update)."
+  ],
+  "bestFor": "Ideal for commuters, office workers, and fitness enthusiasts looking for premium ANC earbuds without the premium price tag. Great choice for those who prioritize sound quality and battery life.",
+  "productInfo": {
+    "material": "Premium plastic with silicone ear tips",
+    "dimensions": "Earbuds: 32x24mm, Case: 65x48x28mm",
+    "features": "Bluetooth 5.3, ANC, IPX5 water resistant, 32hr total battery"
+  }
+}
+

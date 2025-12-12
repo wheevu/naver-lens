@@ -1,0 +1,40 @@
+{
+  "productId": "showcase-earbuds",
+  "title": "ProSound Elite ANC Wireless Earbuds - Bluetooth 5.3 with Active Noise Cancellation",
+  "brand": "ProSound",
+  "maker": "ProSound Audio Inc.",
+  "images": [
+    "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",
+    "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600",
+    "https://images.unsplash.com/photo-1598331668826-20cecc596b86?w=600"
+  ],
+  "price": 89000,
+  "originalPrice": 129000,
+  "mallName": "ProSound Official Store",
+  "mallColor": "#1565C0",
+  "shipping": "Free Shipping",
+  "rating": 4.3,
+  "reviewCount": 1243,
+  "options": [
+    { "name": "Color", "values": ["Midnight Black", "Pearl White", "Navy Blue"] },
+    { "name": "Bundle", "values": ["Earbuds Only", "With Extra Tips", "Premium Bundle"] }
+  ],
+  "description": "Experience premium sound quality with the ProSound Elite ANC Wireless Earbuds. Featuring advanced Bluetooth 5.3 technology and hybrid active noise cancellation, these earbuds deliver crystal-clear audio whether you're commuting, working out, or relaxing at home.\n\nThe ergonomic design ensures a comfortable fit for extended listening sessions, while the IPX5 water resistance makes them perfect for workouts. With up to 8 hours of playtime (32 hours with the charging case), you'll have music all day long.\n\nKey Features:\n• Hybrid Active Noise Cancellation\n• Bluetooth 5.3 with multipoint connection\n• 8 hours playtime + 24 hours with case\n• IPX5 water and sweat resistant\n• Touch controls & voice assistant support\n• Premium 10mm dynamic drivers",
+  "reviews": [
+    "Amazing noise cancellation for the price! Blocks out my noisy office perfectly.",
+    "Sound quality is excellent - rich bass and clear highs. Very impressed.",
+    "Comfortable fit, I can wear these for hours without any discomfort.",
+    "Battery life is as advertised. Easily lasts my full workday.",
+    "The touch controls take some getting used to, but work well once you learn them.",
+    "Had some connectivity issues initially, but firmware update fixed everything.",
+    "Great value compared to premium brands. 90% of the quality at half the price.",
+    "Love the transparency mode - can hear announcements without removing earbuds.",
+    "Case is compact and charges quickly. USB-C is a nice touch.",
+    "Mic quality for calls could be better in windy conditions."
+  ],
+  "category1": "Electronics",
+  "category2": "Audio",
+  "category3": "Earbuds",
+  "category4": "Wireless"
+}
+

@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 const defaultStoreData: StoreData = {
   name: "Loading...",
   followers: 0,
-  avatarUrl: "https://placehold.co/84x84/111111/FFFFFF?text=Store",
+  avatarUrl: "https://ui-avatars.com/api/?name=Store&background=111111&color=fff&size=84",
 };
 
 interface ApiProductResponse {
@@ -89,9 +89,9 @@ const ProductPage = () => {
         setStore({
           name: data.mallName || "Naver Store",
           followers: Math.floor(Math.random() * 50000) + 1000,
-          avatarUrl: `https://placehold.co/84x84/333333/FFFFFF?text=${
-            data.mallName?.[0] || "S"
-          }`,
+          avatarUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(
+            data.mallName || "Store"
+          )}&background=333333&color=fff&size=84`,
           themeColor: data.mallColor,
         });
 
