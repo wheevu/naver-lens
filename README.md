@@ -1,26 +1,25 @@
-# Naver-Lens: AI-Powered Review Summarization Widget
-
-### ⭐️ A NAVER Vietnam AI Hackathon 2025 Project ⭐️
+## NAVER Vietnam AI Hackathon 2025 Project
 
 <p align="center">
 <img src="./showcase_images/team-triple-threat.png" alt="Name of Product and Hackathon team" width="39%"> &nbsp; &nbsp;
-<img src="./showcase_images/ai-panel-summary.png" alt="AI Panel" width="35%">
+<img src="./showcase_images/homepage-ko.png" alt="UI" width="52%">
 </p>
 
-**Naver-Lens** is an AI widget that reads through product reviews and gives shoppers quick, organized summaries—saving them from scrolling through hundreds of comments. Built for the NAVER Vietnam AI Hackathon, it uses NAVER's `HyperCLOVA` AI model to understand what buyers like and dislike about a product.
+**Naver-Lens** is an embedded chat that provides organized summaries of product reviews using NAVER's `HyperCLOVA` AI model. 
 
-Since this is an AI hackathon focused on building AI solutions, we created a full demo e-commerce site from scratch to show exactly where Naver-Lens would live in a real online store. The shopping site is the environment; **the AI review summarizer is the actual product**.
+This codebase includes the *Naver Smart Store UI* (rebuilt from scratch) and the *backend* for everything.
 
-> _💡 Note: This is an archived showcase of the project. The live `NAVER Cloud` deployment and `HyperCLOVA` AI services were only available during the hackathon and are no longer running. This project has been set up with a "showcase mode" that uses a saved AI response so you can still see how the AI widget works._
+Built for the **NAVER Vietnam AI Hackathon** in the final round.
 
-## 🎯 What I Did
+> _💡 Note: This is an archived showcase of the project. The live `NAVER Cloud` deployment and `HyperCLOVA` AI services were only available during the hackathon and are no longer running. This project has been set up with a "showcase mode" that uses a saved AI response so you can still see how the full interface works._
 
-I built the backend for the AI widget and handled deployment for our four-person team, **team-triple-threat**. Here's what I worked on:
+## What I Did
 
-- **AI Widget Backend**: I built the server that powers the review summarization feature using `Node.js` from scratch. It feeds customer reviews to the AI and streams the response back to the chat panel in real-time.
-- **Demo Site**: Since we needed to show where Naver-Lens would actually be used, I also built out the backend for the demo e-commerce site—including product listings, filtering, and reviews—to create a realistic environment for the AI widget.
-- **Cloud Deployment**: I set up a `Linux` server on `Naver Cloud Platform` and deployed everything there using `Docker`, so judges could try the AI widget live during our presentation.
-- **Planning & Presentation**: I helped shape the product concept and designed the slides we used to pitch Naver-Lens to the judges.
+I built the backend and handled the deployment for our four-person team, **team-triple-threat**. Here's what I worked on:
+
+- **Backend Development**: I built the main server using `Node.js` from the ground up.
+- **Cloud Deployment**: I set up a `Linux` server on `Naver Cloud Platform` and got everything running there. I packaged the app using `Docker` and handled the full deployment so our project could be accessed online.
+- **Planning & Presentation**: I helped come up with the product idea, wrote down what we needed to build, and designed the slides we used to present our project.
 
 <p align="center">
 <img src="./showcase_images/certificate.png" alt="NAVER AI Hackathon Certificate" width="44%">
@@ -28,13 +27,15 @@ I built the backend for the AI widget and handled deployment for our four-person
 <img src="./showcase_images/presentation.jpeg" alt="Team Presentation" width="52%">
 </p>
 
-## 🛠️ How It Works
+##  How It Works
 
-#### 🤖 The AI Widget (The Main Product)
+#### Backend (`Node.js` / `Express.js`)
 
-**Naver-Lens** is an embedded chat panel that appears on product pages. When a shopper clicks the "Summarize Reviews" button, it sends all the reviews to NAVER's `HyperCLOVA` AI and streams back an organized summary—highlighting what buyers liked, disliked, and common themes.
+The backend stores and manages all the product information, lets users filter and browse products, and connects to the AI service (which was developed/tuned by my teammate). I also added `caching` to make frequently viewed products load faster.
 
-The backend streams the AI response in real-time, so the summary appears word-by-word as it generates. This creates an instant, engaging experience.
+#### Review Summaries
+
+The  main feature is the AI summary panel. When you ask for a summary, the backend streams the response in pieces as it is generated, so you don't have to wait for the entire result.
 
 <p align="center">
 <img src="./showcase_images/ai-panel-toast.png" alt="AI Panel Toast" width="55%">
@@ -42,40 +43,25 @@ The backend streams the AI response in real-time, so the summary appears word-by
 <img src="./showcase_images/ai-panel-summary.png" alt="AI Panel Summary" width="35%">
 </p>
 
-#### 🛒 The Demo E-Commerce Site (The Environment)
+#### Database (`MongoDB`)
 
-Since Naver-Lens is meant to be embedded into existing shopping sites, we built a complete demo store from scratch to show it in action. The demo site includes:
+I designed the database to handle complex product details like multiple photos, different product options, and customer reviews.
 
-- Product catalog with filtering and search
-- Product detail pages with review sections
-- Multi-language support (English/Korean)
-- Light and dark mode
+<p align="center">
+<img src="./showcase_images/database-schema.png" alt="Database Schema Diagram" width="70%">
+</p>
 
-I built the backend for this demo site using `Node.js` and `MongoDB`, organizing product data, reviews, and images so the AI widget would have realistic content to work with.
+#### Cloud Deployment (`Naver Cloud Platform`)
 
-#### ☁️ Cloud Deployment (`Naver Cloud Platform`)
-
-I packaged both the AI widget backend and the demo site using `Docker` and deployed everything to a live `Naver Cloud Platform` server. This let judges interact with Naver-Lens on real product pages during our presentation.
+I packaged the entire app using `Docker` and put it on a live `Naver Cloud Platform` server so people could actually use it online.
 
 <p align="center">
 <img src="./showcase_images/ssh-terminal.png" alt="SSH into Naver Cloud Server" width="80%">
 </p>
 
-## ✨ Visual Showcase
+## UI
 
-### The AI Widget in Action
-
-The **Naver-Lens** widget sits on product pages and gives shoppers instant review summaries. Click the button, and the AI reads through all the reviews for you.
-
-<p align="center">
-<img src="./showcase_images/ai-panel-toast.png" alt="AI Panel Button" width="55%">
-&nbsp; &nbsp;
-<img src="./showcase_images/ai-panel-summary.png" alt="AI Generated Summary" width="35%">
-</p>
-
-### The Demo Site
-
-To showcase the widget, we built a complete e-commerce demo from scratch. It looks and feels like a real online store so you can see exactly where Naver-Lens fits into the shopping experience.
+It was Naver's hackathon, so we decided to use one of their existing platforms as the UI. It includes light and dark modes, as well as multilingual support (English/Korean) *(the deployed version had working images...)*.
 
 **🇺🇸/🇰🇷 Homepage**
 
@@ -84,16 +70,16 @@ To showcase the widget, we built a complete e-commerce demo from scratch. It loo
 <img src="./showcase_images/homepage-ko.png" alt="Homepage Korean" width="49%">
 </p>
 
-**🛒 Product Pages Where the Widget Lives**
+**Product Catalog & Details**
 
 <img src="./showcase_images/product-grid.png" alt="Product grid" width="48%"> &nbsp; &nbsp;
 <img src="./showcase_images/product-blog.png" alt="Product blogs" width="48%"> &nbsp; &nbsp;
 
 <p align="center">
-<img src="./showcase_images/product-details.png" alt="Product details with AI widget" width="49%">
+<img src="./showcase_images/product-details.png" alt="Product details" width="49%">
 </p>
 
-## 🚀 How to Run (Showcase Mode)
+## How to Run (Showcase Mode)
 
 #### 1. Clone the repository
 
@@ -107,7 +93,7 @@ cd naver-lens
 ```bash
 cd backend
 npm install
-# Ensure SHOWCASE_MODE=true in .env
+# Make sure SHOWCASE_MODE=true in .env
 npm run dev
 ```
 
@@ -119,10 +105,17 @@ npm install
 npm run dev
 ```
 
-## 💻 Technology Stack
+## Tech
 
 - **Frontend**: `React 19`, `Vite`, `TypeScript`, `TailwindCSS`, `i18next`
-- **Backend**: `Node.js`, `Express.js`, organized code structure, real-time streaming
+- **Backend**: `Node.js`, `Express.js`, `MVC`, `Server-Sent Events (SSE)`
 - **Database**: `MongoDB`, `Mongoose`
 - **AI**: `NAVER HyperCLOVA` (original), `Mock Service` (showcase)
 - **Deployment**: `Docker`, `Naver Cloud Platform`, `Linux (Ubuntu)`
+
+---
+I learned `git` and properly used GitHub for the first time during this hackathon. It was my first time on Slack too.
+
+As you can imagine, it was mostly the same for everything else 😅 *(backend, deployment, writing PRs, resolving conflicts, learning how to make a database schema (!),...)*, over the course of 3 weeks, from ideation to a working deployment.
+
+It was wild. But it was fun.
